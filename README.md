@@ -10,7 +10,7 @@ Automatic grading of multi-step math derivations is a prerequisite for evaluatin
   - A SymPy symbolic verifier (high precision, high abstention)
   - Two LLM judges from independent labs (high coverage, some false positives)
 - **Two testbeds**:
-  - A human-labeled set (191 steps, 13 errors from a 30-query RAG benchmark)
+  - A human-labeled set (191 steps, 13 errors from 29 labeled queries)
   - A synthetic error-injection suite (14 mutation operators × 14 mutable step sites = 196 attempted trials, 118 graded)
 - **Cascade policies** combining symbolic + LLM graders
 - **Paired significance tests** (McNemar + bootstrap CIs)
@@ -54,11 +54,10 @@ telecom-assistant/
 │   └── ...
 ├── data/
 │   ├── eval_queries.py     # 30-query benchmark definitions
-│   ├── pdfs/               # Source corpus (MIT signals & systems)
+│   ├── pdfs/               # Not included; download the course notes from MIT OpenCourseWare
 │   └── concept_graph.json  # Concept graph for RAG retrieval
-├── paper/                  # MathNLP 2026 paper source (ACL style, LaTeX)
-├── paper-judge/            # JUDGe @ NeurIPS 2026 paper source (NeurIPS style, LaTeX)
-└── notes/                  # Internal research notes
+├── paper/                  # Manuscript source (ACL style, LaTeX)
+└── paper-judge/            # Manuscript source (NeurIPS style, LaTeX)
 osf_release/                # Anonymized public release package
 osf_release_README.txt      # Detailed companion documentation
 ```
@@ -130,15 +129,10 @@ The injection harness (`src/error_injection.py`) applies 14 mutation operators a
 - **Error families** (grader should flag): `sign_flip`, `coeff_x2`, `coeff_half`, `drop_term`, `exponent_bump`, `constant_shift`, `missing_factor_of_2`, `swap_integral_limits`, `drop_upper_limit`, `rename_variable`
 - **Negative families** (grader should NOT flag): `commute_operands`, `expand_power`, `distribute`, `no_op`
 
-## Papers
+## Paper
 
-This codebase produced two papers (shared code, different framing):
-
-1. **MathNLP 2026** (ACL style, 8pp) — full three-way comparison with cascade policies
-2. **JUDGe @ NeurIPS 2026** (NeurIPS style, 4pp) — focused on LLM judge disagreement patterns
-
-Both paper sources are included under `telecom-assistant/paper/` and `telecom-assistant/paper-judge/`.
+Manuscript in preparation. LaTeX sources for two formats are under `telecom-assistant/paper/` (ACL style) and `telecom-assistant/paper-judge/` (NeurIPS style). Neither has been published.
 
 ## License
 
-Research code released for reproducibility. If you use these artifacts, please cite the papers. Do not redistribute copyrighted course PDFs.
+Research code released for reproducibility. If you use these artifacts, please cite this repository.

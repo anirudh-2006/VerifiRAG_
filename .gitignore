@@ -27,6 +27,12 @@ __pycache__/
 .venv/
 venv/
 
+# Course PDFs (copyrighted; not distributed)
+telecom-assistant/data/pdfs/
+
+# Internal research notes
+telecom-assistant/notes/
+
 # Build artifacts
 *.zip
 **/main.pdf
