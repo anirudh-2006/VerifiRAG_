@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Start with the definition of the Fourier transform of a general signal x(t)",
+  "confidence": 0.97,
+  "reasoning": "The expression \u222b_{-\u221e}^{\u221e} x(t) e^{-j\u03c9t} dt is exactly the definition of the Fourier transform of a signal x(t), matching the described operation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The expression \u222b_{-\u221e}^{\u221e} x(t) e^{-j\u03c9t} dt is exactly the definition of the Fourier transform of a signal x(t), matching the described operation.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

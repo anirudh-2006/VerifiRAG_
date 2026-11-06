@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "omega_0 / (s**2 + omega_0**2)",
+  "operation": "Cancel I and simplify constants",
+  "confidence": 0.99,
+  "reasoning": "Multiplying 1/(2I) by (2I*omega_0)/(s^2+omega_0^2) cancels the 2I factors, leaving omega_0/(s^2+omega_0^2), which matches the stated expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying 1/(2I) by (2I*omega_0)/(s^2+omega_0^2) cancels the 2I factors, leaving omega_0/(s^2+omega_0^2), which matches the stated expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,91 @@
+{
+  "id": "Q21",
+  "question": "Find the DC Fourier-series coefficient a_0 of a symmetric square wave that equals +A on the first half of each period and -A on the second half.",
+  "expected_final": "0",
+  "generated_final": "0",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Write the general formula for the DC coefficient a_0",
+      "expression_given": "a_0 = (1/T) * integrate(x(t), (t, 0, T))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard formula for the DC Fourier-series coefficient (period-average of x(t))."
+    },
+    {
+      "step_number": 2,
+      "description": "Define the symmetric square wave over one period: +A for first half, -A for second half",
+      "expression_given": "Piecewise((A, t < T/2), (-A, True))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct piecewise definition: A on [0, T/2), −A on [T/2, T]."
+    },
+    {
+      "step_number": 3,
+      "description": "Split the integral into two intervals: 0 to T/2 and T/2 to T",
+      "expression_given": "(1/T) * (integrate(A, (t, 0, T/2)) + integrate(-A, (t, T/2, T)))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Integral split matches the piecewise regions."
+    },
+    {
+      "step_number": 4,
+      "description": "Evaluate the first integral: integral of A from 0 to T/2",
+      "expression_given": "(1/T) * (A * T/2 + integrate(-A, (t, T/2, T)))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "∫₀^(T/2) A dt = A·(T/2)."
+    },
+    {
+      "step_number": 5,
+      "description": "Evaluate the second integral: integral of -A from T/2 to T",
+      "expression_given": "(1/T) * (A * T/2 + (-A) * (T - T/2))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "∫_{T/2}^T (−A) dt = −A·(T−T/2)."
+    },
+    {
+      "step_number": 6,
+      "description": "Simplify the expression using T - T/2 = T/2",
+      "expression_given": "(1/T) * (A * T/2 - A * T/2)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "T − T/2 = T/2, giving A·T/2 − A·T/2."
+    },
+    {
+      "step_number": 7,
+      "description": "Simplify the sum inside the parentheses",
+      "expression_given": "(1/T) * 0",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "A·T/2 − A·T/2 = 0."
+    },
+    {
+      "step_number": 8,
+      "description": "Final simplification",
+      "expression_given": "0",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "(1/T)·0 = 0."
+    }
+  ]
+}

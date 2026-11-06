@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(delta(t)*exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Substitute x(t) with the unit impulse signal delta(t)",
+  "confidence": 1.0,
+  "reasoning": "Substituting x(t) with delta(t) in the Fourier transform integral is a valid step, as it correctly applies the definition to the unit impulse signal.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"Substituting x(t) with delta(t) in the Fourier transform integral is a valid step, as it correctly applies the definition to the unit impulse signal.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

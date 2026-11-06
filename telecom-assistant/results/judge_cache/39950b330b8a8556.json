@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(-a*t) * (exp(a*t) / a - 1 / a)",
+  "operation": "Integrate exp(a*tau) with respect to tau",
+  "confidence": 0.99,
+  "reasoning": "Integrating exp(a\u00b7\u03c4) from 0 to t yields (exp(a\u00b7t)\u20111)/a, which matches the factorized result exp(-a\u00b7t)*(exp(a\u00b7t)/a\u00a0\u2011\u00a01/a) given.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Integrating exp(a\u00b7\u03c4) from 0 to t yields (exp(a\u00b7t)\u20111)/a, which matches the factorized result exp(-a\u00b7t)*(exp(a\u00b7t)/a\u00a0\u2011\u00a01/a) given.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

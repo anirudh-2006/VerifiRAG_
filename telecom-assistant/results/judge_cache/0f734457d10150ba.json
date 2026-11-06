@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-a*(t - tau)), (tau, 0, t))",
+  "operation": "For t >= 0, u(t - tau) is 1 when tau <= t, so upper limit becomes t",
+  "confidence": 0.95,
+  "reasoning": "For t >= 0, the unit step u(t - tau) equals 1 when tau <= t and 0 when tau > t. This correctly restricts the integration domain from (0, \u221e) to (0, t), eliminating the unit step from the integrand.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"For t >= 0, the unit step u(t - tau) equals 1 when tau <= t and 0 when tau > t. This correctly restricts the integration domain from (0, \u221e) to (0, t), eliminating the unit step from the integrand.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

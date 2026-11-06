@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(y.subs(t, tau) * integrate(x.subs(t, t - tau) * exp(-I*omega*t), (t, -oo, oo)), (tau, -oo, oo))",
+  "operation": "Interchange the order of integration",
+  "confidence": 0.95,
+  "reasoning": "The operation interchanges the order of integration in a double integral, which is valid under suitable conditions (e.g., absolute convergence). The previous step has integration over tau and then t; the current step correctly reorders to integrate over t first (inside) and then tau, with y(\u03c4) factored out of the inner integral.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The operation interchanges the order of integration in a double integral, which is valid under suitable conditions (e.g., absolute convergence). The previous step has integration over tau and then t; the current step correctly reorders to integrate over t first (inside) and then tau, with y(\u03c4) factored out of the inner integral.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

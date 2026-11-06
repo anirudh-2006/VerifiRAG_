@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "s*Y(s) + a*Y(s)",
+  "operation": "Substitute zero initial condition y(0) = 0",
+  "confidence": 1.0,
+  "reasoning": "Substituting y(0) = 0 into the expression s*Y(s) - y(0) + a*Y(s) correctly yields s*Y(s) + a*Y(s), as -0 = 0.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"Substituting y(0) = 0 into the expression s*Y(s) - y(0) + a*Y(s) correctly yields s*Y(s) + a*Y(s), as -0 = 0.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

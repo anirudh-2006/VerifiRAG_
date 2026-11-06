@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "limit((1 - exp(-(s+2)*T)) / (s+2), T, oo)",
+  "operation": "Evaluate the improper integral",
+  "confidence": 0.98,
+  "reasoning": "Evaluating \u222b\u2080^\u221e e^{-(s+2)t} dt gives (1 - e^{-(s+2)T})/(s+2) with T\u2192\u221e, which matches the stated limit expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Evaluating \u222b\u2080^\u221e e^{-(s+2)t} dt gives (1 - e^{-(s+2)T})/(s+2) with T\u2192\u221e, which matches the stated limit expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(u) * exp(-I*omega*u) * exp(-I*omega*t0), (u, -oo, oo))",
+  "operation": "Factor the exponential: exp(-I*omega*(u + t0)) = exp(-I*omega*u) * exp(-I*omega*t0)",
+  "confidence": 0.98,
+  "reasoning": "The exponential identity exp(-I*omega*(u + t0)) = exp(-I*omega*u)\u00b7exp(-I*omega*t0) is correct, so rewriting the integrand accordingly is a valid algebraic manipulation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The exponential identity exp(-I*omega*(u + t0)) = exp(-I*omega*u)\u00b7exp(-I*omega*t0) is correct, so rewriting the integrand accordingly is a valid algebraic manipulation.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

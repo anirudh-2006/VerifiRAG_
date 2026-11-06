@@ -1,0 +1,4494 @@
+{
+  "schema_version": 2,
+  "run": {
+    "metadata": {
+      "collected_at_utc": "2026-05-12T19:46:48.664132+00:00",
+      "hostname": "REDACTED",
+      "platform": "macOS-26.3.1-arm64-arm-64bit",
+      "python_version": "3.9.6",
+      "python_executable": "<repo-root>/telecom-assistant/.venv/bin/python",
+      "cwd": "<repo-root>/telecom-assistant",
+      "project_root": "<repo-root>/telecom-assistant",
+      "git": {
+        "present": true,
+        "root": "<repo-root>",
+        "commit": "50049f94b276952176f438b503cc45584ab27ae5",
+        "branch": "cdg",
+        "dirty": true
+      },
+      "packages": {
+        "sympy": "1.14.0",
+        "chromadb": "1.5.5",
+        "langchain-core": "0.3.83",
+        "langchain-openai": "0.3.35",
+        "langchain-huggingface": "0.3.1",
+        "langchain-chroma": "0.2.6",
+        "langchain-community": "0.3.31",
+        "langchain-text-splitters": "0.3.11",
+        "pypdf": "6.9.2",
+        "streamlit": "1.50.0",
+        "sentence-transformers": "5.1.2"
+      },
+      "fingerprints": {
+        "pdfs": {
+          "pdf_dir": "<repo-root>/telecom-assistant/data/pdfs",
+          "exists": true,
+          "files": [
+            {
+              "name": "MIT_PDF_SET_1.pdf",
+              "bytes": 783976,
+              "mtime_epoch": 1775128231,
+              "sha256": "1f27ad1feca35db97c92ba2cc34471fc7dfb6e03305f36acbf8a8ebef298cbbd"
+            },
+            {
+              "name": "MIT_PDF_SET_10.pdf",
+              "bytes": 446604,
+              "mtime_epoch": 1775456063,
+              "sha256": "49d2a9f044406be7918e24b62be784a780a8ae1a012f20b1e4d0573c5660da0c"
+            },
+            {
+              "name": "MIT_PDF_SET_11.pdf",
+              "bytes": 434429,
+              "mtime_epoch": 1775456071,
+              "sha256": "d5572dd1e1079ca017e09d0d4ca0c91a8fbfdfde97ff91cc1033d46c4114084d"
+            },
+            {
+              "name": "MIT_PDF_SET_12.pdf",
+              "bytes": 579790,
+              "mtime_epoch": 1775456078,
+              "sha256": "679f5b1abdb590a1503d35558a75f46148ef91d6d2a1ef1c687280cc468e7b8d"
+            },
+            {
+              "name": "MIT_PDF_SET_13.pdf",
+              "bytes": 418108,
+              "mtime_epoch": 1775456085,
+              "sha256": "fd5449403a520c15be5558dd9c2ab69a311d02a874884239a97068cab40cb6aa"
+            },
+            {
+              "name": "MIT_PDF_SET_14.pdf",
+              "bytes": 404394,
+              "mtime_epoch": 1775456181,
+              "sha256": "15e7fd4fc7303bff2bcebe30654be9f5263c45680959a0957329088f7e0b179b"
+            },
+            {
+              "name": "MIT_PDF_SET_15.pdf",
+              "bytes": 438665,
+              "mtime_epoch": 1775456188,
+              "sha256": "33ab5136fde42b5e682a10047399327657e66b8652cd02503d48a1b5e3e3440a"
+            },
+            {
+              "name": "MIT_PDF_SET_16.pdf",
+              "bytes": 438665,
+              "mtime_epoch": 1775456194,
+              "sha256": "33ab5136fde42b5e682a10047399327657e66b8652cd02503d48a1b5e3e3440a"
+            },
+            {
+              "name": "MIT_PDF_SET_17.pdf",
+              "bytes": 411999,
+              "mtime_epoch": 1775456201,
+              "sha256": "dc26b4680a2393d0aa7b8488492781d3da205fdc7eefac03f1106bc68e12c9c8"
+            },
+            {
+              "name": "MIT_PDF_SET_18.pdf",
+              "bytes": 380075,
+              "mtime_epoch": 1775456208,
+              "sha256": "5743fee67ede5de4ebef2eb327c00a94b4301c8e2bd0eb83781e9ab641a775a5"
+            },
+            {
+              "name": "MIT_PDF_SET_19.pdf",
+              "bytes": 1026449,
+              "mtime_epoch": 1775456219,
+              "sha256": "f32eb5d0e34364a5871165af084eaa3e65ea53dd897b664ea765a4b6a7ae9fc4"
+            },
+            {
+              "name": "MIT_PDF_SET_2.pdf",
+              "bytes": 844471,
+              "mtime_epoch": 1775128415,
+              "sha256": "35f711ca71c854aa4a99ad6fa01c422187d217028d83c7eb9d1cdd084c447350"
+            },
+            {
+              "name": "MIT_PDF_SET_20.pdf",
+              "bytes": 395220,
+              "mtime_epoch": 1775456225,
+              "sha256": "7b37936dd45fe61515e48609fb3274198f38f4d85af69efdd120ad25afbd98ac"
+            },
+            {
+              "name": "MIT_PDF_SET_21.pdf",
+              "bytes": 452984,
+              "mtime_epoch": 1775456231,
+              "sha256": "e8e914c397fcae83bf84ea28dc865e9f80622db971888f30e7143b7406029539"
+            },
+            {
+              "name": "MIT_PDF_SET_22.pdf",
+              "bytes": 476866,
+              "mtime_epoch": 1775456236,
+              "sha256": "7d638f4bfa95fe1b9b93fdb9dcb44fc8406ea172b098192b25cc55b9273e0ded"
+            },
+            {
+              "name": "MIT_PDF_SET_3.pdf",
+              "bytes": 568437,
+              "mtime_epoch": 1775249611,
+              "sha256": "02f5f937f2ec7b91510aa6b086a42847a2dc683cb59bd12dff62e770bd2e5127"
+            },
+            {
+              "name": "MIT_PDF_SET_4.pdf",
+              "bytes": 949727,
+              "mtime_epoch": 1775249662,
+              "sha256": "0dde9b9717bb14eee7303625beafc854ecb5cd7d761d3aa339262b1a0141dd6c"
+            },
+            {
+              "name": "MIT_PDF_SET_5.pdf",
+              "bytes": 507387,
+              "mtime_epoch": 1775249849,
+              "sha256": "07b5b6371ae0b54648546b273e8ed8403794a604b5dee26d85dc6ad316f78745"
+            },
+            {
+              "name": "MIT_PDF_SET_6.pdf",
+              "bytes": 783976,
+              "mtime_epoch": 1775249947,
+              "sha256": "1f27ad1feca35db97c92ba2cc34471fc7dfb6e03305f36acbf8a8ebef298cbbd"
+            },
+            {
+              "name": "MIT_PDF_SET_7.pdf",
+              "bytes": 1065985,
+              "mtime_epoch": 1775250000,
+              "sha256": "5a47942ec0c22b15c9561a6776364bfb38262fa59f42ebded54c149d29ab822d"
+            },
+            {
+              "name": "MIT_PDF_SET_8.pdf",
+              "bytes": 446095,
+              "mtime_epoch": 1775455957,
+              "sha256": "5ad3ebaba12447f7da1980db214f96d2793d393b6ba6de3cf22194fd871fc65d"
+            },
+            {
+              "name": "MIT_PDF_SET_9.pdf",
+              "bytes": 507602,
+              "mtime_epoch": 1775456031,
+              "sha256": "9b9efd5a3b7a15a4a6b263a49b622b2ca6d7384efeb57c17dd51adc52199ce25"
+            }
+          ]
+        },
+        "vectorstore": {
+          "vectorstore_dir": "<repo-root>/telecom-assistant/vectorstore",
+          "chroma_sqlite_exists": true,
+          "chroma_sqlite_sha256": "587821c91f5ea0f9c469ff55f60c653f0d7603acf6cd11223ea7d8dbb8c6dd7e",
+          "uuid_subdirs": [
+            "edca95bd-68d6-4350-b389-9204a88d26d6"
+          ]
+        }
+      },
+      "api_keys_present": {
+        "CEREBRAS_API_KEY": true,
+        "OPENAI_API_KEY": true
+      },
+      "started_at_utc": "2026-05-12T19:46:48.664132+00:00",
+      "last_updated_at_utc": "2026-05-12T21:04:19.728357+00:00"
+    },
+    "config": {
+      "config_name": "telecom-assistant-default",
+      "config_version": 1,
+      "embedding": {
+        "model": "sentence-transformers/all-MiniLM-L6-v2",
+        "langchain_hf_model_name": "all-MiniLM-L6-v2"
+      },
+      "ingest": {
+        "pdf_dir": "data/pdfs",
+        "vectorstore_dir": "vectorstore",
+        "chunk_size": 800,
+        "chunk_overlap": 100
+      },
+      "retrieval": {
+        "plain_similarity_k": 4,
+        "graph_prerequisite_keyword_k": 1,
+        "graph_prerequisite_depth": 1,
+        "graph_enabled": true,
+        "graph_max_prereqs": 2,
+        "graph_max_extra_chunks": 2
+      },
+      "llm": {
+        "provider": "openai_compatible",
+        "api_base_url": "https://api.cerebras.ai/v1",
+        "chat_model": "qwen-3-235b-a22b-instruct-2507",
+        "temperature": 0,
+        "max_tokens_structured": 2500,
+        "max_tokens_chat_chain": 1500
+      },
+      "evaluation": {
+        "verifier_fast_mode": true,
+        "pipeline_retrieval_mode": "graph",
+        "structured_output_max_attempts": 5,
+        "rate_limit_base_wait_s": 30,
+        "sleep_between_queries_s": 45,
+        "initial_cooldown_s": 30
+      },
+      "randomness": {
+        "note": "LLM calls use temperature=0; no global RNG seed is set for the evaluator yet.",
+        "seed": null
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "Q02",
+      "question": "What is the Fourier transform of a unit impulse signal delta(t)?",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:24:59.276611",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.04,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "fourier_transform"
+        ],
+        "prerequisites_added": [
+          "fourier_series",
+          "complex_numbers"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 3,
+        "answer_time_s": 181.4,
+        "retrieval_mode": "graph",
+        "final_result": "1",
+        "expected_result": "1",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "1"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 3,
+          "total_steps": 3,
+          "checked_total": 2,
+          "checked_passed": 2,
+          "checked_failed": 0,
+          "equiv_rate_pct": 100.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "1",
+            "expected": "1",
+            "expected_type": "symbolic",
+            "generated_parsed": "1",
+            "expected_parsed": "1"
+          },
+          "category_counts": {
+            "first_step": 1,
+            "passed": 2
+          },
+          "legacy_pass_rate_pct": 100.0
+        },
+        "verification": {
+          "passed": 3,
+          "failed": 0,
+          "unclear": 0,
+          "total": 3,
+          "pass_rate_pct": 100.0,
+          "time_s": 0.03,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the Fourier transform",
+              "expression_given": "integrate(delta(t) * exp(-I * omega * t), (t, -oo, oo))",
+              "expression_parsed": "1",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Use the sifting property of the Dirac delta function at t = 0",
+              "expression_given": "exp(-I * omega * 0)",
+              "expression_parsed": "1",
+              "previous_parsed": "1",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 3,
+              "description": "Simplify the exponential expression",
+              "expression_given": "1",
+              "expression_parsed": "1",
+              "previous_parsed": "1",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q03",
+      "question": "Derive the relationship between Laplace and Fourier transforms.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:28:45.783854",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.08,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "fourier_transform"
+        ],
+        "prerequisites_added": [
+          "fourier_series",
+          "complex_numbers"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 10,
+        "answer_time_s": 15.3,
+        "retrieval_mode": "graph",
+        "final_result": "X(I*omega) = X(s).subs(s, I*omega), re(s) > -1",
+        "expected_result": "X(I*omega)",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "X(I*omega)"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 10,
+          "total_steps": 10,
+          "checked_total": 9,
+          "checked_passed": 2,
+          "checked_failed": 0,
+          "equiv_rate_pct": 22.2,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "X(I*omega) = X(s).subs(s, I*omega), re(s) > -1",
+            "expected": "X(I*omega)",
+            "expected_type": "symbolic",
+            "generated_parsed": "X(I*omega)",
+            "expected_parsed": "X(I*omega)"
+          },
+          "category_counts": {
+            "unclear": 4,
+            "first_step": 1,
+            "passed": 2,
+            "integral_skip": 3
+          },
+          "legacy_pass_rate_pct": 30.0
+        },
+        "verification": {
+          "passed": 3,
+          "failed": 0,
+          "unclear": 7,
+          "total": 10,
+          "pass_rate_pct": 30.0,
+          "time_s": 3.62,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the Laplace transform",
+              "expression_given": "X(s) = integrate(x(t) * exp(-s*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(s)) < pi/2) & (Abs(arg(s) + pi) < pi/2)), (Integral(x*exp(-s*t), (t, -oo, oo)), True))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Express the complex variable s as sigma + j*omega",
+              "expression_given": "s = sigma + I*omega",
+              "expression_parsed": "I*omega + sigma",
+              "previous_parsed": "Piecewise((0, (Abs(arg(s)) < pi/2) & (Abs(arg(s) + pi) < pi/2)), (Integral(x*exp(-s*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Substitute s into the Laplace transform",
+              "expression_given": "X(sigma + I*omega) = integrate(x(t) * exp(-(sigma + I*omega)*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(-I*omega - sigma)) < pi/2) & (Abs(arg(-I*omega - sigma) + pi) < pi/2)), (Integral(x*exp(t*(-I*omega - sigma)), (t, -oo, oo)), True))",
+              "previous_parsed": "I*omega + sigma",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 3 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Factor the exponential into real and imaginary parts",
+              "expression_given": "integrate(x(t) * exp(-sigma*t) * exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (((Abs(arg(sigma)) <= pi/2) & (Abs(arg(omega) + pi/2) < pi/2)) | ((Abs(arg(sigma)) < pi/2) & (Abs(arg(omega) + pi/2) <= pi/2)) | ((Abs(arg(sigma)) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2))) & (((Abs(arg(sigma) + pi) <= pi/2) & (Abs(arg(omega) - pi/2) < pi/2)) | ((Abs(arg(sigma) + pi) < pi/2) & (Abs(arg(omega) - pi/2) <= pi/2)) | ((Abs(arg(sigma) + pi) < pi/2) & (Abs(arg(omega) - pi/2) < pi/2)))), (Integral(x*exp(-sigma*t)*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(-I*omega - sigma)) < pi/2) & (Abs(arg(-I*omega - sigma) + pi) < pi/2)), (Integral(x*exp(t*(-I*omega - sigma)), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": "Integrand equivalence confirmed"
+            },
+            {
+              "step_number": 5,
+              "description": "Recognize that this is the Fourier transform of x(t)*exp(-sigma*t)",
+              "expression_given": "FourierTransform(x(t) * exp(-sigma*t))",
+              "expression_parsed": "FourierTransform(x*exp(-sigma*t))",
+              "previous_parsed": "Piecewise((0, (((Abs(arg(sigma)) <= pi/2) & (Abs(arg(omega) + pi/2) < pi/2)) | ((Abs(arg(sigma)) < pi/2) & (Abs(arg(omega) + pi/2) <= pi/2)) | ((Abs(arg(sigma)) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2))) & (((Abs(arg(sigma) + pi) <= pi/2) & (Abs(arg(omega) - pi/2) < pi/2)) | ((Abs(arg(sigma) + pi) < pi/2) & (Abs(arg(omega) - pi/2) <= pi/2)) | ((Abs(arg(sigma) + pi) < pi/2) & (Abs(arg(omega) - pi/2) < pi/2)))), (Integral(x*exp(-sigma*t)*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 6,
+              "description": "Now consider the Fourier transform definition",
+              "expression_given": "X(I*omega) = integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": "FourierTransform(x*exp(-sigma*t))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 6 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 7,
+              "description": "Compare with Laplace transform when sigma = 0",
+              "expression_given": "X(s).subs(s, I*omega)",
+              "expression_parsed": "X",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 8,
+              "description": "When ROC includes the j\u03c9 axis, sigma = 0 is valid",
+              "expression_given": "X(I*omega) = integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": "X",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 8 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 9,
+              "description": "This matches the Fourier transform definition",
+              "expression_given": "X(I*omega)",
+              "expression_parsed": "X",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 10,
+              "description": "Therefore, Fourier transform equals Laplace transform evaluated at s = j\u03c9",
+              "expression_given": "X(I*omega) = X(s).subs(s, I*omega)",
+              "expression_parsed": "X",
+              "previous_parsed": "X",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q04",
+      "question": "Explain the convolution theorem for Fourier transforms.",
+      "difficulty": "advanced",
+      "timestamp": "2026-05-13T01:29:49.829129",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.21,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "fourier_transform",
+          "convolution"
+        ],
+        "prerequisites_added": [
+          "fourier_series",
+          "complex_numbers"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 9,
+        "answer_time_s": 132.4,
+        "retrieval_mode": "graph",
+        "final_result": "H * X",
+        "expected_result": "shorthand: X1*X2; applied_form: X1(I*omega)*X2(I*omega)",
+        "expected_answer": {
+          "type": "composite",
+          "aggregation": "any",
+          "parts": [
+            {
+              "name": "shorthand",
+              "type": "symbolic",
+              "expression": "X1*X2"
+            },
+            {
+              "name": "applied_form",
+              "type": "symbolic",
+              "expression": "X1(I*omega)*X2(I*omega)"
+            }
+          ]
+        },
+        "metrics": {
+          "parse_rate_pct": 66.7,
+          "parsed_count": 6,
+          "total_steps": 9,
+          "checked_total": 5,
+          "checked_passed": 0,
+          "checked_failed": 0,
+          "equiv_rate_pct": 0.0,
+          "final_answer_match": {
+            "status": "mismatch",
+            "expected_type": "composite",
+            "aggregation": "any",
+            "parts": [
+              {
+                "status": "unparseable",
+                "generated": "H * X",
+                "expected": "X1*X2",
+                "expected_type": "symbolic",
+                "generated_parsed": null,
+                "expected_parsed": null,
+                "name": "shorthand"
+              },
+              {
+                "status": "unparseable",
+                "generated": "H * X",
+                "expected": "X1(I*omega)*X2(I*omega)",
+                "expected_type": "symbolic",
+                "generated_parsed": null,
+                "expected_parsed": "X1(I*omega)*X2(I*omega)",
+                "name": "applied_form"
+              }
+            ],
+            "generated": "H * X",
+            "expected": {
+              "type": "composite",
+              "aggregation": "any",
+              "parts": [
+                {
+                  "name": "shorthand",
+                  "type": "symbolic",
+                  "expression": "X1*X2"
+                },
+                {
+                  "name": "applied_form",
+                  "type": "symbolic",
+                  "expression": "X1(I*omega)*X2(I*omega)"
+                }
+              ]
+            }
+          },
+          "category_counts": {
+            "first_step": 1,
+            "parse_fail": 3,
+            "integral_skip": 5
+          },
+          "legacy_pass_rate_pct": 11.1
+        },
+        "verification": {
+          "passed": 1,
+          "failed": 0,
+          "unclear": 8,
+          "total": 9,
+          "pass_rate_pct": 11.1,
+          "time_s": 69.75,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Define the convolution of two signals in the time domain",
+              "expression_given": "integrate(x * h.subs(t, t - tau), (tau, -oo, oo))",
+              "expression_parsed": "oo*sign(h*x)",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Take the Fourier transform of the convolution integral",
+              "expression_given": "integrate(integrate(x * h.subs(t, t - tau), (tau, -oo, oo)) * exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((nan, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(oo*exp(-I*omega*t)*sign(h*x), (t, -oo, oo)), True))",
+              "previous_parsed": "oo*sign(h*x)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Interchange the order of integration",
+              "expression_given": "integrate(integrate(x * h.subs(t, t - tau) * exp(-I*omega*t), (t, -oo, oo)), (tau, -oo, oo))",
+              "expression_parsed": null,
+              "previous_parsed": "Piecewise((nan, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(oo*exp(-I*omega*t)*sign(h*x), (t, -oo, oo)), True))",
+              "equivalence_checked": false,
+              "is_valid": null,
+              "category": "parse_fail",
+              "error_message": "Could not parse \u2014 review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Substitute variable: let u = t - tau to simplify inner integral",
+              "expression_given": "integrate(integrate(x * h.subs(t, u) * exp(-I*omega*(u + tau)), (u, -oo, oo)), (tau, -oo, oo))",
+              "expression_parsed": null,
+              "previous_parsed": "Piecewise((nan, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(oo*exp(-I*omega*t)*sign(h*x), (t, -oo, oo)), True))",
+              "equivalence_checked": false,
+              "is_valid": null,
+              "category": "parse_fail",
+              "error_message": "Could not parse \u2014 review manually"
+            },
+            {
+              "step_number": 5,
+              "description": "Split exponential using exponent addition rule",
+              "expression_given": "integrate(integrate(x * h.subs(t, u) * exp(-I*omega*u) * exp(-I*omega*tau), (u, -oo, oo)), (tau, -oo, oo))",
+              "expression_parsed": null,
+              "previous_parsed": "Piecewise((nan, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(oo*exp(-I*omega*t)*sign(h*x), (t, -oo, oo)), True))",
+              "equivalence_checked": false,
+              "is_valid": null,
+              "category": "parse_fail",
+              "error_message": "Could not parse \u2014 review manually"
+            },
+            {
+              "step_number": 6,
+              "description": "Factor terms not dependent on u out of inner integral",
+              "expression_given": "integrate(exp(-I*omega*tau) * integrate(x * h.subs(t, u) * exp(-I*omega*u), (u, -oo, oo)), (tau, -oo, oo))",
+              "expression_parsed": "Integral(Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (exp(-I*omega*tau)*Integral(h*x*exp(-I*omega*u), (u, -oo, oo)), True)), (tau, -oo, oo))",
+              "previous_parsed": "Piecewise((nan, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(oo*exp(-I*omega*t)*sign(h*x), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 7,
+              "description": "Recognize inner integral as Fourier transform of h(t)",
+              "expression_given": "integrate(exp(-I*omega*tau) * H * x, (tau, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(H*x*exp(-I*omega*tau), (tau, -oo, oo)), True))",
+              "previous_parsed": "Integral(Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (exp(-I*omega*tau)*Integral(h*x*exp(-I*omega*u), (u, -oo, oo)), True)), (tau, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 8,
+              "description": "x is independent of tau, so move outside tau integral",
+              "expression_given": "H * integrate(x * exp(-I*omega*tau), (tau, -oo, oo))",
+              "expression_parsed": "H*Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*tau), (tau, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(H*x*exp(-I*omega*tau), (tau, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 9,
+              "description": "Recognize remaining integral as Fourier transform of x(t)",
+              "expression_given": "H * X",
+              "expression_parsed": "H*X",
+              "previous_parsed": "H*Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*tau), (tau, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q05",
+      "question": "Derive the Z-transform of a causal exponential signal x[n] = a^n * u[n].",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:33:57.222612",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.15,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_12.pdf",
+          "MIT_PDF_SET_5.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "z_transform"
+        ],
+        "prerequisites_added": [
+          "complex_numbers",
+          "sampling_theorem"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_20.pdf",
+          "MIT_PDF_SET_12.pdf",
+          "MIT_PDF_SET_5.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 9,
+        "answer_time_s": 0.82,
+        "retrieval_mode": "graph",
+        "final_result": "z / (z - a), Abs(z) > Abs(a)",
+        "expected_result": "z/(z-a)",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "z/(z-a)"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 9,
+          "total_steps": 9,
+          "checked_total": 8,
+          "checked_passed": 4,
+          "checked_failed": 0,
+          "equiv_rate_pct": 50.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "z / (z - a), Abs(z) > Abs(a)",
+            "expected": "z/(z-a)",
+            "expected_type": "symbolic",
+            "generated_parsed": "z/(-a + z)",
+            "expected_parsed": "z/(-a + z)"
+          },
+          "category_counts": {
+            "unclear": 4,
+            "first_step": 1,
+            "passed": 4
+          },
+          "legacy_pass_rate_pct": 55.6
+        },
+        "verification": {
+          "passed": 5,
+          "failed": 0,
+          "unclear": 4,
+          "total": 9,
+          "pass_rate_pct": 55.6,
+          "time_s": 0.6,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the Z-transform",
+              "expression_given": "Sum(x[n] * z**(-n), (n, -oo, oo))",
+              "expression_parsed": "Sum(x_n/z**n, (n, -oo, oo))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Substitute the causal exponential signal x[n] = a^n * u[n]",
+              "expression_given": "Sum(a**n * u[n] * z**(-n), (n, -oo, oo))",
+              "expression_parsed": "Sum(a**n*u_n/z**n, (n, -oo, oo))",
+              "previous_parsed": "Sum(x_n/z**n, (n, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Use the fact that u[n] is zero for n < 0 to change summation limits",
+              "expression_given": "Sum(a**n * z**(-n), (n, 0, oo))",
+              "expression_parsed": "Sum(a**n/z**n, (n, 0, oo))",
+              "previous_parsed": "Sum(a**n*u_n/z**n, (n, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 3 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Rewrite a^n * z^(-n) as (a/z)^n",
+              "expression_given": "Sum((a/z)**n, (n, 0, oo))",
+              "expression_parsed": "Sum((a/z)**n, (n, 0, oo))",
+              "previous_parsed": "Sum(a**n/z**n, (n, 0, oo))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 5,
+              "description": "Recognize this as a geometric series with ratio r = a/z",
+              "expression_given": "Sum(r**n, (n, 0, oo))",
+              "expression_parsed": "Sum(r**n, (n, 0, oo))",
+              "previous_parsed": "Sum((a/z)**n, (n, 0, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 5 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 6,
+              "description": "Apply the formula for the sum of an infinite geometric series",
+              "expression_given": "1 / (1 - r)",
+              "expression_parsed": "1/(1 - r)",
+              "previous_parsed": "Sum(r**n, (n, 0, oo))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 7,
+              "description": "Substitute back r = a/z",
+              "expression_given": "1 / (1 - a/z)",
+              "expression_parsed": "1/(-a/z + 1)",
+              "previous_parsed": "1/(1 - r)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 7 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 8,
+              "description": "Simplify the denominator",
+              "expression_given": "1 / ((z - a)/z)",
+              "expression_parsed": "z/(-a + z)",
+              "previous_parsed": "1/(-a/z + 1)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 9,
+              "description": "Invert the denominator",
+              "expression_given": "z / (z - a)",
+              "expression_parsed": "z/(-a + z)",
+              "previous_parsed": "z/(-a + z)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q06",
+      "question": "What is the time shifting property of the Fourier transform?",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:34:43.812401",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.24,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.04,
+        "matched_concepts": [
+          "fourier_transform"
+        ],
+        "prerequisites_added": [
+          "fourier_series",
+          "complex_numbers"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 6,
+        "answer_time_s": 74.0,
+        "retrieval_mode": "graph",
+        "final_result": "exp(-I*omega*t0) * X(I*omega)",
+        "expected_result": "exp(-I*omega*t0)*X(I*omega)",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "exp(-I*omega*t0)*X(I*omega)"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 6,
+          "total_steps": 6,
+          "checked_total": 5,
+          "checked_passed": 1,
+          "checked_failed": 0,
+          "equiv_rate_pct": 20.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "exp(-I*omega*t0) * X(I*omega)",
+            "expected": "exp(-I*omega*t0)*X(I*omega)",
+            "expected_type": "symbolic",
+            "generated_parsed": "X(I*omega)*exp(-I*omega*t0)",
+            "expected_parsed": "X(I*omega)*exp(-I*omega*t0)"
+          },
+          "category_counts": {
+            "first_step": 1,
+            "passed": 1,
+            "integral_skip": 4
+          },
+          "legacy_pass_rate_pct": 33.3
+        },
+        "verification": {
+          "passed": 2,
+          "failed": 0,
+          "unclear": 4,
+          "total": 6,
+          "pass_rate_pct": 33.3,
+          "time_s": 0.2,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the Fourier transform",
+              "expression_given": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Consider a time-shifted version of the signal: x(t - t0)",
+              "expression_given": "integrate(x(t - t0) * exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*(t - t0)*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Perform a change of variables: let u = t - t0, so t = u + t0",
+              "expression_given": "integrate(x(u) * exp(-I*omega*(u + t0)), (u, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*(t0 + u)), (u, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*(t - t0)*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Factor the exponential into two parts",
+              "expression_given": "integrate(x(u) * exp(-I*omega*u) * exp(-I*omega*t0), (u, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t0)*exp(-I*omega*u), (u, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*(t0 + u)), (u, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": "Integrand equivalence confirmed"
+            },
+            {
+              "step_number": 5,
+              "description": "Move the constant exponential factor outside the integral",
+              "expression_given": "exp(-I*omega*t0) * integrate(x(u) * exp(-I*omega*u), (u, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*u), (u, -oo, oo)), True))*exp(-I*omega*t0)",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t0)*exp(-I*omega*u), (u, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 6,
+              "description": "Recognize the remaining integral as the Fourier transform of x(u)",
+              "expression_given": "exp(-I*omega*t0) * X(I*omega)",
+              "expression_parsed": "X*exp(-I*omega*t0)",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*u), (u, -oo, oo)), True))*exp(-I*omega*t0)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q08",
+      "question": "Explain the relationship between the Z-transform and the DTFT.",
+      "difficulty": "advanced",
+      "timestamp": "2026-05-13T01:45:00.635139",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.04,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_22.pdf",
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "z_transform"
+        ],
+        "prerequisites_added": [
+          "complex_numbers",
+          "sampling_theorem"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_20.pdf",
+          "MIT_PDF_SET_22.pdf",
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 3,
+        "answer_time_s": 61.19,
+        "retrieval_mode": "graph",
+        "final_result": "Sum(x_n * exp(-I*Omega*n), (n, -oo, oo)), z = exp(I*Omega)",
+        "expected_result": "shorthand: X(exp(I*Omega)); definition: Sum(x_n * exp(-I*Omega*n), (n, -oo, oo))",
+        "expected_answer": {
+          "type": "composite",
+          "aggregation": "any",
+          "parts": [
+            {
+              "name": "shorthand",
+              "type": "symbolic",
+              "expression": "X(exp(I*Omega))"
+            },
+            {
+              "name": "definition",
+              "type": "symbolic",
+              "expression": "Sum(x_n * exp(-I*Omega*n), (n, -oo, oo))"
+            }
+          ]
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 3,
+          "total_steps": 3,
+          "checked_total": 2,
+          "checked_passed": 1,
+          "checked_failed": 0,
+          "equiv_rate_pct": 50.0,
+          "final_answer_match": {
+            "status": "match",
+            "expected_type": "composite",
+            "aggregation": "any",
+            "parts": [
+              {
+                "status": "mismatch",
+                "generated": "exp(I*Omega)",
+                "expected": "X(exp(I*Omega))",
+                "expected_type": "symbolic",
+                "generated_parsed": "exp(I*Omega)",
+                "expected_parsed": "X(exp(I*Omega))",
+                "name": "shorthand"
+              },
+              {
+                "status": "match",
+                "generated": "Sum(x_n * exp(-I*Omega*n), (n, -oo, oo)), z = exp(I*Omega)",
+                "expected": "Sum(x_n * exp(-I*Omega*n), (n, -oo, oo))",
+                "expected_type": "symbolic",
+                "generated_parsed": "Sum(x_n*exp(-I*Omega*n), (n, -oo, oo))",
+                "expected_parsed": "Sum(x_n*exp(-I*Omega*n), (n, -oo, oo))",
+                "name": "definition"
+              }
+            ],
+            "generated": "Sum(x_n * exp(-I*Omega*n), (n, -oo, oo)), z = exp(I*Omega)",
+            "expected": {
+              "type": "composite",
+              "aggregation": "any",
+              "parts": [
+                {
+                  "name": "shorthand",
+                  "type": "symbolic",
+                  "expression": "X(exp(I*Omega))"
+                },
+                {
+                  "name": "definition",
+                  "type": "symbolic",
+                  "expression": "Sum(x_n * exp(-I*Omega*n), (n, -oo, oo))"
+                }
+              ]
+            }
+          },
+          "category_counts": {
+            "unclear": 1,
+            "first_step": 1,
+            "passed": 1
+          },
+          "legacy_pass_rate_pct": 66.7
+        },
+        "verification": {
+          "passed": 2,
+          "failed": 0,
+          "unclear": 1,
+          "total": 3,
+          "pass_rate_pct": 66.7,
+          "time_s": 0.04,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the Z-transform of a sequence x[n]",
+              "expression_given": "X(z) = Sum(x_n * z**(-n), (n, -oo, oo))",
+              "expression_parsed": "Sum(x_n/z**n, (n, -oo, oo))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Substitute z with exp(I*Omega) to evaluate the Z-transform on the unit circle",
+              "expression_given": "X(exp(I*Omega)) = Sum(x_n * exp(-I*Omega*n), (n, -oo, oo))",
+              "expression_parsed": "Sum(x_n*exp(-I*Omega*n), (n, -oo, oo))",
+              "previous_parsed": "Sum(x_n/z**n, (n, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Equation sides not verified equivalent \u2014 review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Recognize that this substitution yields the definition of the DTFT",
+              "expression_given": "X_DTFT(Omega) = Sum(x_n * exp(-I*Omega*n), (n, -oo, oo))",
+              "expression_parsed": "Sum(x_n*exp(-I*Omega*n), (n, -oo, oo))",
+              "previous_parsed": "Sum(x_n*exp(-I*Omega*n), (n, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q09",
+      "question": "Derive the Fourier series coefficients for a periodic square wave.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:46:47.089058",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.18,
+        "chunk_sources": [
+          "MIT_PDF_SET_15.pdf",
+          "MIT_PDF_SET_16.pdf",
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.01,
+        "matched_concepts": [
+          "fourier_series"
+        ],
+        "prerequisites_added": [],
+        "extra_chunks": 0,
+        "chunk_sources": [
+          "MIT_PDF_SET_15.pdf",
+          "MIT_PDF_SET_16.pdf",
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 11,
+        "answer_time_s": 15.41,
+        "retrieval_mode": "graph",
+        "final_result": "Piecewise((0, k % 2 == 0), (4/(pi*k) * (-1)**((k-1)/2), True))",
+        "expected_result": "sin(k*pi/2)/(k*pi/2)",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "sin(k*pi/2)/(k*pi/2)"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 11,
+          "total_steps": 11,
+          "checked_total": 10,
+          "checked_passed": 7,
+          "checked_failed": 0,
+          "equiv_rate_pct": 70.0,
+          "final_answer_match": {
+            "status": "mismatch",
+            "generated": "Piecewise((0, k % 2 == 0), (4/(pi*k) * (-1)**((k-1)/2), True))",
+            "expected": "sin(k*pi/2)/(k*pi/2)",
+            "expected_type": "symbolic",
+            "generated_parsed": "4*(-1)**(k/2 - 1/2)/(pi*k)",
+            "expected_parsed": "2*sin(pi*k/2)/(pi*k)"
+          },
+          "category_counts": {
+            "unclear": 3,
+            "first_step": 1,
+            "passed": 7
+          },
+          "legacy_pass_rate_pct": 72.7
+        },
+        "verification": {
+          "passed": 8,
+          "failed": 0,
+          "unclear": 3,
+          "total": 11,
+          "pass_rate_pct": 72.7,
+          "time_s": 0.15,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Define the periodic square wave with period T0, symmetric around zero, high for |t| < T0/4, low for T0/4 < |t| < T0/2",
+              "expression_given": "Piecewise((1, Abs(t) < T0/4), (-1, Abs(t) < T0/2))",
+              "expression_parsed": "Piecewise((1, Abs(t) < T0/4), (-1, Abs(t) < T0/2))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Use the Fourier series analysis equation for coefficient ak",
+              "expression_given": "integrate(Piecewise((1, Abs(t) < T0/4), (-1, Abs(t) < T0/2)) * exp(-I*k*omega0*t), (t, -T0/2, T0/2)) / T0",
+              "expression_parsed": "0",
+              "previous_parsed": "Piecewise((1, Abs(t) < T0/4), (-1, Abs(t) < T0/2))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Split integral into three parts: [-T0/2, -T0/4], [-T0/4, T0/4], [T0/4, T0/2]",
+              "expression_given": "(integrate(-1 * exp(-I*k*omega0*t), (t, -T0/2, -T0/4)) + integrate(1 * exp(-I*k*omega0*t), (t, -T0/4, T0/4)) + integrate(-1 * exp(-I*k*omega0*t), (t, T0/4, T0/2))) / T0",
+              "expression_parsed": "0",
+              "previous_parsed": "0",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 4,
+              "description": "Evaluate the first integral over [-T0/2, -T0/4]",
+              "expression_given": "(-1/(I*k*omega0)) * (exp(I*k*omega0*T0/4) - exp(I*k*omega0*T0/2))",
+              "expression_parsed": "nan",
+              "previous_parsed": "0",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 5,
+              "description": "Evaluate the second integral over [-T0/4, T0/4]",
+              "expression_given": "(1/(I*k*omega0)) * (exp(-I*k*omega0*T0/4) - exp(I*k*omega0*T0/4))",
+              "expression_parsed": "nan",
+              "previous_parsed": "nan",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 6,
+              "description": "Evaluate the third integral over [T0/4, T0/2]",
+              "expression_given": "(-1/(I*k*omega0)) * (exp(-I*k*omega0*T0/2) - exp(-I*k*omega0*T0/4))",
+              "expression_parsed": "nan",
+              "previous_parsed": "nan",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 7,
+              "description": "Sum the three integrals and simplify using Euler's formula",
+              "expression_given": "(2/(k*omega0)) * sin(k*omega0*T0/4) - (2/(k*omega0)) * sin(k*omega0*T0/4) * cos(k*omega0*T0/4)",
+              "expression_parsed": "nan",
+              "previous_parsed": "nan",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 8,
+              "description": "Use identity: sin(a) - sin(a)cos(b) = sin(a)(1 - cos(b)) and simplify further",
+              "expression_given": "(2/(k*omega0)) * sin(k*pi/2) * (1 - cos(k*pi/2))",
+              "expression_parsed": "zoo*(1 - cos(pi*k/2))*sin(pi*k/2)",
+              "previous_parsed": "nan",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 9,
+              "description": "Note that for even k, sin(k*pi/2) and cos(k*pi/2) lead to zero contribution",
+              "expression_given": "Piecewise((0, k % 2 == 0), (4/(pi*k), k % 2 != 0))",
+              "expression_parsed": "4/(pi*k)",
+              "previous_parsed": "zoo*(1 - cos(pi*k/2))*sin(pi*k/2)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 10,
+              "description": "Recognize that only odd harmonics survive and alternate in sign",
+              "expression_given": "Piecewise((0, k % 2 == 0), (4/(pi*k) * sin(pi*k/2), True))",
+              "expression_parsed": "4*sin(pi*k/2)/(pi*k)",
+              "previous_parsed": "4/(pi*k)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 10 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 11,
+              "description": "Final form: coefficients are real and odd-symmetric",
+              "expression_given": "Piecewise((0, k % 2 == 0), (4/(pi*k) * (-1)**((k-1)/2), True))",
+              "expression_parsed": "4*(-1)**(k/2 - 1/2)/(pi*k)",
+              "previous_parsed": "4*sin(pi*k/2)/(pi*k)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 11 \u2014 fast mode, review manually"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q10",
+      "question": "Compute the Laplace transform of x(t) = exp(-2*t) * u(t) and state its region of convergence.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:47:47.941720",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.08,
+        "chunk_sources": [
+          "MIT_PDF_SET_11.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "laplace_transform"
+        ],
+        "prerequisites_added": [
+          "complex_numbers",
+          "differential_equations"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_11.pdf",
+          "MIT_PDF_SET_8.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 7,
+        "answer_time_s": 134.41,
+        "retrieval_mode": "graph",
+        "final_result": "1/(s + 2), Re(s) > -2",
+        "expected_result": "transform: 1/(s+2); roc: re(s) > -2",
+        "expected_answer": {
+          "type": "composite",
+          "aggregation": "all",
+          "parts": [
+            {
+              "name": "transform",
+              "type": "symbolic",
+              "expression": "1/(s+2)"
+            },
+            {
+              "name": "roc",
+              "type": "inequality",
+              "expression": "re(s) > -2"
+            }
+          ]
+        },
+        "metrics": {
+          "parse_rate_pct": 85.7,
+          "parsed_count": 6,
+          "total_steps": 7,
+          "checked_total": 5,
+          "checked_passed": 1,
+          "checked_failed": 0,
+          "equiv_rate_pct": 20.0,
+          "final_answer_match": {
+            "status": "match",
+            "expected_type": "composite",
+            "aggregation": "all",
+            "parts": [
+              {
+                "status": "match",
+                "generated": "1/(s + 2)",
+                "expected": "1/(s+2)",
+                "expected_type": "symbolic",
+                "generated_parsed": "1/(s + 2)",
+                "expected_parsed": "1/(s + 2)",
+                "name": "transform"
+              },
+              {
+                "status": "match",
+                "generated": "Re(s) > -2",
+                "expected": "re(s) > -2",
+                "expected_type": "inequality",
+                "generated_parsed": "re(s) > -2",
+                "expected_parsed": "re(s) > -2",
+                "name": "roc"
+              }
+            ],
+            "generated": "1/(s + 2), Re(s) > -2",
+            "expected": {
+              "type": "composite",
+              "aggregation": "all",
+              "parts": [
+                {
+                  "name": "transform",
+                  "type": "symbolic",
+                  "expression": "1/(s+2)"
+                },
+                {
+                  "name": "roc",
+                  "type": "inequality",
+                  "expression": "re(s) > -2"
+                }
+              ]
+            }
+          },
+          "category_counts": {
+            "unclear": 1,
+            "passed": 1,
+            "integral_skip": 3,
+            "first_step": 1,
+            "parse_fail": 1
+          },
+          "legacy_pass_rate_pct": 28.6
+        },
+        "verification": {
+          "passed": 2,
+          "failed": 0,
+          "unclear": 5,
+          "total": 7,
+          "pass_rate_pct": 28.6,
+          "time_s": 0.23,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Write the definition of the Laplace transform",
+              "expression_given": "integrate(x(t) * exp(-s*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(s)) < pi/2) & (Abs(arg(s) + pi) < pi/2)), (Integral(x*exp(-s*t), (t, -oo, oo)), True))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Substitute the given signal x(t) = exp(-2*t) * u(t)",
+              "expression_given": "integrate(exp(-2*t) * u(t) * exp(-s*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, Ne(s, -2) & (Abs(arg(s)) <= pi/2) & (Abs(arg(s) + pi) < pi/2) & (cos(Abs(arg(s) + pi))*Abs(s) > 2)), (Integral(u*exp(-2*t)*exp(-s*t), (t, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(s)) < pi/2) & (Abs(arg(s) + pi) < pi/2)), (Integral(x*exp(-s*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Simplify the exponential terms",
+              "expression_given": "integrate(exp(-(s+2)*t) * u(t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(-s - 2)) < pi/2) & (Abs(arg(-s - 2) + pi) < pi/2)), (Integral(u*exp(t*(-s - 2)), (t, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, Ne(s, -2) & (Abs(arg(s)) <= pi/2) & (Abs(arg(s) + pi) < pi/2) & (cos(Abs(arg(s) + pi))*Abs(s) > 2)), (Integral(u*exp(-2*t)*exp(-s*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": "Integrand equivalence confirmed"
+            },
+            {
+              "step_number": 4,
+              "description": "Use the property of the unit step function to change integration limits",
+              "expression_given": "integrate(exp(-(s+2)*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((-1/(-s - 2), Abs(arg(-s - 2) + pi) < pi/2), (Integral(exp(t*(-s - 2)), (t, 0, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(-s - 2)) < pi/2) & (Abs(arg(-s - 2) + pi) < pi/2)), (Integral(u*exp(t*(-s - 2)), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 5,
+              "description": "Evaluate the integral as an improper integral",
+              "expression_given": "limit((1 - exp(-(s+2)*T)) / (s+2), T, oo)",
+              "expression_parsed": null,
+              "previous_parsed": "Piecewise((-1/(-s - 2), Abs(arg(-s - 2) + pi) < pi/2), (Integral(exp(t*(-s - 2)), (t, 0, oo)), True))",
+              "equivalence_checked": false,
+              "is_valid": null,
+              "category": "parse_fail",
+              "error_message": "Could not parse \u2014 review manually"
+            },
+            {
+              "step_number": 6,
+              "description": "Analyze convergence: the exponential term vanishes as T approaches infinity only if Re(s+2) > 0",
+              "expression_given": "Re(s) > -2",
+              "expression_parsed": "re(s) > -2",
+              "previous_parsed": "Piecewise((-1/(-s - 2), Abs(arg(-s - 2) + pi) < pi/2), (Integral(exp(t*(-s - 2)), (t, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 7,
+              "description": "Under the ROC condition, exp(-(s+2)*T) goes to zero",
+              "expression_given": "1 / (s + 2)",
+              "expression_parsed": "1/(s + 2)",
+              "previous_parsed": "re(s) > -2",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 7 \u2014 fast mode, review manually"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q11",
+      "question": "Compute the Fourier transform of the two-sided decaying exponential x(t) = exp(-a*|t|) with a > 0.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:50:47.694308",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.14,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "fourier_transform"
+        ],
+        "prerequisites_added": [
+          "fourier_series",
+          "complex_numbers"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 11,
+        "answer_time_s": 74.94,
+        "retrieval_mode": "graph",
+        "final_result": "2*a / (a**2 + omega**2)",
+        "expected_result": "2*a/(a**2 + omega**2)",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "2*a/(a**2 + omega**2)"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 11,
+          "total_steps": 11,
+          "checked_total": 10,
+          "checked_passed": 3,
+          "checked_failed": 0,
+          "equiv_rate_pct": 30.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "2*a / (a**2 + omega**2)",
+            "expected": "2*a/(a**2 + omega**2)",
+            "expected_type": "symbolic",
+            "generated_parsed": "2*a/(a**2 + omega**2)",
+            "expected_parsed": "2*a/(a**2 + omega**2)"
+          },
+          "category_counts": {
+            "unclear": 2,
+            "first_step": 1,
+            "passed": 3,
+            "integral_skip": 5
+          },
+          "legacy_pass_rate_pct": 36.4
+        },
+        "verification": {
+          "passed": 4,
+          "failed": 0,
+          "unclear": 7,
+          "total": 11,
+          "pass_rate_pct": 36.4,
+          "time_s": 0.59,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Write the definition of the Fourier transform",
+              "expression_given": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Substitute x(t) = exp(-a*|t|) into the transform",
+              "expression_given": "integrate(exp(-a*Abs(t)) * exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((1/(a*(1 + I*omega/a)) + 1/(a*(1 - I*omega/a)), (((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) - pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) < pi/2))) & (((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) + pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)))), (Integral(exp(-a*Abs(t))*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Split the integral into two parts: negative and positive time",
+              "expression_given": "integrate(exp(-a*(-t)) * exp(-I*omega*t), (t, -oo, 0)) + integrate(exp(-a*t) * exp(-I*omega*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((1/(a*(1 - I*omega/a)), ((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) - pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) < pi/2))), (Integral(exp(a*t)*exp(-I*omega*t), (t, -oo, 0)), True)) + Piecewise((1/(a*(1 + I*omega/a)), ((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) + pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2))), (Integral(exp(-a*t)*exp(-I*omega*t), (t, 0, oo)), True))",
+              "previous_parsed": "Piecewise((1/(a*(1 + I*omega/a)) + 1/(a*(1 - I*omega/a)), (((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) - pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) < pi/2))) & (((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) + pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)))), (Integral(exp(-a*Abs(t))*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Simplify the first integral (t < 0): exp(-a*(-t)) = exp(a*t)",
+              "expression_given": "integrate(exp(a*t) * exp(-I*omega*t), (t, -oo, 0)) + integrate(exp(-a*t) * exp(-I*omega*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((1/(a*(1 - I*omega/a)), ((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) - pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) < pi/2))), (Integral(exp(a*t)*exp(-I*omega*t), (t, -oo, 0)), True)) + Piecewise((1/(a*(1 + I*omega/a)), ((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) + pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2))), (Integral(exp(-a*t)*exp(-I*omega*t), (t, 0, oo)), True))",
+              "previous_parsed": "Piecewise((1/(a*(1 - I*omega/a)), ((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) - pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) < pi/2))), (Integral(exp(a*t)*exp(-I*omega*t), (t, -oo, 0)), True)) + Piecewise((1/(a*(1 + I*omega/a)), ((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) + pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2))), (Integral(exp(-a*t)*exp(-I*omega*t), (t, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 5,
+              "description": "Combine exponents in both integrals",
+              "expression_given": "integrate(exp((a - I*omega)*t), (t, -oo, 0)) + integrate(exp((-a - I*omega)*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((-1/(-a - I*omega), Abs(arg(-a - I*omega) + pi) < pi/2), (Integral(exp(t*(-a - I*omega)), (t, 0, oo)), True)) + Piecewise((1/(a - I*omega), Abs(arg(a - I*omega)) < pi/2), (Integral(exp(t*(a - I*omega)), (t, -oo, 0)), True))",
+              "previous_parsed": "Piecewise((1/(a*(1 - I*omega/a)), ((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) - pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) - pi/2) < pi/2))), (Integral(exp(a*t)*exp(-I*omega*t), (t, -oo, 0)), True)) + Piecewise((1/(a*(1 + I*omega/a)), ((Abs(arg(a)) <= pi/2) & (Abs(arg(omega) + pi/2) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) <= pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2))), (Integral(exp(-a*t)*exp(-I*omega*t), (t, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 6,
+              "description": "Evaluate the first integral from -\u221e to 0",
+              "expression_given": "1/(a - I*omega)",
+              "expression_parsed": "1/(a - I*omega)",
+              "previous_parsed": "Piecewise((-1/(-a - I*omega), Abs(arg(-a - I*omega) + pi) < pi/2), (Integral(exp(t*(-a - I*omega)), (t, 0, oo)), True)) + Piecewise((1/(a - I*omega), Abs(arg(a - I*omega)) < pi/2), (Integral(exp(t*(a - I*omega)), (t, -oo, 0)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 7,
+              "description": "Evaluate the second integral from 0 to \u221e",
+              "expression_given": "1/(a + I*omega)",
+              "expression_parsed": "1/(a + I*omega)",
+              "previous_parsed": "1/(a - I*omega)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 7 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 8,
+              "description": "Add the two results",
+              "expression_given": "1/(a - I*omega) + 1/(a + I*omega)",
+              "expression_parsed": "1/(a + I*omega) + 1/(a - I*omega)",
+              "previous_parsed": "1/(a + I*omega)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 8 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 9,
+              "description": "Combine the fractions over a common denominator",
+              "expression_given": "( (a + I*omega) + (a - I*omega) ) / ( (a - I*omega)*(a + I*omega) )",
+              "expression_parsed": "2*a/((a - I*omega)*(a + I*omega))",
+              "previous_parsed": "1/(a + I*omega) + 1/(a - I*omega)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 10,
+              "description": "Simplify numerator: (a + I*omega) + (a - I*omega) = 2a",
+              "expression_given": "2*a / ( (a - I*omega)*(a + I*omega) )",
+              "expression_parsed": "2*a/((a - I*omega)*(a + I*omega))",
+              "previous_parsed": "2*a/((a - I*omega)*(a + I*omega))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 11,
+              "description": "Simplify denominator: (a - I*omega)(a + I*omega) = a^2 + omega^2",
+              "expression_given": "2*a / (a**2 + omega**2)",
+              "expression_parsed": "2*a/(a**2 + omega**2)",
+              "previous_parsed": "2*a/((a - I*omega)*(a + I*omega))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q13",
+      "question": "Compute the inverse Fourier transform of X(j*omega) = 2*pi*delta(omega).",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:52:50.068793",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.05,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "fourier_transform"
+        ],
+        "prerequisites_added": [
+          "fourier_series",
+          "complex_numbers"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 5,
+        "answer_time_s": 13.26,
+        "retrieval_mode": "graph",
+        "final_result": "1",
+        "expected_result": "1",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "1"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 5,
+          "total_steps": 5,
+          "checked_total": 4,
+          "checked_passed": 3,
+          "checked_failed": 0,
+          "equiv_rate_pct": 75.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "1",
+            "expected": "1",
+            "expected_type": "symbolic",
+            "generated_parsed": "1",
+            "expected_parsed": "1"
+          },
+          "category_counts": {
+            "first_step": 1,
+            "passed": 3,
+            "integral_skip": 1
+          },
+          "legacy_pass_rate_pct": 80.0
+        },
+        "verification": {
+          "passed": 4,
+          "failed": 0,
+          "unclear": 1,
+          "total": 5,
+          "pass_rate_pct": 80.0,
+          "time_s": 0.06,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the inverse Fourier transform formula",
+              "expression_given": "1/(2*pi) * integrate(X * exp(I*omega*t), (omega, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(t) - pi/2) < pi/2) & (Abs(arg(t) + pi/2) < pi/2)), (Integral(X*exp(I*omega*t), (omega, -oo, oo)), True))/(2*pi)",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Substitute X(j*omega) = 2*pi*delta(omega) into the integral",
+              "expression_given": "1/(2*pi) * integrate(2*pi*delta(omega) * exp(I*omega*t), (omega, -oo, oo))",
+              "expression_parsed": "1",
+              "previous_parsed": "Piecewise((0, (Abs(arg(t) - pi/2) < pi/2) & (Abs(arg(t) + pi/2) < pi/2)), (Integral(X*exp(I*omega*t), (omega, -oo, oo)), True))/(2*pi)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Simplify constants: 2*pi cancels with 1/(2*pi)",
+              "expression_given": "integrate(delta(omega) * exp(I*omega*t), (omega, -oo, oo))",
+              "expression_parsed": "1",
+              "previous_parsed": "1",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 4,
+              "description": "Apply the sifting property of the Dirac delta function",
+              "expression_given": "exp(I*0*t)",
+              "expression_parsed": "1",
+              "previous_parsed": "1",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 5,
+              "description": "Simplify exponential at omega = 0",
+              "expression_given": "1",
+              "expression_parsed": "1",
+              "previous_parsed": "1",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q14",
+      "question": "State the Fourier transform linearity property: express the transform of a*x1(t) + b*x2(t) in terms of X1(j*omega) and X2(j*omega).",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:53:48.462260",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.25,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "fourier_transform"
+        ],
+        "prerequisites_added": [
+          "fourier_series",
+          "complex_numbers"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 6,
+        "answer_time_s": 14.79,
+        "retrieval_mode": "graph",
+        "final_result": "a*X1(I*omega) + b*X2(I*omega)",
+        "expected_result": "a*X1(I*omega) + b*X2(I*omega)",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "a*X1(I*omega) + b*X2(I*omega)"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 6,
+          "total_steps": 6,
+          "checked_total": 5,
+          "checked_passed": 1,
+          "checked_failed": 0,
+          "equiv_rate_pct": 20.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "a*X1(I*omega) + b*X2(I*omega)",
+            "expected": "a*X1(I*omega) + b*X2(I*omega)",
+            "expected_type": "symbolic",
+            "generated_parsed": "a*X1(I*omega) + b*X2(I*omega)",
+            "expected_parsed": "a*X1(I*omega) + b*X2(I*omega)"
+          },
+          "category_counts": {
+            "first_step": 1,
+            "passed": 1,
+            "integral_skip": 4
+          },
+          "legacy_pass_rate_pct": 33.3
+        },
+        "verification": {
+          "passed": 2,
+          "failed": 0,
+          "unclear": 4,
+          "total": 6,
+          "pass_rate_pct": 33.3,
+          "time_s": 0.12,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the Fourier transform of a general signal x(t)",
+              "expression_given": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Substitute the linear combination a*x1(t) + b*x2(t) for x(t)",
+              "expression_given": "integrate((a*x1(t) + b*x2(t)) * exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral((a*x1 + 2*b*x)*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Distribute the exponential term over the sum",
+              "expression_given": "integrate(a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(a*x1*exp(-I*omega*t) + 2*b*x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral((a*x1 + 2*b*x)*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": "Integrand equivalence confirmed"
+            },
+            {
+              "step_number": 4,
+              "description": "Split the integral into two separate integrals",
+              "expression_given": "integrate(a*x1(t)*exp(-I*omega*t), (t, -oo, oo)) + integrate(b*x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(a*x1*exp(-I*omega*t), (t, -oo, oo)), True)) + Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(2*b*x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(a*x1*exp(-I*omega*t) + 2*b*x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 5,
+              "description": "Factor constants a and b out of the integrals",
+              "expression_given": "a*integrate(x1(t)*exp(-I*omega*t), (t, -oo, oo)) + b*integrate(x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+              "expression_parsed": "a*Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x1*exp(-I*omega*t), (t, -oo, oo)), True)) + b*Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(2*x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(a*x1*exp(-I*omega*t), (t, -oo, oo)), True)) + Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(2*b*x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 6,
+              "description": "Recognize each integral as the Fourier transform of the respective signal",
+              "expression_given": "a*X1(I*omega) + b*X2(I*omega)",
+              "expression_parsed": "2*X*b + X1*a",
+              "previous_parsed": "a*Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(x1*exp(-I*omega*t), (t, -oo, oo)), True)) + b*Piecewise((0, (Abs(arg(omega) - pi/2) < pi/2) & (Abs(arg(omega) + pi/2) < pi/2)), (Integral(2*x*exp(-I*omega*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q15",
+      "question": "Compute the Laplace transform of x(t) = u(t) (the unit step) and state its region of convergence.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:54:48.661615",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.06,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_11.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "laplace_transform"
+        ],
+        "prerequisites_added": [
+          "complex_numbers",
+          "differential_equations"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_11.pdf",
+          "MIT_PDF_SET_8.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 3,
+        "answer_time_s": 15.7,
+        "retrieval_mode": "graph",
+        "final_result": "1/s, re(s) > 0",
+        "expected_result": "transform: 1/s; roc: re(s) > 0",
+        "expected_answer": {
+          "type": "composite",
+          "aggregation": "all",
+          "parts": [
+            {
+              "name": "transform",
+              "type": "symbolic",
+              "expression": "1/s"
+            },
+            {
+              "name": "roc",
+              "type": "inequality",
+              "expression": "re(s) > 0"
+            }
+          ]
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 3,
+          "total_steps": 3,
+          "checked_total": 2,
+          "checked_passed": 0,
+          "checked_failed": 0,
+          "equiv_rate_pct": 0.0,
+          "final_answer_match": {
+            "status": "match",
+            "expected_type": "composite",
+            "aggregation": "all",
+            "parts": [
+              {
+                "status": "match",
+                "generated": "1/s",
+                "expected": "1/s",
+                "expected_type": "symbolic",
+                "generated_parsed": "1/s",
+                "expected_parsed": "1/s",
+                "name": "transform"
+              },
+              {
+                "status": "match",
+                "generated": "re(s) > 0",
+                "expected": "re(s) > 0",
+                "expected_type": "inequality",
+                "generated_parsed": "re(s) > 0",
+                "expected_parsed": "re(s) > 0",
+                "name": "roc"
+              }
+            ],
+            "generated": "1/s, re(s) > 0",
+            "expected": {
+              "type": "composite",
+              "aggregation": "all",
+              "parts": [
+                {
+                  "name": "transform",
+                  "type": "symbolic",
+                  "expression": "1/s"
+                },
+                {
+                  "name": "roc",
+                  "type": "inequality",
+                  "expression": "re(s) > 0"
+                }
+              ]
+            }
+          },
+          "category_counts": {
+            "first_step": 1,
+            "integral_skip": 2
+          },
+          "legacy_pass_rate_pct": 33.3
+        },
+        "verification": {
+          "passed": 1,
+          "failed": 0,
+          "unclear": 2,
+          "total": 3,
+          "pass_rate_pct": 33.3,
+          "time_s": 0.03,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Write the definition of the Laplace transform for x(t) = u(t)",
+              "expression_given": "integrate(u(t) * exp(-s*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((u/s, Abs(arg(s)) < pi/2), (Integral(u*exp(-s*t), (t, 0, oo)), True))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Since u(t) = 1 for t >= 0, replace u(t) with 1 in the integral",
+              "expression_given": "integrate(exp(-s*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((1/s, Abs(arg(s)) < pi/2), (Integral(exp(-s*t), (t, 0, oo)), True))",
+              "previous_parsed": "Piecewise((u/s, Abs(arg(s)) < pi/2), (Integral(u*exp(-s*t), (t, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Evaluate the integral of exp(-s*t) from 0 to infinity",
+              "expression_given": "1/s",
+              "expression_parsed": "1/s",
+              "previous_parsed": "Piecewise((1/s, Abs(arg(s)) < pi/2), (Integral(exp(-s*t), (t, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q16",
+      "question": "Compute the Laplace transform of x(t) = t*u(t) and state its region of convergence.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:55:49.487535",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.06,
+        "chunk_sources": [
+          "MIT_PDF_SET_12.pdf",
+          "MIT_PDF_SET_11.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "laplace_transform"
+        ],
+        "prerequisites_added": [
+          "complex_numbers",
+          "differential_equations"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_12.pdf",
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_11.pdf",
+          "MIT_PDF_SET_8.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 5,
+        "answer_time_s": 76.25,
+        "retrieval_mode": "graph",
+        "final_result": "1 / s**2, re(s) > 0",
+        "expected_result": "transform: 1/s**2; roc: re(s) > 0",
+        "expected_answer": {
+          "type": "composite",
+          "aggregation": "all",
+          "parts": [
+            {
+              "name": "transform",
+              "type": "symbolic",
+              "expression": "1/s**2"
+            },
+            {
+              "name": "roc",
+              "type": "inequality",
+              "expression": "re(s) > 0"
+            }
+          ]
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 5,
+          "total_steps": 5,
+          "checked_total": 4,
+          "checked_passed": 2,
+          "checked_failed": 0,
+          "equiv_rate_pct": 50.0,
+          "final_answer_match": {
+            "status": "match",
+            "expected_type": "composite",
+            "aggregation": "all",
+            "parts": [
+              {
+                "status": "match",
+                "generated": "1 / s**2",
+                "expected": "1/s**2",
+                "expected_type": "symbolic",
+                "generated_parsed": "s**(-2)",
+                "expected_parsed": "s**(-2)",
+                "name": "transform"
+              },
+              {
+                "status": "match",
+                "generated": "re(s) > 0",
+                "expected": "re(s) > 0",
+                "expected_type": "inequality",
+                "generated_parsed": "re(s) > 0",
+                "expected_parsed": "re(s) > 0",
+                "name": "roc"
+              }
+            ],
+            "generated": "1 / s**2, re(s) > 0",
+            "expected": {
+              "type": "composite",
+              "aggregation": "all",
+              "parts": [
+                {
+                  "name": "transform",
+                  "type": "symbolic",
+                  "expression": "1/s**2"
+                },
+                {
+                  "name": "roc",
+                  "type": "inequality",
+                  "expression": "re(s) > 0"
+                }
+              ]
+            }
+          },
+          "category_counts": {
+            "first_step": 1,
+            "passed": 2,
+            "integral_skip": 2
+          },
+          "legacy_pass_rate_pct": 60.0
+        },
+        "verification": {
+          "passed": 3,
+          "failed": 0,
+          "unclear": 2,
+          "total": 5,
+          "pass_rate_pct": 60.0,
+          "time_s": 0.02,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Write the definition of the Laplace transform for x(t) = t*u(t)",
+              "expression_given": "integrate(t * exp(-s*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((s**(-2), Abs(arg(s)) < pi/2), (Integral(t*exp(-s*t), (t, 0, oo)), True))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Use integration by parts: let u = t, dv = exp(-s*t)dt",
+              "expression_given": "(-t * exp(-s*t) / s).subs(t, 0) + (1/s) * integrate(exp(-s*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((1/s, Abs(arg(s)) < pi/2), (Integral(exp(-s*t), (t, 0, oo)), True))/s",
+              "previous_parsed": "Piecewise((s**(-2), Abs(arg(s)) < pi/2), (Integral(t*exp(-s*t), (t, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Evaluate the boundary term at t=0 and t->inf, assuming Re(s) > 0",
+              "expression_given": "0 + (1/s) * integrate(exp(-s*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((1/s, Abs(arg(s)) < pi/2), (Integral(exp(-s*t), (t, 0, oo)), True))/s",
+              "previous_parsed": "Piecewise((1/s, Abs(arg(s)) < pi/2), (Integral(exp(-s*t), (t, 0, oo)), True))/s",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": "Integrand equivalence confirmed"
+            },
+            {
+              "step_number": 4,
+              "description": "Compute the remaining integral which is the Laplace transform of u(t)",
+              "expression_given": "(1/s) * (1/s)",
+              "expression_parsed": "s**(-2)",
+              "previous_parsed": "Piecewise((1/s, Abs(arg(s)) < pi/2), (Integral(exp(-s*t), (t, 0, oo)), True))/s",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 5,
+              "description": "Simplify the expression",
+              "expression_given": "1 / s**2",
+              "expression_parsed": "s**(-2)",
+              "previous_parsed": "s**(-2)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q17",
+      "question": "State the Laplace differentiation property: express the Laplace transform of dx/dt in terms of X(s) and x(0).",
+      "difficulty": "advanced",
+      "timestamp": "2026-05-13T01:57:50.854297",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.18,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "laplace_transform"
+        ],
+        "prerequisites_added": [
+          "complex_numbers",
+          "differential_equations"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_8.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 4,
+        "answer_time_s": 75.51,
+        "retrieval_mode": "graph",
+        "final_result": "s*X(s) - x(0)",
+        "expected_result": "s*X(s) - x(0)",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "s*X(s) - x(0)"
+        },
+        "metrics": {
+          "parse_rate_pct": 75.0,
+          "parsed_count": 3,
+          "total_steps": 4,
+          "checked_total": 2,
+          "checked_passed": 0,
+          "checked_failed": 0,
+          "equiv_rate_pct": 0.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "s*X(s) - x(0)",
+            "expected": "s*X(s) - x(0)",
+            "expected_type": "symbolic",
+            "generated_parsed": "s*X(s) - x(0)",
+            "expected_parsed": "s*X(s) - x(0)"
+          },
+          "category_counts": {
+            "first_step": 1,
+            "parse_fail": 1,
+            "integral_skip": 2
+          },
+          "legacy_pass_rate_pct": 25.0
+        },
+        "verification": {
+          "passed": 1,
+          "failed": 0,
+          "unclear": 3,
+          "total": 4,
+          "pass_rate_pct": 25.0,
+          "time_s": 0.01,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the Laplace transform of dx/dt",
+              "expression_given": "integrate((diff(x(t), t)) * exp(-s*t), (t, 0, oo))",
+              "expression_parsed": "0",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Use integration by parts: let u = exp(-s*t), dv = dx/dt * dt",
+              "expression_given": "x(t)*exp(-s*t)|t=oo - x(t)*exp(-s*t)|t=0 + s*integrate(x(t)*exp(-s*t), (t, 0, oo))",
+              "expression_parsed": null,
+              "previous_parsed": "0",
+              "equivalence_checked": false,
+              "is_valid": null,
+              "category": "parse_fail",
+              "error_message": "Could not parse \u2014 review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Evaluate the boundary term at infinity assuming s is in the region of convergence so that exp(-s*t) decays",
+              "expression_given": "0 - x(0) + s*integrate(x(t)*exp(-s*t), (t, 0, oo))",
+              "expression_parsed": "s*Piecewise((x/s, Abs(arg(s)) < pi/2), (Integral(x*exp(-s*t), (t, 0, oo)), True))",
+              "previous_parsed": "0",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Recognize the integral as the Laplace transform of x(t), which is X(s)",
+              "expression_given": "-x(0) + s*X(s)",
+              "expression_parsed": "X*s",
+              "previous_parsed": "s*Piecewise((x/s, Abs(arg(s)) < pi/2), (Integral(x*exp(-s*t), (t, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q18",
+      "question": "Compute the Laplace transform of x(t) = sin(omega_0*t)*u(t).",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T01:59:51.598044",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.05,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "laplace_transform"
+        ],
+        "prerequisites_added": [
+          "complex_numbers",
+          "differential_equations"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_8.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 8,
+        "answer_time_s": 76.01,
+        "retrieval_mode": "graph",
+        "final_result": "omega_0 / (s**2 + omega_0**2), re(s) > 0",
+        "expected_result": "omega_0/(s**2 + omega_0**2)",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "omega_0/(s**2 + omega_0**2)"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 8,
+          "total_steps": 8,
+          "checked_total": 7,
+          "checked_passed": 3,
+          "checked_failed": 0,
+          "equiv_rate_pct": 42.9,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "omega_0 / (s**2 + omega_0**2), re(s) > 0",
+            "expected": "omega_0/(s**2 + omega_0**2)",
+            "expected_type": "symbolic",
+            "generated_parsed": "omega_0/(omega_0**2 + s**2)",
+            "expected_parsed": "omega_0/(omega_0**2 + s**2)"
+          },
+          "category_counts": {
+            "first_step": 1,
+            "passed": 3,
+            "integral_skip": 4
+          },
+          "legacy_pass_rate_pct": 50.0
+        },
+        "verification": {
+          "passed": 4,
+          "failed": 0,
+          "unclear": 4,
+          "total": 8,
+          "pass_rate_pct": 50.0,
+          "time_s": 0.55,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Write the definition of the Laplace transform for x(t) = sin(omega_0*t)*u(t)",
+              "expression_given": "integrate(sin(omega_0*t) * exp(-s*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((1/(omega_0*(1 + s**2/omega_0**2)), Eq(Abs(arg(omega_0)), 0) & (Abs(arg(s)) < pi/2)), (Integral(exp(-s*t)*sin(omega_0*t), (t, 0, oo)), True))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Express sin(omega_0*t) using Euler's formula",
+              "expression_given": "integrate((exp(I*omega_0*t) - exp(-I*omega_0*t)) / (2*I) * exp(-s*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((I/(2*s*(I*omega_0/s + 1)) - I/(2*s*(-I*omega_0/s + 1)), (((Abs(arg(s)) <= pi/2) & (Abs(arg(omega_0) - pi/2) < pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) - pi/2) <= pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) - pi/2) < pi/2))) & (((Abs(arg(s)) <= pi/2) & (Abs(arg(omega_0) + pi/2) < pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) + pi/2) <= pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) + pi/2) < pi/2)))), (Integral(-I*(exp(I*omega_0*t) - exp(-I*omega_0*t))*exp(-s*t)/2, (t, 0, oo)), True))",
+              "previous_parsed": "Piecewise((1/(omega_0*(1 + s**2/omega_0**2)), Eq(Abs(arg(omega_0)), 0) & (Abs(arg(s)) < pi/2)), (Integral(exp(-s*t)*sin(omega_0*t), (t, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Split the integral into two parts",
+              "expression_given": "1/(2*I) * (integrate(exp(I*omega_0*t) * exp(-s*t), (t, 0, oo)) - integrate(exp(-I*omega_0*t) * exp(-s*t), (t, 0, oo)))",
+              "expression_parsed": "-I*(Piecewise((1/(s*(-I*omega_0/s + 1)), ((Abs(arg(s)) <= pi/2) & (Abs(arg(omega_0) - pi/2) < pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) - pi/2) <= pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) - pi/2) < pi/2))), (Integral(exp(-s*t)*exp(I*omega_0*t), (t, 0, oo)), True)) - Piecewise((1/(s*(I*omega_0/s + 1)), ((Abs(arg(s)) <= pi/2) & (Abs(arg(omega_0) + pi/2) < pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) + pi/2) <= pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) + pi/2) < pi/2))), (Integral(exp(-s*t)*exp(-I*omega_0*t), (t, 0, oo)), True)))/2",
+              "previous_parsed": "Piecewise((I/(2*s*(I*omega_0/s + 1)) - I/(2*s*(-I*omega_0/s + 1)), (((Abs(arg(s)) <= pi/2) & (Abs(arg(omega_0) - pi/2) < pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) - pi/2) <= pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) - pi/2) < pi/2))) & (((Abs(arg(s)) <= pi/2) & (Abs(arg(omega_0) + pi/2) < pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) + pi/2) <= pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) + pi/2) < pi/2)))), (Integral(-I*(exp(I*omega_0*t) - exp(-I*omega_0*t))*exp(-s*t)/2, (t, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Combine exponents in each integral",
+              "expression_given": "1/(2*I) * (integrate(exp(-(s - I*omega_0)*t), (t, 0, oo)) - integrate(exp(-(s + I*omega_0)*t), (t, 0, oo)))",
+              "expression_parsed": "-I*(-Piecewise((-1/(-I*omega_0 - s), Abs(arg(-I*omega_0 - s) + pi) < pi/2), (Integral(exp(t*(-I*omega_0 - s)), (t, 0, oo)), True)) + Piecewise((-1/(I*omega_0 - s), Abs(arg(I*omega_0 - s) + pi) < pi/2), (Integral(exp(t*(I*omega_0 - s)), (t, 0, oo)), True)))/2",
+              "previous_parsed": "-I*(Piecewise((1/(s*(-I*omega_0/s + 1)), ((Abs(arg(s)) <= pi/2) & (Abs(arg(omega_0) - pi/2) < pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) - pi/2) <= pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) - pi/2) < pi/2))), (Integral(exp(-s*t)*exp(I*omega_0*t), (t, 0, oo)), True)) - Piecewise((1/(s*(I*omega_0/s + 1)), ((Abs(arg(s)) <= pi/2) & (Abs(arg(omega_0) + pi/2) < pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) + pi/2) <= pi/2)) | ((Abs(arg(s)) < pi/2) & (Abs(arg(omega_0) + pi/2) < pi/2))), (Integral(exp(-s*t)*exp(-I*omega_0*t), (t, 0, oo)), True)))/2",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 5,
+              "description": "Evaluate the first integral using the formula for integral of exp(-a*t) from 0 to infinity",
+              "expression_given": "1/(2*I) * (1/(s - I*omega_0) - 1/(s + I*omega_0))",
+              "expression_parsed": "-I*(-1/(I*omega_0 + s) + 1/(-I*omega_0 + s))/2",
+              "previous_parsed": "-I*(-Piecewise((-1/(-I*omega_0 - s), Abs(arg(-I*omega_0 - s) + pi) < pi/2), (Integral(exp(t*(-I*omega_0 - s)), (t, 0, oo)), True)) + Piecewise((-1/(I*omega_0 - s), Abs(arg(I*omega_0 - s) + pi) < pi/2), (Integral(exp(t*(I*omega_0 - s)), (t, 0, oo)), True)))/2",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 6,
+              "description": "Combine the two fractions over a common denominator",
+              "expression_given": "1/(2*I) * ((s + I*omega_0 - s + I*omega_0) / ((s - I*omega_0)*(s + I*omega_0)))",
+              "expression_parsed": "omega_0/((-I*omega_0 + s)*(I*omega_0 + s))",
+              "previous_parsed": "-I*(-1/(I*omega_0 + s) + 1/(-I*omega_0 + s))/2",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 7,
+              "description": "Simplify numerator and denominator",
+              "expression_given": "1/(2*I) * ((2*I*omega_0) / (s**2 + omega_0**2))",
+              "expression_parsed": "omega_0/(omega_0**2 + s**2)",
+              "previous_parsed": "omega_0/((-I*omega_0 + s)*(I*omega_0 + s))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 8,
+              "description": "Cancel I and simplify constants",
+              "expression_given": "omega_0 / (s**2 + omega_0**2)",
+              "expression_parsed": "omega_0/(omega_0**2 + s**2)",
+              "previous_parsed": "omega_0/(omega_0**2 + s**2)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q19",
+      "question": "Compute the Z-transform of x[n] = delta[n] (the unit impulse).",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T02:01:53.253620",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.11,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "z_transform"
+        ],
+        "prerequisites_added": [
+          "complex_numbers",
+          "sampling_theorem"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_20.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 5,
+        "answer_time_s": 15.25,
+        "retrieval_mode": "graph",
+        "final_result": "1, True",
+        "expected_result": "1",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "1"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 5,
+          "total_steps": 5,
+          "checked_total": 4,
+          "checked_passed": 1,
+          "checked_failed": 0,
+          "equiv_rate_pct": 25.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "1, True",
+            "expected": "1",
+            "expected_type": "symbolic",
+            "generated_parsed": "1",
+            "expected_parsed": "1"
+          },
+          "category_counts": {
+            "unclear": 3,
+            "first_step": 1,
+            "passed": 1
+          },
+          "legacy_pass_rate_pct": 40.0
+        },
+        "verification": {
+          "passed": 2,
+          "failed": 0,
+          "unclear": 3,
+          "total": 5,
+          "pass_rate_pct": 40.0,
+          "time_s": 0.42,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the Z-transform",
+              "expression_given": "Sum(x[n] * z**(-n), (n, -oo, oo))",
+              "expression_parsed": "Sum(x_n/z**n, (n, -oo, oo))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Substitute x[n] with delta[n], the unit impulse",
+              "expression_given": "Sum(delta[n] * z**(-n), (n, -oo, oo))",
+              "expression_parsed": "Sum(delta_n/z**n, (n, -oo, oo))",
+              "previous_parsed": "Sum(x_n/z**n, (n, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Use the sifting property of the unit impulse: it is 1 at n=0 and 0 elsewhere",
+              "expression_given": "delta[0] * z**(-0)",
+              "expression_parsed": "delta_0",
+              "previous_parsed": "Sum(delta_n/z**n, (n, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 3 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Evaluate the expression at n=0",
+              "expression_given": "1 * 1",
+              "expression_parsed": "1",
+              "previous_parsed": "delta_0",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 4 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 5,
+              "description": "Final simplification",
+              "expression_given": "1",
+              "expression_parsed": "1",
+              "previous_parsed": "1",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q20",
+      "question": "Compute the Z-transform of x[n] = u[n] (the discrete unit step) and state its region of convergence.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T02:02:54.061658",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.1,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "laplace_transform",
+          "z_transform"
+        ],
+        "prerequisites_added": [
+          "complex_numbers",
+          "differential_equations"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_8.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 7,
+        "answer_time_s": 75.05,
+        "retrieval_mode": "graph",
+        "final_result": "z/(z - 1), Abs(z) > 1",
+        "expected_result": "transform: z/(z - 1); roc: Abs(z) > 1",
+        "expected_answer": {
+          "type": "composite",
+          "aggregation": "all",
+          "parts": [
+            {
+              "name": "transform",
+              "type": "symbolic",
+              "expression": "z/(z - 1)"
+            },
+            {
+              "name": "roc",
+              "type": "inequality",
+              "expression": "Abs(z) > 1"
+            }
+          ]
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 7,
+          "total_steps": 7,
+          "checked_total": 6,
+          "checked_passed": 3,
+          "checked_failed": 0,
+          "equiv_rate_pct": 50.0,
+          "final_answer_match": {
+            "status": "match",
+            "expected_type": "composite",
+            "aggregation": "all",
+            "parts": [
+              {
+                "status": "match",
+                "generated": "z/(z - 1)",
+                "expected": "z/(z - 1)",
+                "expected_type": "symbolic",
+                "generated_parsed": "z/(z - 1)",
+                "expected_parsed": "z/(z - 1)",
+                "name": "transform"
+              },
+              {
+                "status": "match",
+                "generated": "Abs(z) > 1",
+                "expected": "Abs(z) > 1",
+                "expected_type": "inequality",
+                "generated_parsed": "Abs(z) > 1",
+                "expected_parsed": "Abs(z) > 1",
+                "name": "roc"
+              }
+            ],
+            "generated": "z/(z - 1), Abs(z) > 1",
+            "expected": {
+              "type": "composite",
+              "aggregation": "all",
+              "parts": [
+                {
+                  "name": "transform",
+                  "type": "symbolic",
+                  "expression": "z/(z - 1)"
+                },
+                {
+                  "name": "roc",
+                  "type": "inequality",
+                  "expression": "Abs(z) > 1"
+                }
+              ]
+            }
+          },
+          "category_counts": {
+            "unclear": 3,
+            "first_step": 1,
+            "passed": 3
+          },
+          "legacy_pass_rate_pct": 57.1
+        },
+        "verification": {
+          "passed": 4,
+          "failed": 0,
+          "unclear": 3,
+          "total": 7,
+          "pass_rate_pct": 57.1,
+          "time_s": 0.2,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the Z-transform",
+              "expression_given": "Sum(u[n] * z**(-n), (n, -oo, oo))",
+              "expression_parsed": "Sum(u_n/z**n, (n, -oo, oo))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Since u[n] is zero for n < 0, change summation limits to start at 0",
+              "expression_given": "Sum(z**(-n), (n, 0, oo))",
+              "expression_parsed": "Sum(z**(-n), (n, 0, oo))",
+              "previous_parsed": "Sum(u_n/z**n, (n, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Recognize the infinite geometric series with ratio z^(-1)",
+              "expression_given": "Sum((z**(-1))**n, (n, 0, oo))",
+              "expression_parsed": "Sum(z**(-n), (n, 0, oo))",
+              "previous_parsed": "Sum(z**(-n), (n, 0, oo))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 4,
+              "description": "Sum the geometric series for |z^(-1)| < 1",
+              "expression_given": "1 / (1 - z**(-1))",
+              "expression_parsed": "1/(1 - 1/z)",
+              "previous_parsed": "Sum(z**(-n), (n, 0, oo))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 5,
+              "description": "Simplify the expression by algebraic manipulation",
+              "expression_given": "z / (z - 1)",
+              "expression_parsed": "z/(z - 1)",
+              "previous_parsed": "1/(1 - 1/z)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 6,
+              "description": "Determine the region of convergence from the geometric series condition",
+              "expression_given": "Abs(z**(-1)) < 1",
+              "expression_parsed": "1/Abs(z) < 1",
+              "previous_parsed": "z/(z - 1)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 6 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 7,
+              "description": "Simplify the ROC condition",
+              "expression_given": "Abs(z) > 1",
+              "expression_parsed": "Abs(z) > 1",
+              "previous_parsed": "1/Abs(z) < 1",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 7 \u2014 fast mode, review manually"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q21",
+      "question": "Find the DC Fourier-series coefficient a_0 of a symmetric square wave that equals +A on the first half of each period and -A on the second half.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T02:04:54.446394",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.06,
+        "chunk_sources": [
+          "MIT_PDF_SET_15.pdf",
+          "MIT_PDF_SET_16.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.01,
+        "matched_concepts": [],
+        "prerequisites_added": [],
+        "extra_chunks": 0,
+        "chunk_sources": [
+          "MIT_PDF_SET_15.pdf",
+          "MIT_PDF_SET_16.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 8,
+        "answer_time_s": 15.96,
+        "retrieval_mode": "graph",
+        "final_result": "0",
+        "expected_result": "0",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "0"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 8,
+          "total_steps": 8,
+          "checked_total": 7,
+          "checked_passed": 5,
+          "checked_failed": 0,
+          "equiv_rate_pct": 71.4,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "0",
+            "expected": "0",
+            "expected_type": "symbolic",
+            "generated_parsed": "0",
+            "expected_parsed": "0"
+          },
+          "category_counts": {
+            "unclear": 2,
+            "first_step": 1,
+            "passed": 5
+          },
+          "legacy_pass_rate_pct": 75.0
+        },
+        "verification": {
+          "passed": 6,
+          "failed": 0,
+          "unclear": 2,
+          "total": 8,
+          "pass_rate_pct": 75.0,
+          "time_s": 0.05,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Write the general formula for the DC coefficient a_0",
+              "expression_given": "a_0 = (1/T) * integrate(x(t), (t, 0, T))",
+              "expression_parsed": "x",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Define the symmetric square wave over one period: +A for first half, -A for second half",
+              "expression_given": "Piecewise((A, t < T/2), (-A, True))",
+              "expression_parsed": "Piecewise((A, t < T/2), (-A, True))",
+              "previous_parsed": "x",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Split the integral into two intervals: 0 to T/2 and T/2 to T",
+              "expression_given": "(1/T) * (integrate(A, (t, 0, T/2)) + integrate(-A, (t, T/2, T)))",
+              "expression_parsed": "0",
+              "previous_parsed": "Piecewise((A, t < T/2), (-A, True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 3 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Evaluate the first integral: integral of A from 0 to T/2",
+              "expression_given": "(1/T) * (A * T/2 + integrate(-A, (t, T/2, T)))",
+              "expression_parsed": "0",
+              "previous_parsed": "0",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 5,
+              "description": "Evaluate the second integral: integral of -A from T/2 to T",
+              "expression_given": "(1/T) * (A * T/2 + (-A) * (T - T/2))",
+              "expression_parsed": "0",
+              "previous_parsed": "0",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 6,
+              "description": "Simplify the expression using T - T/2 = T/2",
+              "expression_given": "(1/T) * (A * T/2 - A * T/2)",
+              "expression_parsed": "0",
+              "previous_parsed": "0",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 7,
+              "description": "Simplify the sum inside the parentheses",
+              "expression_given": "(1/T) * 0",
+              "expression_parsed": "0",
+              "previous_parsed": "0",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 8,
+              "description": "Final simplification",
+              "expression_given": "0",
+              "expression_parsed": "0",
+              "previous_parsed": "0",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q22",
+      "question": "A causal LTI system obeys y'(t) + a*y(t) = x(t) with a > 0 and zero initial conditions. Compute its transfer function H(s).",
+      "difficulty": "advanced",
+      "timestamp": "2026-05-13T02:05:55.533094",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.2,
+        "chunk_sources": [
+          "MIT_PDF_SET_22.pdf",
+          "MIT_PDF_SET_14.pdf",
+          "MIT_PDF_SET_11.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.31,
+        "matched_concepts": [
+          "differential_equations",
+          "transfer_function"
+        ],
+        "prerequisites_added": [
+          "convolution",
+          "z_transform"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_12.pdf",
+          "MIT_PDF_SET_22.pdf",
+          "MIT_PDF_SET_11.pdf",
+          "MIT_PDF_SET_14.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 10,
+        "answer_time_s": 74.34,
+        "retrieval_mode": "graph",
+        "final_result": "1/(s + a)",
+        "expected_result": "1/(s + a)",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "1/(s + a)"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 10,
+          "total_steps": 10,
+          "checked_total": 9,
+          "checked_passed": 4,
+          "checked_failed": 0,
+          "equiv_rate_pct": 44.4,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "1/(s + a)",
+            "expected": "1/(s + a)",
+            "expected_type": "symbolic",
+            "generated_parsed": "1/(a + s)",
+            "expected_parsed": "1/(a + s)"
+          },
+          "category_counts": {
+            "unclear": 5,
+            "first_step": 1,
+            "passed": 4
+          },
+          "legacy_pass_rate_pct": 50.0
+        },
+        "verification": {
+          "passed": 5,
+          "failed": 0,
+          "unclear": 5,
+          "total": 10,
+          "pass_rate_pct": 50.0,
+          "time_s": 0.07,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the given differential equation",
+              "expression_given": "Derivative(y(t), t) + a*y(t)",
+              "expression_parsed": "a*y + Derivative(y, t)",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Apply Laplace transform to both sides assuming zero initial conditions",
+              "expression_given": "s*Y(s) - y(0) + a*Y(s)",
+              "expression_parsed": "Y*a + Y*s",
+              "previous_parsed": "a*y + Derivative(y, t)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Substitute zero initial condition y(0) = 0",
+              "expression_given": "s*Y(s) + a*Y(s)",
+              "expression_parsed": "Y*a + Y*s",
+              "previous_parsed": "Y*a + Y*s",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 4,
+              "description": "Apply Laplace transform to the input side",
+              "expression_given": "X(s)",
+              "expression_parsed": "X",
+              "previous_parsed": "Y*a + Y*s",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 4 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 5,
+              "description": "Equate transformed left and right sides",
+              "expression_given": "s*Y(s) + a*Y(s)",
+              "expression_parsed": "Y*a + Y*s",
+              "previous_parsed": "X",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 5 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 6,
+              "description": "Factor Y(s) on the left-hand side",
+              "expression_given": "Y(s)*(s + a)",
+              "expression_parsed": "Y*(a + s)",
+              "previous_parsed": "Y*a + Y*s",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 7,
+              "description": "Write equation as Y(s)*(s + a) = X(s)",
+              "expression_given": "Y(s)*(s + a)",
+              "expression_parsed": "Y*(a + s)",
+              "previous_parsed": "Y*(a + s)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 8,
+              "description": "Solve for Y(s)/X(s)",
+              "expression_given": "Y(s)/X(s)",
+              "expression_parsed": "Y/X",
+              "previous_parsed": "Y*(a + s)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 8 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 9,
+              "description": "Divide both sides by (s + a)",
+              "expression_given": "Y(s)/X(s)",
+              "expression_parsed": "Y/X",
+              "previous_parsed": "Y/X",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 10,
+              "description": "Express transfer function H(s) = Y(s)/X(s)",
+              "expression_given": "1/(s + a)",
+              "expression_parsed": "1/(a + s)",
+              "previous_parsed": "Y/X",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 10 \u2014 fast mode, review manually"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q23",
+      "question": "Compute the convolution y(t) = x(t) * h(t) for t >= 0, where x(t) = u(t) and h(t) = exp(-a*t)*u(t) with a > 0. Give y(t) as a closed-form expression valid for t >= 0.",
+      "difficulty": "advanced",
+      "timestamp": "2026-05-13T02:07:55.467310",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.22,
+        "chunk_sources": [
+          "MIT_PDF_SET_12.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.01,
+        "matched_concepts": [
+          "convolution"
+        ],
+        "prerequisites_added": [],
+        "extra_chunks": 0,
+        "chunk_sources": [
+          "MIT_PDF_SET_12.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 7,
+        "answer_time_s": 256.83,
+        "retrieval_mode": "graph",
+        "final_result": "(1 - exp(-a*t)) / a",
+        "expected_result": "(1 - exp(-a*t))/a",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "(1 - exp(-a*t))/a"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 7,
+          "total_steps": 7,
+          "checked_total": 6,
+          "checked_passed": 4,
+          "checked_failed": 0,
+          "equiv_rate_pct": 66.7,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "(1 - exp(-a*t)) / a",
+            "expected": "(1 - exp(-a*t))/a",
+            "expected_type": "symbolic",
+            "generated_parsed": "(1 - exp(-a*t))/a",
+            "expected_parsed": "(1 - exp(-a*t))/a"
+          },
+          "category_counts": {
+            "first_step": 1,
+            "passed": 4,
+            "integral_skip": 2
+          },
+          "legacy_pass_rate_pct": 71.4
+        },
+        "verification": {
+          "passed": 5,
+          "failed": 0,
+          "unclear": 2,
+          "total": 7,
+          "pass_rate_pct": 71.4,
+          "time_s": 0.15,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Write the convolution integral for y(t) = x(t) * h(t)",
+              "expression_given": "integrate(u(tau) * exp(-a*(t - tau)) * u(t - tau), (tau, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(a)) < pi/2) & (Abs(arg(a) + pi) < pi/2)), (Integral(u**2*exp(-a*(t - tau)), (tau, -oo, oo)), True))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Simplify limits using unit step functions: u(tau) is 0 for tau < 0",
+              "expression_given": "integrate(exp(-a*(t - tau)) * u(t - tau), (tau, 0, oo))",
+              "expression_parsed": "Piecewise((-u*exp(-a*t)/a, Abs(arg(a) + pi) < pi/2), (Integral(u*exp(-a*(t - tau)), (tau, 0, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(a)) < pi/2) & (Abs(arg(a) + pi) < pi/2)), (Integral(u**2*exp(-a*(t - tau)), (tau, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "For t >= 0, u(t - tau) is 1 when tau <= t, so upper limit becomes t",
+              "expression_given": "integrate(exp(-a*(t - tau)), (tau, 0, t))",
+              "expression_parsed": "Piecewise((1/a - exp(-a*t)/a, Ne(a, 0)), (t, True))",
+              "previous_parsed": "Piecewise((-u*exp(-a*t)/a, Abs(arg(a) + pi) < pi/2), (Integral(u*exp(-a*(t - tau)), (tau, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Factor out exp(-a*t) from the integral since it's independent of tau",
+              "expression_given": "exp(-a*t) * integrate(exp(a*tau), (tau, 0, t))",
+              "expression_parsed": "Piecewise((exp(a*t)/a - 1/a, Ne(a, 0)), (t, True))*exp(-a*t)",
+              "previous_parsed": "Piecewise((1/a - exp(-a*t)/a, Ne(a, 0)), (t, True))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 5,
+              "description": "Integrate exp(a*tau) with respect to tau",
+              "expression_given": "exp(-a*t) * (exp(a*t) / a - 1 / a)",
+              "expression_parsed": "(exp(a*t)/a - 1/a)*exp(-a*t)",
+              "previous_parsed": "Piecewise((exp(a*t)/a - 1/a, Ne(a, 0)), (t, True))*exp(-a*t)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 6,
+              "description": "Simplify the expression",
+              "expression_given": "exp(-a*t) * (exp(a*t) - 1) / a",
+              "expression_parsed": "(exp(a*t) - 1)*exp(-a*t)/a",
+              "previous_parsed": "(exp(a*t)/a - 1/a)*exp(-a*t)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 7,
+              "description": "Distribute exp(-a*t) over the numerator",
+              "expression_given": "(1 - exp(-a*t)) / a",
+              "expression_parsed": "(1 - exp(-a*t))/a",
+              "previous_parsed": "(exp(a*t) - 1)*exp(-a*t)/a",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q24",
+      "question": "For a causal LTI system with impulse response h(t) = exp(-a*t)*u(t), a > 0, give the transfer function H(s) and its region of convergence.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T02:12:57.687955",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.07,
+        "chunk_sources": [
+          "MIT_PDF_SET_22.pdf",
+          "MIT_PDF_SET_11.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.03,
+        "matched_concepts": [
+          "laplace_transform",
+          "convolution",
+          "transfer_function"
+        ],
+        "prerequisites_added": [
+          "complex_numbers",
+          "differential_equations"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_22.pdf",
+          "MIT_PDF_SET_11.pdf",
+          "MIT_PDF_SET_8.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 6,
+        "answer_time_s": 14.78,
+        "retrieval_mode": "graph",
+        "final_result": "1/(s + a), Re(s) > -a",
+        "expected_result": "transform: 1/(s + a); roc: re(s) > -a",
+        "expected_answer": {
+          "type": "composite",
+          "aggregation": "all",
+          "parts": [
+            {
+              "name": "transform",
+              "type": "symbolic",
+              "expression": "1/(s + a)"
+            },
+            {
+              "name": "roc",
+              "type": "inequality",
+              "expression": "re(s) > -a"
+            }
+          ]
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 6,
+          "total_steps": 6,
+          "checked_total": 5,
+          "checked_passed": 1,
+          "checked_failed": 0,
+          "equiv_rate_pct": 20.0,
+          "final_answer_match": {
+            "status": "match",
+            "expected_type": "composite",
+            "aggregation": "all",
+            "parts": [
+              {
+                "status": "match",
+                "generated": "1/(s + a)",
+                "expected": "1/(s + a)",
+                "expected_type": "symbolic",
+                "generated_parsed": "1/(a + s)",
+                "expected_parsed": "1/(a + s)",
+                "name": "transform"
+              },
+              {
+                "status": "match",
+                "generated": "Re(s) > -a",
+                "expected": "re(s) > -a",
+                "expected_type": "inequality",
+                "generated_parsed": "re(s) > -a",
+                "expected_parsed": "re(s) > -a",
+                "name": "roc"
+              }
+            ],
+            "generated": "1/(s + a), Re(s) > -a",
+            "expected": {
+              "type": "composite",
+              "aggregation": "all",
+              "parts": [
+                {
+                  "name": "transform",
+                  "type": "symbolic",
+                  "expression": "1/(s + a)"
+                },
+                {
+                  "name": "roc",
+                  "type": "inequality",
+                  "expression": "re(s) > -a"
+                }
+              ]
+            }
+          },
+          "category_counts": {
+            "unclear": 1,
+            "first_step": 1,
+            "passed": 1,
+            "integral_skip": 3
+          },
+          "legacy_pass_rate_pct": 33.3
+        },
+        "verification": {
+          "passed": 2,
+          "failed": 0,
+          "unclear": 4,
+          "total": 6,
+          "pass_rate_pct": 33.3,
+          "time_s": 0.29,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the Laplace transform of the impulse response",
+              "expression_given": "integrate(h(t) * exp(-s*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (Abs(arg(s)) < pi/2) & (Abs(arg(s) + pi) < pi/2)), (Integral(h*exp(-s*t), (t, -oo, oo)), True))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Substitute the given impulse response h(t) = exp(-a*t)*u(t)",
+              "expression_given": "integrate(exp(-a*t) * u(t) * exp(-s*t), (t, -oo, oo))",
+              "expression_parsed": "Piecewise((0, (((Abs(arg(a)) <= pi/2) & (Abs(arg(s)) < pi/2)) | ((Abs(arg(s)) <= pi/2) & (Abs(arg(a)) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(s)) < pi/2))) & (((Abs(arg(a) + pi) <= pi/2) & (Abs(arg(s) + pi) < pi/2)) | ((Abs(arg(s) + pi) <= pi/2) & (Abs(arg(a) + pi) < pi/2)) | ((Abs(arg(a) + pi) < pi/2) & (Abs(arg(s) + pi) < pi/2)))), (Integral(u*exp(-a*t)*exp(-s*t), (t, -oo, oo)), True))",
+              "previous_parsed": "Piecewise((0, (Abs(arg(s)) < pi/2) & (Abs(arg(s) + pi) < pi/2)), (Integral(h*exp(-s*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Use the property of the unit step function to change integration limits",
+              "expression_given": "integrate(exp(-a*t) * exp(-s*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((1/(s*(a/s + 1)), ((Abs(arg(a)) <= pi/2) & (Abs(arg(s)) < pi/2)) | ((Abs(arg(s)) <= pi/2) & (Abs(arg(a)) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(s)) < pi/2))), (Integral(exp(-a*t)*exp(-s*t), (t, 0, oo)), True))",
+              "previous_parsed": "Piecewise((0, (((Abs(arg(a)) <= pi/2) & (Abs(arg(s)) < pi/2)) | ((Abs(arg(s)) <= pi/2) & (Abs(arg(a)) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(s)) < pi/2))) & (((Abs(arg(a) + pi) <= pi/2) & (Abs(arg(s) + pi) < pi/2)) | ((Abs(arg(s) + pi) <= pi/2) & (Abs(arg(a) + pi) < pi/2)) | ((Abs(arg(a) + pi) < pi/2) & (Abs(arg(s) + pi) < pi/2)))), (Integral(u*exp(-a*t)*exp(-s*t), (t, -oo, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Combine exponential terms in the integrand",
+              "expression_given": "integrate(exp(-(s + a)*t), (t, 0, oo))",
+              "expression_parsed": "Piecewise((-1/(-a - s), Abs(arg(-a - s) + pi) < pi/2), (Integral(exp(t*(-a - s)), (t, 0, oo)), True))",
+              "previous_parsed": "Piecewise((1/(s*(a/s + 1)), ((Abs(arg(a)) <= pi/2) & (Abs(arg(s)) < pi/2)) | ((Abs(arg(s)) <= pi/2) & (Abs(arg(a)) < pi/2)) | ((Abs(arg(a)) < pi/2) & (Abs(arg(s)) < pi/2))), (Integral(exp(-a*t)*exp(-s*t), (t, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": "Integrand equivalence confirmed"
+            },
+            {
+              "step_number": 5,
+              "description": "Evaluate the improper integral",
+              "expression_given": "1 / (s + a)",
+              "expression_parsed": "1/(a + s)",
+              "previous_parsed": "Piecewise((-1/(-a - s), Abs(arg(-a - s) + pi) < pi/2), (Integral(exp(t*(-a - s)), (t, 0, oo)), True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "integral_skip",
+              "error_message": "Contains integral \u2014 skipped for speed, review manually"
+            },
+            {
+              "step_number": 6,
+              "description": "Determine the region of convergence by ensuring convergence of the integral",
+              "expression_given": "Re(s) > -a",
+              "expression_parsed": "re(s) > -a",
+              "previous_parsed": "1/(a + s)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 6 \u2014 fast mode, review manually"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q25",
+      "question": "Compute the Z-transform H(z) of h[n] = (1/2)**n * u[n].",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T02:13:57.866157",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.06,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_12.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "z_transform",
+          "convolution",
+          "transfer_function"
+        ],
+        "prerequisites_added": [
+          "complex_numbers",
+          "sampling_theorem"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_20.pdf",
+          "MIT_PDF_SET_12.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 6,
+        "answer_time_s": 255.03,
+        "retrieval_mode": "graph",
+        "final_result": "z / (z - 1/2), Abs(z) > 1/2",
+        "expected_result": "positive_power: z/(z - Rational(1,2)); negative_power: 1/(1 - Rational(1,2)/z)",
+        "expected_answer": {
+          "type": "composite",
+          "aggregation": "any",
+          "parts": [
+            {
+              "name": "positive_power",
+              "type": "symbolic",
+              "expression": "z/(z - Rational(1,2))"
+            },
+            {
+              "name": "negative_power",
+              "type": "symbolic",
+              "expression": "1/(1 - Rational(1,2)/z)"
+            }
+          ]
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 6,
+          "total_steps": 6,
+          "checked_total": 5,
+          "checked_passed": 3,
+          "checked_failed": 0,
+          "equiv_rate_pct": 60.0,
+          "final_answer_match": {
+            "status": "match",
+            "expected_type": "composite",
+            "aggregation": "any",
+            "parts": [
+              {
+                "status": "match",
+                "generated": "z / (z - 1/2), Abs(z) > 1/2",
+                "expected": "z/(z - Rational(1,2))",
+                "expected_type": "symbolic",
+                "generated_parsed": "z/(z - 1/2)",
+                "expected_parsed": "z/(z - 1/2)",
+                "name": "positive_power"
+              },
+              {
+                "status": "match",
+                "generated": "z / (z - 1/2), Abs(z) > 1/2",
+                "expected": "1/(1 - Rational(1,2)/z)",
+                "expected_type": "symbolic",
+                "generated_parsed": "z/(z - 1/2)",
+                "expected_parsed": "1/(1 - 1/(2*z))",
+                "name": "negative_power"
+              }
+            ],
+            "generated": "z / (z - 1/2), Abs(z) > 1/2",
+            "expected": {
+              "type": "composite",
+              "aggregation": "any",
+              "parts": [
+                {
+                  "name": "positive_power",
+                  "type": "symbolic",
+                  "expression": "z/(z - Rational(1,2))"
+                },
+                {
+                  "name": "negative_power",
+                  "type": "symbolic",
+                  "expression": "1/(1 - Rational(1,2)/z)"
+                }
+              ]
+            }
+          },
+          "category_counts": {
+            "unclear": 2,
+            "first_step": 1,
+            "passed": 3
+          },
+          "legacy_pass_rate_pct": 66.7
+        },
+        "verification": {
+          "passed": 4,
+          "failed": 0,
+          "unclear": 2,
+          "total": 6,
+          "pass_rate_pct": 66.7,
+          "time_s": 0.99,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the Z-transform",
+              "expression_given": "Sum(h[n] * z**(-n), (n, -oo, oo))",
+              "expression_parsed": "Sum(h_n/z**n, (n, -oo, oo))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Substitute h[n] = (1/2)^n * u[n] into the sum",
+              "expression_given": "Sum(((1/2)**n * u[n]) * z**(-n), (n, -oo, oo))",
+              "expression_parsed": "Sum(u_n/(2**n*z**n), (n, -oo, oo))",
+              "previous_parsed": "Sum(h_n/z**n, (n, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Use the fact that u[n] is zero for n < 0 to change summation limits",
+              "expression_given": "Sum(((1/2)**n * z**(-n)), (n, 0, oo))",
+              "expression_parsed": "Sum(1/(2**n*z**n), (n, 0, oo))",
+              "previous_parsed": "Sum(u_n/(2**n*z**n), (n, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 3 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Combine terms into a single geometric sequence",
+              "expression_given": "Sum(((1/2) * z**(-1))**n, (n, 0, oo))",
+              "expression_parsed": "Sum((1/(2*z))**n, (n, 0, oo))",
+              "previous_parsed": "Sum(1/(2**n*z**n), (n, 0, oo))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 5,
+              "description": "Apply the formula for the sum of an infinite geometric series",
+              "expression_given": "1 / (1 - (1/2) * z**(-1))",
+              "expression_parsed": "1/(1 - 1/(2*z))",
+              "previous_parsed": "Sum((1/(2*z))**n, (n, 0, oo))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 6,
+              "description": "Simplify the denominator by factoring out z in the denominator",
+              "expression_given": "z / (z - 1/2)",
+              "expression_parsed": "z/(z - 1/2)",
+              "previous_parsed": "1/(1 - 1/(2*z))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q26",
+      "question": "Given H(s) = 1/(s + a) with a > 0, derive the magnitude |H(j*omega)| of its frequency response.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T02:18:58.986274",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.05,
+        "chunk_sources": [
+          "MIT_PDF_SET_13.pdf",
+          "MIT_PDF_SET_22.pdf",
+          "MIT_PDF_SET_17.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "transfer_function",
+          "frequency_response"
+        ],
+        "prerequisites_added": [
+          "convolution",
+          "z_transform"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_13.pdf",
+          "MIT_PDF_SET_12.pdf",
+          "MIT_PDF_SET_22.pdf",
+          "MIT_PDF_SET_17.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 5,
+        "answer_time_s": 15.28,
+        "retrieval_mode": "graph",
+        "final_result": "1/sqrt(a**2 + omega**2)",
+        "expected_result": "1/sqrt(omega**2 + a**2)",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "1/sqrt(omega**2 + a**2)"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 5,
+          "total_steps": 5,
+          "checked_total": 4,
+          "checked_passed": 2,
+          "checked_failed": 0,
+          "equiv_rate_pct": 50.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "1/sqrt(a**2 + omega**2)",
+            "expected": "1/sqrt(omega**2 + a**2)",
+            "expected_type": "symbolic",
+            "generated_parsed": "1/sqrt(a**2 + omega**2)",
+            "expected_parsed": "1/sqrt(a**2 + omega**2)"
+          },
+          "category_counts": {
+            "unclear": 2,
+            "first_step": 1,
+            "passed": 2
+          },
+          "legacy_pass_rate_pct": 60.0
+        },
+        "verification": {
+          "passed": 3,
+          "failed": 0,
+          "unclear": 2,
+          "total": 5,
+          "pass_rate_pct": 60.0,
+          "time_s": 0.03,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the given system function H(s)",
+              "expression_given": "1/(s + a)",
+              "expression_parsed": "1/(a + s)",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Evaluate the system function on the imaginary axis to get the frequency response",
+              "expression_given": "1/(I*omega + a)",
+              "expression_parsed": "1/(a + I*omega)",
+              "previous_parsed": "1/(a + s)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Compute the magnitude of the complex frequency response",
+              "expression_given": "Abs(1/(a + I*omega))",
+              "expression_parsed": "1/sqrt(a**2 + omega**2)",
+              "previous_parsed": "1/(a + I*omega)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 3 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Use the property that the magnitude of a reciprocal is the reciprocal of the magnitude",
+              "expression_given": "1/Abs(a + I*omega)",
+              "expression_parsed": "1/sqrt(a**2 + omega**2)",
+              "previous_parsed": "1/sqrt(a**2 + omega**2)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 5,
+              "description": "Express the magnitude of the complex number in the denominator using Pythagorean theorem",
+              "expression_given": "1/sqrt(a**2 + omega**2)",
+              "expression_parsed": "1/sqrt(a**2 + omega**2)",
+              "previous_parsed": "1/sqrt(a**2 + omega**2)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q27",
+      "question": "Given H(z) = 1/(1 - r*z**(-1)) with |r| < 1, write the frequency response H(e**(j*Omega)).",
+      "difficulty": "advanced",
+      "timestamp": "2026-05-13T02:19:59.380933",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.06,
+        "chunk_sources": [
+          "MIT_PDF_SET_5.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "transfer_function",
+          "frequency_response"
+        ],
+        "prerequisites_added": [
+          "convolution",
+          "z_transform"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_12.pdf",
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_5.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 2,
+        "answer_time_s": 136.23,
+        "retrieval_mode": "graph",
+        "final_result": "1 / (1 - r * exp(-I * Omega))",
+        "expected_result": "1/(1 - r*exp(-I*Omega))",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "1/(1 - r*exp(-I*Omega))"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 2,
+          "total_steps": 2,
+          "checked_total": 1,
+          "checked_passed": 0,
+          "checked_failed": 0,
+          "equiv_rate_pct": 0.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "1 / (1 - r * exp(-I * Omega))",
+            "expected": "1/(1 - r*exp(-I*Omega))",
+            "expected_type": "symbolic",
+            "generated_parsed": "1/(-r*exp(-I*Omega) + 1)",
+            "expected_parsed": "1/(-r*exp(-I*Omega) + 1)"
+          },
+          "category_counts": {
+            "unclear": 1,
+            "first_step": 1
+          },
+          "legacy_pass_rate_pct": 50.0
+        },
+        "verification": {
+          "passed": 1,
+          "failed": 0,
+          "unclear": 1,
+          "total": 2,
+          "pass_rate_pct": 50.0,
+          "time_s": 0.05,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the given Z transform H(z)",
+              "expression_given": "1 / (1 - r * z**(-1))",
+              "expression_parsed": "1/(-r/z + 1)",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Substitute z = exp(j*Omega) to evaluate on the unit circle",
+              "expression_given": "1 / (1 - r * exp(-I * Omega))",
+              "expression_parsed": "1/(-r*exp(-I*Omega) + 1)",
+              "previous_parsed": "1/(-r/z + 1)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q28",
+      "question": "State the Nyquist sampling rate (in samples per second) for a continuous-time signal whose highest frequency component is f_max Hz.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T02:23:00.757879",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.09,
+        "chunk_sources": [
+          "MIT_PDF_SET_20.pdf",
+          "MIT_PDF_SET_5.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "sampling_theorem",
+          "modulation"
+        ],
+        "prerequisites_added": [
+          "fourier_transform",
+          "frequency_response"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_20.pdf",
+          "MIT_PDF_SET_5.pdf",
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 1,
+        "answer_time_s": 14.15,
+        "retrieval_mode": "graph",
+        "final_result": "2 * f_max",
+        "expected_result": "2*f_max",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "2*f_max"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 1,
+          "total_steps": 1,
+          "checked_total": 0,
+          "checked_passed": 0,
+          "checked_failed": 0,
+          "equiv_rate_pct": null,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "2 * f_max",
+            "expected": "2*f_max",
+            "expected_type": "symbolic",
+            "generated_parsed": "2*f_max",
+            "expected_parsed": "2*f_max"
+          },
+          "category_counts": {
+            "first_step": 1
+          },
+          "legacy_pass_rate_pct": 100.0
+        },
+        "verification": {
+          "passed": 1,
+          "failed": 0,
+          "unclear": 0,
+          "total": 1,
+          "pass_rate_pct": 100.0,
+          "time_s": 0.0,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Recall that the Nyquist sampling rate is twice the highest frequency to avoid aliasing",
+              "expression_given": "2 * f_max",
+              "expression_parsed": "2*f_max",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q29",
+      "question": "Give the transfer function H(s) of an ideal first-order continuous-time low-pass filter with cutoff frequency omega_c and unity DC gain.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-05-13T02:24:00.041370",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.08,
+        "chunk_sources": [
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.03,
+        "matched_concepts": [
+          "transfer_function",
+          "filters"
+        ],
+        "prerequisites_added": [
+          "convolution",
+          "z_transform"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_12.pdf",
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 1,
+        "answer_time_s": 496.3,
+        "retrieval_mode": "graph",
+        "final_result": "omega_c / (s + omega_c)",
+        "expected_result": "product_form: omega_c/(s + omega_c); ratio_form: 1/(1 + s/omega_c)",
+        "expected_answer": {
+          "type": "composite",
+          "aggregation": "any",
+          "parts": [
+            {
+              "name": "product_form",
+              "type": "symbolic",
+              "expression": "omega_c/(s + omega_c)"
+            },
+            {
+              "name": "ratio_form",
+              "type": "symbolic",
+              "expression": "1/(1 + s/omega_c)"
+            }
+          ]
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 1,
+          "total_steps": 1,
+          "checked_total": 0,
+          "checked_passed": 0,
+          "checked_failed": 0,
+          "equiv_rate_pct": null,
+          "final_answer_match": {
+            "status": "match",
+            "expected_type": "composite",
+            "aggregation": "any",
+            "parts": [
+              {
+                "status": "match",
+                "generated": "omega_c / (s + omega_c)",
+                "expected": "omega_c/(s + omega_c)",
+                "expected_type": "symbolic",
+                "generated_parsed": "omega_c/(omega_c + s)",
+                "expected_parsed": "omega_c/(omega_c + s)",
+                "name": "product_form"
+              },
+              {
+                "status": "match",
+                "generated": "omega_c / (s + omega_c)",
+                "expected": "1/(1 + s/omega_c)",
+                "expected_type": "symbolic",
+                "generated_parsed": "omega_c/(omega_c + s)",
+                "expected_parsed": "1/(1 + s/omega_c)",
+                "name": "ratio_form"
+              }
+            ],
+            "generated": "omega_c / (s + omega_c)",
+            "expected": {
+              "type": "composite",
+              "aggregation": "any",
+              "parts": [
+                {
+                  "name": "product_form",
+                  "type": "symbolic",
+                  "expression": "omega_c/(s + omega_c)"
+                },
+                {
+                  "name": "ratio_form",
+                  "type": "symbolic",
+                  "expression": "1/(1 + s/omega_c)"
+                }
+              ]
+            }
+          },
+          "category_counts": {
+            "first_step": 1
+          },
+          "legacy_pass_rate_pct": 100.0
+        },
+        "verification": {
+          "passed": 1,
+          "failed": 0,
+          "unclear": 0,
+          "total": 1,
+          "pass_rate_pct": 100.0,
+          "time_s": 0.01,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the general form of a first-order low-pass filter transfer function",
+              "expression_given": "1 / (1 + s / omega_c)",
+              "expression_parsed": "1/(1 + s/omega_c)",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q30",
+      "question": "Consider DSB-SC amplitude modulation with signal s(t) = m(t)*cos(omega_c*t), where M(j*omega) is the Fourier transform of m(t). Compute the Fourier transform S(j*omega) of s(t) in terms of M.",
+      "difficulty": "advanced",
+      "timestamp": "2026-05-13T02:33:01.475344",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.16,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 6,
+        "retrieval_time_s": 0.03,
+        "matched_concepts": [
+          "fourier_transform",
+          "modulation"
+        ],
+        "prerequisites_added": [
+          "fourier_series",
+          "complex_numbers"
+        ],
+        "extra_chunks": 2,
+        "chunk_sources": [
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_3.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 6,
+        "answer_time_s": 76.41,
+        "retrieval_mode": "graph",
+        "final_result": "(1/2)*M(I*(omega - omega_c)) + (1/2)*M(I*(omega + omega_c))",
+        "expected_result": "(M(I*(omega - omega_c)) + M(I*(omega + omega_c)))/2",
+        "expected_answer": {
+          "type": "symbolic",
+          "expression": "(M(I*(omega - omega_c)) + M(I*(omega + omega_c)))/2"
+        },
+        "metrics": {
+          "parse_rate_pct": 100.0,
+          "parsed_count": 6,
+          "total_steps": 6,
+          "checked_total": 5,
+          "checked_passed": 2,
+          "checked_failed": 0,
+          "equiv_rate_pct": 40.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "(1/2)*M(I*(omega - omega_c)) + (1/2)*M(I*(omega + omega_c))",
+            "expected": "(M(I*(omega - omega_c)) + M(I*(omega + omega_c)))/2",
+            "expected_type": "symbolic",
+            "generated_parsed": "M(I*(omega - omega_c))/2 + M(I*(omega + omega_c))/2",
+            "expected_parsed": "M(I*(omega - omega_c))/2 + M(I*(omega + omega_c))/2"
+          },
+          "category_counts": {
+            "unclear": 3,
+            "first_step": 1,
+            "passed": 2
+          },
+          "legacy_pass_rate_pct": 50.0
+        },
+        "verification": {
+          "passed": 3,
+          "failed": 0,
+          "unclear": 3,
+          "total": 6,
+          "pass_rate_pct": 50.0,
+          "time_s": 1.66,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with the definition of the modulated signal s(t)",
+              "expression_given": "m(t)*cos(omega_c*t)",
+              "expression_parsed": "m*cos(omega_c*t)",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Express cosine in terms of complex exponentials",
+              "expression_given": "m(t)*(exp(I*omega_c*t) + exp(-I*omega_c*t))/2",
+              "expression_parsed": "m*(exp(I*omega_c*t) + exp(-I*omega_c*t))/2",
+              "previous_parsed": "m*cos(omega_c*t)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Distribute m(t) over the sum",
+              "expression_given": "m(t)*exp(I*omega_c*t)/2 + m(t)*exp(-I*omega_c*t)/2",
+              "expression_parsed": "m*exp(I*omega_c*t)/2 + m*exp(-I*omega_c*t)/2",
+              "previous_parsed": "m*(exp(I*omega_c*t) + exp(-I*omega_c*t))/2",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 4,
+              "description": "Apply linearity of Fourier transform",
+              "expression_given": "FourierTransform(m(t)*exp(I*omega_c*t)/2, t, omega) + FourierTransform(m(t)*exp(-I*omega_c*t)/2, t, omega)",
+              "expression_parsed": "FourierTransform(m*exp(-I*omega_c*t)/2, t, omega) + FourierTransform(m*exp(I*omega_c*t)/2, t, omega)",
+              "previous_parsed": "m*exp(I*omega_c*t)/2 + m*exp(-I*omega_c*t)/2",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 4 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 5,
+              "description": "Factor out the constant 1/2 from each term",
+              "expression_given": "(1/2)*FourierTransform(m(t)*exp(I*omega_c*t), t, omega) + (1/2)*FourierTransform(m(t)*exp(-I*omega_c*t), t, omega)",
+              "expression_parsed": "FourierTransform(m*exp(-I*omega_c*t), t, omega)/2 + FourierTransform(m*exp(I*omega_c*t), t, omega)/2",
+              "previous_parsed": "FourierTransform(m*exp(-I*omega_c*t)/2, t, omega) + FourierTransform(m*exp(I*omega_c*t)/2, t, omega)",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 6,
+              "description": "Use the frequency shift property of Fourier transform: Fourier transform of m(t)*exp(I*omega_0*t) is M(j*(omega - omega_0))",
+              "expression_given": "(1/2)*M(I*(omega - omega_c)) + (1/2)*M(I*(omega + omega_c))",
+              "expression_parsed": "I*M*(omega - omega_c)/2 + I*M*(omega + omega_c)/2",
+              "previous_parsed": "FourierTransform(m*exp(-I*omega_c*t), t, omega)/2 + FourierTransform(m*exp(I*omega_c*t), t, omega)/2",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 6 \u2014 fast mode, review manually"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

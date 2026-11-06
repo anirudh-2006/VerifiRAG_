@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "r = 1",
+  "operation": "Consider the special case when |z| = 1, i.e., r = 1",
+  "confidence": 0.9,
+  "reasoning": "The step merely specializes the previous result by setting the magnitude r of z to 1, which is a valid restriction (|z|=1) and does not introduce any algebraic error.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.9,\n  \"reasoning\": \"The step merely specializes the previous result by setting the magnitude r of z to 1, which is a valid restriction (|z|=1) and does not introduce any algebraic error.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X_z = Sum(x_n * (r * exp(I*omega))**(-n), (n, -oo, oo))",
+  "operation": "Substitute polar form of z into the Z-transform expression",
+  "confidence": 1.0,
+  "reasoning": "The substitution of z = r * exp(I*omega) into the Z-transform expression is correctly applied, replacing z with its polar form in the summation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The substitution of z = r * exp(I*omega) into the Z-transform expression is correctly applied, replacing z with its polar form in the summation.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

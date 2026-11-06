@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "2 * f_max",
+  "operation": "Recall that the Nyquist sampling rate is twice the highest frequency to avoid aliasing",
+  "confidence": 1.0,
+  "reasoning": "The Nyquist-Shannon sampling theorem states that the minimum sampling rate must be at least twice the highest frequency component (2 * f_max) to avoid aliasing. This is a correct application of a fundamental definition in signal processing.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The Nyquist-Shannon sampling theorem states that the minimum sampling rate must be at least twice the highest frequency component (2 * f_max) to avoid aliasing. This is a correct application of a fundamental definition in signal processing.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

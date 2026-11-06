@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(z**(-n), (n, 0, oo))",
+  "operation": "Since u[n] is zero for n < 0, change summation limits to start at 0",
+  "confidence": 0.99,
+  "reasoning": "Because the unit step u[n] equals 0 for n<0, the terms with n<0 vanish, allowing the summation limits to be shifted to start at n=0, yielding Sum(z**(-n), (n, 0, oo)).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Because the unit step u[n] equals 0 for n<0, the terms with n<0 vanish, allowing the summation limits to be shifted to start at n=0, yielding Sum(z**(-n), (n, 0, oo)).\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

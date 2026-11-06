@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "z / (z - 1/2)",
+  "operation": "Simplify the denominator by factoring out z in the denominator",
+  "confidence": 0.95,
+  "reasoning": "The expression 1 / (1 - (1/2) * z^(-1)) can be rewritten by multiplying numerator and denominator by z, giving z / (z - 1/2). This is a valid algebraic simplification.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The expression 1 / (1 - (1/2) * z^(-1)) can be rewritten by multiplying numerator and denominator by z, giving z / (z - 1/2). This is a valid algebraic simplification.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(a**n * z**(-n), (n, 0, oo))",
+  "operation": "Use the fact that u[n] is zero for n < 0 to change summation limits",
+  "confidence": 1.0,
+  "reasoning": "The unit step function u[n] equals 0 for n < 0 and 1 for n \u2265 0, so the summation limits correctly change from (-\u221e, \u221e) to (0, \u221e) and the u[n] factor is properly removed.",
+  "judge_raw": "Let me analyze this step carefully.\n\n**Previous step:** `Sum(a**n * u_n * z**(-n), (n, -oo, oo))`\n\n**Current step:** `Sum(a**n * z**(-n), (n, 0, oo))`\n\n**Operation claimed:** Use the fact that u[n] is zero for n < 0 to change summation limits\n\n**Analysis:**\n\nThe unit step function u[n] is defined as:\n- u[n] = 1 for n \u2265 0\n- u[n] = 0 for n < 0\n\nIn the previous step, we have a sum from n = -\u221e to \u221e of the product `a**n * u_n * z**(-n)`.\n\nFor n < 0: u[n] = 0, so all terms with n < 0 contribute zero to the sum.\nFor n \u2265 0: u[n] = 1, so the terms become `a**n * 1 * z**(-n) = a**n * z**(-n)`.\n\nTherefore, the sum from -\u221e to \u221e can be reduced to a sum from 0 to \u221e, and the u[n] factor can be dropped (since it equals 1 in this range).\n\nThis is exactly what the current step shows.\n\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The unit step function u[n] equals 0 for n < 0 and 1 for n \u2265 0, so the summation limits correctly change from (-\u221e, \u221e) to (0, \u221e) and the u[n] factor is properly removed.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

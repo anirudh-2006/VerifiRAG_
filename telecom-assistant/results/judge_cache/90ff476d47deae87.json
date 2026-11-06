@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "omega0 = 2*pi/T0",
+  "operation": "Use omega0 = 2*pi/T0 to substitute angular frequency",
+  "confidence": 1.0,
+  "reasoning": "The substitution omega0 = 2*pi/T0 is a standard definition of angular frequency in Fourier series and is correctly applied here to relate the fundamental frequency to the period T0.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The substitution omega0 = 2*pi/T0 is a standard definition of angular frequency in Fourier series and is correctly applied here to relate the fundamental frequency to the period T0.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

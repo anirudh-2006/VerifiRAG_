@@ -1,0 +1,224 @@
+{
+  "question": "Is claude-sonnet-4-5's false-positive rate on injection negatives separable from gpt-oss-120b's?",
+  "headline": {
+    "test": "exact McNemar, two-sided",
+    "p_value": 0.03125,
+    "n_paired": 21
+  },
+  "why_paired_is_correct": "Both judges graded the same 24 negative trials from the same fixtures with the same prompt, so the two judge rows are repeated measures on one item set rather than independent samples. McNemar conditions on the items and uses only the discordant trials, which is the standard test for two raters on a shared item set. The unpaired Fisher figure below discards that pairing, treats the rows as independent, and therefore reports a smaller p-value than the design supports. Fisher is a sensitivity figure here, not the headline.",
+  "coding": "negatives only (severity != 'error'); 1 = committed FAIL (false positive), 0 = committed PASS (correct rejection); abstain and unparseable leave the set, per the covered-FPR convention",
+  "paired_mcnemar": {
+    "n_pairs": 21,
+    "b_a1_b0": 6,
+    "c_a0_b1": 0,
+    "n_discordant": 6,
+    "ties_11": 0,
+    "ties_00": 15,
+    "p_value_two_sided": 0.03125,
+    "test": "mcnemar_exact",
+    "a_is": "claude-sonnet-4-5 false positive",
+    "b_is": "gpt-oss-120b false positive",
+    "discordant_trials": [
+      {
+        "gold_id": 1,
+        "step_index": 1,
+        "mutation_kind": "commute_operands",
+        "family": "equivalent",
+        "claude": "failed",
+        "gpt-oss": "passed"
+      },
+      {
+        "gold_id": 1,
+        "step_index": 1,
+        "mutation_kind": "no_op",
+        "family": "control",
+        "claude": "failed",
+        "gpt-oss": "passed"
+      },
+      {
+        "gold_id": 1,
+        "step_index": 2,
+        "mutation_kind": "no_op",
+        "family": "control",
+        "claude": "failed",
+        "gpt-oss": "passed"
+      },
+      {
+        "gold_id": 3,
+        "step_index": 1,
+        "mutation_kind": "commute_operands",
+        "family": "equivalent",
+        "claude": "failed",
+        "gpt-oss": "passed"
+      },
+      {
+        "gold_id": 4,
+        "step_index": 1,
+        "mutation_kind": "commute_operands",
+        "family": "equivalent",
+        "claude": "failed",
+        "gpt-oss": "passed"
+      },
+      {
+        "gold_id": 8,
+        "step_index": 1,
+        "mutation_kind": "expand_power",
+        "family": "equivalent",
+        "claude": "failed",
+        "gpt-oss": "passed"
+      }
+    ]
+  },
+  "unpaired_fisher": {
+    "test": "Fisher exact, two-sided",
+    "p_value": 0.006662197700201104,
+    "table": {
+      "claude-sonnet-4-5": {
+        "fp": 6,
+        "tn": 15,
+        "covered_negatives": 21
+      },
+      "gpt-oss-120b": {
+        "fp": 0,
+        "tn": 24,
+        "covered_negatives": 24
+      }
+    },
+    "caveat": "ignores that both judges graded the same items"
+  },
+  "counts": {
+    "negatives_presented_to_each_judge": 24,
+    "claude-sonnet-4-5": {
+      "covered_negatives": 21,
+      "fp": 6,
+      "tn": 15,
+      "abstained_on_negatives": 3
+    },
+    "gpt-oss-120b": {
+      "covered_negatives": 24,
+      "fp": 0,
+      "tn": 24,
+      "abstained_on_negatives": 0
+    },
+    "negatives_both_judges_committed_on": 21
+  },
+  "gate": {
+    "published_source": "root CLAUDE.md, Table 1, error-injection suite",
+    "checks": [
+      "per-trial recount == each report's embedded metrics block",
+      "per-trial recount == published injection row",
+      "graded trials == 118 total / 94 error / 24 non-error"
+    ],
+    "passed": true,
+    "detail": {
+      "llm_judge:claude-sonnet-4-5": {
+        "source": "results/error_injection_report_claude.json",
+        "recounted": {
+          "tp": 90,
+          "fp": 6,
+          "tn": 15,
+          "fn": 2,
+          "abstain_error": 2,
+          "abstain_eq": 3
+        },
+        "graded": {
+          "total": 118,
+          "error": 94,
+          "non_error": 24
+        }
+      },
+      "llm_judge:gpt-oss-120b": {
+        "source": "results/error_injection_report_with_judge.json",
+        "recounted": {
+          "tp": 84,
+          "fp": 0,
+          "tn": 24,
+          "fn": 10,
+          "abstain_error": 0,
+          "abstain_eq": 0
+        },
+        "graded": {
+          "total": 118,
+          "error": 94,
+          "non_error": 24
+        }
+      }
+    }
+  },
+  "provenance": {
+    "generated_by": "scripts/build_paired_judge_test.py",
+    "inputs_are_frozen_verdicts": true,
+    "api_calls_made": 0,
+    "source_reports": {
+      "llm_judge:claude-sonnet-4-5": {
+        "path": "results/error_injection_report_claude.json",
+        "last_modified": "2026-08-24",
+        "revisions": [
+          {
+            "date": "2026-08-24",
+            "reason": "gold1 fixture repair (see notes/fixture_integrity_notes.md) and recovery of rate-limited trials",
+            "gold1_refixtured_and_regraded": {
+              "gold_id": 1,
+              "concept": "Time-shift property for a causal exponential",
+              "n_trials_replaced": 28,
+              "note": "fixture re-authored as a concrete derivation; all 28 gold1 trials re-graded against the new fixture"
+            },
+            "trials_recollected": [],
+            "recollection_reason": null
+          }
+        ],
+        "two_vintage_warning": null
+      },
+      "llm_judge:gpt-oss-120b": {
+        "path": "results/error_injection_report_with_judge.json",
+        "last_modified": "2026-08-24",
+        "revisions": [
+          {
+            "date": "2026-08-24",
+            "reason": "gold1 fixture repair (see notes/fixture_integrity_notes.md) and recovery of rate-limited trials",
+            "gold1_refixtured_and_regraded": {
+              "gold_id": 1,
+              "concept": "Time-shift property for a causal exponential",
+              "n_trials_replaced": 28,
+              "note": "fixture re-authored as a concrete derivation; all 28 gold1 trials re-graded against the new fixture"
+            },
+            "trials_recollected": [
+              {
+                "gold_id": 3,
+                "step_index": 1,
+                "mutation_kind": "constant_shift"
+              },
+              {
+                "gold_id": 3,
+                "step_index": 1,
+                "mutation_kind": "sign_flip"
+              },
+              {
+                "gold_id": 6,
+                "step_index": 2,
+                "mutation_kind": "constant_shift"
+              },
+              {
+                "gold_id": 6,
+                "step_index": 2,
+                "mutation_kind": "distribute"
+              },
+              {
+                "gold_id": 6,
+                "step_index": 2,
+                "mutation_kind": "missing_factor_of_2"
+              },
+              {
+                "gold_id": 6,
+                "step_index": 2,
+                "mutation_kind": "rename_variable"
+              }
+            ],
+            "recollection_reason": "original verdicts were RateLimitError 429 transport failures, not judgments"
+          }
+        ],
+        "two_vintage_warning": "This judge's injection verdicts were collected in more than one session. Most trials date from the original run; gold1 (28 trials) and 6 previously rate-limited trials were collected on 2026-08-24 against the same model name. Model behaviour behind that name may differ between vintages. Treat cross-trial comparisons within this row accordingly."
+      }
+    }
+  }
+}

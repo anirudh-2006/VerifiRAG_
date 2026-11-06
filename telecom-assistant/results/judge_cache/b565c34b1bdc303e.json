@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(u) * exp(-I*omega*(u + t0)), (u, -oo, oo))",
+  "operation": "Substitute variable: let u = t - t0, so t = u + t0 and dt = du",
+  "confidence": 1.0,
+  "reasoning": "The substitution u = t - t0 is correctly applied: when t - t0 = u, then t = u + t0, and the differential dt = du. The limits of integration remain unchanged since both range over all real numbers.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The substitution u = t - t0 is correctly applied: when t - t0 = u, then t = u + t0, and the differential dt = du. The limits of integration remain unchanged since both range over all real numbers.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

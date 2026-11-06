@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(I*Omega*n) * Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo))",
+  "operation": "Factor out the term that does not depend on k",
+  "confidence": 1.0,
+  "reasoning": "The exponential exp(I*Omega*(n-k)) = exp(I*Omega*n) * exp(-I*Omega*k) by exponential properties. Since exp(I*Omega*n) does not depend on the summation variable k, it can be factored out of the sum, leaving Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo)).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The exponential exp(I*Omega*(n-k)) = exp(I*Omega*n) * exp(-I*Omega*k) by exponential properties. Since exp(I*Omega*n) does not depend on the summation variable k, it can be factored out of the sum, leaving Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo)).\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

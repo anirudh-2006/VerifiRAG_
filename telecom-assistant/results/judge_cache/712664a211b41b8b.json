@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(u) * exp(-I*omega*(u + t0)), (u, -oo, oo))",
+  "operation": "Substitute variable: let u = t - t0, so t = u + t0 and dt = du",
+  "confidence": 0.95,
+  "reasoning": "The substitution u = t - t0 implies t = u + t0 and dt = du, which correctly transforms the integral. The limits remain from -\u221e to \u221e because the substitution is linear and covers the entire real line, so the expression is mathematically valid.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The substitution u = t - t0 implies t = u + t0 and dt = du, which correctly transforms the integral. The limits remain from -\u221e to \u221e because the substitution is linear and covers the entire real line, so the expression is mathematically valid.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

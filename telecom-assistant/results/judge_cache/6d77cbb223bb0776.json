@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X_z = Sum(x_n * (r * exp(I*omega))**(-n), (n, -oo, oo))",
+  "operation": "Substitute polar form of z into the Z-transform expression",
+  "confidence": 0.99,
+  "reasoning": "Substituting z = r\u00b7e^{i\u03c9} into the definition X_z = \u03a3 x_n z^{-n} yields X_z = \u03a3 x_n (r\u00b7e^{i\u03c9})^{-n}, which matches the given expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting z = r\u00b7e^{i\u03c9} into the definition X_z = \u03a3 x_n z^{-n} yields X_z = \u03a3 x_n (r\u00b7e^{i\u03c9})^{-n}, which matches the given expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

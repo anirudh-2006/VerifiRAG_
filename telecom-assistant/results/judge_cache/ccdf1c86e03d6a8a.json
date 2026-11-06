@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(t * exp(-s*t), (t, 0, oo))",
+  "operation": "Write the definition of the Laplace transform for x(t) = t*u(t)",
+  "confidence": 0.98,
+  "reasoning": "The Laplace transform definition L{x(t)} = \u222b_0^\u221e x(t)e^{-st}dt applied to x(t)=t\u00b7u(t) yields \u222b_0^\u221e t\u00b7e^{-st}dt, which matches the given expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The Laplace transform definition L{x(t)} = \u222b_0^\u221e x(t)e^{-st}dt applied to x(t)=t\u00b7u(t) yields \u222b_0^\u221e t\u00b7e^{-st}dt, which matches the given expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

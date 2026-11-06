@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "integrate(x(t) * exp(-s*t), (t, -oo, oo))",
+  "operation": "Start with the definition of the Laplace transform as an integral over time",
+  "confidence": 0.95,
+  "reasoning": "The Laplace transform is defined as an integral from 0 to \u221e, not from -\u221e to \u221e. The given expression shows integration from -\u221e to \u221e, which is incorrect for the standard (unilateral) Laplace transform definition.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The Laplace transform is defined as an integral from 0 to \u221e, not from -\u221e to \u221e. The given expression shows integration from -\u221e to \u221e, which is incorrect for the standard (unilateral) Laplace transform definition.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

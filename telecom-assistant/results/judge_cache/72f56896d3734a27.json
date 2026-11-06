@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "delta[0] * z**(-0)",
+  "operation": "Use the sifting property of the unit impulse: it is 1 at n=0 and 0 elsewhere",
+  "confidence": 0.95,
+  "reasoning": "The sifting property of the delta function states that Sum(delta[n] * f[n], (n, -oo, oo)) = f[0]. Applying this with f[n] = z**(-n) correctly yields delta[0] * z**(-0), which evaluates the sum at n=0 only.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The sifting property of the delta function states that Sum(delta[n] * f[n], (n, -oo, oo)) = f[0]. Applying this with f[n] = z**(-n) correctly yields delta[0] * z**(-0), which evaluates the sum at n=0 only.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

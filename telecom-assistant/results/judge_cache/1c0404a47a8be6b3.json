@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "z / (z - a)",
+  "operation": "Multiply numerator and denominator by z to simplify",
+  "confidence": 0.95,
+  "reasoning": "Multiplying numerator and denominator of 1 / (1 - a * z^(-1)) by z yields z / (z - a), which is algebraically correct and simplifies the expression as stated.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"Multiplying numerator and denominator of 1 / (1 - a * z^(-1)) by z yields z / (z - a), which is algebraically correct and simplifies the expression as stated.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

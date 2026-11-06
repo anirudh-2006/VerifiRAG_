@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(u[n] * z**(-n), (n, -oo, oo))",
+  "operation": "Start with the definition of the Z-transform",
+  "confidence": 0.99,
+  "reasoning": "The Z-transform is defined as \u03a3_{n=-\u221e}^{\u221e} x[n] z^{-n}; substituting x[n]=u[n] yields \u03a3 u[n] z^{-n} over all n, which matches the given expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The Z-transform is defined as \u03a3_{n=-\u221e}^{\u221e} x[n] z^{-n}; substituting x[n]=u[n] yields \u03a3 u[n] z^{-n} over all n, which matches the given expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

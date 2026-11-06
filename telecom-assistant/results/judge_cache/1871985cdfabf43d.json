@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(t) * exp(-sigma*t) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Separate the exponential into real and imaginary parts",
+  "confidence": 1.0,
+  "reasoning": "The step correctly applies the exponential property exp(a+b) = exp(a)*exp(b) to separate exp(-(sigma + I*omega)*t) into exp(-sigma*t)*exp(-I*omega*t).",
+  "judge_raw": "Let me verify if the exponential separation is mathematically valid.\n\nStarting from the previous step:\n`integrate(x(t) * exp(-(sigma + I*omega)*t), (t, -oo, oo))`\n\nThe current step claims to separate the exponential:\n`integrate(x(t) * exp(-sigma*t) * exp(-I*omega*t), (t, -oo, oo))`\n\nChecking the exponential property:\n- `exp(-(sigma + I*omega)*t) = exp(-sigma*t - I*omega*t)`\n- Using the property `exp(a + b) = exp(a) * exp(b)`:\n- `exp(-sigma*t - I*omega*t) = exp(-sigma*t) * exp(-I*omega*t)`\n\nThis is exactly what appears in the current step. The operation correctly applies the exponential addition property.\n\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The step correctly applies the exponential property exp(a+b) = exp(a)*exp(b) to separate exp(-(sigma + I*omega)*t) into exp(-sigma*t)*exp(-I*omega*t).\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

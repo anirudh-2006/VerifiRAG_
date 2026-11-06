@@ -1,0 +1,105 @@
+% ============================================================================
+% JUDGe @ NeurIPS 2026 — anonymous review copy (double-blind, OpenReview)
+% Short paper track: 4 pages of body content; references, acknowledgments,
+% checklist and technical appendices are excluded from that count.
+% ----------------------------------------------------------------------------
+% BUILD:
+%     cd <repo-root>/ && scripts/build_paper.sh paper-judge
+% The script cleans aux files first; skipping that makes new citations fail
+% silently. Style files (neurips_2026.sty) live in this directory.
+%
+% This is NOT the MathNLP paper. Do not carry over acl.sty or the 8-page limit.
+% The NeurIPS template's own nine-page limit is the main-conference limit and
+% does not apply; the workshop's 4-page short-paper limit governs.
+% ============================================================================
+\documentclass{article}
+
+% dblblindworkshop keeps the submission anonymized. sglblindworkshop and
+% nonanonymous do not — do not switch without reading paper-judge/CLAUDE.md.
+\usepackage[dblblindworkshop]{neurips_2026}
+
+% The workshop name is only emitted under the [final] option, so in submission
+% mode the page footer reads "Submitted to 40th Conference on Neural
+% Information Processing Systems (NeurIPS 2026). Do not distribute." and NOT
+% the workshop track name. That is expected template behaviour, not a
+% misconfiguration. Leave it alone.
+\workshoptitle{Can We Trust the Judge? Building Reliable Evaluation
+for Language Models}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{amsfonts}
+\usepackage{nicefrac}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+
+% Float spacing tightened 2026-08-30, purely to recover vertical space; no
+% text changed. neurips_2026.sty line 239 already sets \abovecaptionskip to 0pt
+% for tables, so that lever does not exist here. These are the remaining ones.
+\setlength{\textfloatsep}{8pt plus 2pt minus 2pt}
+\setlength{\floatsep}{8pt plus 2pt minus 2pt}
+\setlength{\intextsep}{8pt plus 2pt minus 2pt}
+
+% TODO marker. Renders visibly on purpose: nothing wearing this should reach
+% the submitted PDF. Grep for \todo before building the camera-ready.
+\newcommand{\todo}[1]{\textcolor{red}{\textbf{[TODO: #1]}}}
+
+\title{Passed, Then Failed: A Paired-Control Screen for Surface Sensitivity
+in LLM Judges}
+
+% Anonymous under dblblindworkshop; the style file suppresses this block.
+% Never put a real name, hostname, absolute path, repo name or org name here.
+\author{%
+  Anonymous Author(s) \\
+  Affiliation \\
+  Address \\
+  \texttt{email}
+}
+
+\begin{document}
+\maketitle
+
+% The abstract environment lives in sections/abstract.tex, not here --- the
+% template renews `abstract', so wrapping the \input in a second one would
+% nest the environment and break the build.
+\input{sections/abstract}
+
+% --- Body: five sections, in the order fixed by paper-judge/CLAUDE.md --------
+\input{sections/intro}        % 1. Reward signals, the rate-comparison confound
+% The facet mapping is kept in its own file so Section 1's prose stays
+% entirely author-written. It currently renders at the end of Section 1;
+% move the \input wherever the framing ends up wanting it.
+\input{sections/facets}       %    -> mapping onto the workshop's failure facets
+\input{sections/protocol}     % 2. Protocol
+\input{sections/flip}         % 3. The flip result (the ONE body table)
+\input{sections/validity}     % 4. Instrument validity
+\input{sections/limitations}  % 5. Limitations + abstention-rate proposal
+% ----------------------------------------------------------------------------
+
+% Use the ack environment rather than commenting the section out: the style
+% file hides it in anonymous mode and reveals it for the camera-ready.
+\begin{ack}
+\todo{acknowledgments, must stay empty or non-identifying until camera-ready}
+\end{ack}
+
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+\appendix
+% CUT 2026-08-29 for submission: both files were TODO-only scaffolds and
+% rendered visible red [TODO: ...] markers in the built PDF. appendix_a2.tex
+% carries TWO sections ("Ensemble Policies" and "Confidence Distributions and
+% Per-Trial Listings"), so dropping it removes appendices B and C together.
+% Nothing in the body referenced them; the only appendix cross-reference is
+% \ref{app:agreement} below, which renumbers to A automatically.
+% \input{sections/appendix_a1}  % A1 cascade variants
+% \input{sections/appendix_a2}  % A2 ensemble policies + confidence dists
+\input{sections/appendix_a3}  % A3 inter-judge agreement (moved from S3)
+
+\end{document}

@@ -1,0 +1,56 @@
+% ============================================================================
+% SECTION 5 --- Limitations and the disclosure-template proposal.
+% WRITTEN 2026-08-28 to a hard 0.35-page / ~17-line budget, on instruction.
+% This is the LAST section and the body was already over, so it was written
+% tight rather than trimmed after. Do not add a header, a conclusion, a
+% future-work note, or a restatement of any result.
+%
+% NO \paragraph HEADERS, on instruction: two bare paragraphs.
+%
+% SCOPE, on instruction: exactly five limitations and the proposal. The
+% earlier scaffold listed a different five under "none of these may be
+% softened". Three of those are covered elsewhere and one is moot here:
+%   - in-sample confidence thresholds -> stated in sections/flip.tex, last
+%     line of the "No usable confidence threshold" paragraph.
+%   - rewrite-concentration scoped to injection -> the flip.tex prose is
+%     already scoped to the injection suite throughout.
+%   - symbolic recall 0.000 human vs 0.234 injection -> neither number is
+%     stated in this paper, so there is nothing here to blur.
+%   - SINGLE ANNOTATOR was flagged as a real omission on 2026-08-28 and was
+%     RESTORED on 2026-08-29, joined to the single-domain sentence. It is
+%     covered nowhere else in this paper, and the human set is load-bearing
+%     (kappa 0.306 in sections/flip.tex, Q09.2 in sections/validity.tex,
+%     Appendix D). Do not drop it again for length.
+%
+% PROVENANCE OF EVERY NUMBER BELOW. Re-derived 2026-08-28 from
+% results/error_injection_report_claude.json, whose negative arm is identical
+% to the gpt-oss report's because both describe the same suite:
+%   10 pairs / 8 distinct sites / 2 sites carrying two rewrite operators
+%     -> family == "equivalent", not skipped: 10 trials over 8 distinct
+%        (gold_id, step_index); the two doubled sites are gold2 s1 and
+%        gold8 s1, matching Table~\ref{tab:flip}.
+%   24 negatives = 10 equivalent + 14 control; symbolic 20 PASS, 4 abstain,
+%     0 FAIL -> same file, verdicts.symbolic over both negative families.
+%   gpt-oss injection verdicts collected in two sessions against one model
+%     name -> root CLAUDE.md, "The gpt-oss injection row is two-vintage";
+%        provenance block in error_injection_report_with_judge.json.
+% ============================================================================
+\section{Limitations and a Proposal}
+\label{sec:limitations}
+
+The paired design is small and not fully independent: ten pairs span eight
+sites, and at two of those sites one control serves two rewrite operators.
+Two judges are not a survey, and what we report is a property of one model on
+one suite rather than of LLM judges as a class. The derivations come from a
+single domain, and the human-labeled testbed is single-annotator. The \texttt{gpt-oss-120b} injection verdicts were collected in
+two sessions against the same model name, so behavior behind that name may
+differ between them. The symbolic verifier abstains on 4 of the 24 negatives,
+so its agreement with the negative arm is a partial check and not a
+confirmation of every trial.
+
+We propose paired equivalence controls as a required field in the workshop's
+judge deployment disclosure template. A value-preserving rewrite, paired with
+a byte-identical copy of the original at the same site, needs no human
+annotation and can be generated programmatically wherever equivalence is
+checkable. It is cheap enough to run before a judge is selected rather than
+after its verdicts have been consumed.

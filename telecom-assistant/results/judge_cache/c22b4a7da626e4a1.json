@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Piecewise((1 / (I*k*pi), k % 2 == 1), (0, True))",
+  "operation": "Final expression using standard form",
+  "confidence": 0.95,
+  "reasoning": "The current step is identical to the previous step (step 10), and the operation description indicates this is the final expression in standard form. Since no mathematical transformation is claimed and the expression remains unchanged, this is valid as a labeling/finalization step.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The current step is identical to the previous step (step 10), and the operation description indicates this is the final expression in standard form. Since no mathematical transformation is claimed and the expression remains unchanged, this is valid as a labeling/finalization step.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

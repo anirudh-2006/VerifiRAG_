@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "H(z).subs(z, exp(I*Omega))",
+  "operation": "Express H(Omega) as the z-transform of h[n] evaluated on the unit circle",
+  "confidence": 0.95,
+  "reasoning": "The discrete-time Fourier transform (DTFT) H(Omega) is indeed equal to the z-transform H(z) evaluated on the unit circle where z = exp(I*Omega). This is a standard relationship between the z-transform and DTFT for discrete-time systems.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The discrete-time Fourier transform (DTFT) H(Omega) is indeed equal to the z-transform H(z) evaluated on the unit circle where z = exp(I*Omega). This is a standard relationship between the z-transform and DTFT for discrete-time systems.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

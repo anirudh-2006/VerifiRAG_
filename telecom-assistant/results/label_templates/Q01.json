@@ -1,0 +1,81 @@
+{
+  "id": "Q01",
+  "question": "Derive the Fourier transform of a rectangular pulse signal.",
+  "expected_final": "2*sin(omega)/omega",
+  "generated_final": "2*sin(omega)/omega",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Define the rectangular pulse function in time domain",
+      "expression_given": "Piecewise((1, Abs(t) <= 1), (0, True))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard unit rectangular pulse of half-width 1. Correct definition."
+    },
+    {
+      "step_number": 2,
+      "description": "Write the Fourier transform integral of the signal",
+      "expression_given": "integrate(exp(-I*omega*t), (t, -1, 1))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correctly applies the Fourier transform definition: since rect(t)=1 on [-1,1] and 0 elsewhere, the integral reduces to this form."
+    },
+    {
+      "step_number": 3,
+      "description": "Compute the integral of the complex exponential",
+      "expression_given": "(exp(-I*omega*t)/(-I*omega)) | (t=1) - (exp(-I*omega*t)/(-I*omega)) | (t=-1)",
+      "verifier_category": "parse_fail",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Antiderivative of exp(-I*omega*t) is exp(-I*omega*t)/(-I*omega). Limits correctly written as F(1) - F(-1). Parse fail is a tooling issue, not a math error."
+    },
+    {
+      "step_number": 4,
+      "description": "Evaluate the expression at the limits",
+      "expression_given": "exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct substitution: t=1 gives exp(-I*omega)/(-I*omega), t=-1 gives exp(I*omega)/(-I*omega). Subtraction is correct."
+    },
+    {
+      "step_number": 5,
+      "description": "Factor out common terms in the expression",
+      "expression_given": "(exp(-I*omega) - exp(I*omega)) / (-I*omega)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Common denominator (-I*omega) correctly factored out."
+    },
+    {
+      "step_number": 6,
+      "description": "Use the identity for sine: sin(omega) = (exp(I*omega) - exp(-I*omega))/(2*I)",
+      "expression_given": "-(2*I*sin(omega))/(-I*omega)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Numerator exp(-I*omega) - exp(I*omega) = -(exp(I*omega) - exp(-I*omega)) = -2*I*sin(omega). Substitution is correct."
+    },
+    {
+      "step_number": 7,
+      "description": "Simplify the imaginary unit in numerator and denominator",
+      "expression_given": "2*sin(omega)/omega",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "-(2*I*sin(omega))/(-I*omega) = (2*I*sin(omega))/(I*omega) = 2*sin(omega)/omega. The I cancels correctly. Final result matches expected."
+    }
+  ]
+}

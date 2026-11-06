@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X_z = Sum(y_n * exp(-I*omega*n), (n, -oo, oo))",
+  "operation": "Substitute y[n] into the sum to reveal the DTFT form",
+  "confidence": 0.95,
+  "reasoning": "The substitution of y_n = x_n * r^(-n) into the sum is correctly applied, resulting in X_z expressed as the sum of y_n * exp(-I*omega*n), which matches the form of the DTFT of y_n. This is a valid algebraic substitution.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The substitution of y_n = x_n * r^(-n) into the sum is correctly applied, resulting in X_z expressed as the sum of y_n * exp(-I*omega*n), which matches the form of the DTFT of y_n. This is a valid algebraic substitution.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-I*omega*t), (t, -1, 1))",
+  "operation": "Write the Fourier transform integral of the signal",
+  "confidence": 0.95,
+  "reasoning": "The Fourier transform of a function f(t) is given by \u222b f(t) e^(-i\u03c9t) dt over all t. Since the rectangular pulse is 1 for |t| \u2264 1 and 0 otherwise, the integral correctly reduces to integrating e^(-i\u03c9t) from -1 to 1.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The Fourier transform of a function f(t) is given by \u222b f(t) e^(-i\u03c9t) dt over all t. Since the rectangular pulse is 1 for |t| \u2264 1 and 0 otherwise, the integral correctly reduces to integrating e^(-i\u03c9t) from -1 to 1.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

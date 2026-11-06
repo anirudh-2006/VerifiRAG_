@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X(s) = integrate(x(t) * exp(-I*omega*t), (t, -oo, oo)) | sigma=0",
+  "operation": "If the region of convergence includes the imaginary axis (sigma = 0), then the weighting becomes 1",
+  "confidence": 0.95,
+  "reasoning": "Setting sigma = 0 in the expression X(s) = integrate(x(t) * exp(-sigma*t) * exp(-I*omega*t), (t, -oo, oo)) correctly yields X(s) = integrate(x(t) * exp(-I*omega*t), (t, -oo, oo)) since exp(0) = 1. This is the standard Fourier transform when the ROC includes the imaginary axis.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"Setting sigma = 0 in the expression X(s) = integrate(x(t) * exp(-sigma*t) * exp(-I*omega*t), (t, -oo, oo)) correctly yields X(s) = integrate(x(t) * exp(-I*omega*t), (t, -oo, oo)) since exp(0) = 1. This is the standard Fourier transform when the ROC includes the imaginary axis.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

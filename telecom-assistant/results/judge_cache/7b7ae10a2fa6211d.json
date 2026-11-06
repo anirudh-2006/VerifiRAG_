@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "1 / (s + a)",
+  "operation": "Evaluate the improper integral",
+  "confidence": 0.85,
+  "reasoning": "The integral of exp(-(s+a)*t) from 0 to infinity equals [-1/(s+a) * exp(-(s+a)*t)] evaluated from 0 to infinity, which gives 1/(s+a) only when Re(s+a) > 0. The step is missing the crucial condition for convergence and presents the result without verifying the limit exists.",
+  "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.85,\n  \"reasoning\": \"The integral of exp(-(s+a)*t) from 0 to infinity equals [-1/(s+a) * exp(-(s+a)*t)] evaluated from 0 to infinity, which gives 1/(s+a) only when Re(s+a) > 0. The step is missing the crucial condition for convergence and presents the result without verifying the limit exists.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

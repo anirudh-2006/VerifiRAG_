@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate((a*x1(t) + b*x2(t)) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Substitute the linear combination a*x1(t) + b*x2(t) for x(t)",
+  "confidence": 0.99,
+  "reasoning": "The previous expression is the definition of the Fourier transform \u222b x(t) e^{-j\u03c9t} dt. Replacing x(t) with the linear combination a\u00b7x\u2081(t)+b\u00b7x\u2082(t) yields \u222b (a\u00b7x\u2081(t)+b\u00b7x\u2082(t)) e^{-j\u03c9t} dt, which is a direct substitution and mathematically valid.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression is the definition of the Fourier transform \u222b x(t) e^{-j\u03c9t} dt. Replacing x(t) with the linear combination a\u00b7x\u2081(t)+b\u00b7x\u2082(t) yields \u222b (a\u00b7x\u2081(t)+b\u00b7x\u2082(t)) e^{-j\u03c9t} dt, which is a direct substitution and mathematically valid.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

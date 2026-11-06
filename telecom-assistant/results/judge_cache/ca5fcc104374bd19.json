@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "FourierTransform(m(t)*exp(I*omega_c*t)/2, t, omega) + FourierTransform(m(t)*exp(-I*omega_c*t)/2, t, omega)",
+  "operation": "Apply linearity of Fourier transform",
+  "confidence": 1.0,
+  "reasoning": "The linearity property of the Fourier transform states that FT{f(t) + g(t)} = FT{f(t)} + FT{g(t)}. This step correctly applies this property to split the sum of two terms into the sum of their individual Fourier transforms.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The linearity property of the Fourier transform states that FT{f(t) + g(t)} = FT{f(t)} + FT{g(t)}. This step correctly applies this property to split the sum of two terms into the sum of their individual Fourier transforms.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

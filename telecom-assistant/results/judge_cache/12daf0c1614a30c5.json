@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1/(2*I) * ((s + I*omega_0 - s + I*omega_0) / ((s - I*omega_0)*(s + I*omega_0)))",
+  "operation": "Combine the two fractions over a common denominator",
+  "confidence": 0.99,
+  "reasoning": "Combining 1/(s - i\u03c9\u2080) - 1/(s + i\u03c9\u2080) over the common denominator (s - i\u03c9\u2080)(s + i\u03c9\u2080) yields (s + i\u03c9\u2080 - s + i\u03c9\u2080)/((s - i\u03c9\u2080)(s + i\u03c9\u2080)) = 2i\u03c9\u2080/((s - i\u03c9\u2080)(s + i\u03c9\u2080)), which matches the given expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Combining 1/(s - i\u03c9\u2080) - 1/(s + i\u03c9\u2080) over the common denominator (s - i\u03c9\u2080)(s + i\u03c9\u2080) yields (s + i\u03c9\u2080 - s + i\u03c9\u2080)/((s - i\u03c9\u2080)(s + i\u03c9\u2080)) = 2i\u03c9\u2080/((s - i\u03c9\u2080)(s + i\u03c9\u2080)), which matches the given expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

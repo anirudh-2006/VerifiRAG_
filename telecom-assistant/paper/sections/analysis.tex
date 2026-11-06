@@ -1,0 +1,82 @@
+\section{Analysis: Where Each Grader Fails}
+\label{sec:analysis}
+
+\paragraph{F1: Real errors are mostly outside the symbolic fragment.}
+The verifier's $0.000$ recall on the human set is not a fluke of sample size.
+We manually classify each of the 13 human-flagged errors as
+\emph{in-fragment} if an ideal CAS step checker, testing algebraic equivalence
+of the written expression against a correct continuation of the prior math, could
+in principle refute it, and \emph{out-of-fragment} otherwise (definitional
+convention, wrong problem setup, property claims relative to an intended target,
+or notation/completeness failures under a strict presentation rubric where the
+written fragment remains algebraically consistent with a correct outcome).
+Full per-step labels appear in Appendix~\ref{app:human-errors}.
+
+\textbf{9 of 13 errors ($69\%$) are out-of-fragment}: real human-flagged
+mistakes in this domain are overwhelmingly outside what symbolic equivalence
+can see, including wrong Laplace conventions, inconsistent signal definitions,
+incomplete equations under notation-strict labeling, and missing boundary terms
+that evaluate to zero.
+The remaining \textbf{4 of 13 are in-fragment} (all in Q09: wrong integral
+evaluations and a dropped term), yet the deployed verifier still caught
+\textbf{0 of those 4}: it falsely passed two and abstained on two. So the
+$0/13$ recall reflects both a structural fragment gap and residual verifier
+misses inside the fragment. The injection suite makes the structural gap
+concrete: the verifier abstains on the entire bounds and identifier families
+(recall $0.0$, abstain rate $1.0$) and catches errors only in the algebraic
+family (strict recall $0.297$).
+
+\paragraph{F2: LLM judges over-flag equivalence-preserving rewrites.}
+On the injection suite, where negatives are labeled by construction, the
+judges' false positives are not uniform; they concentrate on the negatives
+that \emph{look} like edits. For \texttt{gpt-oss}, per-family covered FPR is
+$7.1\%$ ($1/14$) on \emph{control} (no-op) and $11.1\%$ ($1/9$) on
+\emph{equivalent} rewrites, versus an overall covered FPR of $8.7\%$.
+\texttt{claude}'s injection false positives are even more concentrated: all
+$4$ of them fall on \emph{equivalent} rewrites ($4/9$, $44.4\%$) and none on
+\emph{control} ($0/13$), versus an overall covered FPR of $18.2\%$. The
+symbolic verifier's FPR on both families is $0.0$. Analogous to
+answer-equivalence failures under token match \citep{bulian2022tomayto}, the
+judges flag legitimate reformulations as errors, a failure the symbolic
+grader structurally cannot make. This family-level breakdown is only
+available on the injection suite, which has explicit ground-truth families;
+we did not manually classify \texttt{claude}'s $17$ and \texttt{gpt-oss}'s
+$3$ human-set false positives by type, so we do not claim the human-set false
+positives are predominantly equivalence-preserving rewrites, only that the
+injection suite's controlled negatives show that failure mode clearly.
+
+\paragraph{F3: The pattern is model-independent; the operating point is not.}
+Both judges exhibit F1 and F2, including the error-\emph{finding} bottleneck
+of \citet{tyen2024errors}, but at opposite points on the precision/recall
+curve. \texttt{claude} is aggressive: strict human recall $0.769$ but precision
+$0.370$ (17 false positives; human FPR $0.100$), injection FPR $18.2\%$.
+\texttt{gpt-oss} is conservative: strict human recall $0.462$, precision
+$0.667$ (human FPR $0.017$), injection FPR $8.7\%$. The injection FPR gap
+(2 vs.\ 4 false positives on 20--24 covered negatives) has wide, overlapping
+Wilson intervals and should be read as directional (\S\ref{sec:results}).
+
+On committed steps (binary
+correct/error; abstains excluded), Cohen's $\kappa$ is $0.547$ for
+\texttt{gpt-oss} vs.\ human ($n{=}190$), $0.464$ for \texttt{claude} vs.\ human
+($n{=}182$), but only $0.306$ for \texttt{gpt-oss} vs.\ \texttt{claude}
+($n{=}181$): fair judge--judge agreement despite $87.8\%$ raw concordance,
+which is inflated by the correct-class majority. On the 13 human-error steps the
+judges fail \emph{differently}, not merely at different rates: both catch 4,
+\texttt{claude} alone 6, \texttt{gpt-oss} alone 2, neither 1. So the qualitative
+trade-off generalizes across labs, but the error sets only partially overlap;
+swapping judges is not a free substitute for the same mistakes.
+
+\paragraph{Qualitative examples.}
+Appendix~\ref{app:examples} (Table~\ref{tab:examples}) gives one concrete
+frozen step per failure mode above, with truncated judge rationale.
+
+\paragraph{Takeaway.}
+Symbolic grading is trustworthy but blind to most real errors in this domain,
+while LLM judges are broad but noisy, with a noise level that varies by model.
+Running the obvious cascade, symbolic first with the judge called on abstain,
+as we do in \S\ref{sec:cascade}, is not an automatic win: it improves injection
+FPR/recall, yet symbolic false passes on human semantic errors become
+irreversible misses. A second lever comes from the judge's own confidence
+score: thresholding it (\S\ref{sec:confidence}) trades coverage \emph{and
+recall} for precision without new labels or prompts. Because pass/fail alone
+hides this trade-off, we report abstention rates throughout.

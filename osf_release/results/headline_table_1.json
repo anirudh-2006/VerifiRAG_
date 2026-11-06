@@ -1,0 +1,121 @@
+{
+  "sources": {
+    "judge_vs_human": "results/judge_step_verdicts.json",
+    "error_injection": "results/error_injection_report_with_judge.json"
+  },
+  "judge_metric_key": "llm_judge:gpt-oss-120b",
+  "table_rows": [
+    {
+      "dataset": "human_labels",
+      "grader": "symbolic",
+      "coverage": 0.471,
+      "precision": null,
+      "recall": 0.0,
+      "fpr": null,
+      "abstain_rate": 0.5287958115183246,
+      "tp": 0,
+      "fp": 0,
+      "tn": 83,
+      "fn": 7,
+      "total": 191
+    },
+    {
+      "dataset": "human_labels",
+      "grader": "judge",
+      "coverage": 0.995,
+      "precision": 0.667,
+      "recall": 0.5,
+      "fpr": null,
+      "abstain_rate": 0.005235602094240838,
+      "tp": 6,
+      "fp": 3,
+      "tn": 175,
+      "fn": 6,
+      "total": 191
+    },
+    {
+      "dataset": "error_injection",
+      "grader": "symbolic",
+      "coverage": 0.35593220338983056,
+      "precision": 1.0,
+      "recall": 0.23404255319148937,
+      "fpr": 0.0,
+      "abstain_rate": 0.6440677966101694,
+      "tp": 22,
+      "fp": 0,
+      "tn": 20,
+      "fn": 0,
+      "total": 118
+    },
+    {
+      "dataset": "error_injection",
+      "grader": "judge",
+      "coverage": 1.0,
+      "precision": 0.975609756097561,
+      "recall": 0.9090909090909091,
+      "fpr": 0.08695652173913043,
+      "abstain_rate": 0.0,
+      "tp": 80,
+      "fp": 2,
+      "tn": 21,
+      "fn": 8,
+      "total": 118
+    }
+  ],
+  "human_summary": {
+    "symbolic": {
+      "coverage": 0.471,
+      "precision_error_detection": null,
+      "recall_error_detection": 0.0,
+      "accuracy_on_covered_steps": 0.922,
+      "tp": 0,
+      "fp": 0,
+      "tn": 83,
+      "fn": 7,
+      "steps_total": 191,
+      "steps_abstained": 101
+    },
+    "judge": {
+      "coverage": 0.995,
+      "precision_error_detection": 0.667,
+      "recall_error_detection": 0.5,
+      "accuracy_on_covered_steps": 0.953,
+      "tp": 6,
+      "fp": 3,
+      "tn": 175,
+      "fn": 6,
+      "steps_total": 191,
+      "steps_abstained": 1
+    }
+  },
+  "injection_summary": {
+    "symbolic": {
+      "precision": 1.0,
+      "recall_strict": 0.23404255319148937,
+      "recall_committed": 1.0,
+      "fpr": 0.0,
+      "abstain_rate": 0.6440677966101694,
+      "tp": 22,
+      "fp": 0,
+      "tn": 20,
+      "fn": 0,
+      "abstain_error": 72,
+      "abstain_eq": 4,
+      "total": 118
+    },
+    "judge": {
+      "precision": 0.975609756097561,
+      "recall_strict": 0.9090909090909091,
+      "recall_committed": 0.9090909090909091,
+      "fpr": 0.08695652173913043,
+      "abstain_rate": 0.0,
+      "tp": 80,
+      "fp": 2,
+      "tn": 21,
+      "fn": 8,
+      "abstain_error": 0,
+      "abstain_eq": 0,
+      "total": 118
+    }
+  }
+}

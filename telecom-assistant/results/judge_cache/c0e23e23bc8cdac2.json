@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "integrate(1/T0 * exp(-I*k*omega0*t), (t, -T0/4, T0/4)) + integrate(-1/T0 * exp(-I*k*omega0*t), (t, T0/4, 3*T0/4))",
+  "operation": "Use the Fourier series analysis equation to compute the coefficients",
+  "confidence": 0.85,
+  "reasoning": "The integration limits are incorrect. For a square wave defined on [-T0/2, T0/2] with value 1 for |t| < T0/4 and -1 for T0/4 < |t| < T0/2, the limits should be (-T0/4, T0/4) for the first integral but (-T0/2, -T0/4) and (T0/4, T0/2) for the -1 regions. The given limits (T0/4, 3*T0/4) extend beyond the defined period.",
+  "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.85,\n  \"reasoning\": \"The integration limits are incorrect. For a square wave defined on [-T0/2, T0/2] with value 1 for |t| < T0/4 and -1 for T0/4 < |t| < T0/2, the limits should be (-T0/4, T0/4) for the first integral but (-T0/2, -T0/4) and (T0/4, T0/2) for the -1 regions. The given limits (T0/4, 3*T0/4) extend beyond the defined period.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

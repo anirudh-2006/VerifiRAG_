@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(t) * exp(-s*t), (t, -oo, oo))",
+  "operation": "Start with the definition of the Laplace transform as an integral over time",
+  "confidence": 1.0,
+  "reasoning": "The expression correctly represents the definition of the Laplace transform of a function x(t), which is an integral from -\u221e to \u221e of x(t) multiplied by exp(-s*t) with respect to t.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The expression correctly represents the definition of the Laplace transform of a function x(t), which is an integral from -\u221e to \u221e of x(t) multiplied by exp(-s*t) with respect to t.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

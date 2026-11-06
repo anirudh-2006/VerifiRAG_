@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-a*t) * u(t) * exp(-s*t), (t, -oo, oo))",
+  "operation": "Substitute the given impulse response h(t) = exp(-a*t)*u(t)",
+  "confidence": 1.0,
+  "reasoning": "The substitution correctly replaces h(t) with the given expression exp(-a*t)*u(t) in the Laplace transform integral. This is a direct and valid substitution.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The substitution correctly replaces h(t) with the given expression exp(-a*t)*u(t) in the Laplace transform integral. This is a direct and valid substitution.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

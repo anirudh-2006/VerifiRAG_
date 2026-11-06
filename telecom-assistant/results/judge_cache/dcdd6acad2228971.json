@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-a*(t - tau)), (tau, 0, t))",
+  "operation": "For t >= 0, u(t - tau) is 1 when tau <= t, so upper limit becomes t",
+  "confidence": 0.98,
+  "reasoning": "For t \u2265 0, the unit step u(t\u2011\u03c4) equals 1 when \u03c4 \u2264 t and 0 otherwise, so the integrand is nonzero only on [0, t]. Thus the integral limits correctly change from (0, \u221e) to (0, t).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"For t \u2265 0, the unit step u(t\u2011\u03c4) equals 1 when \u03c4 \u2264 t and 0 otherwise, so the integrand is nonzero only on [0, t]. Thus the integral limits correctly change from (0, \u221e) to (0, t).\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

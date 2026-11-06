@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "a_0 = (1/T) * integrate(x(t), (t, 0, T))",
+  "operation": "Write the general formula for the DC coefficient a_0",
+  "confidence": 1.0,
+  "reasoning": "The expression correctly states the standard definition of the DC Fourier coefficient a_0, which is the average value of the function over one period T. This is the correct starting formula for computing a_0.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The expression correctly states the standard definition of the DC Fourier coefficient a_0, which is the average value of the function over one period T. This is the correct starting formula for computing a_0.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X * integrate(y.subs(t, tau) * exp(-I*omega*tau), (tau, -oo, oo))",
+  "operation": "Factor out X since it is constant with respect to tau",
+  "confidence": 0.99,
+  "reasoning": "X depends on \u03c9 but not on the integration variable \u03c4, so it can be factored out of the \u03c4\u2011integral, yielding X\u202f\u00b7\u202f\u222b y(\u03c4)\u202fe^{-i\u03c9\u03c4} d\u03c4.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"X depends on \u03c9 but not on the integration variable \u03c4, so it can be factored out of the \u03c4\u2011integral, yielding X\u202f\u00b7\u202f\u222b y(\u03c4)\u202fe^{-i\u03c9\u03c4} d\u03c4.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

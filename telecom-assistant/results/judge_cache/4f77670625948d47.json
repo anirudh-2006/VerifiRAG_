@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X * integrate(y.subs(t, tau) * exp(-I*omega*tau), (tau, -oo, oo))",
+  "operation": "Factor out X since it is constant with respect to tau",
+  "confidence": 1.0,
+  "reasoning": "X is defined as an integral over t with parameter omega, and does not depend on the integration variable tau. Therefore, X can be factored out of the integral over tau, which is a valid algebraic operation.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"X is defined as an integral over t with parameter omega, and does not depend on the integration variable tau. Therefore, X can be factored out of the integral over tau, which is a valid algebraic operation.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

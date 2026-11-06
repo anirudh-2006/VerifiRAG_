@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "s*Y(s) + a*Y(s)",
+  "operation": "Substitute zero initial condition y(0) = 0",
+  "confidence": 0.99,
+  "reasoning": "Substituting y(0)=0 into the previous expression s*Y(s) - y(0) + a*Y(s) removes the -y(0) term, yielding s*Y(s) + a*Y(s), which matches the current expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting y(0)=0 into the previous expression s*Y(s) - y(0) + a*Y(s) removes the -y(0) term, yielding s*Y(s) + a*Y(s), which matches the current expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

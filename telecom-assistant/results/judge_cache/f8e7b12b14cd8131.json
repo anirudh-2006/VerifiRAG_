@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Piecewise((1, Abs(t) <= 1), (0, True))",
+  "operation": "Define the rectangular pulse function in time domain",
+  "confidence": 0.95,
+  "reasoning": "This is a valid definition of a rectangular pulse function that equals 1 when |t| \u2264 1 and 0 otherwise. As the first step in deriving a Fourier transform, defining the input function is an appropriate and mathematically correct starting point.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"This is a valid definition of a rectangular pulse function that equals 1 when |t| \u2264 1 and 0 otherwise. As the first step in deriving a Fourier transform, defining the input function is an appropriate and mathematically correct starting point.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,51 @@
+{
+  "id": "Q02",
+  "question": "What is the Fourier transform of a unit impulse signal delta(t)?",
+  "expected_final": "1",
+  "generated_final": "1",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the definition of the Fourier transform of a signal x(t)",
+      "expression_given": "integrate(x(t)*exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard Fourier transform definition. Correct."
+    },
+    {
+      "step_number": 2,
+      "description": "Substitute x(t) with the unit impulse signal delta(t)",
+      "expression_given": "integrate(delta(t)*exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Direct substitution of x(t) = delta(t) into the integral. Correct."
+    },
+    {
+      "step_number": 3,
+      "description": "Apply the sifting property of the Dirac delta function: integral of delta(t)*f(t) is f(0)",
+      "expression_given": "exp(-I*omega*0)",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Sifting property correctly applied with f(t) = exp(-I*omega*t), evaluated at t=0."
+    },
+    {
+      "step_number": 4,
+      "description": "Simplify the exponential expression",
+      "expression_given": "1",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "exp(0) = 1. Correct. Matches expected final answer."
+    }
+  ]
+}

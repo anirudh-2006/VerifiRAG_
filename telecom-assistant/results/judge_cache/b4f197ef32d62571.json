@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(I*Omega*n) * Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo))",
+  "operation": "Factor out the term that does not depend on k",
+  "confidence": 0.95,
+  "reasoning": "The term exp(I*Omega*n) does not depend on the summation index k and can be factored out of the sum. The remaining term inside the sum is h[k] * exp(-I*Omega*k), which is correct after factoring.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The term exp(I*Omega*n) does not depend on the summation index k and can be factored out of the sum. The remaining term inside the sum is h[k] * exp(-I*Omega*k), which is correct after factoring.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "delta[0] * z**(-0)",
+  "operation": "Use the sifting property of the unit impulse: it is 1 at n=0 and 0 elsewhere",
+  "confidence": 0.98,
+  "reasoning": "Applying the sifting property to the sum correctly reduces the infinite sum to the single term at n=0, yielding delta[0] * z^(-0).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Applying the sifting property to the sum correctly reduces the infinite sum to the single term at n=0, yielding delta[0] * z^(-0).\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

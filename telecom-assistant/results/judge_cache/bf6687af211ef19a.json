@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "integrate(x(t) * exp(-s*t), (t, -oo, oo))",
+  "operation": "Write the definition of the Laplace transform",
+  "confidence": 0.95,
+  "reasoning": "The Laplace transform is defined as the integral from 0 to \u221e, not from -\u221e to \u221e. The correct definition should be integrate(x(t) * exp(-s*t), (t, 0, \u221e)).",
+  "judge_raw": "```json\n{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The Laplace transform is defined as the integral from 0 to \u221e, not from -\u221e to \u221e. The correct definition should be integrate(x(t) * exp(-s*t), (t, 0, \u221e)).\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

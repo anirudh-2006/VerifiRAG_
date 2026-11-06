@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-a*(-t)) * exp(-I*omega*t), (t, -oo, 0)) + integrate(exp(-a*t) * exp(-I*omega*t), (t, 0, oo))",
+  "operation": "Split the integral into two parts: negative and positive time",
+  "confidence": 0.95,
+  "reasoning": "The absolute value function |t| equals -t for t < 0 and t for t \u2265 0, so splitting the integral at t = 0 and replacing |t| accordingly is the correct way to handle the absolute value in the integrand.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The absolute value function |t| equals -t for t < 0 and t for t \u2265 0, so splitting the integral at t = 0 and replacing |t| accordingly is the correct way to handle the absolute value in the integrand.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

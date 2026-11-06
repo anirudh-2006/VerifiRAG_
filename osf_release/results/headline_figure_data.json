@@ -1,0 +1,32 @@
+{
+  "coverage": {
+    "human_labels": {
+      "symbolic": 0.471,
+      "judge": 0.995
+    },
+    "error_injection": {
+      "symbolic": 0.35593220338983056,
+      "judge": 1.0
+    }
+  },
+  "recall_error_detection": {
+    "human_labels": {
+      "symbolic": 0.0,
+      "judge": 0.5
+    },
+    "error_injection_strict": {
+      "symbolic": 0.23404255319148937,
+      "judge": 0.9090909090909091
+    }
+  },
+  "abstain_rate": {
+    "human_labels": {
+      "symbolic": 0.5287958115183246,
+      "judge": 0.005235602094240838
+    },
+    "error_injection": {
+      "symbolic": 0.6440677966101694,
+      "judge": 0.0
+    }
+  }
+}

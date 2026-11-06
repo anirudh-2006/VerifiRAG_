@@ -1,0 +1,2053 @@
+{
+  "config": {
+    "label_dir": "results/label_templates",
+    "judge_model": "gpt-oss-120b",
+    "fake": false,
+    "limit": null,
+    "max_attempts": 8,
+    "base_wait_s": 20.0,
+    "max_wait_s": 300.0,
+    "continue_on_rate_limit": true,
+    "resume": false
+  },
+  "verdicts": {
+    "Q01": [
+      {
+        "step_number": 1,
+        "expression": "Piecewise((1, Abs(t) <= 1), (0, True))",
+        "operation": "Define the rectangular pulse function in time domain",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The step correctly defines a rectangular pulse of unit amplitude over |t| \u2264 1, which is a valid representation of the time-domain signal needed for the Fourier transform derivation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The step correctly defines a rectangular pulse of unit amplitude over |t| \u2264 1, which is a valid representation of the time-domain signal needed for the Fourier transform derivation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate(exp(-I*omega*t), (t, -1, 1))",
+        "operation": "Write the Fourier transform integral of the signal",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The rectangular pulse is 1 on [-1,1]; writing its Fourier transform as \u222b_{-1}^{1} e^{-i \u03c9 t} dt correctly follows from the definition.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The rectangular pulse is 1 on [-1,1]; writing its Fourier transform as \u222b_{-1}^{1} e^{-i \u03c9 t} dt correctly follows from the definition.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "(exp(-I*omega*t)/(-I*omega)) | (t=1) - (exp(-I*omega*t)/(-I*omega)) | (t=-1)",
+        "operation": "Compute the integral of the complex exponential",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Integrating exp(-i\u202f\u03c9\u202ft) yields exp(-i\u202f\u03c9\u202ft)/(-i\u202f\u03c9); evaluating this antiderivative at t=1 and t=-1 and subtracting gives exactly the stated expression, which is the correct result of the integral.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Integrating exp(-i\u202f\u03c9\u202ft) yields exp(-i\u202f\u03c9\u202ft)/(-i\u202f\u03c9); evaluating this antiderivative at t=1 and t=-1 and subtracting gives exactly the stated expression, which is the correct result of the integral.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega)",
+        "operation": "Evaluate the expression at the limits",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Evaluating the antiderivative exp(-I*omega*t)/(-I*omega) at t=1 and t=-1 yields exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega), matching the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Evaluating the antiderivative exp(-I*omega*t)/(-I*omega) at t=1 and t=-1 yields exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega), matching the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "(exp(-I*omega) - exp(I*omega)) / (-I*omega)",
+        "operation": "Factor out common terms in the expression",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression was exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega); factoring the common denominator -I*omega yields (exp(-I*omega) - exp(I*omega))/(-I*omega), which matches the current step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression was exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega); factoring the common denominator -I*omega yields (exp(-I*omega) - exp(I*omega))/(-I*omega), which matches the current step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "-(2*I*sin(omega))/(-I*omega)",
+        "operation": "Use the identity for sine: sin(omega) = (exp(I*omega) - exp(-I*omega))/(2*I)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Starting from (exp(-I*omega) - exp(I*omega))/(-I*omega), using sin(\u03c9) = (exp(I*omega) - exp(-I*omega))/(2I) gives numerator = -(2I sin \u03c9). Substituting yields -(2I sin \u03c9)/(-I \u03c9), which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Starting from (exp(-I*omega) - exp(I*omega))/(-I*omega), using sin(\u03c9) = (exp(I*omega) - exp(-I*omega))/(2I) gives numerator = -(2I sin \u03c9). Substituting yields -(2I sin \u03c9)/(-I \u03c9), which matches the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "2*sin(omega)/omega",
+        "operation": "Simplify the imaginary unit in numerator and denominator",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression -(2*I*sin(omega))/(-I*omega) simplifies by cancelling the minus signs and the factor I, yielding 2*sin(omega)/omega.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression -(2*I*sin(omega))/(-I*omega) simplifies by cancelling the minus signs and the factor I, yielding 2*sin(omega)/omega.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q02": [
+      {
+        "step_number": 1,
+        "expression": "integrate(x(t)*exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Start with the definition of the Fourier transform of a signal x(t)",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The step correctly states the Fourier transform definition as the integral of x(t)\u00b7e^{-i\u03c9t} over all t, which is a valid starting point for deriving the transform of \u03b4(t).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The step correctly states the Fourier transform definition as the integral of x(t)\u00b7e^{-i\u03c9t} over all t, which is a valid starting point for deriving the transform of \u03b4(t).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate(delta(t)*exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Substitute x(t) with the unit impulse signal delta(t)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression is the Fourier transform integral \u222b x(t) e^{-i \u03c9 t} dt. Substituting x(t) with the unit impulse \u03b4(t) correctly yields \u222b \u03b4(t) e^{-i \u03c9 t} dt.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression is the Fourier transform integral \u222b x(t) e^{-i \u03c9 t} dt. Substituting x(t) with the unit impulse \u03b4(t) correctly yields \u222b \u03b4(t) e^{-i \u03c9 t} dt.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "exp(-I*omega*0)",
+        "operation": "Apply the sifting property of the Dirac delta function: integral of delta(t)*f(t) is f(0)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Applying the sifting property \u222b\u03b4(t)f(t)dt = f(0) to f(t)=exp(-I\u00b7\u03c9\u00b7t) yields exp(-I\u00b7\u03c9\u00b70), which matches the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Applying the sifting property \u222b\u03b4(t)f(t)dt = f(0) to f(t)=exp(-I\u00b7\u03c9\u00b7t) yields exp(-I\u00b7\u03c9\u00b70), which matches the stated expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "1",
+        "operation": "Simplify the exponential expression",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "exp(-I*omega*0) simplifies to exp(0), which equals 1; the simplification is mathematically correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"exp(-I*omega*0) simplifies to exp(0), which equals 1; the simplification is mathematically correct.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q03": [
+      {
+        "step_number": 1,
+        "expression": "integrate(x(t) * exp(-s*t), (t, -oo, oo))",
+        "operation": "Start with the definition of the Laplace transform as an integral over time",
+        "verdict": "passed",
+        "confidence": 0.95,
+        "reasoning": "The step correctly states the (bilateral) Laplace transform as the integral of x(t)\u00b7e^{-s t} over all time, which is a valid starting definition for the derivation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The step correctly states the (bilateral) Laplace transform as the integral of x(t)\u00b7e^{-s t} over all time, which is a valid starting definition for the derivation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate(x(t) * exp(-(sigma + I*omega)*t), (t, -oo, oo))",
+        "operation": "Substitute s = sigma + j*omega into the Laplace transform expression",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly replaces the complex variable s in the Laplace integral with s = \u03c3 + j\u03c9, yielding the integrand exp(-(\u03c3 + I*\u03c9)\u00b7t) as expected.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly replaces the complex variable s in the Laplace integral with s = \u03c3 + j\u03c9, yielding the integrand exp(-(\u03c3 + I*\u03c9)\u00b7t) as expected.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "integrate(x(t) * exp(-sigma*t) * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Separate the exponential into real and imaginary parts",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Using the identity exp(a+b)=exp(a)\u00b7exp(b), the term exp(-(\u03c3+I\u00b7\u03c9)\u00b7t) can be split into exp(-\u03c3\u00b7t)\u00b7exp(-I\u00b7\u03c9\u00b7t), which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Using the identity exp(a+b)=exp(a)\u00b7exp(b), the term exp(-(\u03c3+I\u00b7\u03c9)\u00b7t) can be split into exp(-\u03c3\u00b7t)\u00b7exp(-I\u00b7\u03c9\u00b7t), which matches the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "integrate((x(t) * exp(-sigma*t)) * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Recognize that this is the Fourier transform of x(t)*exp(-sigma*t)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The expression is identical to the previous step, merely regrouping the factors; recognizing it as the Fourier transform of the function x(t)\u00b7e^{-\u03c3t} is correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The expression is identical to the previous step, merely regrouping the factors; recognizing it as the Fourier transform of the function x(t)\u00b7e^{-\u03c3t} is correct.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "X(s) = integrate((x(t) * exp(-sigma*t)) * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "State that the Laplace transform is the Fourier transform of x(t) weighted by exp(-sigma*t)",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The current expression exactly matches the integral from the previous step; the step merely defines X(s) as that integral, which is a valid naming of the Laplace transform as a Fourier transform of the weighted signal.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The current expression exactly matches the integral from the previous step; the step merely defines X(s) as that integral, which is a valid naming of the Laplace transform as a Fourier transform of the weighted signal.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "X(s) = integrate(x(t) * exp(-I*omega*t), (t, -oo, oo)) | sigma=0",
+        "operation": "If the region of convergence includes the imaginary axis (sigma = 0), then the weighting becomes 1",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "Setting sigma = 0 makes exp(-sigma*t)=1, so the integrand simplifies to x(t)*exp(-i\u03c9t), which matches the stated expression; this follows directly from the previous step under the given condition.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Setting sigma = 0 makes exp(-sigma*t)=1, so the integrand simplifies to x(t)*exp(-i\u03c9t), which matches the stated expression; this follows directly from the previous step under the given condition.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "X(I*omega)",
+        "operation": "This integral is exactly the definition of the Fourier transform",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "Setting \u03c3=0 in the Laplace integral yields s = j\u03c9, so X(j\u03c9) = \u222b x(t) e^{-j\u03c9t} dt, which is precisely the definition of the Fourier transform.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Setting \u03c3=0 in the Laplace integral yields s = j\u03c9, so X(j\u03c9) = \u222b x(t) e^{-j\u03c9t} dt, which is precisely the definition of the Fourier transform.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 8,
+        "expression": "X(I*omega) = X(s).subs(s, I*omega)",
+        "operation": "Therefore, when ROC includes j\u03c9 axis, Fourier transform equals Laplace transform evaluated at s = j\u03c9",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "Substituting s = j\u03c9 into the Laplace transform expression correctly yields the Fourier transform when the ROC includes the j\u03c9 axis, matching the previous step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Substituting s = j\u03c9 into the Laplace transform expression correctly yields the Fourier transform when the ROC includes the j\u03c9 axis, matching the previous step.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q04": [
+      {
+        "step_number": 1,
+        "expression": "X = integrate(x * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Define the Fourier transform of a signal x(t)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The step correctly defines the Fourier transform X(\u03c9) as the integral of x(t)\u00b7e^{-i\u03c9t} over all time, matching the stated operation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The step correctly defines the Fourier transform X(\u03c9) as the integral of x(t)\u00b7e^{-i\u03c9t} over all time, matching the stated operation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "Y = integrate(y * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Define the Fourier transform of a signal y(t)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The step correctly introduces the Fourier transform of y(t) by the same integral definition as for x(t); this is a valid definition and does not conflict with the previous step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The step correctly introduces the Fourier transform of y(t) by the same integral definition as for x(t); this is a valid definition and does not conflict with the previous step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "integrate(x.subs(t, t - tau) * y.subs(t, tau), (tau, -oo, oo))",
+        "operation": "Define the convolution of x(t) and y(t) in the time domain",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The expression \u222b x(t\u2011\u03c4)\u202fy(\u03c4)\u202fd\u03c4 is the standard definition of the convolution of x(t) and y(t), so defining it here is mathematically correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The expression \u222b x(t\u2011\u03c4)\u202fy(\u03c4)\u202fd\u03c4 is the standard definition of the convolution of x(t) and y(t), so defining it here is mathematically correct.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "integrate((integrate(x.subs(t, t - tau) * y.subs(t, tau), (tau, -oo, oo))) * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Take the Fourier transform of the convolution integral",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Applying the Fourier transform definition to the convolution integral yields exactly the double integral shown, so the operation is mathematically correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Applying the Fourier transform definition to the convolution integral yields exactly the double integral shown, so the operation is mathematically correct.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "integrate(y.subs(t, tau) * integrate(x.subs(t, t - tau) * exp(-I*omega*t), (t, -oo, oo)), (tau, -oo, oo))",
+        "operation": "Interchange the order of integration",
+        "verdict": "passed",
+        "confidence": 0.96,
+        "reasoning": "The previous expression is \u222b\u222b x(t\u2011\u03c4) y(\u03c4) e^{-i\u03c9t} d\u03c4 dt; swapping the order of integration yields \u222b y(\u03c4) \u222b x(t\u2011\u03c4) e^{-i\u03c9t} dt d\u03c4, which matches the current expression and is justified by Fubini\u2019s theorem under usual convergence assumptions.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.96,\n  \"reasoning\": \"The previous expression is \u222b\u222b x(t\u2011\u03c4) y(\u03c4) e^{-i\u03c9t} d\u03c4 dt; swapping the order of integration yields \u222b y(\u03c4) \u222b x(t\u2011\u03c4) e^{-i\u03c9t} dt d\u03c4, which matches the current expression and is justified by Fubini\u2019s theorem under usual convergence assumptions.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "integrate(y.subs(t, tau) * integrate(x * exp(-I*omega*(u + tau)), (u, -oo, oo)), (tau, -oo, oo))",
+        "operation": "Substitute variable in inner integral: let u = t - tau",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The inner integral in step\u202f5 is \u222b x(t\u2011\u03c4)\u202fe^{\u2011i\u03c9t} dt. Substituting u = t\u2011\u03c4 (so t = u+\u03c4, dt = du) correctly transforms it to \u222b x(u)\u202fe^{\u2011i\u03c9(u+\u03c4)} du, yielding the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The inner integral in step\u202f5 is \u222b x(t\u2011\u03c4)\u202fe^{\u2011i\u03c9t} dt. Substituting u = t\u2011\u03c4 (so t = u+\u03c4, dt = du) correctly transforms it to \u222b x(u)\u202fe^{\u2011i\u03c9(u+\u03c4)} du, yielding the stated expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "integrate(y.subs(t, tau) * (exp(-I*omega*tau) * integrate(x * exp(-I*omega*u), (u, -oo, oo))), (tau, -oo, oo))",
+        "operation": "Factor exponential in inner integral: exp(-I*omega*(u + tau)) = exp(-I*omega*u) * exp(-I*omega*tau)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The previous expression contains exp(-I*omega*(u+tau)) inside the inner integral. Factoring it as exp(-I*omega*u)*exp(-I*omega*tau) and pulling the tau\u2011dependent factor outside the u\u2011integral yields exactly the stated current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression contains exp(-I*omega*(u+tau)) inside the inner integral. Factoring it as exp(-I*omega*u)*exp(-I*omega*tau) and pulling the tau\u2011dependent factor outside the u\u2011integral yields exactly the stated current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 8,
+        "expression": "integrate(y.subs(t, tau) * (exp(-I*omega*tau) * X), (tau, -oo, oo))",
+        "operation": "Recognize that the inner integral is the Fourier transform of x(t)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The inner integral \u222b x\u00b7e^{-i\u03c9u} du is exactly the definition of X, so substituting X for that integral is a valid recognition.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The inner integral \u222b x\u00b7e^{-i\u03c9u} du is exactly the definition of X, so substituting X for that integral is a valid recognition.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 9,
+        "expression": "X * integrate(y.subs(t, tau) * exp(-I*omega*tau), (tau, -oo, oo))",
+        "operation": "Factor out X since it is constant with respect to tau",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "X depends on \u03c9 but not on the integration variable \u03c4, so it can be factored out of the \u03c4\u2011integral, yielding X\u202f\u00b7\u202f\u222b y(\u03c4)\u202fe^{-i\u03c9\u03c4} d\u03c4.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"X depends on \u03c9 but not on the integration variable \u03c4, so it can be factored out of the \u03c4\u2011integral, yielding X\u202f\u00b7\u202f\u222b y(\u03c4)\u202fe^{-i\u03c9\u03c4} d\u03c4.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 10,
+        "expression": "X * Y",
+        "operation": "Recognize that the remaining integral is the Fourier transform of y(t)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The integral \u222b y(\u03c4) e^{-i\u03c9\u03c4} d\u03c4 is exactly the definition of the Fourier transform Y, so replacing it with Y and factoring X yields X\u00b7Y, which is a valid step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The integral \u222b y(\u03c4) e^{-i\u03c9\u03c4} d\u03c4 is exactly the definition of the Fourier transform Y, so replacing it with Y and factoring X yields X\u00b7Y, which is a valid step.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q05": [
+      {
+        "step_number": 1,
+        "expression": "Sum(x_n * z**(-n), (n, -oo, oo))",
+        "operation": "Start with the definition of the Z-transform",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The step correctly writes the Z\u2011transform definition X(z)=\u2211_{n=-\u221e}^{\u221e} x[n]z^{-n}, which is the appropriate starting point for deriving the transform of the given signal.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The step correctly writes the Z\u2011transform definition X(z)=\u2211_{n=-\u221e}^{\u221e} x[n]z^{-n}, which is the appropriate starting point for deriving the transform of the given signal.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "Sum(a**n * u_n * z**(-n), (n, -oo, oo))",
+        "operation": "Substitute x[n] = a^n * u[n] into the transform",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly replaces x[n] with a^n*u[n] inside the summation, yielding Sum(a**n * u_n * z**(-n), (n, -oo, oo)).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly replaces x[n] with a^n*u[n] inside the summation, yielding Sum(a**n * u_n * z**(-n), (n, -oo, oo)).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "Sum(a**n * z**(-n), (n, 0, oo))",
+        "operation": "Use the fact that u[n] is zero for n < 0 to change summation limits",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Since u[n]=0 for n<0, the terms with n<0 vanish, allowing the summation limits to be changed from (\u2212\u221e,\u221e) to (0,\u221e) and dropping u[n] from the integrand.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Since u[n]=0 for n<0, the terms with n<0 vanish, allowing the summation limits to be changed from (\u2212\u221e,\u221e) to (0,\u221e) and dropping u[n] from the integrand.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "Sum((a * z**(-1))**n, (n, 0, oo))",
+        "operation": "Combine terms into a single geometric sequence",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Since a**n * z**(-n) = (a * z**(-1))**n for each n, the summand can be rewritten as a single geometric term, preserving the limits.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Since a**n * z**(-n) = (a * z**(-1))**n for each n, the summand can be rewritten as a single geometric term, preserving the limits.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "Sum(r**n, (n, 0, oo))",
+        "operation": "Recognize this as an infinite geometric series",
+        "verdict": "passed",
+        "confidence": 0.85,
+        "reasoning": "The previous sum Sum((a*z**(-1))**n, (n,0,oo)) can be rewritten by letting r = a*z**(-1), yielding Sum(r**n, (n,0,oo)), which is the standard form of an infinite geometric series.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.85,\n  \"reasoning\": \"The previous sum Sum((a*z**(-1))**n, (n,0,oo)) can be rewritten by letting r = a*z**(-1), yielding Sum(r**n, (n,0,oo)), which is the standard form of an infinite geometric series.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "1 / (1 - r)",
+        "operation": "Apply the formula for the sum of an infinite geometric series when |r| < 1",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression is the infinite sum \u03a3_{n=0}^\u221e r^n, and applying the standard geometric series formula \u03a3_{n=0}^\u221e r^n = 1/(1\u2011r) (valid for |r|<1) yields the stated result.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression is the infinite sum \u03a3_{n=0}^\u221e r^n, and applying the standard geometric series formula \u03a3_{n=0}^\u221e r^n = 1/(1\u2011r) (valid for |r|<1) yields the stated result.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "1 / (1 - a * z**(-1))",
+        "operation": "Substitute back r = a/z",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous result was 1/(1\u2011r). Substituting r = a*z\u207b\u00b9 (i.e., a/z) directly yields 1/(1\u2011a*z\u207b\u00b9), which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous result was 1/(1\u2011r). Substituting r = a*z\u207b\u00b9 (i.e., a/z) directly yields 1/(1\u2011a*z\u207b\u00b9), which matches the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 8,
+        "expression": "z / (z - a)",
+        "operation": "Multiply numerator and denominator by z to simplify",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying numerator and denominator of 1/(1 - a*z^{-1}) by z gives 1 * z / (z - a) = z/(z - a), which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying numerator and denominator of 1/(1 - a*z^{-1}) by z gives 1 * z / (z - a) = z/(z - a), which matches the current expression.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q06": [
+      {
+        "step_number": 1,
+        "expression": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Start with the definition of the Fourier transform of a signal x(t)",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The expression correctly states the Fourier transform definition \u222b_{-\u221e}^{\u221e} x(t) e^{-i \u03c9 t} dt, matching the described operation of starting with that definition.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The expression correctly states the Fourier transform definition \u222b_{-\u221e}^{\u221e} x(t) e^{-i \u03c9 t} dt, matching the described operation of starting with that definition.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate(x(t - t0) * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Consider the time-shifted signal x(t - t0)",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The step correctly replaces the original signal x(t) with its time\u2011shifted version x(t\u2011t0) inside the Fourier integral, which is the proper definition of the transform of the shifted signal.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The step correctly replaces the original signal x(t) with its time\u2011shifted version x(t\u2011t0) inside the Fourier integral, which is the proper definition of the transform of the shifted signal.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "integrate(x(u) * exp(-I*omega*(u + t0)), (u, -oo, oo))",
+        "operation": "Substitute variable: let u = t - t0, so t = u + t0 and dt = du",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Substituting u = t - t0 correctly transforms x(t - t0) to x(u) and the exponential term to exp(-I*omega*(u + t0)), with unchanged limits, so the new integral matches the previous one.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting u = t - t0 correctly transforms x(t - t0) to x(u) and the exponential term to exp(-I*omega*(u + t0)), with unchanged limits, so the new integral matches the previous one.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "integrate(x(u) * exp(-I*omega*u) * exp(-I*omega*t0), (u, -oo, oo))",
+        "operation": "Factor the exponential: exp(-I*omega*(u + t0)) = exp(-I*omega*u) * exp(-I*omega*t0)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The exponential identity exp(-I*omega*(u + t0)) = exp(-I*omega*u)\u00b7exp(-I*omega*t0) is correct, so rewriting the integrand accordingly is a valid algebraic manipulation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The exponential identity exp(-I*omega*(u + t0)) = exp(-I*omega*u)\u00b7exp(-I*omega*t0) is correct, so rewriting the integrand accordingly is a valid algebraic manipulation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "exp(-I*omega*t0) * integrate(x(u) * exp(-I*omega*u), (u, -oo, oo))",
+        "operation": "Move the constant factor exp(-I*omega*t0) outside the integral",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The factor exp(-I*omega*t0) is independent of the integration variable u, so it can be taken outside the integral, yielding the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The factor exp(-I*omega*t0) is independent of the integration variable u, so it can be taken outside the integral, yielding the stated expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "exp(-I*omega*t0) * X(I*omega)",
+        "operation": "Recognize the remaining integral as the Fourier transform of x(u), which is X(I*omega)",
+        "verdict": "passed",
+        "confidence": 0.9,
+        "reasoning": "The integral \u222b x(u) e^{-j\u03c9u} du is exactly the definition of the Fourier transform of x(u), denoted X(\u03c9) (or X(I\u00b7\u03c9) in the given notation). Pulling out the constant factor exp(-j\u03c9t\u2080) is valid, so the expression becomes exp(-j\u03c9t\u2080)\u00b7X(I\u00b7\u03c9).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.9,\n  \"reasoning\": \"The integral \u222b x(u) e^{-j\u03c9u} du is exactly the definition of the Fourier transform of x(u), denoted X(\u03c9) (or X(I\u00b7\u03c9) in the given notation). Pulling out the constant factor exp(-j\u03c9t\u2080) is valid, so the expression becomes exp(-j\u03c9t\u2080)\u00b7X(I\u00b7\u03c9).\"\n}",
+        "cached": false
+      }
+    ],
+    "Q07": [
+      {
+        "step_number": 1,
+        "expression": "h[n]",
+        "operation": "Start with a linear time-invariant discrete-time system described by its impulse response h[n]",
+        "verdict": "passed",
+        "confidence": 0.95,
+        "reasoning": "The step simply introduces the impulse response h[n] as the starting point of the derivation, which is a valid initial definition when no prior expression exists.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The step simply introduces the impulse response h[n] as the starting point of the derivation, which is a valid initial definition when no prior expression exists.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "Sum(h[k] * x[n - k], (k, -oo, oo))",
+        "operation": "The output y[n] is the convolution of input x[n] and impulse response h[n]",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "Given the impulse response h[n] of an LTI discrete-time system, the next logical step is to express the output y[n] as the convolution sum \u03a3_{k=-\u221e}^{\u221e} h[k]\u00b7x[n\u2212k]; this matches the stated operation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Given the impulse response h[n] of an LTI discrete-time system, the next logical step is to express the output y[n] as the convolution sum \u03a3_{k=-\u221e}^{\u221e} h[k]\u00b7x[n\u2212k]; this matches the stated operation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "exp(I*Omega*n)",
+        "operation": "Assume the input is a complex exponential x[n] = exp(I*Omega*n)",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "Introducing x[n] = e^{j\u03a9 n} as the input is a standard assumption for frequency response analysis and correctly follows from the prior convolution expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Introducing x[n] = e^{j\u03a9 n} as the input is a standard assumption for frequency response analysis and correctly follows from the prior convolution expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "Sum(h[k] * exp(I*Omega*(n - k)), (k, -oo, oo))",
+        "operation": "Substitute the input into the convolution sum",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Substituting x[n]=exp(I*\u03a9*n) into the convolution sum replaces x[n\u2011k] with exp(I*\u03a9*(n\u2011k)), yielding exactly the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting x[n]=exp(I*\u03a9*n) into the convolution sum replaces x[n\u2011k] with exp(I*\u03a9*(n\u2011k)), yielding exactly the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "exp(I*Omega*n) * Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo))",
+        "operation": "Factor out the term that does not depend on k",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The factor exp(I*Omega*n) does not depend on the summation index k, so it can be taken outside the sum, leaving the remaining terms as exp(-I*Omega*k) inside the sum.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The factor exp(I*Omega*n) does not depend on the summation index k, so it can be taken outside the sum, leaving the remaining terms as exp(-I*Omega*k) inside the sum.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo))",
+        "operation": "Recognize that the sum is the definition of the discrete-time Fourier transform of h[n]",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The sum \u03a3\u202fh[k]\u202fe^{-j\u03a9k} is exactly the definition of the discrete\u2011time Fourier transform H(e^{j\u03a9}); the step merely identifies this sub\u2011expression, which is mathematically correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The sum \u03a3\u202fh[k]\u202fe^{-j\u03a9k} is exactly the definition of the discrete\u2011time Fourier transform H(e^{j\u03a9}); the step merely identifies this sub\u2011expression, which is mathematically correct.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "H(Omega)",
+        "operation": "Define the frequency response H(Omega) as the DTFT of h[n]",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The previous expression is exactly the discrete-time Fourier transform of h[n]; defining H(\u03a9) to be that sum is a valid definitional step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression is exactly the discrete-time Fourier transform of h[n]; defining H(\u03a9) to be that sum is a valid definitional step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 8,
+        "expression": "H(Omega) * exp(I*Omega*n)",
+        "operation": "Write the output in terms of the input and frequency response",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The previous step defined H(\u03a9) as the DTFT of h[n]; multiplying by the input exp(i\u03a9n) yields the output y[n] = H(\u03a9)\u00b7exp(i\u03a9n), which correctly expresses the output in terms of the input and frequency response.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The previous step defined H(\u03a9) as the DTFT of h[n]; multiplying by the input exp(i\u03a9n) yields the output y[n] = H(\u03a9)\u00b7exp(i\u03a9n), which correctly expresses the output in terms of the input and frequency response.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 9,
+        "expression": "H(z).subs(z, exp(I*Omega))",
+        "operation": "Express H(Omega) as the z-transform of h[n] evaluated on the unit circle",
+        "verdict": "failed",
+        "confidence": 0.92,
+        "reasoning": "Replacing H(\u03a9) with H(z) evaluated at z=e^{j\u03a9} should yield H(z).subs(z,exp(I*Omega))\u202f*\u202fexp(I*Omega*n), but the current expression omits the factor exp(I*Omega*n), so the operation does not produce the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.92,\n  \"reasoning\": \"Replacing H(\u03a9) with H(z) evaluated at z=e^{j\u03a9} should yield H(z).subs(z,exp(I*Omega))\u202f*\u202fexp(I*Omega*n), but the current expression omits the factor exp(I*Omega*n), so the operation does not produce the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 10,
+        "expression": "Y(z) / X(z)",
+        "operation": "If the system is described by a difference equation, take the z-transform of both sides",
+        "verdict": "failed",
+        "confidence": 0.95,
+        "reasoning": "The previous step gave H(z) evaluated on the unit circle; taking a z\u2011transform of a difference equation was never introduced, so the jump to Y(z)/X(z) is not justified by the prior expression.",
+        "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The previous step gave H(z) evaluated on the unit circle; taking a z\u2011transform of a difference equation was never introduced, so the jump to Y(z)/X(z) is not justified by the prior expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 11,
+        "expression": "H(z)",
+        "operation": "Solve for the transfer function H(z) = Y(z)/X(z)",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The previous step gave the ratio Y(z)/X(z); defining the transfer function H(z) as that ratio is a standard and correct step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The previous step gave the ratio Y(z)/X(z); defining the transfer function H(z) as that ratio is a standard and correct step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 12,
+        "expression": "H(exp(I*Omega))",
+        "operation": "Evaluate the transfer function on the unit circle to get frequency response",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The previous step provides the transfer function H(z); substituting z = e^{j\u03a9} evaluates it on the unit circle, yielding H(e^{j\u03a9}), which matches the stated operation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous step provides the transfer function H(z); substituting z = e^{j\u03a9} evaluates it on the unit circle, yielding H(e^{j\u03a9}), which matches the stated operation.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q08": [
+      {
+        "step_number": 1,
+        "expression": "X_z = Sum(x_n * z**(-n), (n, -oo, oo))",
+        "operation": "Start with the definition of the Z-transform",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The expression X_z = \u03a3_{n=-\u221e}^{\u221e} x_n z^{-n} correctly states the definition of the Z-transform, matching the described operation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The expression X_z = \u03a3_{n=-\u221e}^{\u221e} x_n z^{-n} correctly states the definition of the Z-transform, matching the described operation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "z = r * exp(I*omega)",
+        "operation": "Express the complex variable z in polar form using magnitude and angle",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Writing z as r\u00b7e^{i\u03c9} is a standard polar representation of a complex variable and correctly follows from the definition of the Z-transform variable.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Writing z as r\u00b7e^{i\u03c9} is a standard polar representation of a complex variable and correctly follows from the definition of the Z-transform variable.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "X_z = Sum(x_n * (r * exp(I*omega))**(-n), (n, -oo, oo))",
+        "operation": "Substitute polar form of z into the Z-transform expression",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Substituting z = r\u00b7e^{i\u03c9} into the definition X_z = \u03a3 x_n z^{-n} yields X_z = \u03a3 x_n (r\u00b7e^{i\u03c9})^{-n}, which matches the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting z = r\u00b7e^{i\u03c9} into the definition X_z = \u03a3 x_n z^{-n} yields X_z = \u03a3 x_n (r\u00b7e^{i\u03c9})^{-n}, which matches the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "X_z = Sum(x_n * r**(-n) * exp(-I*omega*n), (n, -oo, oo))",
+        "operation": "Simplify the exponent in the expression",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Applying the power rule (a\u00b7b)^(\u2212n)=a^(\u2212n)\u00b7b^(\u2212n) and using exp(I\u00b7\u03c9)^(\u2212n)=exp(\u2212I\u00b7\u03c9\u00b7n) correctly yields the simplified form.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Applying the power rule (a\u00b7b)^(\u2212n)=a^(\u2212n)\u00b7b^(\u2212n) and using exp(I\u00b7\u03c9)^(\u2212n)=exp(\u2212I\u00b7\u03c9\u00b7n) correctly yields the simplified form.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "X_z = Sum((x_n * r**(-n)) * exp(-I*omega*n), (n, -oo, oo))",
+        "operation": "Recognize that r^(-n) weights the sequence x[n]",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The new expression is algebraically identical to the previous one, merely regrouping the factors; the stated recognition does not alter the expression, so the step is valid.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The new expression is algebraically identical to the previous one, merely regrouping the factors; the stated recognition does not alter the expression, so the step is valid.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "y_n = x_n * r**(-n)",
+        "operation": "Define a new sequence y[n] = x[n] * r^(-n)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Introducing y_n = x_n * r^{-n} is a straightforward definition that matches the factor appearing in the summand of the previous expression, so the step is mathematically valid.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Introducing y_n = x_n * r^{-n} is a straightforward definition that matches the factor appearing in the summand of the previous expression, so the step is mathematically valid.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "X_z = Sum(y_n * exp(-I*omega*n), (n, -oo, oo))",
+        "operation": "Substitute y[n] into the sum to reveal the DTFT form",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression contains the factor (x_n * r**(-n)) inside the sum; defining y_n as that product allows direct substitution, yielding exactly the stated sum.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression contains the factor (x_n * r**(-n)) inside the sum; defining y_n as that product allows direct substitution, yielding exactly the stated sum.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 8,
+        "expression": "X_z = Sum(y_n * exp(-I*omega*n), (n, -oo, oo))",
+        "operation": "Recognize this sum as the DTFT of y[n]",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The sum \u03a3_{n=-\u221e}^{\u221e} y_n e^{-j \u03c9 n} matches the definition of the DTFT of the sequence y[n]; thus recognizing it as the DTFT is a valid step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The sum \u03a3_{n=-\u221e}^{\u221e} y_n e^{-j \u03c9 n} matches the definition of the DTFT of the sequence y[n]; thus recognizing it as the DTFT is a valid step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 9,
+        "expression": "X_z = DTFT(x_n * r**(-n))",
+        "operation": "State that this is the DTFT of x[n] * r^(-n)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The previous expression X_z = \u03a3(y_n e^{-j\u03c9n}) with y_n = x_n r^{-n} is exactly the definition of the DTFT of the sequence x_n r^{-n}, so stating X_z = DTFT(x_n * r**(-n)) is a correct identification.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression X_z = \u03a3(y_n e^{-j\u03c9n}) with y_n = x_n r^{-n} is exactly the definition of the DTFT of the sequence x_n r^{-n}, so stating X_z = DTFT(x_n * r**(-n)) is a correct identification.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 10,
+        "expression": "r = 1",
+        "operation": "Consider the special case when |z| = 1, i.e., r = 1",
+        "verdict": "passed",
+        "confidence": 0.9,
+        "reasoning": "The step merely specializes the previous result by setting the magnitude r of z to 1, which is a valid restriction (|z|=1) and does not introduce any algebraic error.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.9,\n  \"reasoning\": \"The step merely specializes the previous result by setting the magnitude r of z to 1, which is a valid restriction (|z|=1) and does not introduce any algebraic error.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 11,
+        "expression": "X_z = Sum(x_n * exp(-I*omega*n), (n, -oo, oo))",
+        "operation": "Substitute r = 1 into the Z-transform expression",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Substituting r = 1 into the expression X_z = Sum(x_n * r**(-n) * exp(-I*omega*n), \u2026) reduces r**(-n) to 1, yielding X_z = Sum(x_n * exp(-I*omega*n), \u2026), which matches the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Substituting r = 1 into the expression X_z = Sum(x_n * r**(-n) * exp(-I*omega*n), \u2026) reduces r**(-n) to 1, yielding X_z = Sum(x_n * exp(-I*omega*n), \u2026), which matches the stated expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 12,
+        "expression": "X_dtft = Sum(x_n * exp(-I*omega*n), (n, -oo, oo))",
+        "operation": "Recognize this as the definition of the DTFT",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The previous expression is X_z = \u03a3 x_n e^{-j\u03c9n}, which matches the definition of the DTFT; renaming it as X_dtft is a valid identification.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression is X_z = \u03a3 x_n e^{-j\u03c9n}, which matches the definition of the DTFT; renaming it as X_dtft is a valid identification.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q09": [
+      {
+        "step_number": 1,
+        "expression": "Piecewise((1, Abs(t) < T0/2), (-1, Abs(t) < T0 and Abs(t) > T0/2))",
+        "operation": "Define the periodic square wave over one period from -T0/2 to T0/2",
+        "verdict": "abstain",
+        "confidence": 0.9,
+        "reasoning": "There is no prior expression to compare against, so we cannot determine whether the piecewise definition correctly follows from a previous step.",
+        "judge_raw": "{\n  \"verdict\": \"abstain\",\n  \"confidence\": 0.9,\n  \"reasoning\": \"There is no prior expression to compare against, so we cannot determine whether the piecewise definition correctly follows from a previous step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate(1/T0 * exp(-I*k*omega0*t), (t, -T0/4, T0/4)) + integrate(-1/T0 * exp(-I*k*omega0*t), (t, T0/4, 3*T0/4))",
+        "operation": "Use the Fourier series analysis equation to compute the coefficients",
+        "verdict": "failed",
+        "confidence": 0.92,
+        "reasoning": "The previous step defines the square wave as +1 for |t|<T0/2 (i.e., -T0/2 to T0/2) and -1 elsewhere. The current step splits the period from -T0/4 to 3T0/4, treating the interval T0/4 to T0/2 as -1, which contradicts the defined waveform; it introduces an unjustified phase shift.",
+        "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.92,\n  \"reasoning\": \"The previous step defines the square wave as +1 for |t|<T0/2 (i.e., -T0/2 to T0/2) and -1 elsewhere. The current step splits the period from -T0/4 to 3T0/4, treating the interval T0/4 to T0/2 as -1, which contradicts the defined waveform; it introduces an unjustified phase shift.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "(1 - exp(-I*k*omega0*T0/2)) / (I*k*omega0*T0)",
+        "operation": "Simplify the first integral over [-T0/4, T0/4]",
+        "verdict": "failed",
+        "confidence": 0.96,
+        "reasoning": "The first integral \u222b_{-T0/4}^{T0/4} (1/T0) e^{-i k \u03c90 t} dt evaluates to (e^{-i k \u03c90 T0/4} - e^{i k \u03c90 T0/4})/(-i k \u03c90 T0), which simplifies to (2 sin(k \u03c90 T0/4))/(k \u03c90 T0). The given expression (1 - e^{-i k \u03c90 T0/2})/(i k \u03c90 T0) differs by a factor e^{-i k \u03c90 T0/4}, so the simplification is incorrect.",
+        "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.96,\n  \"reasoning\": \"The first integral \u222b_{-T0/4}^{T0/4} (1/T0) e^{-i k \u03c90 t} dt evaluates to (e^{-i k \u03c90 T0/4} - e^{i k \u03c90 T0/4})/(-i k \u03c90 T0), which simplifies to (2 sin(k \u03c90 T0/4))/(k \u03c90 T0). The given expression (1 - e^{-i k \u03c90 T0/2})/(i k \u03c90 T0) differs by a factor e^{-i k \u03c90 T0/4}, so the simplification is incorrect.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "-(exp(-I*k*omega0*T0/2) - exp(-I*k*omega0*3*T0/4)) / (I*k*omega0*T0)",
+        "operation": "Simplify the second integral over [T0/4, 3*T0/4]",
+        "verdict": "failed",
+        "confidence": 0.96,
+        "reasoning": "The second integral \u222b_{T0/4}^{3T0/4} -(1/T0) e^{-i k \u03c90 t} dt evaluates to (e^{-i k \u03c90 3T0/4} - e^{-i k \u03c90 T0/4})/(i k \u03c90 T0). The step shows (e^{-i k \u03c90 3T0/4} - e^{-i k \u03c90 T0/2})/(i k \u03c90 T0), using T0/2 instead of the correct lower limit T0/4, so the simplification is incorrect.",
+        "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.96,\n  \"reasoning\": \"The second integral \u222b_{T0/4}^{3T0/4} -(1/T0) e^{-i k \u03c90 t} dt evaluates to (e^{-i k \u03c90 3T0/4} - e^{-i k \u03c90 T0/4})/(i k \u03c90 T0). The step shows (e^{-i k \u03c90 3T0/4} - e^{-i k \u03c90 T0/2})/(i k \u03c90 T0), using T0/2 instead of the correct lower limit T0/4, so the simplification is incorrect.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "omega0 = 2*pi/T0",
+        "operation": "Use omega0 = 2*pi/T0 to substitute angular frequency",
+        "verdict": "passed",
+        "confidence": 0.78,
+        "reasoning": "The statement \u03c9\u2080 = 2\u03c0/T\u2080 is the standard definition of the fundamental angular frequency for a period T\u2080, so it is mathematically correct and can be used to substitute \u03c9\u2080 in the previous expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.78,\n  \"reasoning\": \"The statement \u03c9\u2080 = 2\u03c0/T\u2080 is the standard definition of the fundamental angular frequency for a period T\u2080, so it is mathematically correct and can be used to substitute \u03c9\u2080 in the previous expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "(1 - exp(-I*k*pi)) / (I*k*2*pi) - (exp(-I*k*pi) - exp(-I*k*3*pi/2)) / (I*k*2*pi)",
+        "operation": "Substitute omega0 into the combined expression",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Substituting \u03c9\u2080 = 2\u03c0/T\u2080 into the previous terms replaces \u03c9\u2080\u00b7T\u2080/2 with \u03c0 and \u03c9\u2080\u00b73T\u2080/4 with 3\u03c0/2, and the denominator I\u00b7k\u00b7\u03c9\u2080\u00b7T\u2080 becomes I\u00b7k\u00b72\u03c0, yielding exactly the displayed expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Substituting \u03c9\u2080 = 2\u03c0/T\u2080 into the previous terms replaces \u03c9\u2080\u00b7T\u2080/2 with \u03c0 and \u03c9\u2080\u00b73T\u2080/4 with 3\u03c0/2, and the denominator I\u00b7k\u00b7\u03c9\u2080\u00b7T\u2080 becomes I\u00b7k\u00b72\u03c0, yielding exactly the displayed expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "(1 - (-1)**k) / (I*k*2*pi)",
+        "operation": "Note that exp(-I*k*pi) = (-1)**k",
+        "verdict": "failed",
+        "confidence": 0.96,
+        "reasoning": "The previous expression contains two terms: (1\u2011exp(-I*k*pi))/(I*k*2\u03c0) minus (exp(-I*k*pi)\u2011exp(-I*k*3\u03c0/2))/(I*k*2\u03c0). Substituting exp(-I*k*pi)=(-1)^k only replaces the exponentials, but the second term (exp(-I*k*pi)\u2011exp(-I*k*3\u03c0/2)) does not vanish, so it cannot be dropped. The current step omits this second term, yielding an incorrect simplification.",
+        "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.96,\n  \"reasoning\": \"The previous expression contains two terms: (1\u2011exp(-I*k*pi))/(I*k*2\u03c0) minus (exp(-I*k*pi)\u2011exp(-I*k*3\u03c0/2))/(I*k*2\u03c0). Substituting exp(-I*k*pi)=(-1)^k only replaces the exponentials, but the second term (exp(-I*k*pi)\u2011exp(-I*k*3\u03c0/2)) does not vanish, so it cannot be dropped. The current step omits this second term, yielding an incorrect simplification.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 8,
+        "expression": "Piecewise(((1 - (-1)**k) / (I*k*2*pi), k != 0), (0, True))",
+        "operation": "Observe that for even k, (-1)**k = 1, so coefficient is zero",
+        "verdict": "passed",
+        "confidence": 0.9,
+        "reasoning": "The new expression matches the previous one for all k\u22600 and correctly defines the k=0 coefficient as 0, which is consistent with the square wave\u2019s zero mean. The observation about even k is consistent with the numerator vanishing.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.9,\n  \"reasoning\": \"The new expression matches the previous one for all k\u22600 and correctly defines the k=0 coefficient as 0, which is consistent with the square wave\u2019s zero mean. The observation about even k is consistent with the numerator vanishing.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 9,
+        "expression": "Piecewise((2 / (I*k*2*pi), k % 2 == 1), (0, True))",
+        "operation": "For odd k, (-1)**k = -1, so numerator becomes 2",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The previous expression (1-(-1)^k)/(I*k*2\u03c0) simplifies to 2/(I*k*2\u03c0) for odd integer k (where (-1)^k = -1) and to 0 for even k or k=0. Rewriting the piecewise condition as k\u202f%\u202f2\u202f==\u202f1 correctly captures the odd\u2011k case, with the default branch giving 0, so the step is mathematically valid.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The previous expression (1-(-1)^k)/(I*k*2\u03c0) simplifies to 2/(I*k*2\u03c0) for odd integer k (where (-1)^k = -1) and to 0 for even k or k=0. Rewriting the piecewise condition as k\u202f%\u202f2\u202f==\u202f1 correctly captures the odd\u2011k case, with the default branch giving 0, so the step is mathematically valid.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 10,
+        "expression": "Piecewise((1 / (I*k*pi), k % 2 == 1), (0, True))",
+        "operation": "Simplify expression for odd k",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous piecewise term 2/(I*k*2*pi) simplifies algebraically to 1/(I*k*pi); the condition (k % 2 == 1) is unchanged, so the new expression is a correct simplification.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous piecewise term 2/(I*k*2*pi) simplifies algebraically to 1/(I*k*pi); the condition (k % 2 == 1) is unchanged, so the new expression is a correct simplification.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 11,
+        "expression": "Piecewise((1 / (I*k*pi), k % 2 == 1), (0, True))",
+        "operation": "Separate real and imaginary parts; since signal is real and odd, coefficients are purely imaginary",
+        "verdict": "passed",
+        "confidence": 0.85,
+        "reasoning": "The expression is unchanged from the previous step, and 1/(I*k*pi) is indeed purely imaginary (equal to -I/(k*pi)), matching the claim that coefficients are imaginary.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.85,\n  \"reasoning\": \"The expression is unchanged from the previous step, and 1/(I*k*pi) is indeed purely imaginary (equal to -I/(k*pi)), matching the claim that coefficients are imaginary.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 12,
+        "expression": "Piecewise((1 / (I*k*pi), k % 2 == 1), (0, True))",
+        "operation": "Final expression using standard form",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The current step repeats the exact piecewise expression from the previous step, merely labeling it as the final standard form, which is a valid continuation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The current step repeats the exact piecewise expression from the previous step, merely labeling it as the final standard form, which is a valid continuation.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q10": [
+      {
+        "step_number": 1,
+        "expression": "integrate(x(t) * exp(-s*t), (t, -oo, oo))",
+        "operation": "Write the definition of the Laplace transform",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "Writing the integral \u222b_{-\u221e}^{\u221e} x(t) e^{-st} dt is the correct definition of the Laplace transform, and it matches the given function x(t).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Writing the integral \u222b_{-\u221e}^{\u221e} x(t) e^{-st} dt is the correct definition of the Laplace transform, and it matches the given function x(t).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate(exp(-2*t) * u(t) * exp(-s*t), (t, -oo, oo))",
+        "operation": "Substitute x(t) = exp(-2*t) * u(t) into the integral",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression was the Laplace integral of x(t); substituting x(t)=e^{-2t}u(t) yields exactly the integrand shown, so the step is a correct substitution.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression was the Laplace integral of x(t); substituting x(t)=e^{-2t}u(t) yields exactly the integrand shown, so the step is a correct substitution.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "integrate(exp(-(s+2)*t) * u(t), (t, -oo, oo))",
+        "operation": "Simplify the exponential terms in the integrand",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying the exponentials exp(-2*t) and exp(-s*t) yields exp(-(s+2)*t); the unit step u(t) and integration limits are unchanged, so the simplification is valid.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the exponentials exp(-2*t) and exp(-s*t) yields exp(-(s+2)*t); the unit step u(t) and integration limits are unchanged, so the simplification is valid.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "integrate(exp(-(s+2)*t), (t, 0, oo))",
+        "operation": "Use the property of the unit step function to change integration limits",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Since u(t)=0 for t<0 and 1 for t\u22650, the integral over (\u2212\u221e,\u221e) of exp(-(s+2)t)\u00b7u(t) reduces to the integral from 0 to \u221e of exp(-(s+2)t), which matches the stated operation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Since u(t)=0 for t<0 and 1 for t\u22650, the integral over (\u2212\u221e,\u221e) of exp(-(s+2)t)\u00b7u(t) reduces to the integral from 0 to \u221e of exp(-(s+2)t), which matches the stated operation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "limit((1 - exp(-(s+2)*T)) / (s+2), T, oo)",
+        "operation": "Evaluate the improper integral",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Evaluating \u222b\u2080^\u221e e^{-(s+2)t} dt gives (1 - e^{-(s+2)T})/(s+2) with T\u2192\u221e, which matches the stated limit expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Evaluating \u222b\u2080^\u221e e^{-(s+2)t} dt gives (1 - e^{-(s+2)T})/(s+2) with T\u2192\u221e, which matches the stated limit expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "1 / (s+2)",
+        "operation": "Analyze convergence: the exponential term vanishes as T approaches infinity if Re(s) > -2",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Taking the limit of (1 - exp(-(s+2)T))/(s+2) as T\u2192\u221e yields 1/(s+2) provided Re(s+2)>0 (i.e., Re(s)>-2), which is correctly stated.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Taking the limit of (1 - exp(-(s+2)T))/(s+2) as T\u2192\u221e yields 1/(s+2) provided Re(s+2)>0 (i.e., Re(s)>-2), which is correctly stated.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q11": [
+      {
+        "step_number": 1,
+        "expression": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Write the definition of the Fourier transform",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly writes the Fourier transform as the integral of x(t)\u00b7e^{-i\u03c9t} over all t, which follows directly from the definition.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly writes the Fourier transform as the integral of x(t)\u00b7e^{-i\u03c9t} over all t, which follows directly from the definition.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate(exp(-a*Abs(t)) * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Substitute x(t) = exp(-a*|t|) into the transform",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly replaces x(t) with exp(-a*|t|) in the integral definition of the Fourier transform.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly replaces x(t) with exp(-a*|t|) in the integral definition of the Fourier transform.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "integrate(exp(-a*(-t)) * exp(-I*omega*t), (t, -oo, 0)) + integrate(exp(-a*t) * exp(-I*omega*t), (t, 0, oo))",
+        "operation": "Split the integral into two parts: negative and positive time",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The integral of exp(-a*Abs(t)) over (-\u221e,\u221e) can be split at t=0, using Abs(t) = -t for t<0 and Abs(t)=t for t>0, yielding exactly the two integrals shown.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The integral of exp(-a*Abs(t)) over (-\u221e,\u221e) can be split at t=0, using Abs(t) = -t for t<0 and Abs(t)=t for t>0, yielding exactly the two integrals shown.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "integrate(exp(a*t) * exp(-I*omega*t), (t, -oo, 0)) + integrate(exp(-a*t) * exp(-I*omega*t), (t, 0, oo))",
+        "operation": "Simplify the first integral (t < 0): exp(-a*(-t)) = exp(a*t)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous step had exp(-a*(-t)) in the first integral; simplifying -a*(-t) to a*t yields exp(a*t), which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous step had exp(-a*(-t)) in the first integral; simplifying -a*(-t) to a*t yields exp(a*t), which matches the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "integrate(exp((a - I*omega)*t), (t, -oo, 0)) + integrate(exp((-a - I*omega)*t), (t, 0, oo))",
+        "operation": "Combine exponents in both integrals",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying the exponentials inside each integral combines the exponents: exp(a*t)*exp(-I*omega*t)=exp((a-I*omega)*t) and exp(-a*t)*exp(-I*omega*t)=exp((-a-I*omega)*t), matching the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the exponentials inside each integral combines the exponents: exp(a*t)*exp(-I*omega*t)=exp((a-I*omega)*t) and exp(-a*t)*exp(-I*omega*t)=exp((-a-I*omega)*t), matching the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "1/(a - I*omega)",
+        "operation": "Evaluate the first integral from -\u221e to 0",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Evaluating \u222b_{-\u221e}^{0} e^{(a - i\u03c9)t} dt gives [e^{(a - i\u03c9)t}/(a - i\u03c9)]_{-\u221e}^{0} = 1/(a - i\u03c9), which matches the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Evaluating \u222b_{-\u221e}^{0} e^{(a - i\u03c9)t} dt gives [e^{(a - i\u03c9)t}/(a - i\u03c9)]_{-\u221e}^{0} = 1/(a - i\u03c9), which matches the stated expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "1/(a + I*omega)",
+        "operation": "Evaluate the second integral from 0 to \u221e",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The second integral \u222b\u2080^\u221e exp((-a - i\u03c9)t) dt evaluates to -1/(-a - i\u03c9) = 1/(a + i\u03c9), matching the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The second integral \u222b\u2080^\u221e exp((-a - i\u03c9)t) dt evaluates to -1/(-a - i\u03c9) = 1/(a + i\u03c9), matching the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 8,
+        "expression": "1/(a - I*omega) + 1/(a + I*omega)",
+        "operation": "Add the two results",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous step gave the two separate integral results 1/(a - I*omega) and 1/(a + I*omega); adding them directly yields 1/(a - I*omega) + 1/(a + I*omega), which matches the stated operation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous step gave the two separate integral results 1/(a - I*omega) and 1/(a + I*omega); adding them directly yields 1/(a - I*omega) + 1/(a + I*omega), which matches the stated operation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 9,
+        "expression": "( (a + I*omega) + (a - I*omega) ) / ( (a - I*omega)*(a + I*omega) )",
+        "operation": "Combine the fractions over a common denominator",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Adding the two fractions 1/(a - i\u03c9) and 1/(a + i\u03c9) over the common denominator (a - i\u03c9)(a + i\u03c9) yields the numerator (a + i\u03c9) + (a - i\u03c9), which matches the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Adding the two fractions 1/(a - i\u03c9) and 1/(a + i\u03c9) over the common denominator (a - i\u03c9)(a + i\u03c9) yields the numerator (a + i\u03c9) + (a - i\u03c9), which matches the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 10,
+        "expression": "2*a / ( (a - I*omega)*(a + I*omega) )",
+        "operation": "Simplify numerator: (a + I*omega) + (a - I*omega) = 2a",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The numerator (a + I*omega) + (a - I*omega) correctly simplifies to 2a, yielding 2*a / ((a - I*omega)*(a + I*omega)).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The numerator (a + I*omega) + (a - I*omega) correctly simplifies to 2a, yielding 2*a / ((a - I*omega)*(a + I*omega)).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 11,
+        "expression": "2*a / (a**2 + omega**2)",
+        "operation": "Simplify denominator: (a - I*omega)(a + I*omega) = a^2 + omega^2",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying (a - I*omega)(a + I*omega) yields a^2 - (I*omega)^2 = a^2 + omega^2, so the denominator simplifies correctly, giving 2*a/(a**2 + omega**2).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying (a - I*omega)(a + I*omega) yields a^2 - (I*omega)^2 = a^2 + omega^2, so the denominator simplifies correctly, giving 2*a/(a**2 + omega**2).\"\n}",
+        "cached": false
+      }
+    ],
+    "Q13": [
+      {
+        "step_number": 1,
+        "expression": "1/(2*pi) * integrate(X * exp(I*omega*t), (omega, -oo, oo))",
+        "operation": "Start with the inverse Fourier transform formula",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The step correctly writes the inverse Fourier transform formula f(t)= (1/2\u03c0)\u222b X(j\u03c9) e^{j\u03c9t} d\u03c9, which is the appropriate starting expression for the given X(j\u03c9).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The step correctly writes the inverse Fourier transform formula f(t)= (1/2\u03c0)\u222b X(j\u03c9) e^{j\u03c9t} d\u03c9, which is the appropriate starting expression for the given X(j\u03c9).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "1/(2*pi) * integrate(2*pi*delta(omega) * exp(I*omega*t), (omega, -oo, oo))",
+        "operation": "Substitute X(j*omega) = 2*pi*delta(omega) into the integral",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression was the inverse Fourier integral (1/2\u03c0)\u222bX\u00b7e^{i\u03c9t}d\u03c9; substituting X(j\u03c9)=2\u03c0\u03b4(\u03c9) yields (1/2\u03c0)\u222b2\u03c0\u03b4(\u03c9)e^{i\u03c9t}d\u03c9, which matches the current step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression was the inverse Fourier integral (1/2\u03c0)\u222bX\u00b7e^{i\u03c9t}d\u03c9; substituting X(j\u03c9)=2\u03c0\u03b4(\u03c9) yields (1/2\u03c0)\u222b2\u03c0\u03b4(\u03c9)e^{i\u03c9t}d\u03c9, which matches the current step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "integrate(delta(omega) * exp(I*omega*t), (omega, -oo, oo))",
+        "operation": "Simplify constants: 2*pi cancels with 1/(2*pi)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying the integrand by 2\u03c0 and then dividing the whole integral by 1/(2\u03c0) cancels the factor, leaving the integral of \u03b4(\u03c9)\u00b7e^{i\u03c9t} over \u03c9, which matches the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the integrand by 2\u03c0 and then dividing the whole integral by 1/(2\u03c0) cancels the factor, leaving the integral of \u03b4(\u03c9)\u00b7e^{i\u03c9t} over \u03c9, which matches the stated expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "exp(I*0*t)",
+        "operation": "Apply the sifting property of the Dirac delta function",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Applying the sifting property \u222b\u03b4(\u03c9)\u00b7f(\u03c9)d\u03c9 = f(0) to the integrand \u03b4(\u03c9)\u00b7exp(I\u00b7\u03c9\u00b7t) correctly yields exp(I\u00b70\u00b7t).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Applying the sifting property \u222b\u03b4(\u03c9)\u00b7f(\u03c9)d\u03c9 = f(0) to the integrand \u03b4(\u03c9)\u00b7exp(I\u00b7\u03c9\u00b7t) correctly yields exp(I\u00b70\u00b7t).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "1",
+        "operation": "Simplify exponential at omega = 0",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression is exp(I*0*t), which simplifies to exp(0)=1; the stated operation correctly simplifies the exponential.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression is exp(I*0*t), which simplifies to exp(0)=1; the stated operation correctly simplifies the exponential.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q14": [
+      {
+        "step_number": 1,
+        "expression": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Start with the definition of the Fourier transform of a general signal x(t)",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The expression \u222b_{-\u221e}^{\u221e} x(t) e^{-j\u03c9t} dt is exactly the definition of the Fourier transform of a signal x(t), matching the described operation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The expression \u222b_{-\u221e}^{\u221e} x(t) e^{-j\u03c9t} dt is exactly the definition of the Fourier transform of a signal x(t), matching the described operation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate((a*x1(t) + b*x2(t)) * exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Substitute the linear combination a*x1(t) + b*x2(t) for x(t)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression is the definition of the Fourier transform \u222b x(t) e^{-j\u03c9t} dt. Replacing x(t) with the linear combination a\u00b7x\u2081(t)+b\u00b7x\u2082(t) yields \u222b (a\u00b7x\u2081(t)+b\u00b7x\u2082(t)) e^{-j\u03c9t} dt, which is a direct substitution and mathematically valid.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression is the definition of the Fourier transform \u222b x(t) e^{-j\u03c9t} dt. Replacing x(t) with the linear combination a\u00b7x\u2081(t)+b\u00b7x\u2082(t) yields \u222b (a\u00b7x\u2081(t)+b\u00b7x\u2082(t)) e^{-j\u03c9t} dt, which is a direct substitution and mathematically valid.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "integrate(a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Distribute the exponential term over the sum",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying the sum (a*x1(t) + b*x2(t)) by exp(-I*omega*t) distributes to a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t); integrating the resulting expression is equivalent to the previous integral.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the sum (a*x1(t) + b*x2(t)) by exp(-I*omega*t) distributes to a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t); integrating the resulting expression is equivalent to the previous integral.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "integrate(a*x1(t)*exp(-I*omega*t), (t, -oo, oo)) + integrate(b*x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Split the integral into two separate integrals",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The integral of a sum equals the sum of the integrals, so splitting the single integral into two separate integrals is a valid application of linearity.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The integral of a sum equals the sum of the integrals, so splitting the single integral into two separate integrals is a valid application of linearity.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "a*integrate(x1(t)*exp(-I*omega*t), (t, -oo, oo)) + b*integrate(x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+        "operation": "Factor constants a and b out of the integrals",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Constants a and b are independent of the integration variable t, so they can be factored out of each integral, yielding the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Constants a and b are independent of the integration variable t, so they can be factored out of each integral, yielding the stated expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "a*X1(I*omega) + b*X2(I*omega)",
+        "operation": "Recognize each integral as the Fourier transform of the respective signal",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Each integral matches the definition of the Fourier transform of x1(t) and x2(t), so replacing them with X1(j\u03c9) and X2(j\u03c9) (written as X1(I*omega) and X2(I*omega)) is a correct application.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Each integral matches the definition of the Fourier transform of x1(t) and x2(t), so replacing them with X1(j\u03c9) and X2(j\u03c9) (written as X1(I*omega) and X2(I*omega)) is a correct application.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q15": [
+      {
+        "step_number": 1,
+        "expression": "integrate(u(t) * exp(-s*t), (t, 0, oo))",
+        "operation": "Write the definition of the Laplace transform for x(t) = u(t)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly writes the Laplace transform definition for the unit step as the integral \u222b\u2080^\u221e u(t) e^{-st} dt, which is the appropriate first step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly writes the Laplace transform definition for the unit step as the integral \u222b\u2080^\u221e u(t) e^{-st} dt, which is the appropriate first step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate(exp(-s*t), (t, 0, oo))",
+        "operation": "Since u(t) = 1 for t >= 0, replace u(t) with 1 in the integral",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The unit step u(t) equals 1 for t \u2265 0, so substituting 1 for u(t) inside the integral correctly transforms \u222b\u2080^\u221e u(t)e^{-st} dt into \u222b\u2080^\u221e e^{-st} dt.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The unit step u(t) equals 1 for t \u2265 0, so substituting 1 for u(t) inside the integral correctly transforms \u222b\u2080^\u221e u(t)e^{-st} dt into \u222b\u2080^\u221e e^{-st} dt.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "1/s",
+        "operation": "Evaluate the integral of exp(-s*t) from 0 to infinity",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The integral \u222b\u2080^\u221e e^{-s t} dt equals 1/s when Re(s) > 0, so the step correctly evaluates the previous integral to 1/s.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The integral \u222b\u2080^\u221e e^{-s t} dt equals 1/s when Re(s) > 0, so the step correctly evaluates the previous integral to 1/s.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q16": [
+      {
+        "step_number": 1,
+        "expression": "integrate(t * exp(-s*t), (t, 0, oo))",
+        "operation": "Write the definition of the Laplace transform for x(t) = t*u(t)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The Laplace transform definition L{x(t)} = \u222b_0^\u221e x(t)e^{-st}dt applied to x(t)=t\u00b7u(t) yields \u222b_0^\u221e t\u00b7e^{-st}dt, which matches the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The Laplace transform definition L{x(t)} = \u222b_0^\u221e x(t)e^{-st}dt applied to x(t)=t\u00b7u(t) yields \u222b_0^\u221e t\u00b7e^{-st}dt, which matches the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "(-t * exp(-s*t) / s).subs(t, 0) + (1/s) * integrate(exp(-s*t), (t, 0, oo))",
+        "operation": "Use integration by parts: let u = t, dv = exp(-s*t)dt",
+        "verdict": "passed",
+        "confidence": 0.75,
+        "reasoning": "Applying integration by parts to \u222b\u2080^\u221e t e^{-st} dt gives [-t e^{-st}/s]\u2080^\u221e + (1/s)\u222b\u2080^\u221e e^{-st} dt; the lower limit term evaluates to zero, yielding the stated expression (the upper limit term is zero for Re(s)>0).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.75,\n  \"reasoning\": \"Applying integration by parts to \u222b\u2080^\u221e t e^{-st} dt gives [-t e^{-st}/s]\u2080^\u221e + (1/s)\u222b\u2080^\u221e e^{-st} dt; the lower limit term evaluates to zero, yielding the stated expression (the upper limit term is zero for Re(s)>0).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "0 + (1/s) * integrate(exp(-s*t), (t, 0, oo))",
+        "operation": "Evaluate the boundary term at t=0 and t->inf, assuming Re(s) > 0",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The previous expression contained the boundary term (-t*exp(-s*t)/s) evaluated from 0 to \u221e; with Re(s)>0 the limit at \u221e is 0 and at 0 is also 0, so the term becomes 0, leaving exactly 0 + (1/s)*\u222b_0^\u221e exp(-s*t) dt.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression contained the boundary term (-t*exp(-s*t)/s) evaluated from 0 to \u221e; with Re(s)>0 the limit at \u221e is 0 and at 0 is also 0, so the term becomes 0, leaving exactly 0 + (1/s)*\u222b_0^\u221e exp(-s*t) dt.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "(1/s) * (1/s)",
+        "operation": "Compute the remaining integral which is the Laplace transform of u(t)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The previous expression was (1/s) * \u222b_0^\u221e e^{-s t} dt. Evaluating the integral gives 1/s (for Re(s)>0), so the product becomes (1/s)*(1/s), which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression was (1/s) * \u222b_0^\u221e e^{-s t} dt. Evaluating the integral gives 1/s (for Re(s)>0), so the product becomes (1/s)*(1/s), which matches the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "1 / s**2",
+        "operation": "Simplify the expression",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying (1/s) by (1/s) simplifies to 1/s^2, which is exactly the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying (1/s) by (1/s) simplifies to 1/s^2, which is exactly the given expression.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q17": [
+      {
+        "step_number": 1,
+        "expression": "integrate((diff(x(t), t)) * exp(-s*t), (t, 0, oo))",
+        "operation": "Start with the definition of the Laplace transform of dx/dt",
+        "verdict": "passed",
+        "confidence": 0.95,
+        "reasoning": "The step correctly writes the Laplace transform of dx/dt as the integral \u222b\u2080^\u221e (dx/dt) e^{-st} dt, which follows directly from the definition.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The step correctly writes the Laplace transform of dx/dt as the integral \u222b\u2080^\u221e (dx/dt) e^{-st} dt, which follows directly from the definition.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "x(t)*exp(-s*t)|t=oo - x(t)*exp(-s*t)|t=0 + s*integrate(x(t)*exp(-s*t), (t, 0, oo))",
+        "operation": "Use integration by parts: let u = exp(-s*t), dv = dx/dt * dt",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Applying integration by parts with u = e^{-st} and dv = (dx/dt)dt yields the boundary term e^{-st}x(t) evaluated from 0 to \u221e plus s times the integral of x(t)e^{-st}, which matches the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Applying integration by parts with u = e^{-st} and dv = (dx/dt)dt yields the boundary term e^{-st}x(t) evaluated from 0 to \u221e plus s times the integral of x(t)e^{-st}, which matches the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "0 - x(0) + s*integrate(x(t)*exp(-s*t), (t, 0, oo))",
+        "operation": "Evaluate the boundary term at infinity assuming s is in the region of convergence so that exp(-s*t) decays",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression had the boundary term x(t)\u00b7e^{-st} evaluated at \u221e and 0. Assuming s is such that e^{-st}\u21920 as t\u2192\u221e, the upper term becomes 0, and the lower term is x(0). Substituting yields 0\u00a0-\u00a0x(0)\u00a0+\u00a0s\u00b7\u222b\u2080^\u221e x(t)e^{-st}dt, which matches the current step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression had the boundary term x(t)\u00b7e^{-st} evaluated at \u221e and 0. Assuming s is such that e^{-st}\u21920 as t\u2192\u221e, the upper term becomes 0, and the lower term is x(0). Substituting yields 0\u00a0-\u00a0x(0)\u00a0+\u00a0s\u00b7\u222b\u2080^\u221e x(t)e^{-st}dt, which matches the current step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "-x(0) + s*X(s)",
+        "operation": "Recognize the integral as the Laplace transform of x(t), which is X(s)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression contains the integral \u222b\u2080^\u221e x(t)e^{-st}dt, which by definition equals the Laplace transform X(s). Substituting this yields -x(0) + s\u00b7X(s), matching the current step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression contains the integral \u222b\u2080^\u221e x(t)e^{-st}dt, which by definition equals the Laplace transform X(s). Substituting this yields -x(0) + s\u00b7X(s), matching the current step.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q18": [
+      {
+        "step_number": 1,
+        "expression": "integrate(sin(omega_0*t) * exp(-s*t), (t, 0, oo))",
+        "operation": "Write the definition of the Laplace transform for x(t) = sin(omega_0*t)*u(t)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The Laplace transform definition L{x(t)} = \u222b_0^\u221e x(t) e^{-st} dt applied to x(t)=sin(\u03c9\u2080t)\u00b7u(t) yields exactly the integral \u222b\u2080^\u221e sin(\u03c9\u2080t) e^{-st} dt, matching the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The Laplace transform definition L{x(t)} = \u222b_0^\u221e x(t) e^{-st} dt applied to x(t)=sin(\u03c9\u2080t)\u00b7u(t) yields exactly the integral \u222b\u2080^\u221e sin(\u03c9\u2080t) e^{-st} dt, matching the stated expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate((exp(I*omega_0*t) - exp(-I*omega_0*t)) / (2*I) * exp(-s*t), (t, 0, oo))",
+        "operation": "Express sin(omega_0*t) using Euler's formula",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly replaces sin(\u03c9\u2080t) with its Euler representation (e^{i\u03c9\u2080t}\u2212e^{-i\u03c9\u2080t})/(2i) inside the integral, preserving the factor exp(-s t) and the limits.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly replaces sin(\u03c9\u2080t) with its Euler representation (e^{i\u03c9\u2080t}\u2212e^{-i\u03c9\u2080t})/(2i) inside the integral, preserving the factor exp(-s t) and the limits.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "1/(2*I) * (integrate(exp(I*omega_0*t) * exp(-s*t), (t, 0, oo)) - integrate(exp(-I*omega_0*t) * exp(-s*t), (t, 0, oo)))",
+        "operation": "Split the integral into two parts",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous integrand is (exp(I\u03c9\u2080t) - exp(-I\u03c9\u2080t))/(2I) * exp(-st). Factoring out 1/(2I) and using linearity of the integral yields exactly the stated expression, so the split is valid.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous integrand is (exp(I\u03c9\u2080t) - exp(-I\u03c9\u2080t))/(2I) * exp(-st). Factoring out 1/(2I) and using linearity of the integral yields exactly the stated expression, so the split is valid.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "1/(2*I) * (integrate(exp(-(s - I*omega_0)*t), (t, 0, oo)) - integrate(exp(-(s + I*omega_0)*t), (t, 0, oo)))",
+        "operation": "Combine exponents in each integral",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous step had products of exponentials; combining the exponents yields exp(-(s - I*omega_0)*t) and exp(-(s + I*omega_0)*t), which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous step had products of exponentials; combining the exponents yields exp(-(s - I*omega_0)*t) and exp(-(s + I*omega_0)*t), which matches the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "1/(2*I) * (1/(s - I*omega_0) - 1/(s + I*omega_0))",
+        "operation": "Evaluate the first integral using the formula for integral of exp(-a*t) from 0 to infinity",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Each integral \u222b\u2080^\u221e e^{-(s\u2213i\u03c9\u2080)t}dt evaluates to 1/(s\u2213i\u03c9\u2080) under the usual convergence condition, so substituting these results yields exactly the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Each integral \u222b\u2080^\u221e e^{-(s\u2213i\u03c9\u2080)t}dt evaluates to 1/(s\u2213i\u03c9\u2080) under the usual convergence condition, so substituting these results yields exactly the stated expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "1/(2*I) * ((s + I*omega_0 - s + I*omega_0) / ((s - I*omega_0)*(s + I*omega_0)))",
+        "operation": "Combine the two fractions over a common denominator",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Combining 1/(s - i\u03c9\u2080) - 1/(s + i\u03c9\u2080) over the common denominator (s - i\u03c9\u2080)(s + i\u03c9\u2080) yields (s + i\u03c9\u2080 - s + i\u03c9\u2080)/((s - i\u03c9\u2080)(s + i\u03c9\u2080)) = 2i\u03c9\u2080/((s - i\u03c9\u2080)(s + i\u03c9\u2080)), which matches the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Combining 1/(s - i\u03c9\u2080) - 1/(s + i\u03c9\u2080) over the common denominator (s - i\u03c9\u2080)(s + i\u03c9\u2080) yields (s + i\u03c9\u2080 - s + i\u03c9\u2080)/((s - i\u03c9\u2080)(s + i\u03c9\u2080)) = 2i\u03c9\u2080/((s - i\u03c9\u2080)(s + i\u03c9\u2080)), which matches the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "1/(2*I) * ((2*I*omega_0) / (s**2 + omega_0**2))",
+        "operation": "Simplify numerator and denominator",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The numerator simplifies to 2*I*omega_0 and the denominator (s - I*omega_0)(s + I*omega_0) expands to s^2 + omega_0^2, yielding exactly the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The numerator simplifies to 2*I*omega_0 and the denominator (s - I*omega_0)(s + I*omega_0) expands to s^2 + omega_0^2, yielding exactly the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 8,
+        "expression": "omega_0 / (s**2 + omega_0**2)",
+        "operation": "Cancel I and simplify constants",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying 1/(2I) by (2I*omega_0)/(s^2+omega_0^2) cancels the 2I factors, leaving omega_0/(s^2+omega_0^2), which matches the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying 1/(2I) by (2I*omega_0)/(s^2+omega_0^2) cancels the 2I factors, leaving omega_0/(s^2+omega_0^2), which matches the stated expression.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q19": [
+      {
+        "step_number": 1,
+        "expression": "Sum(x[n] * z**(-n), (n, -oo, oo))",
+        "operation": "Start with the definition of the Z-transform",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly writes the Z\u2011transform definition \u03a3_{n=-\u221e}^{\u221e} x[n] z^{-n}, which is the appropriate first step for x[n]=\u03b4[n].",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly writes the Z\u2011transform definition \u03a3_{n=-\u221e}^{\u221e} x[n] z^{-n}, which is the appropriate first step for x[n]=\u03b4[n].\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "Sum(delta[n] * z**(-n), (n, -oo, oo))",
+        "operation": "Substitute x[n] with delta[n], the unit impulse",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression was the definition Sum(x[n] * z**(-n), (n, -\u221e, \u221e)). Replacing x[n] by the unit impulse \u03b4[n] yields Sum(\u03b4[n] * z**(-n), (n, -\u221e, \u221e)), which matches the current step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression was the definition Sum(x[n] * z**(-n), (n, -\u221e, \u221e)). Replacing x[n] by the unit impulse \u03b4[n] yields Sum(\u03b4[n] * z**(-n), (n, -\u221e, \u221e)), which matches the current step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "delta[0] * z**(-0)",
+        "operation": "Use the sifting property of the unit impulse: it is 1 at n=0 and 0 elsewhere",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Applying the sifting property to the sum correctly reduces the infinite sum to the single term at n=0, yielding delta[0] * z^(-0).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Applying the sifting property to the sum correctly reduces the infinite sum to the single term at n=0, yielding delta[0] * z^(-0).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "1 * 1",
+        "operation": "Evaluate the expression at n=0",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The previous expression delta[0] * z**(-0) evaluates to 1 * 1 when n=0, so the current expression correctly reflects that evaluation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression delta[0] * z**(-0) evaluates to 1 * 1 when n=0, so the current expression correctly reflects that evaluation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "1",
+        "operation": "Final simplification",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying 1 by 1 yields 1, so the final simplification from '1 * 1' to '1' is correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying 1 by 1 yields 1, so the final simplification from '1 * 1' to '1' is correct.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q20": [
+      {
+        "step_number": 1,
+        "expression": "Sum(u[n] * z**(-n), (n, -oo, oo))",
+        "operation": "Start with the definition of the Z-transform",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The Z-transform is defined as \u03a3_{n=-\u221e}^{\u221e} x[n] z^{-n}; substituting x[n]=u[n] yields \u03a3 u[n] z^{-n} over all n, which matches the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The Z-transform is defined as \u03a3_{n=-\u221e}^{\u221e} x[n] z^{-n}; substituting x[n]=u[n] yields \u03a3 u[n] z^{-n} over all n, which matches the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "Sum(z**(-n), (n, 0, oo))",
+        "operation": "Since u[n] is zero for n < 0, change summation limits to start at 0",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Because the unit step u[n] equals 0 for n<0, the terms with n<0 vanish, allowing the summation limits to be shifted to start at n=0, yielding Sum(z**(-n), (n, 0, oo)).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Because the unit step u[n] equals 0 for n<0, the terms with n<0 vanish, allowing the summation limits to be shifted to start at n=0, yielding Sum(z**(-n), (n, 0, oo)).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "Sum((z**(-1))**n, (n, 0, oo))",
+        "operation": "Recognize the infinite geometric series with ratio z^(-1)",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The previous sum \u03a3 z^{\u2011n} from n=0 to \u221e is correctly rewritten as \u03a3 (z^{\u20111})^n, since (z^{\u20111})^n = z^{\u2011n} for integer n. The operation of recognizing it as a geometric series follows from this rewrite.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous sum \u03a3 z^{\u2011n} from n=0 to \u221e is correctly rewritten as \u03a3 (z^{\u20111})^n, since (z^{\u20111})^n = z^{\u2011n} for integer n. The operation of recognizing it as a geometric series follows from this rewrite.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "1 / (1 - z**(-1))",
+        "operation": "Sum the geometric series for |z^(-1)| < 1",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression is the infinite sum \u03a3_{n=0}^{\u221e} (z^{-1})^n, which equals 1/(1\u2011z^{-1}) when the common ratio |z^{-1}|<1. The step correctly applies the geometric series formula.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression is the infinite sum \u03a3_{n=0}^{\u221e} (z^{-1})^n, which equals 1/(1\u2011z^{-1}) when the common ratio |z^{-1}|<1. The step correctly applies the geometric series formula.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "z / (z - 1)",
+        "operation": "Simplify the expression by algebraic manipulation",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying numerator and denominator of 1/(1 - z^{-1}) by z yields z/(z - 1), which is exactly the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying numerator and denominator of 1/(1 - z^{-1}) by z yields z/(z - 1), which is exactly the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "Abs(z**(-1)) < 1",
+        "operation": "Determine the region of convergence from the geometric series condition",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The geometric series converges when the magnitude of its ratio is less than one; since the ratio is z\u207b\u00b9, the condition |z\u207b\u00b9| < 1 correctly follows from the previous step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The geometric series converges when the magnitude of its ratio is less than one; since the ratio is z\u207b\u00b9, the condition |z\u207b\u00b9| < 1 correctly follows from the previous step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "Abs(z) > 1",
+        "operation": "Simplify the ROC condition",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous ROC condition |z^{-1}| < 1 is equivalent to |z| > 1, so simplifying it to Abs(z) > 1 is correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous ROC condition |z^{-1}| < 1 is equivalent to |z| > 1, so simplifying it to Abs(z) > 1 is correct.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q21": [
+      {
+        "step_number": 1,
+        "expression": "a_0 = (1/T) * integrate(x(t), (t, 0, T))",
+        "operation": "Write the general formula for the DC coefficient a_0",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly states the standard formula for the DC Fourier coefficient a\u2080 as (1/T)\u222b\u2080\u1d40 x(t) dt, which follows from the definition.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly states the standard formula for the DC Fourier coefficient a\u2080 as (1/T)\u222b\u2080\u1d40 x(t) dt, which follows from the definition.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "Piecewise((A, t < T/2), (-A, True))",
+        "operation": "Define the symmetric square wave over one period: +A for first half, -A for second half",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The step correctly defines the signal x(t) as a piecewise function matching the described symmetric square wave, which can be used in the previous integral expression for a_0.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The step correctly defines the signal x(t) as a piecewise function matching the described symmetric square wave, which can be used in the previous integral expression for a_0.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "(1/T) * (integrate(A, (t, 0, T/2)) + integrate(-A, (t, T/2, T)))",
+        "operation": "Split the integral into two intervals: 0 to T/2 and T/2 to T",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly substitutes the piecewise definition of x(t) into the integral for a_0 and splits the integral over the two subintervals where x(t) is constant, which is a valid manipulation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly substitutes the piecewise definition of x(t) into the integral for a_0 and splits the integral over the two subintervals where x(t) is constant, which is a valid manipulation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "(1/T) * (A * T/2 + integrate(-A, (t, T/2, T)))",
+        "operation": "Evaluate the first integral: integral of A from 0 to T/2",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly replaces \u222b\u2080^{T/2} A\u202fdt with A\u00b7(T/2), which is the proper evaluation of a constant integral over that interval, leaving the remaining term unchanged.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly replaces \u222b\u2080^{T/2} A\u202fdt with A\u00b7(T/2), which is the proper evaluation of a constant integral over that interval, leaving the remaining term unchanged.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "(1/T) * (A * T/2 + (-A) * (T - T/2))",
+        "operation": "Evaluate the second integral: integral of -A from T/2 to T",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression contained the unevaluated integral of -A from T/2 to T. Evaluating that integral gives -A times the interval length (T - T/2), which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression contained the unevaluated integral of -A from T/2 to T. Evaluating that integral gives -A times the interval length (T - T/2), which matches the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "(1/T) * (A * T/2 - A * T/2)",
+        "operation": "Simplify the expression using T - T/2 = T/2",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Replacing (T - T/2) with T/2 in the previous expression correctly yields (1/T)*(A*T/2 - A*T/2). The simplification is mathematically valid.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Replacing (T - T/2) with T/2 in the previous expression correctly yields (1/T)*(A*T/2 - A*T/2). The simplification is mathematically valid.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "(1/T) * 0",
+        "operation": "Simplify the sum inside the parentheses",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression (1/T) * (A * T/2 - A * T/2) simplifies to (1/T) * 0 because the terms cancel, so the simplification is valid.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression (1/T) * (A * T/2 - A * T/2) simplifies to (1/T) * 0 because the terms cancel, so the simplification is valid.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 8,
+        "expression": "0",
+        "operation": "Final simplification",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying zero by any non\u2011zero factor (1/T) yields zero, so simplifying (1/T)\u00b70 to 0 is correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying zero by any non\u2011zero factor (1/T) yields zero, so simplifying (1/T)\u00b70 to 0 is correct.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q22": [
+      {
+        "step_number": 1,
+        "expression": "Derivative(y(t), t) + a*y(t)",
+        "operation": "Start with the given differential equation",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The step correctly restates the left-hand side of the given differential equation as the starting expression, which is a valid initial move.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The step correctly restates the left-hand side of the given differential equation as the starting expression, which is a valid initial move.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "s*Y(s) - y(0) + a*Y(s)",
+        "operation": "Apply Laplace transform to both sides assuming zero initial conditions",
+        "verdict": "passed",
+        "confidence": 0.9,
+        "reasoning": "Applying the Laplace transform to y'(t) gives sY(s) - y(0), and to a\u00b7y(t) gives aY(s); the resulting expression sY(s) - y(0) + aY(s) is correct (y(0)=0 under zero initial conditions).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.9,\n  \"reasoning\": \"Applying the Laplace transform to y'(t) gives sY(s) - y(0), and to a\u00b7y(t) gives aY(s); the resulting expression sY(s) - y(0) + aY(s) is correct (y(0)=0 under zero initial conditions).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "s*Y(s) + a*Y(s)",
+        "operation": "Substitute zero initial condition y(0) = 0",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Substituting y(0)=0 into the previous expression s*Y(s) - y(0) + a*Y(s) removes the -y(0) term, yielding s*Y(s) + a*Y(s), which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting y(0)=0 into the previous expression s*Y(s) - y(0) + a*Y(s) removes the -y(0) term, yielding s*Y(s) + a*Y(s), which matches the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "X(s)",
+        "operation": "Apply Laplace transform to the input side",
+        "verdict": "passed",
+        "confidence": 0.7,
+        "reasoning": "Applying the Laplace transform to the input side x(t) correctly yields X(s); this is a valid step in forming the transformed equation sY(s)+aY(s)=X(s).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.7,\n  \"reasoning\": \"Applying the Laplace transform to the input side x(t) correctly yields X(s); this is a valid step in forming the transformed equation sY(s)+aY(s)=X(s).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "s*Y(s) + a*Y(s)",
+        "operation": "Equate transformed left and right sides",
+        "verdict": "failed",
+        "confidence": 0.9,
+        "reasoning": "Equating the transformed left and right sides should yield the equation s\u00b7Y(s) + a\u00b7Y(s) = X(s), but the step only repeats the left\u2011hand expression without the equality, so the stated operation is not correctly reflected.",
+        "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.9,\n  \"reasoning\": \"Equating the transformed left and right sides should yield the equation s\u00b7Y(s) + a\u00b7Y(s) = X(s), but the step only repeats the left\u2011hand expression without the equality, so the stated operation is not correctly reflected.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "Y(s)*(s + a)",
+        "operation": "Factor Y(s) on the left-hand side",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Factoring Y(s) from s*Y(s) + a*Y(s) yields Y(s)*(s + a), which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Factoring Y(s) from s*Y(s) + a*Y(s) yields Y(s)*(s + a), which matches the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "Y(s)*(s + a)",
+        "operation": "Write equation as Y(s)*(s + a) = X(s)",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The previous step factored the left-hand side to Y(s)*(s + a); writing the full equation Y(s)*(s + a) = X(s) correctly restores the equality with the transformed input side.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The previous step factored the left-hand side to Y(s)*(s + a); writing the full equation Y(s)*(s + a) = X(s) correctly restores the equality with the transformed input side.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 8,
+        "expression": "Y(s)/X(s)",
+        "operation": "Solve for Y(s)/X(s)",
+        "verdict": "failed",
+        "confidence": 0.95,
+        "reasoning": "From Y(s)*(s + a) = X(s), solving for the ratio Y(s)/X(s) gives Y(s)/X(s) = 1/(s + a). The step only lists Y(s)/X(s) without the right\u2011hand side, so the operation does not produce the shown expression.",
+        "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"From Y(s)*(s + a) = X(s), solving for the ratio Y(s)/X(s) gives Y(s)/X(s) = 1/(s + a). The step only lists Y(s)/X(s) without the right\u2011hand side, so the operation does not produce the shown expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 9,
+        "expression": "Y(s)/X(s)",
+        "operation": "Divide both sides by (s + a)",
+        "verdict": "failed",
+        "confidence": 0.96,
+        "reasoning": "Dividing Y(s)*(s + a) = X(s) by (s + a) gives Y(s) = X(s)/(s + a), or equivalently Y(s)/X(s) = 1/(s + a). The step shows only Y(s)/X(s) without the right\u2011hand side, which does not follow directly from the stated operation.",
+        "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.96,\n  \"reasoning\": \"Dividing Y(s)*(s + a) = X(s) by (s + a) gives Y(s) = X(s)/(s + a), or equivalently Y(s)/X(s) = 1/(s + a). The step shows only Y(s)/X(s) without the right\u2011hand side, which does not follow directly from the stated operation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 10,
+        "expression": "1/(s + a)",
+        "operation": "Express transfer function H(s) = Y(s)/X(s)",
+        "verdict": "passed",
+        "confidence": 0.9,
+        "reasoning": "Dividing the equation Y(s)*(s + a) = X(s) by (s + a) yields Y(s)/X(s) = 1/(s + a), which is the correct transfer function H(s).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.9,\n  \"reasoning\": \"Dividing the equation Y(s)*(s + a) = X(s) by (s + a) yields Y(s)/X(s) = 1/(s + a), which is the correct transfer function H(s).\"\n}",
+        "cached": false
+      }
+    ],
+    "Q23": [
+      {
+        "step_number": 1,
+        "expression": "integrate(u(tau) * exp(-a*(t - tau)) * u(t - tau), (tau, -oo, oo))",
+        "operation": "Write the convolution integral for y(t) = x(t) * h(t)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The convolution definition y(t)=\u222b_{-\u221e}^{\u221e}x(\u03c4)h(t-\u03c4)d\u03c4 leads to the integrand u(\u03c4)\u00b7exp(-a(t-\u03c4))\u00b7u(t-\u03c4) with limits -\u221e to \u221e, which matches the given expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The convolution definition y(t)=\u222b_{-\u221e}^{\u221e}x(\u03c4)h(t-\u03c4)d\u03c4 leads to the integrand u(\u03c4)\u00b7exp(-a(t-\u03c4))\u00b7u(t-\u03c4) with limits -\u221e to \u221e, which matches the given expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate(exp(-a*(t - tau)) * u(t - tau), (tau, 0, oo))",
+        "operation": "Simplify limits using unit step functions: u(tau) is 0 for tau < 0",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "Since u(\u03c4)=0 for \u03c4<0, the integrand is zero on (-\u221e,0), so the lower limit can be shifted to 0. The remaining factor u(t-\u03c4) correctly remains, making the new integral equivalent to the original.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Since u(\u03c4)=0 for \u03c4<0, the integrand is zero on (-\u221e,0), so the lower limit can be shifted to 0. The remaining factor u(t-\u03c4) correctly remains, making the new integral equivalent to the original.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "integrate(exp(-a*(t - tau)), (tau, 0, t))",
+        "operation": "For t >= 0, u(t - tau) is 1 when tau <= t, so upper limit becomes t",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "For t \u2265 0, the unit step u(t\u2011\u03c4) equals 1 when \u03c4 \u2264 t and 0 otherwise, so the integrand is nonzero only on [0, t]. Thus the integral limits correctly change from (0, \u221e) to (0, t).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"For t \u2265 0, the unit step u(t\u2011\u03c4) equals 1 when \u03c4 \u2264 t and 0 otherwise, so the integrand is nonzero only on [0, t]. Thus the integral limits correctly change from (0, \u221e) to (0, t).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "exp(-a*t) * integrate(exp(a*tau), (tau, 0, t))",
+        "operation": "Factor out exp(-a*t) from the integral since it's independent of tau",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Since exp(-a*(t-\u03c4)) = exp(-a*t)\u00b7exp(a\u03c4) and exp(-a*t) does not depend on \u03c4, it can be factored out of the integral, yielding exp(-a*t)\u00b7\u222b\u2080\u1d57 exp(a\u03c4)d\u03c4.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Since exp(-a*(t-\u03c4)) = exp(-a*t)\u00b7exp(a\u03c4) and exp(-a*t) does not depend on \u03c4, it can be factored out of the integral, yielding exp(-a*t)\u00b7\u222b\u2080\u1d57 exp(a\u03c4)d\u03c4.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "exp(-a*t) * (exp(a*t) / a - 1 / a)",
+        "operation": "Integrate exp(a*tau) with respect to tau",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Integrating exp(a\u00b7\u03c4) from 0 to t yields (exp(a\u00b7t)\u20111)/a, which matches the factorized result exp(-a\u00b7t)*(exp(a\u00b7t)/a\u00a0\u2011\u00a01/a) given.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Integrating exp(a\u00b7\u03c4) from 0 to t yields (exp(a\u00b7t)\u20111)/a, which matches the factorized result exp(-a\u00b7t)*(exp(a\u00b7t)/a\u00a0\u2011\u00a01/a) given.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "exp(-a*t) * (exp(a*t) - 1) / a",
+        "operation": "Simplify the expression",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression exp(-a*t)*(exp(a*t)/a - 1/a) can be combined over a common denominator a, yielding exp(-a*t)*(exp(a*t) - 1)/a, which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression exp(-a*t)*(exp(a*t)/a - 1/a) can be combined over a common denominator a, yielding exp(-a*t)*(exp(a*t) - 1)/a, which matches the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 7,
+        "expression": "(1 - exp(-a*t)) / a",
+        "operation": "Distribute exp(-a*t) over the numerator",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying exp(-a*t) into (exp(a*t) - 1) yields exp(-a*t)\u00b7exp(a*t) - exp(-a*t) = 1 - exp(-a*t), giving (1 - exp(-a*t))/a, which matches the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying exp(-a*t) into (exp(a*t) - 1) yields exp(-a*t)\u00b7exp(a*t) - exp(-a*t) = 1 - exp(-a*t), giving (1 - exp(-a*t))/a, which matches the current expression.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q24": [
+      {
+        "step_number": 1,
+        "expression": "integrate(h(t) * exp(-s*t), (t, -oo, oo))",
+        "operation": "Start with the definition of the Laplace transform of the impulse response",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The Laplace transform of the impulse response h(t) is defined as the integral of h(t)\u00b7e^{-st} over all t, which is exactly the expression shown.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The Laplace transform of the impulse response h(t) is defined as the integral of h(t)\u00b7e^{-st} over all t, which is exactly the expression shown.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "integrate(exp(-a*t) * u(t) * exp(-s*t), (t, -oo, oo))",
+        "operation": "Substitute the given impulse response h(t) = exp(-a*t)*u(t)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression was the Laplace transform integral \u222b h(t) e^{-s t} dt; substituting h(t) = e^{-a t} u(t) yields \u222b e^{-a t} u(t) e^{-s t} dt, which matches the current step.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression was the Laplace transform integral \u222b h(t) e^{-s t} dt; substituting h(t) = e^{-a t} u(t) yields \u222b e^{-a t} u(t) e^{-s t} dt, which matches the current step.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "integrate(exp(-a*t) * exp(-s*t), (t, 0, oo))",
+        "operation": "Use the property of the unit step function to change integration limits",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Since u(t)=1 for t\u22650 and 0 otherwise, the integral of f(t)\u00b7u(t) over (\u2212\u221e,\u221e) equals the integral of f(t) from 0 to \u221e. The step correctly drops u(t) and changes the limits.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Since u(t)=1 for t\u22650 and 0 otherwise, the integral of f(t)\u00b7u(t) over (\u2212\u221e,\u221e) equals the integral of f(t) from 0 to \u221e. The step correctly drops u(t) and changes the limits.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "integrate(exp(-(s + a)*t), (t, 0, oo))",
+        "operation": "Combine exponential terms in the integrand",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying the exponentials exp(-a*t) and exp(-s*t) correctly combines the exponents to exp(-(a+s)*t), which is exactly the integrand shown.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the exponentials exp(-a*t) and exp(-s*t) correctly combines the exponents to exp(-(a+s)*t), which is exactly the integrand shown.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "1 / (s + a)",
+        "operation": "Evaluate the improper integral",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Evaluating \u222b\u2080^\u221e e^{-(s+a)t} dt gives 1/(s+a) provided Re(s+a)>0, which is the correct result of the improper integral.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Evaluating \u222b\u2080^\u221e e^{-(s+a)t} dt gives 1/(s+a) provided Re(s+a)>0, which is the correct result of the improper integral.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "Re(s) > -a",
+        "operation": "Determine the region of convergence by ensuring convergence of the integral",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The integral \u222b_0^\u221e e^{-(s+a)t} dt converges only if Re(s+a) > 0, which is equivalent to Re(s) > -a. Thus stating the ROC as Re(s) > -a is a correct deduction from the previous result.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The integral \u222b_0^\u221e e^{-(s+a)t} dt converges only if Re(s+a) > 0, which is equivalent to Re(s) > -a. Thus stating the ROC as Re(s) > -a is a correct deduction from the previous result.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q25": [
+      {
+        "step_number": 1,
+        "expression": "Sum(h[n] * z**(-n), (n, -oo, oo))",
+        "operation": "Start with the definition of the Z-transform",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The Z-transform is defined as the sum over all n of h[n]\u00b7z^{-n}; writing \u03a3_{n=-\u221e}^{\u221e} h[n] z^{-n} correctly follows from the definition.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The Z-transform is defined as the sum over all n of h[n]\u00b7z^{-n}; writing \u03a3_{n=-\u221e}^{\u221e} h[n] z^{-n} correctly follows from the definition.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "Sum(((1/2)**n * u[n]) * z**(-n), (n, -oo, oo))",
+        "operation": "Substitute h[n] = (1/2)^n * u[n] into the sum",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression was the generic Z-transform sum; substituting h[n] = (1/2)^n u[n] yields exactly the displayed sum, so the step is correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression was the generic Z-transform sum; substituting h[n] = (1/2)^n u[n] yields exactly the displayed sum, so the step is correct.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "Sum(((1/2)**n * z**(-n)), (n, 0, oo))",
+        "operation": "Use the fact that u[n] is zero for n < 0 to change summation limits",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "Since u[n]=0 for n<0 and u[n]=1 for n\u22650, the term (1/2)^n*u[n]*z^{-n} contributes only for n\u22650, allowing the limits to be changed from (\u2212\u221e,\u221e) to (0,\u221e) and dropping u[n].",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Since u[n]=0 for n<0 and u[n]=1 for n\u22650, the term (1/2)^n*u[n]*z^{-n} contributes only for n\u22650, allowing the limits to be changed from (\u2212\u221e,\u221e) to (0,\u221e) and dropping u[n].\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "Sum(((1/2) * z**(-1))**n, (n, 0, oo))",
+        "operation": "Combine terms into a single geometric sequence",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous sum had term (1/2)**n * z**(-n), which equals ((1/2) * z**(-1))**n because z**(-n) = (z**(-1))**n. Thus combining into a single geometric term is correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous sum had term (1/2)**n * z**(-n), which equals ((1/2) * z**(-1))**n because z**(-n) = (z**(-1))**n. Thus combining into a single geometric term is correct.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "1 / (1 - (1/2) * z**(-1))",
+        "operation": "Apply the formula for the sum of an infinite geometric series",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous expression is the infinite sum \\(\\sum_{n=0}^{\\infty} ((1/2)z^{-1})^n\\). Using the geometric series formula \\(\\sum_{n=0}^{\\infty} r^n = 1/(1-r)\\) with \\(r = (1/2)z^{-1}\\) yields \\(1/(1-(1/2)z^{-1})\\), matching the current expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression is the infinite sum \\\\(\\\\sum_{n=0}^{\\\\infty} ((1/2)z^{-1})^n\\\\). Using the geometric series formula \\\\(\\\\sum_{n=0}^{\\\\infty} r^n = 1/(1-r)\\\\) with \\\\(r = (1/2)z^{-1}\\\\) yields \\\\(1/(1-(1/2)z^{-1})\\\\), matching the current expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "z / (z - 1/2)",
+        "operation": "Simplify the denominator by factoring out z in the denominator",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying numerator and denominator of 1/(1 - (1/2)z^{-1}) by z gives 1/((z-1/2)/z) = z/(z-1/2), so the simplification is correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying numerator and denominator of 1/(1 - (1/2)z^{-1}) by z gives 1/((z-1/2)/z) = z/(z-1/2), so the simplification is correct.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q26": [
+      {
+        "step_number": 1,
+        "expression": "1/(s + a)",
+        "operation": "Start with the given system function H(s)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step simply restates the given system function H(s)=1/(s+a), which is a correct starting point for the derivation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step simply restates the given system function H(s)=1/(s+a), which is a correct starting point for the derivation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "1/(I*omega + a)",
+        "operation": "Evaluate the system function on the imaginary axis to get the frequency response",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Substituting s = j\u00b7\u03c9 (the imaginary axis) into H(s)=1/(s+a) correctly yields H(j\u03c9)=1/(j\u03c9 + a). The operation matches the described evaluation.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting s = j\u00b7\u03c9 (the imaginary axis) into H(s)=1/(s+a) correctly yields H(j\u03c9)=1/(j\u03c9 + a). The operation matches the described evaluation.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "Abs(1/(a + I*omega))",
+        "operation": "Compute the magnitude of the complex frequency response",
+        "verdict": "passed",
+        "confidence": 0.98,
+        "reasoning": "The previous expression is 1/(I*omega + a); taking its magnitude yields Abs(1/(a + I*omega)), which is exactly the stated current expression (addition is commutative).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression is 1/(I*omega + a); taking its magnitude yields Abs(1/(a + I*omega)), which is exactly the stated current expression (addition is commutative).\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "1/Abs(a + I*omega)",
+        "operation": "Use the property that the magnitude of a reciprocal is the reciprocal of the magnitude",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The magnitude of a reciprocal satisfies |1/z| = 1/|z| for any non\u2011zero complex z, so converting Abs(1/(a + I*omega)) to 1/Abs(a + I*omega) is mathematically correct.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The magnitude of a reciprocal satisfies |1/z| = 1/|z| for any non\u2011zero complex z, so converting Abs(1/(a + I*omega)) to 1/Abs(a + I*omega) is mathematically correct.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "1/sqrt(a**2 + omega**2)",
+        "operation": "Express the magnitude of the complex number in the denominator using Pythagorean theorem",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The magnitude of a complex number a + i\u00b7\u03c9 is \u221a(a\u00b2+\u03c9\u00b2); thus 1/|a + i\u00b7\u03c9| correctly simplifies to 1/\u221a(a\u00b2+\u03c9\u00b2).",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The magnitude of a complex number a + i\u00b7\u03c9 is \u221a(a\u00b2+\u03c9\u00b2); thus 1/|a + i\u00b7\u03c9| correctly simplifies to 1/\u221a(a\u00b2+\u03c9\u00b2).\"\n}",
+        "cached": false
+      }
+    ],
+    "Q27": [
+      {
+        "step_number": 1,
+        "expression": "1 / (1 - r * z**(-1))",
+        "operation": "Start with the given Z transform H(z)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly restates the given Z-transform H(z) = 1/(1 - r*z**(-1)) as the starting expression, matching the problem statement.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly restates the given Z-transform H(z) = 1/(1 - r*z**(-1)) as the starting expression, matching the problem statement.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "1 / (1 - r * exp(-I * Omega))",
+        "operation": "Substitute z = exp(j*Omega) to evaluate on the unit circle",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Substituting z = e^{j\u03a9} into H(z) replaces z^{-1} with e^{-j\u03a9}, giving 1/(1 - r\u00b7e^{-j\u03a9}), which matches the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting z = e^{j\u03a9} into H(z) replaces z^{-1} with e^{-j\u03a9}, giving 1/(1 - r\u00b7e^{-j\u03a9}), which matches the stated expression.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q28": [
+      {
+        "step_number": 1,
+        "expression": "2 * f_max",
+        "operation": "Recall that the Nyquist sampling rate is twice the highest frequency to avoid aliasing",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The Nyquist theorem states that the sampling rate must be at least twice the maximum frequency component, so 2\u202ff_max samples per second is the correct expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The Nyquist theorem states that the sampling rate must be at least twice the maximum frequency component, so 2\u202ff_max samples per second is the correct expression.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q29": [
+      {
+        "step_number": 1,
+        "expression": "1 / (1 + s / omega_c)",
+        "operation": "Start with the general form of a first-order low-pass filter transfer function",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "The expression 1/(1 + s/\u03c9_c) correctly represents the transfer function of a first-order low-pass filter with cutoff \u03c9_c and unity DC gain, matching the standard form.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The expression 1/(1 + s/\u03c9_c) correctly represents the transfer function of a first-order low-pass filter with cutoff \u03c9_c and unity DC gain, matching the standard form.\"\n}",
+        "cached": false
+      }
+    ],
+    "Q30": [
+      {
+        "step_number": 1,
+        "expression": "m(t)*cos(omega_c*t)",
+        "operation": "Start with the definition of the modulated signal s(t)",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly restates the given definition s(t)=m(t)\u00b7cos(\u03c9_c t) as the starting point for the derivation, which is a valid initial move.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly restates the given definition s(t)=m(t)\u00b7cos(\u03c9_c t) as the starting point for the derivation, which is a valid initial move.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 2,
+        "expression": "m(t)*(exp(I*omega_c*t) + exp(-I*omega_c*t))/2",
+        "operation": "Express cosine in terms of complex exponentials",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The step correctly applies the identity cos(\u03c9_c t) = (e^{j \u03c9_c t}+e^{-j \u03c9_c t})/2, multiplying by m(t) as required.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly applies the identity cos(\u03c9_c t) = (e^{j \u03c9_c t}+e^{-j \u03c9_c t})/2, multiplying by m(t) as required.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 3,
+        "expression": "m(t)*exp(I*omega_c*t)/2 + m(t)*exp(-I*omega_c*t)/2",
+        "operation": "Distribute m(t) over the sum",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "Multiplying the sum (exp(I*\u03c9_c*t) + exp(-I*\u03c9_c*t)) by m(t) and then dividing by 2 is equivalent to distributing m(t) over each term, giving m(t)\u00b7exp(I*\u03c9_c*t)/2 + m(t)\u00b7exp(-I*\u03c9_c*t)/2.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the sum (exp(I*\u03c9_c*t) + exp(-I*\u03c9_c*t)) by m(t) and then dividing by 2 is equivalent to distributing m(t) over each term, giving m(t)\u00b7exp(I*\u03c9_c*t)/2 + m(t)\u00b7exp(-I*\u03c9_c*t)/2.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 4,
+        "expression": "FourierTransform(m(t)*exp(I*omega_c*t)/2, t, omega) + FourierTransform(m(t)*exp(-I*omega_c*t)/2, t, omega)",
+        "operation": "Apply linearity of Fourier transform",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The Fourier transform is linear, so the transform of a sum equals the sum of the transforms of each term. Applying this to m(t)\u00b7e^{j\u03c9_c t}/2 + m(t)\u00b7e^{-j\u03c9_c t}/2 yields exactly the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The Fourier transform is linear, so the transform of a sum equals the sum of the transforms of each term. Applying this to m(t)\u00b7e^{j\u03c9_c t}/2 + m(t)\u00b7e^{-j\u03c9_c t}/2 yields exactly the stated expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 5,
+        "expression": "(1/2)*FourierTransform(m(t)*exp(I*omega_c*t), t, omega) + (1/2)*FourierTransform(m(t)*exp(-I*omega_c*t), t, omega)",
+        "operation": "Factor out the constant 1/2 from each term",
+        "verdict": "passed",
+        "confidence": 0.99,
+        "reasoning": "The previous step had each Fourier transform applied to (1/2)\u00b7f(t). By linearity, the factor 1/2 can be taken outside each transform, yielding the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous step had each Fourier transform applied to (1/2)\u00b7f(t). By linearity, the factor 1/2 can be taken outside each transform, yielding the stated expression.\"\n}",
+        "cached": false
+      },
+      {
+        "step_number": 6,
+        "expression": "(1/2)*M(I*(omega - omega_c)) + (1/2)*M(I*(omega + omega_c))",
+        "operation": "Use the frequency shift property of Fourier transform: Fourier transform of m(t)*exp(I*omega_0*t) is M(j*(omega - omega_0))",
+        "verdict": "passed",
+        "confidence": 0.97,
+        "reasoning": "Applying the frequency shift property to each term correctly yields (1/2)M(j(\u03c9-\u03c9_c)) + (1/2)M(j(\u03c9+\u03c9_c)), matching the stated expression.",
+        "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Applying the frequency shift property to each term correctly yields (1/2)M(j(\u03c9-\u03c9_c)) + (1/2)M(j(\u03c9+\u03c9_c)), matching the stated expression.\"\n}",
+        "cached": false
+      }
+    ]
+  },
+  "scores": {
+    "verifier_vs_human": {
+      "grader_label": "verifier",
+      "queries_labelled": 29,
+      "steps_total": 191,
+      "steps_abstained": 101,
+      "coverage": 0.471,
+      "confusion_matrix": {
+        "true_positive": 0,
+        "false_positive": 0,
+        "true_negative": 83,
+        "false_negative": 7
+      },
+      "precision_error_detection": null,
+      "recall_error_detection": 0.0,
+      "accuracy_on_covered_steps": 0.922,
+      "grader_verdicts": {
+        "verifier_correct": 90,
+        "verifier_abstain": 101
+      },
+      "human_error_types": {
+        "definition": 4,
+        "algebra": 3,
+        "missing_term": 6
+      },
+      "final_answer_queries": 29,
+      "final_answer_correct": 27,
+      "verifier_verdicts": {
+        "verifier_correct": 90,
+        "verifier_abstain": 101
+      }
+    },
+    "judge_vs_human": {
+      "grader_label": "judge",
+      "queries_labelled": 29,
+      "steps_total": 191,
+      "steps_abstained": 1,
+      "coverage": 0.995,
+      "confusion_matrix": {
+        "true_positive": 6,
+        "false_positive": 3,
+        "true_negative": 175,
+        "false_negative": 6
+      },
+      "precision_error_detection": 0.667,
+      "recall_error_detection": 0.5,
+      "accuracy_on_covered_steps": 0.953,
+      "grader_verdicts": {
+        "judge_correct": 181,
+        "judge_incorrect": 9,
+        "judge_abstain": 1
+      },
+      "human_error_types": {
+        "definition": 4,
+        "algebra": 3,
+        "missing_term": 6
+      },
+      "final_answer_queries": 29,
+      "final_answer_correct": 27
+    },
+    "head_to_head": {
+      "both_committed_both_correct": 82,
+      "both_committed_both_wrong": 4,
+      "judge_caught_error_verifier_missed": 6,
+      "verifier_caught_error_judge_missed": 0,
+      "verifier_only_committed": 0,
+      "judge_only_committed": 100,
+      "neither_committed": 1
+    }
+  }
+}

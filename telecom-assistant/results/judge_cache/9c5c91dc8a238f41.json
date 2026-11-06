@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "2*a / (a**2 + omega**2)",
+  "operation": "Simplify denominator: (a - I*omega)(a + I*omega) = a^2 + omega^2",
+  "confidence": 0.99,
+  "reasoning": "Multiplying (a - I*omega)(a + I*omega) yields a^2 - (I*omega)^2 = a^2 + omega^2, so the denominator simplifies correctly, giving 2*a/(a**2 + omega**2).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying (a - I*omega)(a + I*omega) yields a^2 - (I*omega)^2 = a^2 + omega^2, so the denominator simplifies correctly, giving 2*a/(a**2 + omega**2).\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

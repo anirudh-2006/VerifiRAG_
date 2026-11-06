@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(delta(t)*exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Substitute x(t) with the unit impulse signal delta(t)",
+  "confidence": 0.99,
+  "reasoning": "The previous expression is the Fourier transform integral \u222b x(t) e^{-i \u03c9 t} dt. Substituting x(t) with the unit impulse \u03b4(t) correctly yields \u222b \u03b4(t) e^{-i \u03c9 t} dt.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression is the Fourier transform integral \u222b x(t) e^{-i \u03c9 t} dt. Substituting x(t) with the unit impulse \u03b4(t) correctly yields \u222b \u03b4(t) e^{-i \u03c9 t} dt.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

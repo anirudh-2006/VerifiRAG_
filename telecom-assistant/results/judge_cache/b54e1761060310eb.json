@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X_z = Sum(y_n * exp(-I*omega*n), (n, -oo, oo))",
+  "operation": "Recognize this sum as the DTFT of y[n]",
+  "confidence": 0.95,
+  "reasoning": "The expression Sum(y_n * exp(-I*omega*n), (n, -oo, oo)) is indeed the definition of the Discrete-Time Fourier Transform (DTFT) of the sequence y_n. The operation correctly identifies this form.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The expression Sum(y_n * exp(-I*omega*n), (n, -oo, oo)) is indeed the definition of the Discrete-Time Fourier Transform (DTFT) of the sequence y_n. The operation correctly identifies this form.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

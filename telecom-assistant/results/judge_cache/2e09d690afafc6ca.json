@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(-a*t) * (exp(a*t) - 1) / a",
+  "operation": "Simplify the expression",
+  "confidence": 0.99,
+  "reasoning": "The previous expression exp(-a*t)*(exp(a*t)/a - 1/a) can be combined over a common denominator a, yielding exp(-a*t)*(exp(a*t) - 1)/a, which matches the current expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression exp(-a*t)*(exp(a*t)/a - 1/a) can be combined over a common denominator a, yielding exp(-a*t)*(exp(a*t) - 1)/a, which matches the current expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "(1 - (-1)**k) / (I*k*2*pi)",
+  "operation": "Note that exp(-I*k*pi) = (-1)**k",
+  "confidence": 0.85,
+  "reasoning": "While exp(-I*k*pi) = (-1)^k is correct, the simplification drops the second term containing exp(-I*k*3*pi/2) without justification. The full expression should be (1 - (-1)^k)/(I*k*2*pi) - ((-1)^k - exp(-I*k*3*pi/2))/(I*k*2*pi), which does not simplify to the given result.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.85,\n  \"reasoning\": \"While exp(-I*k*pi) = (-1)^k is correct, the simplification drops the second term containing exp(-I*k*3*pi/2) without justification. The full expression should be (1 - (-1)^k)/(I*k*2*pi) - ((-1)^k - exp(-I*k*3*pi/2))/(I*k*2*pi), which does not simplify to the given result.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

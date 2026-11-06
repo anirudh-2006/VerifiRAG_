@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "z = r * exp(I*omega)",
+  "operation": "Express the complex variable z in polar form using magnitude and angle",
+  "confidence": 0.95,
+  "reasoning": "Expressing the complex variable z in polar form as z = r * exp(I*omega) is a valid algebraic step, consistent with representing complex numbers in terms of magnitude r and angle omega.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"Expressing the complex variable z in polar form as z = r * exp(I*omega) is a valid algebraic step, consistent with representing complex numbers in terms of magnitude r and angle omega.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

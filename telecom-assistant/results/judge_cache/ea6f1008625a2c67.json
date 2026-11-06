@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "Y(s)/X(s)",
+  "operation": "Solve for Y(s)/X(s)",
+  "confidence": 0.95,
+  "reasoning": "The previous step has Y(s)*(s + a) = X(s). Solving for Y(s)/X(s) should give Y(s)/X(s) = 1/(s + a), not just Y(s)/X(s). The current step states the goal but doesn't show the actual result of the operation.",
+  "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The previous step has Y(s)*(s + a) = X(s). Solving for Y(s)/X(s) should give Y(s)/X(s) = 1/(s + a), not just Y(s)/X(s). The current step states the goal but doesn't show the actual result of the operation.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1/sqrt(a**2 + omega**2)",
+  "operation": "Express the magnitude of the complex number in the denominator using Pythagorean theorem",
+  "confidence": 0.99,
+  "reasoning": "The magnitude of a complex number a + i\u00b7\u03c9 is \u221a(a\u00b2+\u03c9\u00b2); thus 1/|a + i\u00b7\u03c9| correctly simplifies to 1/\u221a(a\u00b2+\u03c9\u00b2).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The magnitude of a complex number a + i\u00b7\u03c9 is \u221a(a\u00b2+\u03c9\u00b2); thus 1/|a + i\u00b7\u03c9| correctly simplifies to 1/\u221a(a\u00b2+\u03c9\u00b2).\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

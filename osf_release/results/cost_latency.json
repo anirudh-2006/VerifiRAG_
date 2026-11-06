@@ -1,0 +1,74 @@
+{
+  "notes": [
+    "Symbolic timed locally (CPU); USD=0.",
+    "LLM RTT not logged in frozen runs; we report call counts, not wall latency.",
+    "Token estimates: prompt reconstructed from STEP_TEMPLATE; output from frozen rationale JSON (~4 chars/token). Reasoning hidden tokens excluded \u2192 gpt-oss USD is a lower bound.",
+    "Prices are published list rates and will change; treat as order-of-magnitude."
+  ],
+  "prices_usd_per_mtok": {
+    "gpt-oss-120b": {
+      "in": 0.35,
+      "out": 0.75,
+      "source": "Cerebras list price"
+    },
+    "claude-sonnet-4-5": {
+      "in": 3.0,
+      "out": 15.0,
+      "source": "Anthropic list price"
+    }
+  },
+  "token_estimates_human_step": {
+    "n": 191,
+    "mean_input_tokens": 419.30366492146595,
+    "mean_output_tokens": 58.010471204188484,
+    "median_input_tokens": 406
+  },
+  "symbolic": {
+    "n_queries": 29,
+    "n_steps": 191,
+    "seconds_total": 11.412129621,
+    "seconds_per_query_mean": 0.39352171106896555,
+    "ms_per_step_mean": 59.749369743455496,
+    "usd": 0.0
+  },
+  "human_n_steps": 191,
+  "human_symbolic_commits": 90,
+  "human_symbolic_abstains": 101,
+  "injection_n_trials": 118,
+  "policies": [
+    {
+      "model": "gpt-oss-120b",
+      "human": {
+        "judge_alone_calls": 191,
+        "cascade_judge_calls": 101,
+        "cascade_call_reduction": 0.47120418848167545,
+        "judge_alone_usd_est": 0.036340449999999996,
+        "cascade_usd_est": 0.019216677748691097
+      },
+      "injection": {
+        "judge_alone_calls": 118,
+        "cascade_judge_calls": 76,
+        "cascade_call_reduction": 0.35593220338983056,
+        "judge_alone_usd_est": 0.022451168062827223,
+        "cascade_usd_est": 0.014460074345549736
+      }
+    },
+    {
+      "model": "claude-sonnet-4-5",
+      "human": {
+        "judge_alone_calls": 191,
+        "cascade_judge_calls": 101,
+        "cascade_call_reduction": 0.47120418848167545,
+        "judge_alone_usd_est": 0.406461,
+        "cascade_usd_est": 0.21493487434554975
+      },
+      "injection": {
+        "judge_alone_calls": 118,
+        "cascade_judge_calls": 76,
+        "cascade_call_reduction": 0.35593220338983056,
+        "judge_alone_usd_est": 0.2511120314136126,
+        "cascade_usd_est": 0.16173317277486912
+      }
+    }
+  ]
+}

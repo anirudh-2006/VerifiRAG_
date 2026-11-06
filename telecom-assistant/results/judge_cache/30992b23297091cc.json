@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "H(exp(I*Omega))",
+  "operation": "Evaluate the transfer function on the unit circle to get frequency response",
+  "confidence": 0.95,
+  "reasoning": "The operation correctly evaluates the transfer function H(z) on the unit circle by substituting z = exp(I*Omega), which is the standard method to obtain the frequency response H(Omega) from the z-transform H(z).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The operation correctly evaluates the transfer function H(z) on the unit circle by substituting z = exp(I*Omega), which is the standard method to obtain the frequency response H(Omega) from the z-transform H(z).\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum((z**(-1))**n, (n, 0, oo))",
+  "operation": "Recognize the infinite geometric series with ratio z^(-1)",
+  "confidence": 1.0,
+  "reasoning": "The expression z^(-n) can be rewritten as (z^(-1))^n using the power rule (a^b)^c = a^(bc). This is a valid algebraic manipulation that recognizes the form of a geometric series with common ratio r = z^(-1).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The expression z^(-n) can be rewritten as (z^(-1))^n using the power rule (a^b)^c = a^(bc). This is a valid algebraic manipulation that recognizes the form of a geometric series with common ratio r = z^(-1).\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

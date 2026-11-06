@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-2*t) * u(t) * exp(-s*t), (t, -oo, oo))",
+  "operation": "Substitute x(t) = exp(-2*t) * u(t) into the integral",
+  "confidence": 1.0,
+  "reasoning": "The substitution of x(t) = exp(-2*t) * u(t) into the Laplace transform integral is correctly applied, replacing x(t) in the integrand.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The substitution of x(t) = exp(-2*t) * u(t) into the Laplace transform integral is correctly applied, replacing x(t) in the integrand.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

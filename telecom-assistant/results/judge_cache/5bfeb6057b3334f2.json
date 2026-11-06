@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1 / (1 - r * exp(-I * Omega))",
+  "operation": "Substitute z = exp(j*Omega) to evaluate on the unit circle",
+  "confidence": 0.99,
+  "reasoning": "Substituting z = e^{j\u03a9} into H(z) replaces z^{-1} with e^{-j\u03a9}, giving 1/(1 - r\u00b7e^{-j\u03a9}), which matches the stated expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting z = e^{j\u03a9} into H(z) replaces z^{-1} with e^{-j\u03a9}, giving 1/(1 - r\u00b7e^{-j\u03a9}), which matches the stated expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

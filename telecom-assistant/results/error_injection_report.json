@@ -1,0 +1,3269 @@
+{
+  "config": {
+    "seed": 0,
+    "with_judge": false,
+    "n_fixtures": 9,
+    "mutation_specs": [
+      {
+        "kind": "sign_flip",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "negate leading sign"
+      },
+      {
+        "kind": "coeff_x2",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "multiply by 2"
+      },
+      {
+        "kind": "coeff_half",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "divide by 2"
+      },
+      {
+        "kind": "drop_term",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "drop last additive term"
+      },
+      {
+        "kind": "exponent_bump",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "increment first integer exponent"
+      },
+      {
+        "kind": "constant_shift",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "add 1"
+      },
+      {
+        "kind": "missing_factor_of_2",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "drop leading factor of 2"
+      },
+      {
+        "kind": "swap_integral_limits",
+        "family": "bounds",
+        "severity": "error",
+        "description": "swap a<->b in first integral/sum"
+      },
+      {
+        "kind": "drop_upper_limit",
+        "family": "bounds",
+        "severity": "error",
+        "description": "truncate upper limit of first integral/sum"
+      },
+      {
+        "kind": "rename_variable",
+        "family": "identifier",
+        "severity": "error",
+        "description": "rename a key symbol uniformly in this step"
+      },
+      {
+        "kind": "commute_operands",
+        "family": "equivalent",
+        "severity": "equivalent",
+        "description": "swap operands of first top-level +/*"
+      },
+      {
+        "kind": "expand_power",
+        "family": "equivalent",
+        "severity": "equivalent",
+        "description": "rewrite X**2 as X*X"
+      },
+      {
+        "kind": "distribute",
+        "family": "equivalent",
+        "severity": "equivalent",
+        "description": "expand k*(a+b) into k*a+k*b"
+      },
+      {
+        "kind": "no_op",
+        "family": "control",
+        "severity": "control",
+        "description": "identity (no mutation)"
+      }
+    ],
+    "graders": [
+      "symbolic"
+    ]
+  },
+  "metrics": {
+    "symbolic": {
+      "overall": {
+        "precision": 1.0,
+        "recall_strict": 0.23404255319148937,
+        "recall_committed": 1.0,
+        "fpr": 0.0,
+        "abstain_rate": 0.6440677966101694,
+        "tp": 22,
+        "fn": 0,
+        "fp": 0,
+        "tn": 20,
+        "abstain_error": 72,
+        "abstain_eq": 4,
+        "total": 118
+      },
+      "by_family": {
+        "algebraic": {
+          "precision": 1.0,
+          "recall_strict": 0.2972972972972973,
+          "recall_committed": 1.0,
+          "fpr": null,
+          "abstain_rate": 0.7027027027027027,
+          "tp": 22,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 52,
+          "abstain_eq": 0,
+          "total": 74
+        },
+        "bounds": {
+          "precision": null,
+          "recall_strict": 0.0,
+          "recall_committed": null,
+          "fpr": null,
+          "abstain_rate": 1.0,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 6,
+          "abstain_eq": 0,
+          "total": 6
+        },
+        "identifier": {
+          "precision": null,
+          "recall_strict": 0.0,
+          "recall_committed": null,
+          "fpr": null,
+          "abstain_rate": 1.0,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 14,
+          "abstain_eq": 0,
+          "total": 14
+        },
+        "control": {
+          "precision": null,
+          "recall_strict": null,
+          "recall_committed": null,
+          "fpr": 0.0,
+          "abstain_rate": 0.14285714285714285,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 12,
+          "abstain_error": 0,
+          "abstain_eq": 2,
+          "total": 14
+        },
+        "equivalent": {
+          "precision": null,
+          "recall_strict": null,
+          "recall_committed": null,
+          "fpr": 0.0,
+          "abstain_rate": 0.2,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 8,
+          "abstain_error": 0,
+          "abstain_eq": 2,
+          "total": 10
+        }
+      },
+      "confusion": {
+        "error": {
+          "passed": 0,
+          "failed": 22,
+          "abstain": 72,
+          "error": 0
+        },
+        "control": {
+          "passed": 12,
+          "failed": 0,
+          "abstain": 2,
+          "error": 0
+        },
+        "equivalent": {
+          "passed": 8,
+          "failed": 0,
+          "abstain": 2,
+          "error": 0
+        }
+      }
+    }
+  },
+  "trials": [
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "-(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "2*(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + I*omega)*t), (t, 0, oo))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*omega)*t), (t, oo, 0))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*Omega)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "-(1/(a + I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "2*(1/(a + I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "(1/(a + I*omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "(1/(a + I*omega)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "(1/(a + I*omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "1/(a + I*Omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "1/(a + I*omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "-(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "2*(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, oo, -oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*Omega*t0)*integrate(x*exp(-I*Omega*t), (t, -oo, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "integrate(x*exp(-I*omega*t), (t, -oo, oo)) * exp(-I*omega*t0)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "-(exp(-I*omega*t0)*X)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "2*(exp(-I*omega*t0)*X)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "(exp(-I*omega*t0)*X)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "(exp(-I*omega*t0)*X) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "(exp(-I*omega*t0)*X)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "exp(-I*Omega*t0)*X",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "X * exp(-I*omega*t0)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "exp(-I*omega*t0)*X",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "-(omega**2 + 2*omega + 1)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 2: expression has opposite sign to previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "2*(omega**2 + 2*omega + 1)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega**2 + 2*omega + 1)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "omega**2 + 2*omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "omega**3 + 2*omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega**2 + 2*omega + 1) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega**2 + 2*omega + 1)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "Omega**2 + 2*Omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "2*omega + 1 + omega**2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega)*(omega) + 2*omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "omega**2 + 2*omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "-(2*sin(omega)*cos(omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 2: expression has opposite sign to previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "2*(2*sin(omega)*cos(omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "(2*sin(omega)*cos(omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "(2*sin(omega)*cos(omega)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "sin(omega)*cos(omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "2*sin(Omega)*cos(Omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "sin(omega)*cos(omega) * 2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "2*sin(omega)*cos(omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "-(2*I*sin(omega)/(I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 2: expression has opposite sign to previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "2*(2*I*sin(omega)/(I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "(2*I*sin(omega)/(I*omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "(2*I*sin(omega)/(I*omega)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "I*sin(omega)/(I*omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "2*I*sin(Omega)/(I*Omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "I*sin(omega)/(I*omega) * 2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "2*I*sin(omega)/(I*omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "-(2*sin(omega)/omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 3: expression has opposite sign to previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "2*(2*sin(omega)/omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "(2*sin(omega)/omega)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "(2*sin(omega)/omega) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "sin(omega)/omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "2*sin(Omega)/Omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "sin(omega)/omega * 2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "2*sin(omega)/omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "-(integrate(exp(-(a + s)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "2*(integrate(exp(-(a + s)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + s)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + s)*t), (t, 0, oo))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + s)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + s)*t), (t, oo, 0))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + s)*t), (t, 0, 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + p)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "-(1/(s + a))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "2*(1/(s + a))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "(1/(s + a))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "(1/(s + a)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "(1/(s + a))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "1/(p + a)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "1/(s + a)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "-(1/((s - 1)*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "2*(1/((s - 1)*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "(1/((s - 1)*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "(1/((s - 1)*(s + 1))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "(1/((s - 1)*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "1/((p - 1)*(p + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "1/((s - 1)*(s + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "-(1/(2*(s - 1)) - 1/(2*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "2*(1/(2*(s - 1)) - 1/(2*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "(1/(2*(s - 1)) - 1/(2*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*(s - 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "(1/(2*(s - 1)) - 1/(2*(s + 1))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "(1/(2*(s - 1)) - 1/(2*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*(p - 1)) - 1/(2*(p + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*s - 2*1) - 1/(2*(s + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "-(1/(1 - r))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "2*(1/(1 - r))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "(1/(1 - r))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "(1/(1 - r)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "(1/(1 - r))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "1/(1 - rho)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "1/(1 - r)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "-(3*x**2)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "2*(3*x**2)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "(3*x**2)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*x**3",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "(3*x**2) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "(3*x**2)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*xi**2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "3*x**2",
+      "mutated_expr": "x**2 * 3",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*(x)*(x)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*x**2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        }
+      },
+      "skipped_reason": null
+    }
+  ],
+  "warnings": []
+}

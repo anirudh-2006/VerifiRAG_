@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(-I*omega*t0) * integrate(x(u) * exp(-I*omega*u), (u, -oo, oo))",
+  "operation": "Move the constant factor exp(-I*omega*t0) outside the integral",
+  "confidence": 0.99,
+  "reasoning": "The factor exp(-I*omega*t0) is independent of the integration variable u, so it can be taken outside the integral, yielding the stated expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The factor exp(-I*omega*t0) is independent of the integration variable u, so it can be taken outside the integral, yielding the stated expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

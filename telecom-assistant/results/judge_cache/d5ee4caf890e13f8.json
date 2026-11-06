@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "h[n]",
+  "operation": "Start with a linear time-invariant discrete-time system described by its impulse response h[n]",
+  "confidence": 1.0,
+  "reasoning": "This is a valid starting point for deriving the frequency response of a discrete-time system. Defining the impulse response h[n] as the initial object is the standard and correct approach for LTI system analysis.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"This is a valid starting point for deriving the frequency response of a discrete-time system. Defining the impulse response h[n] as the initial object is the standard and correct approach for LTI system analysis.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

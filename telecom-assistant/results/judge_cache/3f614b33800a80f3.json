@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(1/2)*FourierTransform(m(t)*exp(I*omega_c*t), t, omega) + (1/2)*FourierTransform(m(t)*exp(-I*omega_c*t), t, omega)",
+  "operation": "Factor out the constant 1/2 from each term",
+  "confidence": 1.0,
+  "reasoning": "The linearity property of the Fourier transform allows constants to be factored out, so FourierTransform(f(t)/2) = (1/2)*FourierTransform(f(t)) is valid for both terms.",
+  "judge_raw": "I need to verify whether factoring out the constant 1/2 from each Fourier transform is valid.\n\n**Previous step:**\n`FourierTransform(m(t)*exp(I*omega_c*t)/2, t, omega) + FourierTransform(m(t)*exp(-I*omega_c*t)/2, t, omega)`\n\n**Current step:**\n`(1/2)*FourierTransform(m(t)*exp(I*omega_c*t), t, omega) + (1/2)*FourierTransform(m(t)*exp(-I*omega_c*t), t, omega)`\n\n**Verification:**\nThe Fourier transform is a linear operator, which means for any constant `c`:\n`FourierTransform(c*f(t), t, omega) = c*FourierTransform(f(t), t, omega)`\n\nApplying this property:\n- `FourierTransform(m(t)*exp(I*omega_c*t)/2, t, omega) = (1/2)*FourierTransform(m(t)*exp(I*omega_c*t), t, omega)` \u2713\n- `FourierTransform(m(t)*exp(-I*omega_c*t)/2, t, omega) = (1/2)*FourierTransform(m(t)*exp(-I*omega_c*t), t, omega)` \u2713\n\nThe operation correctly applies the linearity property of the Fourier transform to factor out the constant 1/2 from each term.\n\n```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The linearity property of the Fourier transform allows constants to be factored out, so FourierTransform(f(t)/2) = (1/2)*FourierTransform(f(t)) is valid for both terms.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

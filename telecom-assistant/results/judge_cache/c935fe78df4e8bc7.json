@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "Y(s)/X(s)",
+  "operation": "Divide both sides by (s + a)",
+  "confidence": 0.96,
+  "reasoning": "Dividing Y(s)*(s + a) = X(s) by (s + a) gives Y(s) = X(s)/(s + a), or equivalently Y(s)/X(s) = 1/(s + a). The step shows only Y(s)/X(s) without the right\u2011hand side, which does not follow directly from the stated operation.",
+  "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.96,\n  \"reasoning\": \"Dividing Y(s)*(s + a) = X(s) by (s + a) gives Y(s) = X(s)/(s + a), or equivalently Y(s)/X(s) = 1/(s + a). The step shows only Y(s)/X(s) without the right\u2011hand side, which does not follow directly from the stated operation.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

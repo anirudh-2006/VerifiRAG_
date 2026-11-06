@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-a*t) * exp(-s*t), (t, 0, oo))",
+  "operation": "Use the property of the unit step function to change integration limits",
+  "confidence": 0.98,
+  "reasoning": "Since u(t)=1 for t\u22650 and 0 otherwise, the integral of f(t)\u00b7u(t) over (\u2212\u221e,\u221e) equals the integral of f(t) from 0 to \u221e. The step correctly drops u(t) and changes the limits.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Since u(t)=1 for t\u22650 and 0 otherwise, the integral of f(t)\u00b7u(t) over (\u2212\u221e,\u221e) equals the integral of f(t) from 0 to \u221e. The step correctly drops u(t) and changes the limits.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

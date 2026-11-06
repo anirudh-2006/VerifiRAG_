@@ -1,0 +1,81 @@
+{
+  "id": "Q20",
+  "question": "Compute the Z-transform of x[n] = u[n] (the discrete unit step) and state its region of convergence.",
+  "expected_final": "transform: z/(z - 1); roc: Abs(z) > 1",
+  "generated_final": "z/(z - 1), Abs(z) > 1",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the definition of the Z-transform",
+      "expression_given": "Sum(u[n] * z**(-n), (n, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard bilateral Z-transform definition."
+    },
+    {
+      "step_number": 2,
+      "description": "Since u[n] is zero for n < 0, change summation limits to start at 0",
+      "expression_given": "Sum(z**(-n), (n, 0, oo))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "u[n]=0 for n<0, u[n]=1 for n≥0; sum correctly truncated to n=0..∞."
+    },
+    {
+      "step_number": 3,
+      "description": "Recognize the infinite geometric series with ratio z^(-1)",
+      "expression_given": "Sum((z**(-1))**n, (n, 0, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "z^(-n) = (z^(-1))^n by exponent laws."
+    },
+    {
+      "step_number": 4,
+      "description": "Sum the geometric series for |z^(-1)| < 1",
+      "expression_given": "1 / (1 - z**(-1))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard geometric series sum Σr^n = 1/(1−r) with r = z^(-1)."
+    },
+    {
+      "step_number": 5,
+      "description": "Simplify the expression by algebraic manipulation",
+      "expression_given": "z / (z - 1)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Multiply numerator and denominator by z: 1/(1−1/z) = z/(z−1)."
+    },
+    {
+      "step_number": 6,
+      "description": "Determine the region of convergence from the geometric series condition",
+      "expression_given": "Abs(z**(-1)) < 1",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Convergence of the geometric series requires |r| = |z^(-1)| < 1."
+    },
+    {
+      "step_number": 7,
+      "description": "Simplify the ROC condition",
+      "expression_given": "Abs(z) > 1",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "|z^(-1)| < 1 ⇔ 1/|z| < 1 ⇔ |z| > 1."
+    }
+  ]
+}

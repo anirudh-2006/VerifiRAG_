@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(a**n * u_n * z**(-n), (n, -oo, oo))",
+  "operation": "Substitute x[n] = a^n * u[n] into the transform",
+  "confidence": 0.99,
+  "reasoning": "The step correctly replaces x[n] with a^n*u[n] inside the summation, yielding Sum(a**n * u_n * z**(-n), (n, -oo, oo)).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly replaces x[n] with a^n*u[n] inside the summation, yielding Sum(a**n * u_n * z**(-n), (n, -oo, oo)).\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

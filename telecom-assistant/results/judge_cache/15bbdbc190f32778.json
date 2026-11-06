@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X = integrate(x * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Define the Fourier transform of a signal x(t)",
+  "confidence": 0.95,
+  "reasoning": "The expression correctly defines the Fourier transform of a signal x(t) as X(\u03c9) = \u222b x(t) e^(-i\u03c9t) dt from -\u221e to \u221e, which is a standard definition. The use of 'I' for the imaginary unit and 'omega' for angular frequency is consistent with common symbolic conventions.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The expression correctly defines the Fourier transform of a signal x(t) as X(\u03c9) = \u222b x(t) e^(-i\u03c9t) dt from -\u221e to \u221e, which is a standard definition. The use of 'I' for the imaginary unit and 'omega' for angular frequency is consistent with common symbolic conventions.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

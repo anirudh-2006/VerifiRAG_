@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(h[k] * x[n - k], (k, -oo, oo))",
+  "operation": "The output y[n] is the convolution of input x[n] and impulse response h[n]",
+  "confidence": 0.97,
+  "reasoning": "Given the impulse response h[n] of an LTI discrete-time system, the next logical step is to express the output y[n] as the convolution sum \u03a3_{k=-\u221e}^{\u221e} h[k]\u00b7x[n\u2212k]; this matches the stated operation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Given the impulse response h[n] of an LTI discrete-time system, the next logical step is to express the output y[n] as the convolution sum \u03a3_{k=-\u221e}^{\u221e} h[k]\u00b7x[n\u2212k]; this matches the stated operation.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

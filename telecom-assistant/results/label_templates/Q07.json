@@ -1,0 +1,131 @@
+{
+  "id": "Q07",
+  "question": "Derive the frequency response of a discrete time system.",
+  "expected_final": "H(e^jw)",
+  "generated_final": "H(exp(I*Omega))",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with a linear time-invariant discrete-time system described by its impulse response h[n]",
+      "expression_given": "h[n]",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Valid starting point for LTI system characterization."
+    },
+    {
+      "step_number": 2,
+      "description": "The output y[n] is the convolution of input x[n] and impulse response h[n]",
+      "expression_given": "Sum(h[k] * x[n - k], (k, -oo, oo))",
+      "verifier_category": "parse_fail",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard discrete convolution sum. Correct. parse_fail is a tooling artifact."
+    },
+    {
+      "step_number": 3,
+      "description": "Assume the input is a complex exponential x[n] = exp(I*Omega*n)",
+      "expression_given": "exp(I*Omega*n)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard eigenfunction input for LTI systems. Correct."
+    },
+    {
+      "step_number": 4,
+      "description": "Substitute the input into the convolution sum",
+      "expression_given": "Sum(h[k] * exp(I*Omega*(n - k)), (k, -oo, oo))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct substitution of x[n-k] = exp(I*Omega*(n-k))."
+    },
+    {
+      "step_number": 5,
+      "description": "Factor out the term that does not depend on k",
+      "expression_given": "exp(I*Omega*n) * Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "exp(I*Omega*n) is independent of k and correctly factored out. Remaining sum is over k only."
+    },
+    {
+      "step_number": 6,
+      "description": "Recognize that the sum is the definition of the discrete-time Fourier transform of h[n]",
+      "expression_given": "Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "This is exactly the DTFT definition H(Omega) = sum h[k] exp(-jΩk). Correct identification."
+    },
+    {
+      "step_number": 7,
+      "description": "Define the frequency response H(Omega) as the DTFT of h[n]",
+      "expression_given": "H(Omega)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct naming of the frequency response."
+    },
+    {
+      "step_number": 8,
+      "description": "Write the output in terms of the input and frequency response",
+      "expression_given": "H(Omega) * exp(I*Omega*n)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "y[n] = H(Omega)*x[n] confirms complex exponential is an eigenfunction of LTI system. Correct."
+    },
+    {
+      "step_number": 9,
+      "description": "Express H(Omega) as the z-transform of h[n] evaluated on the unit circle",
+      "expression_given": "H(z).subs(z, exp(I*Omega))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "H(e^jΩ) = H(z)|_{z=e^jΩ}. Standard relationship between Z-transform and DTFT. Correct."
+    },
+    {
+      "step_number": 10,
+      "description": "If the system is described by a difference equation, take the z-transform of both sides",
+      "expression_given": "Y(z) / X(z)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Valid alternative derivation path via Z-transform. H(z) = Y(z)/X(z) by linearity. Correct."
+    },
+    {
+      "step_number": 11,
+      "description": "Solve for the transfer function H(z) = Y(z)/X(z)",
+      "expression_given": "H(z)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Transfer function correctly identified."
+    },
+    {
+      "step_number": 12,
+      "description": "Evaluate the transfer function on the unit circle to get frequency response",
+      "expression_given": "H(exp(I*Omega))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Evaluating H(z) at z = exp(I*Omega) gives the frequency response. Correct final result."
+    }
+  ]
+}

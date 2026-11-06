@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "(1 - exp(-I*k*pi)) / (I*k*2*pi) - (exp(-I*k*pi) - exp(-I*k*3*pi/2)) / (I*k*2*pi)",
+  "operation": "Substitute omega0 into the combined expression",
+  "confidence": 0.95,
+  "reasoning": "The substitution of omega0 = 2*pi/T0 into the combined expression is incorrectly applied. The exponents should scale as omega0*T0/2 = pi and omega0*3*T0/4 = 3*pi/2, which is correct, but the denominator in each term should be (I*k*omega0*T0) = (I*k*2*pi), which matches. However, the second term has a sign error: it should be -[exp(-I*k*pi) - exp(-I*k*3*pi/2)] / (I*k*2*pi), but the original second integral was already negative, so the overall sign handling is inconsistent. The correct combination",
+  "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The substitution of omega0 = 2*pi/T0 into the combined expression is incorrectly applied. The exponents should scale as omega0*T0/2 = pi and omega0*3*T0/4 = 3*pi/2, which is correct, but the denominator in each term should be (I*k*omega0*T0) = (I*k*2*pi), which matches. However, the second term has a sign error: it should be -[exp(-I*k*pi) - exp(-I*k*3*pi/2)] / (I*k*2*pi), but the original second integral was already negative, so the overall sign handling is inconsistent. The correct combination should preserve the negative sign from the second integral, but the current expression does not reflect proper combination of the two terms after substitution.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

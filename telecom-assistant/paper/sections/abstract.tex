@@ -1,0 +1,36 @@
+Automatic grading of multi-step mathematical derivations is a prerequisite for
+evaluating math-capable retrieval-augmented and reasoning systems, yet the two
+dominant graders, symbolic equivalence checkers and LLM-as-judge, are rarely
+compared under a single, reproducible protocol. We present such a comparison on
+derivations produced by a retrieval-augmented assistant over a
+signals-and-systems corpus. We evaluate a SymPy-based symbolic verifier against
+two LLM judges from independent labs (\texttt{gpt-oss-120b}, open-weight;
+\texttt{claude-sonnet-4-5}, proprietary) on two labeled testbeds: a
+human-labeled ground-truth set over the assistant's own derivations for 29
+benchmark queries (191 steps, 13 error steps), and a controlled synthetic
+error-injection suite over 9 hand-authored gold derivations (14 mutations across
+5 families). The
+symbolic verifier is high-precision but high-abstention on both testbeds: on
+the injection suite, precision $1.00$, false-positive rate $0.00$, strict
+recall $0.234$, abstention $0.64$; on the human set, abstention $0.53$ and
+strict recall $0.000$ on all 13 human-flagged errors, of which $9/13$ lie
+outside the symbolic fragment and $4/13$ are in-fragment misses (human-set
+precision/recall measure agreement with a rubric the judges were not shown),
+whereas LLM judges achieve near-total coverage and higher agreement on those
+labels, at the cost of injection-suite false positives concentrated on
+equivalence-preserving rewrites (FPR $8.7$--$18.2\%$). The
+\emph{qualitative} pattern is model-independent across both judges, but the exact
+precision/recall operating point is model-dependent (judge--judge $\kappa{=}0.31$
+on committed steps; the two judges catch overlapping but distinct human errors). Paired McNemar tests with Holm--Bonferroni
+correction ($n{=}191$; six tests) confirm the coverage and recall gaps
+($p_{\mathrm{Holm}}{<}0.05$). A symbolic$\rightarrow$LLM cascade improves the
+injection trade-off (e.g.\ cascade$\rightarrow$\texttt{claude}: recall $0.904$,
+FPR $0.042$) but can reduce human-set recall when symbolic false passes lock out
+the judge; thresholding the judge's own confidence yields precision--coverage
+curves that make abstention an explicit dial. Labels are single-annotator; we mitigate by releasing
+the rubric and all raw labels. We argue that grader choice is a
+precision/coverage trade-off rather than a correctness question, that the
+obvious cascade should be measured rather than assumed, and that
+math-NLP evaluations should report \emph{abstention rates} alongside pass/fail.
+We release code, prompts, the open-weight judge configuration, all labels, and
+frozen results at \url{https://osf.io/5kvqe/?view_only=8c0032bd76244a1daaebf6cb3feb2c92}.

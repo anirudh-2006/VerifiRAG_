@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(-a*t) * integrate(exp(a*tau), (tau, 0, t))",
+  "operation": "Factor out exp(-a*t) from the integral since it's independent of tau",
+  "confidence": 0.99,
+  "reasoning": "Since exp(-a*(t-\u03c4)) = exp(-a*t)\u00b7exp(a\u03c4) and exp(-a*t) does not depend on \u03c4, it can be factored out of the integral, yielding exp(-a*t)\u00b7\u222b\u2080\u1d57 exp(a\u03c4)d\u03c4.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Since exp(-a*(t-\u03c4)) = exp(-a*t)\u00b7exp(a\u03c4) and exp(-a*t) does not depend on \u03c4, it can be factored out of the integral, yielding exp(-a*t)\u00b7\u222b\u2080\u1d57 exp(a\u03c4)d\u03c4.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

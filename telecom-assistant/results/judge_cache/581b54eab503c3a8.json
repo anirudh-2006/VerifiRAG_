@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Distribute the exponential term over the sum",
+  "confidence": 0.99,
+  "reasoning": "Multiplying the sum (a*x1(t) + b*x2(t)) by exp(-I*omega*t) distributes to a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t); integrating the resulting expression is equivalent to the previous integral.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the sum (a*x1(t) + b*x2(t)) by exp(-I*omega*t) distributes to a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t); integrating the resulting expression is equivalent to the previous integral.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

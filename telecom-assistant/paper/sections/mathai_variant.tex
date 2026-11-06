@@ -1,0 +1,45 @@
+% ============================================================================
+% MATH-AI @ NeurIPS 2026 REFRAME VARIANT (NOT \input by main.tex).
+% MathNLP and MATH-AI want the same results but a different lede. To retarget:
+%   1. Switch to the NeurIPS style file (not acl.sty); MATH-AI is non-archival,
+%      typically ~4 pages, no forced Limitations section.
+%   2. Replace the title in main.tex and the body of sections/abstract.tex and
+%      the first two paragraphs of sections/intro.tex with the versions below.
+%   3. Everything in setup/protocol/results/analysis/appendix ports verbatim.
+% The scientific content is identical; only the framing emphasis changes
+% (math reasoning + verification, rather than NLP evaluation methodology).
+% ============================================================================
+
+% ---- Alternative title -----------------------------------------------------
+% Verifiers vs. Judges for Mathematical Reasoning: When Symbolic Checking and
+% LLM Grading Disagree on Multi-Step Derivations
+
+% ---- Alternative abstract ---------------------------------------------------
+% Grading multi-step mathematical reasoning is central to measuring progress on
+% math-capable models, but the community grades with two very different tools:
+% symbolic equivalence checkers and LLM-as-judge. We ask when they disagree and
+% why. On derivations from a retrieval-augmented assistant we compare a SymPy
+% verifier with two independent-lab LLM judges (gpt-oss-120b, claude-sonnet-4-5)
+% over a human-labeled set (191 steps) and a controlled error-injection suite
+% (14 mutations, 5 families). Symbolic checking is exact but abstains on, and is
+% blind to, semantic errors (0/13 human errors caught; whole injected families
+% left uncovered); LLM judges catch these errors with near-total coverage but
+% systematically misflag equivalence-preserving rewrites (FPR up to 18.2%, vs 0
+% for symbolic). The qualitative disagreement is model-independent across both
+% judges, while the operating point is model-specific. We argue math-reasoning
+% evaluations should pair both graders and report abstention, and we release an
+% open-weight judge configuration so the grader itself is reproducible.
+
+% ---- Alternative intro lede (first two paragraphs) --------------------------
+% Progress in mathematical reasoning is measured by grading model outputs, and
+% for multi-step derivations that means grading each step. The field relies on
+% two graders with opposite characters: symbolic checkers that are exact but
+% narrow, and LLM judges that are broad but fallible. Which to trust, and where
+% they disagree, is largely unstudied.
+%
+% We characterize that disagreement directly. Rather than proposing a new
+% grader, we evaluate the graders themselves on the same derivation steps, and
+% show the choice is a precision/coverage trade-off: symbolic verification is
+% trustworthy but blind to the semantic errors that dominate real derivations,
+% whereas LLM judges see them at the cost of misflagging legitimate rewrites,
+% at a model-dependent rate.

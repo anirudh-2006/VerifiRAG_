@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1 / (1 - z**(-1))",
+  "operation": "Sum the geometric series for |z^(-1)| < 1",
+  "confidence": 0.99,
+  "reasoning": "The previous expression is the infinite sum \u03a3_{n=0}^{\u221e} (z^{-1})^n, which equals 1/(1\u2011z^{-1}) when the common ratio |z^{-1}|<1. The step correctly applies the geometric series formula.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression is the infinite sum \u03a3_{n=0}^{\u221e} (z^{-1})^n, which equals 1/(1\u2011z^{-1}) when the common ratio |z^{-1}|<1. The step correctly applies the geometric series formula.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

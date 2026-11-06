@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-2*t) * u(t) * exp(-s*t), (t, -oo, oo))",
+  "operation": "Substitute x(t) = exp(-2*t) * u(t) into the integral",
+  "confidence": 1.0,
+  "reasoning": "The substitution correctly replaces x(t) with its given definition exp(-2*t) * u(t) in the Laplace transform integral. This is a direct substitution with no algebraic manipulation errors.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The substitution correctly replaces x(t) with its given definition exp(-2*t) * u(t) in the Laplace transform integral. This is a direct substitution with no algebraic manipulation errors.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(sin(omega_0*t) * exp(-s*t), (t, 0, oo))",
+  "operation": "Write the definition of the Laplace transform for x(t) = sin(omega_0*t)*u(t)",
+  "confidence": 1.0,
+  "reasoning": "The Laplace transform definition is L{x(t)} = \u222b\u2080^\u221e x(t)e^(-st)dt. Since u(t) is the unit step function (1 for t\u22650, 0 for t<0), the expression correctly applies this definition with the integral from 0 to \u221e of sin(\u03c9\u2080t)e^(-st).",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The Laplace transform definition is L{x(t)} = \u222b\u2080^\u221e x(t)e^(-st)dt. Since u(t) is the unit step function (1 for t\u22650, 0 for t<0), the expression correctly applies this definition with the integral from 0 to \u221e of sin(\u03c9\u2080t)e^(-st).\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

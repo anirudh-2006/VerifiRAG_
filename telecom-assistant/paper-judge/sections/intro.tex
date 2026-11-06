@@ -1,0 +1,57 @@
+% ============================================================================
+% SECTION 1 --- drafted 2026-08-27 on explicit instruction, to a structure the
+% author supplied point by point. paper-judge/CLAUDE.md says Section 1 is not
+% to be drafted UNPROMPTED; this was prompted, and the framing below is the
+% author's, not one chosen here.
+%
+% FRAMING, RESOLVED 2026-08-27. This section leads on reward-signal
+% propagation and on the rate-comparison confound, not on the superseded
+% certificate framing. paper-judge/CLAUDE.md "What the 4 pages carry" item 1
+% was rewritten to match, with a dated note recording why, and
+% "CAS-certified"/"certified"/"certificate" were removed from facets.tex,
+% protocol.tex and flip.tex. A second pass the same day closed the last three:
+% CLAUDE.md's §Framing lead claim and its facet-01 row, and
+% sections/limitations.tex item (ii). Nothing in paper-judge/ now asserts the
+% certificate framing outside a dated supersession block. Do not reintroduce
+% the vocabulary here.
+%
+% PROVENANCE OF EVERY NUMBER BELOW:
+%   6 FP / 21 covered negatives (claude), 0 FP / 24 (gpt-oss)
+%     -> results/error_injection_report_claude.json,
+%        results/error_injection_report_with_judge.json, metrics.overall
+%   exact McNemar p = 0.031
+%     -> results/paired_judge_test.json, headline.p_value = 0.03125, emitted by
+%        scripts/build_paired_judge_test.py (added 2026-08-27; frozen verdicts
+%        only, no API calls). 21 negatives both judges committed on, discordant
+%        cells 6 and 0. The builder gates on the published injection rows and
+%        writes nothing if they do not reproduce. The unpaired Fisher figure
+%        (0.006662) is in the same file as a sensitivity row and is NOT the
+%        number to quote: it discards the pairing.
+% ============================================================================
+\section{Introduction}
+\label{sec:intro}
+
+An LLM judge is not only a measurement instrument. Preference optimization
+consumes its verdicts directly, substituting a model's judgment for a human
+label in training \citep{zheng2023judging}. A judge wrong in a patterned way
+therefore does not merely misreport a leaderboard position; it supplies a
+training signal shaped by that pattern, and if that pattern is a preference
+over surface form, a model optimized against it is taught that preference.
+What we look for follows: failure modes that would survive into weights.
+
+Surface sensitivity is a recognized concern, but the usual evidence for it is a
+rate compared across judges or corpora
+\citep{wang2024faireval,zeng2024llmbar,thakur2025judging}. That entangles two
+explanations: a higher rate can mean the judge is more sensitive to how an
+answer is written, or that it was handed harder items.
+
+We screen for this with a paired control, an equivalence-preserving rewrite
+set against a byte-identical copy of the original at the same step, so a
+within-pair difference is attributable to surface form alone.
+
+\texttt{claude-sonnet-4-5} commits six false positives across 21 covered
+negatives, while \texttt{gpt-oss-120b} commits none across 24. On the 21 both
+committed, the discordance is one-sided, six against zero, and an exact
+McNemar test gives $p = 0.031$. We
+therefore report surface sensitivity as a property of one judge on this suite,
+and not as a property of LLM judges as a class.

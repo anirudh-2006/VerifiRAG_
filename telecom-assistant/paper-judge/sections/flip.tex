@@ -1,0 +1,168 @@
+% ============================================================================
+% SECTION 3 --- The flip result. THIS IS THE ONE BODY TABLE.
+% "What the 4 pages carry", item 3: the flip result as the single body table,
+% plus the no-usable-threshold finding and kappa = 0.306.
+%
+% TABLE POPULATED 2026-08-27, after the gold1 regrade landed (2026-08-24) and
+% was promoted into results/. The blocker note that stood here is gone with it.
+%
+% PROVENANCE OF EVERY CELL. Re-derived 2026-08-27 from the frozen per-trial
+% verdicts, not from the notes and not from an older PDF:
+%   results/error_injection_report_claude.json    (llm_judge:claude-sonnet-4-5)
+%   results/error_injection_report_with_judge.json (llm_judge:gpt-oss-120b)
+% Ten pairs, each an equivalent-family trial joined to the control trial at its
+% own (gold_id, step_index). Status follows the definition in
+% sections/protocol.tex: flip = both halves committed and differing; unev. =
+% either half not committed; agree = both committed and equal.
+%   claude : 3 flips, 2 unevaluable, 5 agree
+%   gpt-oss: 0 flips, 0 unevaluable, 10 agree
+% Symbolic on these same 10 rewrites: 8 PASS, 2 abstain (both at gold1), 0 FAIL
+% -> results/threeway_table.json injection row, and sections/protocol.tex.
+%
+% PROSE NUMBERS, added 2026-08-27:
+%   6 FP / 21 covered negatives (claude), 0 FP / 24 (gpt-oss)
+%     -> the two injection reports, metrics.overall
+%   exact McNemar two-sided p = 0.031
+%     -> results/paired_judge_test.json, headline.p_value = 0.03125, n_paired
+%        21, discordant b=6 c=0, ties_00=15. Emitted by
+%        scripts/build_paired_judge_test.py from frozen verdicts, no API calls.
+%        The unpaired Fisher figure (0.006662) in the same file is a
+%        sensitivity row and must NOT be quoted as the headline.
+%   claude FAIL confidences on injection: TP 0.85x8, 0.95x72, 1.00x10 (n=90);
+%     FP 0.85x1, 0.95x5 (n=6). Thresholds: tau>=0.85 keeps 90 TP / 6 FP;
+%     tau>=0.95 keeps 82 TP / 5 FP; tau=1.00 keeps 10 TP / 0 FP.
+%     gpt-oss FAIL confidences: 0.85, 0.92, 0.95, 0.96, 0.97, 0.99 (6 values).
+%     -> tallied from the same two frozen reports
+%   kappa 0.306, 87.8% raw, n=181; confusion 153/20/2/6; error overlap both 4,
+%     claude only 6, gpt-oss only 2, neither 1
+%     -> results/judge_agreement.json. NOTE: that file is the HUMAN-LABELED
+%        set (n_steps 191, committed by both = 181), NOT the injection suite.
+%        Scope it explicitly in prose.
+%
+% The quoted rationale is verbatim from the frozen claude verdicts, with
+% typographic normalisation: the stored text uses a unicode omega and a
+% unicode middle dot, re-set here as $\omega$ and $\cdot$, and x^3 / 3x^2 are
+% re-set as math.
+% ELIDED 2026-08-29 for length. One span is cut and marked with \dots:
+%   "the step claims this is the result of differentiation applied to the
+%    previous step, but the previous step already was the differentiation
+%    operation diff(x**3, x), so"
+% The concession ("could be interpreted as 3x^2") and the judge's actual
+% stated ground (redundancy) both survive the cut. No words were changed or
+% reordered. gold3 s1 is referenced in a clause and was never block-quoted.
+% ============================================================================
+\section{Judges Flip on Equivalence-Preserving Rewrites}
+\label{sec:flip}
+
+% Do not restate what a flip is here. It is defined once, in
+% \S\ref{sec:protocol} under "What counts as a verdict flip", and a second
+% statement in this section is how the two denominators drifted apart before.
+% Point back to it instead.
+The two judges do not differ by degree on this suite. Across the injection
+negatives \texttt{claude-sonnet-4-5} commits 6 false positives on the 21 it
+covers, while \texttt{gpt-oss-120b} commits none on all 24. Both judges graded
+the same 24 trials under the same prompt, so the comparison is paired: on the
+21 both committed, the discordance is entirely one-sided, 6 trials where claude
+flags and gpt-oss does not against 0 in the other direction, and an exact
+two-sided McNemar test gives $p = 0.031$.
+
+Table~\ref{tab:flip} shows where those false positives come from. Three of
+claude's ten pairs are flips under the definition in \S\ref{sec:protocol}, on
+\texttt{gold3 s1}, \texttt{gold4 s1} and \texttt{gold8 s1}. Two more
+are unevaluable because it abstained on the rewrite. \texttt{gpt-oss-120b}
+flips on none of its ten and abstains on none.
+
+One pair reads as a point in claude's favor and is not. \texttt{gold1 s1} is
+its fourth failed rewrite and not a flip: it fails the rewrite and the
+byte-identical control alike, so the pair leaves the flip count because its
+halves agree, not because the objection was upheld. The two rationales do not
+agree either, failing the rewrite because the leading factor needs an
+additional $\exp(a t_0)$, and the control because that factor is already
+correct and the bound variable should have been renamed. \S\ref{sec:validity} returns to that step.
+
+These are not failures to detect the equivalence. In two of the four failed
+rewrites the judge states the algebraic equality and fails the step anyway: on
+\texttt{gold3 s1} it grants that the commuted form is equal by commutativity
+and fails it for producing the factors in non-standard order, and on
+\texttt{gold8 s1}, grading $3 \cdot x \cdot x$ against $3x^2$:
+
+\begin{quote}\small
+``The derivative of $x^3$ with respect to $x$ is $3x^2$, not $3 \cdot x \cdot
+x$. While $3 \cdot x \cdot x$ could be interpreted as $3x^2$, \dots\ this step
+appears to be re-stating the result incorrectly or redundantly.''
+\end{quote}
+
+\noindent The equality is granted and the verdict turns on presentation, a
+failure of the grading criterion rather than of the mathematics.
+
+We attach no significance claim to the flip count itself. Ten pairs over eight
+step sites demonstrate the mechanism rather than estimate its rate, and the
+pairs are not fully independent (\S\ref{sec:protocol}). The McNemar result
+above is what carries statistical weight, and it is scoped to the injection
+suite, whose negatives are labeled by construction.
+
+\begin{table}[t]
+  \centering
+  \setlength{\belowcaptionskip}{2pt}
+  \vspace{-4pt}
+  % Caption trimmed 2026-08-30: the sentence-length restatement of what a
+  % rewrite, control and abstention ARE duplicated \S\ref{sec:protocol} and was
+  % cut. The abbreviation key is caption-specific (these are this table's
+  % column labels, not \S2 vocabulary) and stays, as do both numbers.
+  \caption{All ten rewrite/control pairs. \textsc{rw} rewrite, \textsc{ctl}
+  control, \textsc{abs} abstention; status follows \S\ref{sec:protocol}. The
+  symbolic verifier commits no FAIL on any of these trials, passing 8 of the
+  rewrites and abstaining on 2.}
+  \label{tab:flip}
+  \small
+  \begin{tabular}{llcccccc}
+    \toprule
+    & & \multicolumn{3}{c}{\texttt{claude-sonnet-4-5}}
+      & \multicolumn{3}{c}{\texttt{gpt-oss-120b}} \\
+    \cmidrule(lr){3-5} \cmidrule(lr){6-8}
+    site & operator & \textsc{rw} & \textsc{ctl} & status
+                    & \textsc{rw} & \textsc{ctl} & status \\
+    \midrule
+    \texttt{gold1 s1} & commute    & FAIL & FAIL & agree & PASS & PASS & agree \\
+    \texttt{gold1 s2} & commute    & \textsc{abs} & FAIL & unev. & PASS & PASS & agree \\
+    \texttt{gold2 s1} & commute    & \textsc{abs} & PASS & unev. & PASS & PASS & agree \\
+    \texttt{gold2 s1} & expand     & PASS & PASS & agree & PASS & PASS & agree \\
+    \texttt{gold3 s1} & commute    & FAIL & PASS & \textbf{flip} & PASS & PASS & agree \\
+    \texttt{gold4 s1} & commute    & FAIL & PASS & \textbf{flip} & PASS & PASS & agree \\
+    \texttt{gold4 s2} & commute    & PASS & PASS & agree & PASS & PASS & agree \\
+    \texttt{gold6 s2} & distribute & PASS & PASS & agree & PASS & PASS & agree \\
+    \texttt{gold8 s1} & commute    & PASS & PASS & agree & PASS & PASS & agree \\
+    \texttt{gold8 s1} & expand     & FAIL & PASS & \textbf{flip} & PASS & PASS & agree \\
+    \midrule
+    \multicolumn{2}{l}{total}
+      & \multicolumn{3}{c}{3 flips, 2 unev., 5 agree}
+      & \multicolumn{3}{c}{0 flips, 0 unev., 10 agree} \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{No usable confidence threshold.}
+Every verdict carries a confidence, which suggests committing only above a
+threshold. It does not work here: the false positives and the true detections
+are drawn from the same small set of values. On the injection suite
+claude emits three distinct confidences on FAIL verdicts, 0.85, 0.95 and 1.00:
+its 90 true detections are 8, 72 and 10 across them, and its 6 false positives
+are 1 at 0.85 and 5 at 0.95. 80 of the 90 detections share the two values
+the false positives occupy, and the first threshold that removes all 6 is
+$\tau = 1.00$, which keeps 10 of the 90. There is no intermediate setting
+because there is no intermediate value. \texttt{gpt-oss-120b} emits six
+distinct FAIL confidences, from 0.85 to 0.99, but commits no false positives,
+so a threshold has nothing to separate there either.
+
+These thresholds are in-sample and illustrative, read off the same trials they
+are then evaluated on, and they are not calibrated operating points.
+
+\paragraph{The two judges do not agree with each other either.}
+On the human-labeled testbed their agreement is fair rather than strong
+\citep{artstein2008agreement}; Appendix~\ref{app:agreement} gives the
+breakdown.
+
+% Scope guard, from root CLAUDE.md: the "false positives concentrated on
+% equivalence-preserving rewrites" claim is scoped to the INJECTION SUITE
+% only. Human-set false positives were never typed by hand. Do not let prose
+% here generalise across both testbeds.

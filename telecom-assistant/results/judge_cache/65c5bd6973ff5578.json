@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(y.subs(t, tau) * integrate(x.subs(t, t - tau) * exp(-I*omega*t), (t, -oo, oo)), (tau, -oo, oo))",
+  "operation": "Interchange the order of integration",
+  "confidence": 0.96,
+  "reasoning": "The previous expression is \u222b\u222b x(t\u2011\u03c4) y(\u03c4) e^{-i\u03c9t} d\u03c4 dt; swapping the order of integration yields \u222b y(\u03c4) \u222b x(t\u2011\u03c4) e^{-i\u03c9t} dt d\u03c4, which matches the current expression and is justified by Fubini\u2019s theorem under usual convergence assumptions.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.96,\n  \"reasoning\": \"The previous expression is \u222b\u222b x(t\u2011\u03c4) y(\u03c4) e^{-i\u03c9t} d\u03c4 dt; swapping the order of integration yields \u222b y(\u03c4) \u222b x(t\u2011\u03c4) e^{-i\u03c9t} dt d\u03c4, which matches the current expression and is justified by Fubini\u2019s theorem under usual convergence assumptions.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

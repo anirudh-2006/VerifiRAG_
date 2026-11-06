@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "FourierTransform(m(t)*exp(I*omega_c*t)/2, t, omega) + FourierTransform(m(t)*exp(-I*omega_c*t)/2, t, omega)",
+  "operation": "Apply linearity of Fourier transform",
+  "confidence": 0.99,
+  "reasoning": "The Fourier transform is linear, so the transform of a sum equals the sum of the transforms of each term. Applying this to m(t)\u00b7e^{j\u03c9_c t}/2 + m(t)\u00b7e^{-j\u03c9_c t}/2 yields exactly the stated expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The Fourier transform is linear, so the transform of a sum equals the sum of the transforms of each term. Applying this to m(t)\u00b7e^{j\u03c9_c t}/2 + m(t)\u00b7e^{-j\u03c9_c t}/2 yields exactly the stated expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

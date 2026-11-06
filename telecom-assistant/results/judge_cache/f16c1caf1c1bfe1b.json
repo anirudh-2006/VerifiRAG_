@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1",
+  "operation": "Simplify the exponential expression",
+  "confidence": 1.0,
+  "reasoning": "The exponential exp(-I*omega*0) = exp(0) = 1 is a correct simplification, since any number raised to the power 0 equals 1.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The exponential exp(-I*omega*0) = exp(0) = 1 is a correct simplification, since any number raised to the power 0 equals 1.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

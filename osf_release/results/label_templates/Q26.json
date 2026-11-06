@@ -1,0 +1,61 @@
+{
+  "id": "Q26",
+  "question": "Given H(s) = 1/(s + a) with a > 0, derive the magnitude |H(j*omega)| of its frequency response.",
+  "expected_final": "1/sqrt(omega**2 + a**2)",
+  "generated_final": "1/sqrt(a**2 + omega**2)",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the given system function H(s)",
+      "expression_given": "1/(s + a)",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Given transfer function; starting point."
+    },
+    {
+      "step_number": 2,
+      "description": "Evaluate the system function on the imaginary axis to get the frequency response",
+      "expression_given": "1/(I*omega + a)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Substituting s = I\u03c9 gives H(I\u03c9) = 1/(I\u03c9 + a)."
+    },
+    {
+      "step_number": 3,
+      "description": "Compute the magnitude of the complex frequency response",
+      "expression_given": "Abs(1/(a + I*omega))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Taking |\u00b7| of H(I\u03c9); commutation of + inside the denominator is fine."
+    },
+    {
+      "step_number": 4,
+      "description": "Use the property that the magnitude of a reciprocal is the reciprocal of the magnitude",
+      "expression_given": "1/Abs(a + I*omega)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "|1/z| = 1/|z|."
+    },
+    {
+      "step_number": 5,
+      "description": "Express the magnitude of the complex number in the denominator using Pythagorean theorem",
+      "expression_given": "1/sqrt(a**2 + omega**2)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "|a+I\u03c9| = \u221a(a\u00b2+\u03c9\u00b2)."
+    }
+  ]
+}

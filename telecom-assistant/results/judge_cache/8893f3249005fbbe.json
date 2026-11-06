@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1/(I*omega + a)",
+  "operation": "Evaluate the system function on the imaginary axis to get the frequency response",
+  "confidence": 0.99,
+  "reasoning": "Substituting s = j\u00b7\u03c9 (the imaginary axis) into H(s)=1/(s+a) correctly yields H(j\u03c9)=1/(j\u03c9 + a). The operation matches the described evaluation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting s = j\u00b7\u03c9 (the imaginary axis) into H(s)=1/(s+a) correctly yields H(j\u03c9)=1/(j\u03c9 + a). The operation matches the described evaluation.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

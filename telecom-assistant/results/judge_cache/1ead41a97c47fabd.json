@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(1/T) * 0",
+  "operation": "Simplify the sum inside the parentheses",
+  "confidence": 0.99,
+  "reasoning": "The previous expression (1/T) * (A * T/2 - A * T/2) simplifies to (1/T) * 0 because the terms cancel, so the simplification is valid.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression (1/T) * (A * T/2 - A * T/2) simplifies to (1/T) * 0 because the terms cancel, so the simplification is valid.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

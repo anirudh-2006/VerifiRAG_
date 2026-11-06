@@ -1,0 +1,12 @@
+| dataset | grader | coverage | precision | recall | fpr | abstain_rate | tp | fp | tn | fn | abs_e | abs_n | total | used_symbolic | used_judge | used_abstain |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| human_labels | symbolic | 0.471 | n/a | 0.000 | 0.000 | 0.529 | 0 | 0 | 83 | 7 | 6 | 95 | 191 | n/a | n/a | n/a |
+| human_labels | gpt-oss-120b | 0.995 | 0.667 | 0.462 | 0.017 | 0.005 | 6 | 3 | 175 | 6 | 1 | 0 | 191 | n/a | n/a | n/a |
+| human_labels | claude-sonnet-4-5 | 0.953 | 0.370 | 0.769 | 0.100 | 0.047 | 10 | 17 | 153 | 2 | 1 | 8 | 191 | n/a | n/a | n/a |
+| human_labels | cascade→gpt-oss-120b | 0.995 | 0.600 | 0.231 | 0.011 | 0.005 | 3 | 2 | 176 | 9 | 1 | 0 | 191 | 90 | 100 | 1 |
+| human_labels | cascade→claude-sonnet-4-5 | 0.984 | 0.263 | 0.385 | 0.080 | 0.016 | 5 | 14 | 161 | 8 | 0 | 3 | 191 | 90 | 98 | 3 |
+| error_injection | symbolic | 0.356 | 1.000 | 0.234 | 0.000 | 0.644 | 22 | 0 | 20 | 0 | 72 | 4 | 118 | n/a | n/a | n/a |
+| error_injection | gpt-oss-120b | 1.000 | 1.000 | 0.894 | 0.000 | 0.000 | 84 | 0 | 24 | 10 | 0 | 0 | 118 | n/a | n/a | n/a |
+| error_injection | claude-sonnet-4-5 | 0.958 | 0.938 | 0.957 | 0.286 | 0.042 | 90 | 6 | 15 | 2 | 2 | 3 | 118 | n/a | n/a | n/a |
+| error_injection | cascade→gpt-oss-120b | 1.000 | 1.000 | 0.894 | 0.000 | 0.000 | 84 | 0 | 24 | 10 | 0 | 0 | 118 | 42 | 76 | 0 |
+| error_injection | cascade→claude-sonnet-4-5 | 0.975 | 0.968 | 0.957 | 0.130 | 0.025 | 90 | 3 | 20 | 2 | 2 | 1 | 118 | 42 | 73 | 3 |

@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "(1 - exp(-I*k*omega0*T0/2)) / (I*k*omega0*T0)",
+  "operation": "Simplify the first integral over [-T0/4, T0/4]",
+  "confidence": 0.85,
+  "reasoning": "The first integral \u222b_{-T0/4}^{T0/4} (1/T0)exp(-I*k*omega0*t)dt evaluates to (1/T0) * [exp(-I*k*omega0*t)/(-I*k*omega0)]_{-T0/4}^{T0/4} = (1/(I*k*omega0*T0))[exp(I*k*omega0*T0/4) - exp(-I*k*omega0*T0/4)], which does not match the given expression (1 - exp(-I*k*omega0*T0/2))/(I*k*omega0*T0).",
+  "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.85,\n  \"reasoning\": \"The first integral \u222b_{-T0/4}^{T0/4} (1/T0)exp(-I*k*omega0*t)dt evaluates to (1/T0) * [exp(-I*k*omega0*t)/(-I*k*omega0)]_{-T0/4}^{T0/4} = (1/(I*k*omega0*T0))[exp(I*k*omega0*T0/4) - exp(-I*k*omega0*T0/4)], which does not match the given expression (1 - exp(-I*k*omega0*T0/2))/(I*k*omega0*T0).\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

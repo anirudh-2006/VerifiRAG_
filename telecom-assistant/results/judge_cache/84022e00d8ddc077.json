@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X_z = Sum(x_n * r**(-n) * exp(-I*omega*n), (n, -oo, oo))",
+  "operation": "Simplify the exponent in the expression",
+  "confidence": 0.99,
+  "reasoning": "Applying the power rule (a\u00b7b)^(\u2212n)=a^(\u2212n)\u00b7b^(\u2212n) and using exp(I\u00b7\u03c9)^(\u2212n)=exp(\u2212I\u00b7\u03c9\u00b7n) correctly yields the simplified form.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Applying the power rule (a\u00b7b)^(\u2212n)=a^(\u2212n)\u00b7b^(\u2212n) and using exp(I\u00b7\u03c9)^(\u2212n)=exp(\u2212I\u00b7\u03c9\u00b7n) correctly yields the simplified form.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

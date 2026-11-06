@@ -1,0 +1,41 @@
+{
+  "id": "Q15",
+  "question": "Compute the Laplace transform of x(t) = u(t) (the unit step) and state its region of convergence.",
+  "expected_final": "transform: 1/s; roc: re(s) > 0",
+  "generated_final": "1/s, re(s) > 0",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Write the definition of the Laplace transform for x(t) = u(t)",
+      "expression_given": "integrate(u(t) * exp(-s*t), (t, 0, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard one-sided Laplace transform definition; lower limit 0 is correct for the unit step."
+    },
+    {
+      "step_number": 2,
+      "description": "Since u(t) = 1 for t >= 0, replace u(t) with 1 in the integral",
+      "expression_given": "integrate(exp(-s*t), (t, 0, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "u(t) = 1 for all t in [0, ∞), so substitution is valid."
+    },
+    {
+      "step_number": 3,
+      "description": "Evaluate the integral of exp(-s*t) from 0 to infinity",
+      "expression_given": "1/s",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Antiderivative is exp(-st)/(-s); evaluating gives 0 - (-1/s) = 1/s, convergent for Re(s) > 0."
+    }
+  ]
+}

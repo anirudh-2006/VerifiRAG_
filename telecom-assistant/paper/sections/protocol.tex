@@ -1,0 +1,77 @@
+\section{Evaluation Protocol}
+\label{sec:protocol}
+
+\paragraph{Testbeds.}
+We evaluate graders on \emph{two} labeled testbeds. (i)~The
+\textbf{human-labeled} set: assistant-generated derivations for the 29 usable
+queries of our 30-query benchmark (one query, Q12, has no usable derivation;
+\S\ref{sec:setup}), in which a human annotator marked each step
+\textsc{correct}/\textsc{incorrect} and, for incorrect steps, an error type. It
+contains 191 steps, of which 13 are human-flagged errors (missing\_term $=6$,
+definition $=4$, algebra $=3$). (ii)~The \textbf{error-injection} suite of
+\S\ref{sec:setup}: programmatic mutations of 9 hand-authored gold derivations,
+where the label is defined by the mutation rather than by an annotator. The
+benchmark is the source of the traces in (i), not a separate evaluation set, and
+the injection suite is deliberately independent of the generator so that
+detection is measured against known-correct baselines.
+
+\paragraph{Human labeling rubric vs.\ judge prompt.}
+The human labels follow an explicit annotation rubric that includes a
+\emph{notation-strictness} rule: a step is marked incorrect if boundary or
+integration-by-parts notation is written wrong, or if a claimed equation is
+incomplete, even when the underlying algebra would evaluate correctly. The LLM
+judges never see this rubric. They receive only the step prompt in
+Appendix~\ref{app:prompt}, which asks whether the stated operation, applied to
+the previous expression, produces the current expression: a purely local
+mathematical-validity criterion, with no notation-strictness clause. This is a
+deliberate mismatch: we evaluate judges as typically deployed (generic step
+prompt), not as annotators trained on our rubric. Consequently, on the human
+set, precision and recall are \emph{not} measures of ``correctness'' against an
+oracle the judge was instructed to match. They measure \textbf{agreement with a
+rubric the judge did not see}. Disagreements can therefore reflect either a
+genuine math miss or a policy gap (e.g., the human failing a notationally
+incomplete but algebraically harmless step that the judge accepts). Injection
+metrics are unaffected: error labels there are defined by the mutation, not by
+the human rubric.
+
+\paragraph{Metrics.}
+Treating ``the step is wrong'' as the positive class, we use \textbf{one}
+definition on every row of every table. On committed (non-abstain) predictions:
+\textbf{precision} $=\mathrm{TP}/(\mathrm{TP}+\mathrm{FP})$ and
+\textbf{FPR} $=\mathrm{FP}/(\mathrm{FP}+\mathrm{TN})$ (covered negatives only).
+\textbf{Recall is strict:}
+$\mathrm{TP}/(\mathrm{TP}+\mathrm{FN}+\mathrm{AbsE})$, where AbsE is
+abstain (or an unparseable/crash response, counted as abstain) on a true-error case.
+Abstaining on an error is therefore a miss, not a silent exclusion from the
+denominator. Across all cases we report \textbf{coverage} (committed fraction)
+and \textbf{abstain rate}. Confusion cells TP/FP/TN/FN are among committed
+verdicts only; AbsE/AbsN make the counts add to $N$. On the human set,
+precision/recall are agreement with the unseen human rubric (above); on
+injection they are detection metrics against planted mutations. This strict
+recall matches the paired \texttt{caught\_error} statistic in
+\S\ref{sec:results}.
+
+\paragraph{Shared covered/abstain split.}
+All graders are scored with the same routine and the same
+$\{\textsc{true},\textsc{false},\textsc{none}\}$ mapping, so differences reflect
+grader behavior and not scoring conventions. The LLM judge sees exactly the
+\emph{step context} the human annotator saw (question $+$ prior steps), but not
+the human's labeling rubric.
+
+\paragraph{Significance testing.}
+For the head-to-head on the human set we compare each judge to the symbolic
+verifier on the same 191 steps (paired). The three binary outcomes are
+\emph{committed} (coverage), \emph{correct\_committed} (committed \emph{and}
+matching the human label; abstains score $0$), and \emph{caught\_error} (strict
+recall on the 13 error steps). Because these are paired binary indicators, the
+primary test is an \emph{exact McNemar} test \citep{mcnemar1947note} on
+discordant pairs, following standard guidance for paired binary NLP comparisons
+\citep{dror2018hitchhikers}. We also report descriptive $10{,}000$-replicate
+bootstrap $95\%$ CIs on the mean delta (judge$-$symbolic) and, for continuity
+with earlier drafts, a sign-flip permutation $p$. With two judges $\times$ three
+metrics we have a family of six tests; we control the family-wise error rate with
+Holm--Bonferroni \citep{holm1979simple} at $\alpha{=}0.05$, following
+\citep{dror2018hitchhikers}. Bootstrap CIs
+for \texttt{caught\_error} use only $n{=}13$ error steps and are treated as
+\emph{uninformative} when they hit a $\{0,1\}$ boundary (we do not quote them to
+three decimals).

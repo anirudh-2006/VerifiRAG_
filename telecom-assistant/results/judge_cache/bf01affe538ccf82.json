@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-a*(t - tau)) * u(t - tau), (tau, 0, oo))",
+  "operation": "Simplify limits using unit step functions: u(tau) is 0 for tau < 0",
+  "confidence": 0.97,
+  "reasoning": "Since u(\u03c4)=0 for \u03c4<0, the integrand is zero on (-\u221e,0), so the lower limit can be shifted to 0. The remaining factor u(t-\u03c4) correctly remains, making the new integral equivalent to the original.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Since u(\u03c4)=0 for \u03c4<0, the integrand is zero on (-\u221e,0), so the lower limit can be shifted to 0. The remaining factor u(t-\u03c4) correctly remains, making the new integral equivalent to the original.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

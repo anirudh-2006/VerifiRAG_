@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(((1/2)**n * z**(-n)), (n, 0, oo))",
+  "operation": "Use the fact that u[n] is zero for n < 0 to change summation limits",
+  "confidence": 0.98,
+  "reasoning": "Since u[n]=0 for n<0 and u[n]=1 for n\u22650, the term (1/2)^n*u[n]*z^{-n} contributes only for n\u22650, allowing the limits to be changed from (\u2212\u221e,\u221e) to (0,\u221e) and dropping u[n].",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Since u[n]=0 for n<0 and u[n]=1 for n\u22650, the term (1/2)^n*u[n]*z^{-n} contributes only for n\u22650, allowing the limits to be changed from (\u2212\u221e,\u221e) to (0,\u221e) and dropping u[n].\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

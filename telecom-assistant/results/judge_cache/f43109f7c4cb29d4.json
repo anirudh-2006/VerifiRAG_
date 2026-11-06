@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(delta(omega) * exp(I*omega*t), (omega, -oo, oo))",
+  "operation": "Simplify constants: 2*pi cancels with 1/(2*pi)",
+  "confidence": 0.99,
+  "reasoning": "Multiplying the integrand by 2\u03c0 and then dividing the whole integral by 1/(2\u03c0) cancels the factor, leaving the integral of \u03b4(\u03c9)\u00b7e^{i\u03c9t} over \u03c9, which matches the stated expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the integrand by 2\u03c0 and then dividing the whole integral by 1/(2\u03c0) cancels the factor, leaving the integral of \u03b4(\u03c9)\u00b7e^{i\u03c9t} over \u03c9, which matches the stated expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

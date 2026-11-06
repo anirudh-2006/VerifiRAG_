@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-a*(-t)) * exp(-I*omega*t), (t, -oo, 0)) + integrate(exp(-a*t) * exp(-I*omega*t), (t, 0, oo))",
+  "operation": "Split the integral into two parts: negative and positive time",
+  "confidence": 0.97,
+  "reasoning": "The integral of exp(-a*Abs(t)) over (-\u221e,\u221e) can be split at t=0, using Abs(t) = -t for t<0 and Abs(t)=t for t>0, yielding exactly the two integrals shown.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The integral of exp(-a*Abs(t)) over (-\u221e,\u221e) can be split at t=0, using Abs(t) = -t for t<0 and Abs(t)=t for t>0, yielding exactly the two integrals shown.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

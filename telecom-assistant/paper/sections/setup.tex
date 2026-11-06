@@ -1,0 +1,65 @@
+\section{Setup}
+\label{sec:setup}
+
+\subsection{Task and corpus}
+We study step-level grading of mathematical derivations produced by a
+retrieval-augmented \citep{lewis2020rag} assistant over a single fixed corpus in
+signals and systems. The generator that produced the frozen derivations is
+\texttt{qwen-3-235b-a22b-instruct-2507} served via the Cerebras OpenAI-compatible
+API (temperature $0$), as recorded in the schema-v2 envelope of the release
+eval run. That model ID has since been withdrawn by the provider (HTTP 404);
+we therefore treat the derivation set as a fixed artifact and do not regenerate
+it under a replacement model.
+Each query has a structured expected answer, and the assistant emits an ordered
+list of steps, each a symbolic expression together with a short natural-language
+description of the operation performed. A grader inspects one step at a time,
+given the question and all prior steps as context, and returns one of
+\textsc{passed}, \textsc{failed}, or \textsc{abstain}. We map these to
+$\{\textsc{true}, \textsc{false}, \textsc{none}\}$ so that every grader is scored
+on an identical covered/abstain split (\S\ref{sec:protocol}).
+
+Our benchmark contains 30 queries and is the \emph{source} of the graded
+derivation traces, not a separate evaluation set. One query (Q12) failed during
+generation and has no label template, so all human-labeled results use the
+remaining 29 queries; we report this as a known gap rather than silently
+dropping it. Of those 29, 27 come from the primary frozen generator run and two
+(Q01, Q07) from an earlier run with the same model ID and temperature $0$; the
+released label templates are the ground truth for all grading tables.
+
+\subsection{Symbolic verifier}
+The symbolic verifier uses SymPy \citep{meurer2017sympy} to test equivalence
+between a step and the derivation context, with additional matchers for composite
+expressions and inequalities. By construction it commits only when it can
+establish or refute equivalence and abstains otherwise; it therefore never
+``guesses.''
+
+\subsection{LLM judges}
+The LLM judge is a swappable client selected by environment variables, so a new
+judge model flows through the entire pipeline without code changes. Each judge
+receives a fixed rubric and step template (reproduced in
+Appendix~\ref{app:prompt}) and returns a verdict, a confidence, and a short
+rationale. We evaluate two judges chosen from \emph{independent} labs so the
+paper can test whether findings are model-specific:
+\texttt{gpt-oss-120b} \citep{openai2025gptoss}, an open-weight reasoning model, and
+\texttt{claude-sonnet-4-5}, a proprietary model. Using an open-weight judge is a
+deliberate reproducibility choice: a reviewer can run the exact grader.
+
+\subsection{Error-injection suite}
+To obtain controlled ground truth, we programmatically mutate \emph{9
+hand-authored gold derivations} (standard signals/algebra results such as the
+Laplace and Fourier transforms of $e^{-at}u(t)$, partial fractions, and the
+time-shift property) with 14 mutation operators grouped into five families. The
+gold derivations are independent of the generator and verified to pass the
+symbolic checker unmutated, so any flag on a mutated step is attributable to the
+mutation rather than to a mislabeled baseline. Three families
+inject genuine errors: \emph{algebraic} (e.g.\ sign flips), \emph{bounds}
+(integration-limit errors), and \emph{identifier} (variable-identity errors).
+Two families are negatives that a grader should \emph{not} flag:
+\emph{control} (no-op) and \emph{equivalent} (equivalence-preserving rewrites).
+This lets us measure both recall on real errors and false positives on
+legitimate reformulations. The 9 gold derivations contain 14 mutable step
+sites in total; every mutation operator is attempted against every site, for
+$14 \times 14 = 196$ attempted (step $\times$ mutation) trials. Of these,
+78 are skipped because the mutation does not apply to that step's expression;
+the graded suite is the remaining 118 trials (94 error, 24 non-error:
+14 control $+$ 10 equivalent).

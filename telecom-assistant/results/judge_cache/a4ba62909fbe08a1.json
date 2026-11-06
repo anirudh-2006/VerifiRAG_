@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1/(a + I*omega)",
+  "operation": "Evaluate the second integral from 0 to \u221e",
+  "confidence": 0.99,
+  "reasoning": "The second integral \u222b\u2080^\u221e exp((-a - i\u03c9)t) dt evaluates to -1/(-a - i\u03c9) = 1/(a + i\u03c9), matching the given expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The second integral \u222b\u2080^\u221e exp((-a - i\u03c9)t) dt evaluates to -1/(-a - i\u03c9) = 1/(a + i\u03c9), matching the given expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

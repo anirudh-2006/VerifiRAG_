@@ -1,0 +1,118 @@
+{
+  "metric_definitions": {
+    "recall": "strict: TP / (TP + FN + AbsE); abstain-on-error is a miss",
+    "fpr": "covered: FP / (FP + TN)",
+    "coverage": "(TP+FP+TN+FN) / N; crash/unparseable count as abstain",
+    "confusion": "TP/FP/TN/FN among committed only; AbsE/AbsN are abstains"
+  },
+  "graders": [
+    "symbolic",
+    "gpt-oss-120b",
+    "claude-sonnet-4-5"
+  ],
+  "sources": {
+    "labels": "results/label_templates",
+    "gptoss_human": "results/judge_step_verdicts.json",
+    "claude_human": "results/judge_step_verdicts_claude.json",
+    "gptoss_injection": "results/error_injection_report_with_judge.json",
+    "claude_injection": "results/error_injection_report_claude.json"
+  },
+  "rows": [
+    {
+      "dataset": "human_labels",
+      "grader": "symbolic",
+      "coverage": 0.4712041884816754,
+      "precision": null,
+      "recall": 0.0,
+      "fpr": 0.0,
+      "abstain_rate": 0.5287958115183246,
+      "tp": 0,
+      "fp": 0,
+      "tn": 83,
+      "fn": 7,
+      "abs_e": 6,
+      "abs_n": 95,
+      "total": 191
+    },
+    {
+      "dataset": "human_labels",
+      "grader": "gpt-oss-120b",
+      "coverage": 0.9947643979057592,
+      "precision": 0.6666666666666666,
+      "recall": 0.46153846153846156,
+      "fpr": 0.016853932584269662,
+      "abstain_rate": 0.005235602094240838,
+      "tp": 6,
+      "fp": 3,
+      "tn": 175,
+      "fn": 6,
+      "abs_e": 1,
+      "abs_n": 0,
+      "total": 191
+    },
+    {
+      "dataset": "human_labels",
+      "grader": "claude-sonnet-4-5",
+      "coverage": 0.9528795811518325,
+      "precision": 0.37037037037037035,
+      "recall": 0.7692307692307693,
+      "fpr": 0.1,
+      "abstain_rate": 0.04712041884816754,
+      "tp": 10,
+      "fp": 17,
+      "tn": 153,
+      "fn": 2,
+      "abs_e": 1,
+      "abs_n": 8,
+      "total": 191
+    },
+    {
+      "dataset": "error_injection",
+      "grader": "symbolic",
+      "coverage": 0.3559322033898305,
+      "precision": 1.0,
+      "recall": 0.23404255319148937,
+      "fpr": 0.0,
+      "abstain_rate": 0.6440677966101694,
+      "tp": 22,
+      "fp": 0,
+      "tn": 20,
+      "fn": 0,
+      "abs_e": 72,
+      "abs_n": 4,
+      "total": 118
+    },
+    {
+      "dataset": "error_injection",
+      "grader": "gpt-oss-120b",
+      "coverage": 0.940677966101695,
+      "precision": 0.975609756097561,
+      "recall": 0.851063829787234,
+      "fpr": 0.08695652173913043,
+      "abstain_rate": 0.059322033898305086,
+      "tp": 80,
+      "fp": 2,
+      "tn": 21,
+      "fn": 8,
+      "abs_e": 6,
+      "abs_n": 1,
+      "total": 118
+    },
+    {
+      "dataset": "error_injection",
+      "grader": "claude-sonnet-4-5",
+      "coverage": 0.923728813559322,
+      "precision": 0.9550561797752809,
+      "recall": 0.9042553191489362,
+      "fpr": 0.18181818181818182,
+      "abstain_rate": 0.07627118644067797,
+      "tp": 85,
+      "fp": 4,
+      "tn": 18,
+      "fn": 2,
+      "abs_e": 7,
+      "abs_n": 2,
+      "total": 118
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate((diff(x(t), t)) * exp(-s*t), (t, 0, oo))",
+  "operation": "Start with the definition of the Laplace transform of dx/dt",
+  "confidence": 1.0,
+  "reasoning": "The expression correctly applies the definition of the Laplace transform to dx/dt, which is the integral from 0 to infinity of the derivative multiplied by exp(-s*t).",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The expression correctly applies the definition of the Laplace transform to dx/dt, which is the integral from 0 to infinity of the derivative multiplied by exp(-s*t).\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

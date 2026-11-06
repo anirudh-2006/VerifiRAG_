@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1 / (1 - r)",
+  "operation": "Apply the formula for the sum of an infinite geometric series when |r| < 1",
+  "confidence": 1.0,
+  "reasoning": "The formula for an infinite geometric series Sum(r^n, n=0 to \u221e) = 1/(1-r) when |r| < 1 is correctly applied. This is a standard result from calculus/analysis.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The formula for an infinite geometric series Sum(r^n, n=0 to \u221e) = 1/(1-r) when |r| < 1 is correctly applied. This is a standard result from calculus/analysis.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

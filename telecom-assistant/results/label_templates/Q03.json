@@ -1,0 +1,91 @@
+{
+  "id": "Q03",
+  "question": "Derive the relationship between Laplace and Fourier transforms.",
+  "expected_final": "X(I*omega)",
+  "generated_final": "X(I*omega) = X(s).subs(s, I*omega), Re(s) > 0",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": false,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the definition of the Laplace transform as an integral over time",
+      "expression_given": "integrate(x(t) * exp(-s*t), (t, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": false,
+      "error_type": "definition",
+      "notes": "The bilateral Laplace transform integrates from -oo to oo, which is written correctly, but the standard (unilateral) Laplace transform integrates from 0 to oo. Using the bilateral form here is a definitional choice that is acceptable for deriving the Fourier relationship, but the derivation then implicitly assumes bilateral LT throughout. More critically, this sets up a subtle inconsistency: the standard engineering definition used in the ROC argument at step 6 is unilateral. Flagged as a definition issue."
+    },
+    {
+      "step_number": 2,
+      "description": "Substitute s = sigma + j*omega into the Laplace transform expression",
+      "expression_given": "integrate(x(t) * exp(-(sigma + I*omega)*t), (t, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct substitution of s = sigma + I*omega into exp(-s*t)."
+    },
+    {
+      "step_number": 3,
+      "description": "Separate the exponential into real and imaginary parts",
+      "expression_given": "integrate(x(t) * exp(-sigma*t) * exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct use of exp(a+b) = exp(a)*exp(b)."
+    },
+    {
+      "step_number": 4,
+      "description": "Recognize that this is the Fourier transform of x(t)*exp(-sigma*t)",
+      "expression_given": "integrate((x(t) * exp(-sigma*t)) * exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct regrouping. The expression is now explicitly F{x(t)*exp(-sigma*t)}."
+    },
+    {
+      "step_number": 5,
+      "description": "State that the Laplace transform is the Fourier transform of x(t) weighted by exp(-sigma*t)",
+      "expression_given": "X(s) = integrate((x(t) * exp(-sigma*t)) * exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct conceptual statement. X(s) = F{x(t) * exp(-sigma*t)}."
+    },
+    {
+      "step_number": 6,
+      "description": "If the region of convergence includes the imaginary axis (sigma = 0), then the weighting becomes 1",
+      "expression_given": "X(s) = integrate(x(t) * exp(-I*omega*t), (t, -oo, oo)) | sigma=0",
+      "verifier_category": "parse_fail",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Mathematically correct: setting sigma=0 collapses exp(-sigma*t) to 1, leaving the Fourier integral. Parse fail is a tooling issue only."
+    },
+    {
+      "step_number": 7,
+      "description": "This integral is exactly the definition of the Fourier transform",
+      "expression_given": "X(I*omega)",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct. The integral from step 6 with sigma=0 is exactly X(jω) by definition."
+    },
+    {
+      "step_number": 8,
+      "description": "Therefore, when ROC includes jω axis, Fourier transform equals Laplace transform evaluated at s = jω",
+      "expression_given": "X(I*omega) = X(s).subs(s, I*omega)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct final relationship. However the generated_final appends 'Re(s) > 0' as the ROC condition, which is a specific sufficient condition, not the general one. The correct general condition is that the ROC includes the imaginary axis (Re(s) = 0), not Re(s) > 0. This makes generated_final not match expected_final."
+    }
+  ]
+}

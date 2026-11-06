@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(1/T) * 0",
+  "operation": "Simplify the sum inside the parentheses",
+  "confidence": 1.0,
+  "reasoning": "The previous step has (A * T/2 - A * T/2) inside the parentheses, which correctly simplifies to 0. This is a valid algebraic simplification.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The previous step has (A * T/2 - A * T/2) inside the parentheses, which correctly simplifies to 0. This is a valid algebraic simplification.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,3969 @@
+{
+  "config": {
+    "seed": 0,
+    "with_judge": true,
+    "judge_sleep_s": 1.0,
+    "n_fixtures": 9,
+    "mutation_specs": [
+      {
+        "kind": "sign_flip",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "negate leading sign"
+      },
+      {
+        "kind": "coeff_x2",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "multiply by 2"
+      },
+      {
+        "kind": "coeff_half",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "divide by 2"
+      },
+      {
+        "kind": "drop_term",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "drop last additive term"
+      },
+      {
+        "kind": "exponent_bump",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "increment first integer exponent"
+      },
+      {
+        "kind": "constant_shift",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "add 1"
+      },
+      {
+        "kind": "missing_factor_of_2",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "drop leading factor of 2"
+      },
+      {
+        "kind": "swap_integral_limits",
+        "family": "bounds",
+        "severity": "error",
+        "description": "swap a<->b in first integral/sum"
+      },
+      {
+        "kind": "drop_upper_limit",
+        "family": "bounds",
+        "severity": "error",
+        "description": "truncate upper limit of first integral/sum"
+      },
+      {
+        "kind": "rename_variable",
+        "family": "identifier",
+        "severity": "error",
+        "description": "rename a key symbol uniformly in this step"
+      },
+      {
+        "kind": "commute_operands",
+        "family": "equivalent",
+        "severity": "equivalent",
+        "description": "swap operands of first top-level +/*"
+      },
+      {
+        "kind": "expand_power",
+        "family": "equivalent",
+        "severity": "equivalent",
+        "description": "rewrite X**2 as X*X"
+      },
+      {
+        "kind": "distribute",
+        "family": "equivalent",
+        "severity": "equivalent",
+        "description": "expand k*(a+b) into k*a+k*b"
+      },
+      {
+        "kind": "no_op",
+        "family": "control",
+        "severity": "control",
+        "description": "identity (no mutation)"
+      }
+    ],
+    "graders": [
+      "symbolic",
+      "llm_judge:claude-sonnet-4-5"
+    ]
+  },
+  "metrics": {
+    "llm_judge:claude-sonnet-4-5": {
+      "overall": {
+        "precision": 0.9550561797752809,
+        "recall_strict": 0.9042553191489362,
+        "recall_committed": 0.9770114942528736,
+        "fpr": 0.16666666666666666,
+        "abstain_rate": 0.07627118644067797,
+        "tp": 85,
+        "fn": 2,
+        "fp": 4,
+        "tn": 18,
+        "abstain_error": 7,
+        "abstain_eq": 2,
+        "total": 118
+      },
+      "by_family": {
+        "algebraic": {
+          "precision": 1.0,
+          "recall_strict": 0.9459459459459459,
+          "recall_committed": 1.0,
+          "fpr": null,
+          "abstain_rate": 0.05405405405405406,
+          "tp": 70,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 4,
+          "abstain_eq": 0,
+          "total": 74
+        },
+        "bounds": {
+          "precision": 1.0,
+          "recall_strict": 1.0,
+          "recall_committed": 1.0,
+          "fpr": null,
+          "abstain_rate": 0.0,
+          "tp": 6,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 0,
+          "abstain_eq": 0,
+          "total": 6
+        },
+        "identifier": {
+          "precision": 1.0,
+          "recall_strict": 0.6428571428571429,
+          "recall_committed": 0.8181818181818182,
+          "fpr": null,
+          "abstain_rate": 0.21428571428571427,
+          "tp": 9,
+          "fn": 2,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 3,
+          "abstain_eq": 0,
+          "total": 14
+        },
+        "control": {
+          "precision": null,
+          "recall_strict": null,
+          "recall_committed": null,
+          "fpr": 0.0,
+          "abstain_rate": 0.07142857142857142,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 13,
+          "abstain_error": 0,
+          "abstain_eq": 1,
+          "total": 14
+        },
+        "equivalent": {
+          "precision": 0.0,
+          "recall_strict": null,
+          "recall_committed": null,
+          "fpr": 0.4,
+          "abstain_rate": 0.1,
+          "tp": 0,
+          "fn": 0,
+          "fp": 4,
+          "tn": 5,
+          "abstain_error": 0,
+          "abstain_eq": 1,
+          "total": 10
+        }
+      },
+      "confusion": {
+        "error": {
+          "passed": 2,
+          "failed": 85,
+          "abstain": 7,
+          "error": 0
+        },
+        "control": {
+          "passed": 13,
+          "failed": 0,
+          "abstain": 1,
+          "error": 0
+        },
+        "equivalent": {
+          "passed": 5,
+          "failed": 4,
+          "abstain": 1,
+          "error": 0
+        }
+      }
+    },
+    "symbolic": {
+      "overall": {
+        "precision": 1.0,
+        "recall_strict": 0.23404255319148937,
+        "recall_committed": 1.0,
+        "fpr": 0.0,
+        "abstain_rate": 0.6440677966101694,
+        "tp": 22,
+        "fn": 0,
+        "fp": 0,
+        "tn": 20,
+        "abstain_error": 72,
+        "abstain_eq": 4,
+        "total": 118
+      },
+      "by_family": {
+        "algebraic": {
+          "precision": 1.0,
+          "recall_strict": 0.2972972972972973,
+          "recall_committed": 1.0,
+          "fpr": null,
+          "abstain_rate": 0.7027027027027027,
+          "tp": 22,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 52,
+          "abstain_eq": 0,
+          "total": 74
+        },
+        "bounds": {
+          "precision": null,
+          "recall_strict": 0.0,
+          "recall_committed": null,
+          "fpr": null,
+          "abstain_rate": 1.0,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 6,
+          "abstain_eq": 0,
+          "total": 6
+        },
+        "identifier": {
+          "precision": null,
+          "recall_strict": 0.0,
+          "recall_committed": null,
+          "fpr": null,
+          "abstain_rate": 1.0,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 14,
+          "abstain_eq": 0,
+          "total": 14
+        },
+        "control": {
+          "precision": null,
+          "recall_strict": null,
+          "recall_committed": null,
+          "fpr": 0.0,
+          "abstain_rate": 0.14285714285714285,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 12,
+          "abstain_error": 0,
+          "abstain_eq": 2,
+          "total": 14
+        },
+        "equivalent": {
+          "precision": null,
+          "recall_strict": null,
+          "recall_committed": null,
+          "fpr": 0.0,
+          "abstain_rate": 0.2,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 8,
+          "abstain_error": 0,
+          "abstain_eq": 2,
+          "total": 10
+        }
+      },
+      "confusion": {
+        "error": {
+          "passed": 0,
+          "failed": 22,
+          "abstain": 72,
+          "error": 0
+        },
+        "control": {
+          "passed": 12,
+          "failed": 0,
+          "abstain": 2,
+          "error": 0
+        },
+        "equivalent": {
+          "passed": 8,
+          "failed": 0,
+          "abstain": 2,
+          "error": 0
+        }
+      }
+    }
+  },
+  "trials": [
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "-(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The step introduces an incorrect negative sign. Combining the exponentials exp(-a*t)*exp(-I*omega*t) = exp(-(a + I*omega)*t) is correct, but there should be no negative sign in front of the integral."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "2*(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The factor of 2 appearing in front of the integral is incorrect. The algebraic simplification of exp(-a*t)*exp(-I*omega*t) to exp(-(a + I*omega)*t) is valid, but no operation justifies multiplying the integral by 2."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Combining the exponentials exp(-a*t)*exp(-I*omega*t) = exp(-(a + I*omega)*t) is correct, but the division by 2 is not justified by any algebraic manipulation of the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + I*omega)*t), (t, 0, oo))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Combining the exponentials exp(-a*t)*exp(-I*omega*t) = exp(-(a + I*omega)*t) is correct, but adding '+1' is not justified by any algebraic manipulation of the integral expression from the previous step."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Combining the exponentials exp(-a*t)*exp(-I*omega*t) = exp(-(a + I*omega)*t) is correct, but the division by 2 is not justified by any algebraic manipulation of the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*omega)*t), (t, oo, 0))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The step combines the exponentials correctly (exp(-a*t)*exp(-I*omega*t) = exp(-(a+I*omega)*t)), but incorrectly flips the integration limits from (0, oo) to (oo, 0). Flipping limits introduces a sign change that is not accounted for here."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The algebraic simplification of the exponentials is correct (combining exp(-a*t)*exp(-I*omega*t) = exp(-(a + I*omega)*t)), but the upper limit of integration has been incorrectly changed from \u221e to 1, which is not a valid algebraic operation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*Omega)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 0.95,
+          "reasoning": "The step correctly combines the two exponential terms using the property exp(A)*exp(B) = exp(A+B), yielding exp(-(a + I*omega)*t). The change from lowercase omega to uppercase Omega appears to be a notational variation rather than a mathematical error."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "The exponents exp(-a*t) and exp(-I*omega*t) are correctly combined using the rule exp(A)*exp(B) = exp(A+B), yielding exp(-(a + I*omega)*t)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "-(1/(a + I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The integration of exp(-(a + I*omega)*t) from 0 to \u221e yields [exp(-(a + I*omega)*t)/(-(a + I*omega))] evaluated from 0 to \u221e, which equals 0 - (1/(-(a + I*omega))) = 1/(a + I*omega), not -(1/(a + I*omega)). The sign is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "2*(1/(a + I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The integral of exp(-(a + I*omega)*t) from 0 to infinity equals 1/(a + I*omega), not 2/(a + I*omega). The factor of 2 is incorrect and appears without justification."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "(1/(a + I*omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The integral of exp(-(a + I*omega)*t) from 0 to infinity equals 1/(a + I*omega), not (1/(a + I*omega))/2. The factor of 1/2 is incorrect and appears without justification."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "(1/(a + I*omega)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The integral of exp(-(a + I*omega)*t) from 0 to \u221e equals [-1/(a + I*omega) * exp(-(a + I*omega)*t)] evaluated from 0 to \u221e, which gives 0 - (-1/(a + I*omega)) = 1/(a + I*omega). The '+1' term in the current step is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "(1/(a + I*omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The integral of exp(-(a + I*omega)*t) from 0 to infinity equals 1/(a + I*omega), not (1/(a + I*omega))/2. The factor of 1/2 is incorrect and appears without justification."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "1/(a + I*Omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.85,
+          "reasoning": "The integration is performed correctly (evaluating to 1/(a + I*omega) for a > 0), but the variable changes from 'omega' (lowercase) in the integral to 'Omega' (uppercase) in the result, which is an inconsistency error."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "1/(a + I*omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 0.95,
+          "reasoning": "The integral of exp(-(a + I*omega)*t) from 0 to infinity equals [-1/(a + I*omega) * exp(-(a + I*omega)*t)] evaluated from 0 to infinity, which gives 1/(a + I*omega) when a > 0 (assuming convergence). This is the standard result for the Fourier transform of an exponential decay with unit step."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "-(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The time-shift property requires substituting u = t - t0, which gives dt = du and changes limits but keeps them at \u00b1\u221e. The correct result should be exp(-I*omega*t0)*integrate(x*exp(-I*omega*u), (u, -oo, oo)), not the negative of this expression. The spurious negative sign makes this step invalid."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "2*(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.85,
+          "reasoning": "The factor of 2 appearing in front is not justified by any algebraic manipulation. The correct step should be exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)) after substituting u = t - t0 and factoring out the constant exponential term."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The factor exp(-I*omega*t0) can be pulled out of the integral since it doesn't depend on t, giving exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)). However, the division by 2 in the denominator has no justification from the algebra operation applied to the previous step."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Factoring out exp(-I*omega*t0) from the integral is valid, but adding '+1' at the end is unjustified and appears to be an error. The correct result should be exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)) without the '+1' term."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.85,
+          "reasoning": "Factoring out exp(-I*omega*t0) from the integrand is valid, but the appearance of the division by 2 is unexplained and unjustified by the stated 'algebra' operation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, oo, -oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The substitution of the integration limits from (-oo, oo) to (oo, -oo) is incorrect. While factoring out exp(-I*omega*t0) is valid, reversing the integration limits without introducing a negative sign is a mathematical error."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The factor exp(-I*omega*t0) was correctly extracted, but the upper limit of integration was incorrectly changed from oo (infinity) to 1, which is not a valid algebraic manipulation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*Omega*t0)*integrate(x*exp(-I*Omega*t), (t, -oo, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 0.95,
+          "reasoning": "The exponential factor exp(-I*omega*t0) is independent of the integration variable t, so it can be factored out of the integral. Expanding exp(-I*omega*(t - t0)) = exp(-I*omega*t)*exp(I*omega*t0) = exp(-I*omega*t0)*exp(-I*omega*t) justifies this step. Note: assuming Omega and omega represent the same variable."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "integrate(x*exp(-I*omega*t), (t, -oo, oo)) * exp(-I*omega*t0)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The step attempts to factor out exp(-I*omega*t0) from the integral, but this is incorrect. The correct factorization is exp(-I*omega*t) * exp(I*omega*t0) = exp(-I*omega*(t-t0)), so exp(I*omega*t0) should be factored out, not exp(-I*omega*t0). The sign in the exponent is wrong."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 0.95,
+          "reasoning": "The factor exp(-I*omega*t0) is independent of the integration variable t, so it can be factored out of the integral. Expanding exp(-I*omega*(t - t0)) = exp(-I*omega*t)*exp(I*omega*t0) and factoring gives the stated result."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "-(exp(-I*omega*t0)*X)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "abstain",
+          "confidence": 0.7,
+          "reasoning": "The step claims to substitute the integral with 'X', which likely represents the Fourier transform of x. However, without explicit definition of what X represents or confirmation that X = integrate(x*exp(-I*omega*t), (t, -oo, oo)), and without explanation for the negative sign, we cannot verify this step is correct."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "2*(exp(-I*omega*t0)*X)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "abstain",
+          "confidence": 0.7,
+          "reasoning": "The step claims to substitute the integral with 'X', which likely represents the Fourier transform of x. However, without explicit definition of what X represents or confirmation that X = integrate(x*exp(-I*omega*t), (t, -oo, oo)), and without justification for the factor of 2, this step cannot be verified as correct."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "(exp(-I*omega*t0)*X)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "abstain",
+          "confidence": 0.7,
+          "reasoning": "The operation claims 'substitution' to replace the integral with X/2, but without knowing the definition of X or why the factor of 1/2 appears, this cannot be verified. If X is defined as the Fourier transform integral and the 1/2 relates to a specific normalization convention, it might be valid, but this is unclear from context."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "(exp(-I*omega*t0)*X) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The substitution should yield exp(-I*omega*t0)*X where X is the Fourier transform, but the '+1' term appears without justification and is mathematically incorrect for the time-shift property."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "(exp(-I*omega*t0)*X)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "abstain",
+          "confidence": 0.7,
+          "reasoning": "The operation claims 'substitution' to replace the integral with X/2, but without knowing the definition of X or why the factor of 1/2 appears, this cannot be verified. If X is defined as the Fourier transform integral and the 1/2 relates to a normalization convention, it might be valid, but this is unclear from context."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "exp(-I*Omega*t0)*X",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "abstain",
+          "confidence": 0.7,
+          "reasoning": "The step claims to substitute the integral with X (presumably the Fourier transform), which is conceptually correct for the time-shift property. However, there's an inconsistency: the previous step uses lowercase 'omega' while the current step uses uppercase 'Omega', making it unclear if these represent the same variable or if this is an error."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "X * exp(-I*omega*t0)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 0.95,
+          "reasoning": "The substitution replaces the integral `integrate(x*exp(-I*omega*t), (t, -oo, oo))` with `X`, which is the standard definition of the Fourier transform X(omega) of signal x(t). This is a valid definitional substitution in the context of demonstrating the time-shift property."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "exp(-I*omega*t0)*X",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 0.95,
+          "reasoning": "The substitution of the integral \u222bx\u00b7exp(-I\u00b7\u03c9\u00b7t)dt from -\u221e to \u221e with X is valid, as X is the standard notation for the Fourier transform of x(t), which is exactly what this integral represents in the context of demonstrating the time-shift property."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "-(omega**2 + 2*omega + 1)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 2: expression has opposite sign to previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Expanding (omega + 1)**2 using the binomial formula gives omega**2 + 2*omega + 1, not its negative. The introduction of the negative sign is not justified by any algebraic operation on the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "2*(omega**2 + 2*omega + 1)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Expanding (omega + 1)**2 using the binomial formula gives omega**2 + 2*omega + 1, not 2*(omega**2 + 2*omega + 1). The factor of 2 in front is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega**2 + 2*omega + 1)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Expanding (omega + 1)**2 yields omega**2 + 2*omega + 1, not (omega**2 + 2*omega + 1)/2. The division by 2 is not justified by any algebraic operation on the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "omega**2 + 2*omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Expanding (omega + 1)**2 using the binomial formula gives omega**2 + 2*omega + 1, not omega**2 + 2*omega. The constant term +1 has been incorrectly dropped."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "omega**3 + 2*omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Expanding (omega + 1)**2 using the binomial formula gives omega**2 + 2*omega + 1, not omega**3 + 2*omega + 1. The current step incorrectly has omega cubed instead of omega squared."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega**2 + 2*omega + 1) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Expanding (omega + 1)**2 using the binomial formula gives omega**2 + 2*omega + 1, not (omega**2 + 2*omega + 1) + 1. An extra '+1' has been incorrectly added."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega**2 + 2*omega + 1)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Expanding (omega + 1)**2 yields omega**2 + 2*omega + 1, not (omega**2 + 2*omega + 1)/2. The division by 2 is not justified by any algebraic operation on the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "Omega**2 + 2*Omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The previous step uses lowercase 'omega' while the current step uses uppercase 'Omega'. These are different symbols, so this is not a valid algebraic expansion of the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "2*omega + 1 + omega**2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "abstain",
+          "confidence": 0.0,
+          "reasoning": "(could not parse judge response as JSON)"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega)*(omega) + 2*omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "Expanding (omega + 1)^2 using the binomial formula (a + b)^2 = a^2 + 2ab + b^2 gives omega^2 + 2*omega*1 + 1^2 = omega*omega + 2*omega + 1, which matches the current step exactly."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "omega**2 + 2*omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "Expanding (omega + 1)**2 using the binomial formula (a + b)^2 = a^2 + 2ab + b^2 correctly yields omega**2 + 2*omega + 1."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "-(2*sin(omega)*cos(omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 2: expression has opposite sign to previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The double angle identity states sin(2*omega) = 2*sin(omega)*cos(omega), not the negative of this expression. The introduction of the negative sign is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "2*(2*sin(omega)*cos(omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The double angle identity states sin(2*omega) = 2*sin(omega)*cos(omega), not 2*(2*sin(omega)*cos(omega)). The current step has an extra factor of 2, making it equal to 4*sin(omega)*cos(omega), which is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "(2*sin(omega)*cos(omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The double angle identity states sin(2*omega) = 2*sin(omega)*cos(omega), not (2*sin(omega)*cos(omega))/2. The current step incorrectly divides by 2, which would give sin(omega)*cos(omega), not sin(2*omega)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "(2*sin(omega)*cos(omega)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The double angle identity for sine is sin(2\u03c9) = 2sin(\u03c9)cos(\u03c9), not 2sin(\u03c9)cos(\u03c9) + 1. The addition of '+ 1' is incorrect and not part of the standard trigonometric identity."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "sin(omega)*cos(omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The double angle identity is sin(2*omega) = 2*sin(omega)*cos(omega), not sin(omega)*cos(omega). The factor of 2 is missing in the current step."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "2*sin(Omega)*cos(Omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "abstain",
+          "confidence": 0.7,
+          "reasoning": "The double angle identity sin(2x) = 2sin(x)cos(x) is correct, but there is inconsistent notation between 'omega' (lowercase) in the previous step and 'Omega' (uppercase) in the current step. Without clarification that these represent the same variable, I cannot confirm this is valid."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "sin(omega)*cos(omega) * 2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The double angle identity is sin(2\u03c9) = 2sin(\u03c9)cos(\u03c9), not sin(\u03c9)cos(\u03c9)\u00b72. While these are algebraically equal by commutativity, the step claims to apply an identity but produces the factors in non-standard order, suggesting a potential misunderstanding of the identity itself."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "2*sin(omega)*cos(omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "This is the correct application of the double angle identity for sine: sin(2\u03b8) = 2sin(\u03b8)cos(\u03b8). The substitution of omega for the angle variable is valid."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "-(2*I*sin(omega)/(I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 2: expression has opposite sign to previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Using Euler's formula, exp(I*\u03c9) - exp(-I*\u03c9) = 2*I*sin(\u03c9), so the numerator is correct. However, dividing by I*\u03c9 gives 2*I*sin(\u03c9)/(I*\u03c9) = 2*sin(\u03c9)/\u03c9, not the negative of this expression. The extra negative sign is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "2*(2*I*sin(omega)/(I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Using Euler's formula, exp(I*omega) - exp(-I*omega) = 2*I*sin(omega), so the numerator is correct. However, dividing by I*omega gives 2*I*sin(omega)/(I*omega) = 2*sin(omega)/omega, not 2*(2*I*sin(omega)/(I*omega)). There is an extra factor of 2 in the current step."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "(2*I*sin(omega)/(I*omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The Euler identity gives exp(I*\u03c9) - exp(-I*\u03c9) = 2*I*sin(\u03c9), so the numerator is correct. However, dividing by I*\u03c9 gives 2*I*sin(\u03c9)/(I*\u03c9) = 2*sin(\u03c9)/\u03c9, not (2*I*sin(\u03c9)/(I*\u03c9))/2. The extra division by 2 in the denominator is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "(2*I*sin(omega)/(I*omega)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Using Euler's formula, exp(I*omega) - exp(-I*omega) = 2*I*sin(omega), so the previous expression simplifies to 2*I*sin(omega)/(I*omega) = 2*sin(omega)/omega, not 2*I*sin(omega)/(I*omega) + 1. The '+1' term is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "I*sin(omega)/(I*omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Using Euler's formula, exp(I*omega) - exp(-I*omega) = 2*I*sin(omega), so the expression should be 2*I*sin(omega)/(I*omega) = 2*sin(omega)/omega, not I*sin(omega)/(I*omega). The factor of 2 is missing."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "2*I*sin(Omega)/(I*Omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The Euler identity gives exp(I*\u03c9) - exp(-I*\u03c9) = 2*I*sin(\u03c9), but the current step changes the variable from lowercase omega to uppercase Omega without justification, and this variable substitution is not explained by 'identity' alone."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "I*sin(omega)/(I*omega) * 2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Using Euler's formula, exp(I*omega) - exp(-I*omega) = 2*I*sin(omega), so the previous expression becomes 2*I*sin(omega)/(I*omega) = 2*sin(omega)/omega. The current step has an extra factor of I in the numerator that should have canceled."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "2*I*sin(omega)/(I*omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "Using Euler's formula, exp(I*omega) - exp(-I*omega) = 2*I*sin(omega). Substituting this into the numerator of the previous step directly yields 2*I*sin(omega)/(I*omega)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "-(2*sin(omega)/omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 3: expression has opposite sign to previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Simplifying 2*I*sin(omega)/(I*omega) should give 2*sin(omega)/omega by canceling the I terms, not -(2*sin(omega)/omega). The negative sign is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "2*(2*sin(omega)/omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The previous step is 2*I*sin(omega)/(I*omega). Canceling I from numerator and denominator gives 2*sin(omega)/omega, not 2*(2*sin(omega)/omega). An extra factor of 2 has been incorrectly introduced."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "(2*sin(omega)/omega)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The previous step is 2*I*sin(omega)/(I*omega) = 2*sin(omega)/omega. The current step divides by 2, giving sin(omega)/omega, but writes it as (2*sin(omega)/omega)/2 which equals sin(omega)/omega. However, this notation suggests the previous expression was 2*sin(omega)/omega, when it was actually 2*I*sin(omega)/(I*omega). The I's should cancel first before dividing by 2."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "(2*sin(omega)/omega) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Simplifying 2*I*sin(omega)/(I*omega) should give 2*sin(omega)/omega by canceling the I terms, not 2*sin(omega)/omega + 1. The '+1' term appears without justification."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "sin(omega)/omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The step claims to simplify 2*I*sin(omega)/(I*omega) to sin(omega)/omega. However, canceling I from numerator and denominator gives 2*sin(omega)/omega, not sin(omega)/omega. The factor of 2 was incorrectly dropped."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "2*sin(Omega)/Omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The step cancels the I in numerator and denominator correctly (2*I*sin(omega)/(I*omega) = 2*sin(omega)/omega), but introduces an unexplained change in variable from lowercase omega to uppercase Omega, which is mathematically invalid without justification."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "sin(omega)/omega * 2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 0.95,
+          "reasoning": "Starting from 2*I*sin(omega)/(I*omega), canceling the I in numerator and denominator gives 2*sin(omega)/omega, which equals sin(omega)/omega * 2 by commutativity of multiplication."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "2*sin(omega)/omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "Dividing both numerator and denominator by I is valid: 2*I*sin(omega)/(I*omega) = 2*sin(omega)/omega, since I/I = 1."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "-(integrate(exp(-(a + s)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The step introduces an incorrect negative sign. Combining exp(-a*t)*exp(-s*t) = exp(-(a+s)*t) is correct, but there should be no negative sign in front of the integral; the expression should be integrate(exp(-(a+s)*t), (t, 0, oo)) without the leading minus."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "2*(integrate(exp(-(a + s)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The previous step has exp(-a*t)*exp(-s*t) which correctly simplifies to exp(-(a+s)*t), but there is no justification for the factor of 2 that appears in the current step. This is an error."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + s)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Combining the exponents exp(-a*t)*exp(-s*t) = exp(-(a+s)*t) is correct, but the division by 2 is not justified by any algebraic operation on the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + s)*t), (t, 0, oo))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The previous step has the integrand exp(-a*t)*exp(-s*t) = exp(-(a+s)*t), which is correctly combined in the current step's integrand. However, the '+1' term appearing outside the integral is not justified by any algebraic manipulation of the previous expression and appears to be an error."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + s)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Combining the exponents exp(-a*t)*exp(-s*t) = exp(-(a+s)*t) is correct, but the division by 2 is not justified by any algebraic operation on the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + s)*t), (t, oo, 0))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The step combines the exponentials correctly (exp(-a*t)*exp(-s*t) = exp(-(a+s)*t)), but incorrectly reverses the integration limits from (0, \u221e) to (\u221e, 0). This changes the sign of the integral, which is not justified by simple algebra."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + s)*t), (t, 0, 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The algebra correctly combines the exponentials as exp(-(a+s)*t), but the upper limit of integration was incorrectly changed from \u221e to 1, which is not a valid algebraic manipulation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + p)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The previous step has exp(-a*t)*exp(-s*t) which should combine to exp(-(a+s)*t), but the current step shows exp(-(a+p)*t) with variable 'p' instead of 's'. This is either a typo or an incorrect variable substitution."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "The exponents exp(-a*t) and exp(-s*t) are correctly combined using the rule exp(A)*exp(B) = exp(A+B), yielding exp(-(a+s)*t). This is a valid algebraic simplification."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "-(1/(s + a))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The integration of exp(-(a+s)*t) from 0 to \u221e yields [exp(-(a+s)*t)/(-(a+s))] evaluated from 0 to \u221e, which equals 0 - (1/(-(a+s))) = 1/(a+s), not -(1/(s+a)). The sign is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "2*(1/(s + a))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The integral of exp(-(a+s)*t) from 0 to \u221e equals 1/(s+a) when Re(s+a) > 0, not 2/(s+a). The factor of 2 is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "(1/(s + a))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The integral of exp(-(a+s)*t) from 0 to \u221e equals 1/(a+s) when a+s > 0, not (1/(s+a))/2. The factor of 1/2 is incorrect and appears to be an error in evaluating the definite integral."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "(1/(s + a)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The integral of exp(-(a+s)*t) from 0 to \u221e equals [-1/(a+s) * exp(-(a+s)*t)] evaluated from 0 to \u221e, which gives 1/(s+a), not 1/(s+a) + 1. The '+1' term is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "(1/(s + a))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The integral of exp(-(a+s)*t) from 0 to \u221e equals 1/(a+s) when a+s > 0, not (1/(s+a))/2. The factor of 1/2 is incorrect and appears to be an error in evaluating the definite integral."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "1/(p + a)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.85,
+          "reasoning": "The integration of exp(-(a+s)*t) from 0 to \u221e yields 1/(a+s), not 1/(p+a). The variable suddenly changed from 's' to 'p' without justification, and the order of terms in the denominator is reversed (though this is algebraically equivalent, the unexplained variable change is an error)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "1/(s + a)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 0.95,
+          "reasoning": "The integral of exp(-(a+s)*t) from 0 to \u221e equals [-1/(a+s) * exp(-(a+s)*t)] evaluated from 0 to \u221e, which gives 0 - (-1/(a+s)) = 1/(a+s) = 1/(s+a), assuming Re(a+s) > 0 for convergence."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "-(1/((s - 1)*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Factoring s\u00b2 - 1 gives (s - 1)(s + 1), so 1/(s\u00b2 - 1) = 1/((s - 1)(s + 1)). The current step incorrectly introduces a negative sign, making it -1/((s - 1)(s + 1)), which is not equal to the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "2*(1/((s - 1)*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Factoring the denominator s\u00b2 - 1 as (s - 1)(s + 1) is correct, but the step introduces an erroneous factor of 2 in the numerator. The correct factorization is 1/((s - 1)(s + 1)), not 2/((s - 1)(s + 1))."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "(1/((s - 1)*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Factoring s\u00b2 - 1 as (s - 1)(s + 1) is correct, giving 1/((s - 1)(s + 1)), but the division by 2 that appears in the current step is not justified by the factoring operation alone."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "(1/((s - 1)*(s + 1))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Factoring s\u00b2-1 as (s-1)(s+1) is correct, giving 1/((s-1)(s+1)), but the '+1' term appears without justification. The operation should yield only 1/((s-1)(s+1)), not that expression plus 1."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "(1/((s - 1)*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Factoring s\u00b2 - 1 as (s - 1)(s + 1) is correct, giving 1/((s - 1)(s + 1)), but the division by 2 that appears in the current step is not justified by the factoring operation alone."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "1/((p - 1)*(p + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.85,
+          "reasoning": "The step changes the variable from 's' to 'p' without justification. While the factorization s\u00b2 - 1 = (s - 1)(s + 1) is correct, the unexplained variable substitution makes this step invalid as stated."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "1/((s - 1)*(s + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "The denominator s\u00b2 - 1 is correctly factored as (s - 1)(s + 1) using the difference of squares formula a\u00b2 - b\u00b2 = (a - b)(a + b)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "-(1/(2*(s - 1)) - 1/(2*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 1.0,
+          "reasoning": "The partial fraction decomposition has an incorrect overall negative sign. The correct form is 1/(2(s-1)) - 1/(2(s+1)), not its negative."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "2*(1/(2*(s - 1)) - 1/(2*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 1.0,
+          "reasoning": "The partial fraction expansion has an incorrect factor of 2 multiplying the entire expression. The correct form should be 1/(2(s-1)) - 1/(2(s+1)) without the leading factor of 2."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "(1/(2*(s - 1)) - 1/(2*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 1.0,
+          "reasoning": "The partial fraction decomposition should be 1/(2(s-1)) - 1/(2(s+1)), but the current step has an incorrect extra division by 2 in the denominator, making it half the correct value."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*(s - 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Partial fraction decomposition of 1/((s-1)(s+1)) should yield A/(s-1) + B/(s+1) where A=1/2 and B=-1/2. The current step shows only one term (the A term) and is missing the -1/(2*(s+1)) term, making it an incomplete expression rather than an equality."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "(1/(2*(s - 1)) - 1/(2*(s + 1))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 1.0,
+          "reasoning": "The partial fraction decomposition 1/(2(s-1)) - 1/(2(s+1)) is correct, but the additional '+ 1' term is erroneous and makes the expression unequal to the previous step."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "(1/(2*(s - 1)) - 1/(2*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 1.0,
+          "reasoning": "The partial fraction decomposition has an incorrect extra factor of 1/2 in the denominator. The correct form is 1/(2(s-1)) - 1/(2(s+1)), not that expression divided by 2."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*(p - 1)) - 1/(2*(p + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "abstain",
+          "confidence": 0.7,
+          "reasoning": "The partial fraction decomposition is mathematically correct (coefficients 1/2 and -1/2 are right), but there is an unexplained variable change from s to p that lacks justification in the given context."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*s - 2*1) - 1/(2*(s + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "The partial fraction decomposition is correct: 1/((s-1)(s+1)) = 1/(2(s-1)) - 1/(2(s+1)), and 2*s - 2*1 = 2(s-1) is just an unfactored form of the first denominator."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "The partial fraction decomposition is correct. Verification by combining the fractions yields the previous expression, and the coefficients A=1/2 and B=-1/2 are correctly computed."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "-(1/(1 - r))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The geometric series sum formula for |r| < 1 is 1/(1-r), not -(1/(1-r)). The negative sign in front makes this incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "2*(1/(1 - r))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The geometric series sum formula for Sum(r^n, n=0 to \u221e) is 1/(1-r) for |r|<1, not 2/(1-r). The factor of 2 is incorrect and unexplained."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "(1/(1 - r))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The geometric series sum formula for Sum(r^n, n=0 to \u221e) is 1/(1-r) when |r|<1, not (1/(1-r))/2. The division by 2 is incorrect and appears to be an error."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "(1/(1 - r)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The geometric series sum formula for Sum(r^n, n=0 to \u221e) is 1/(1-r) when |r|<1, not 1/(1-r)+1. The extra '+1' term is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "(1/(1 - r))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The geometric series sum formula for Sum(r^n, n=0 to \u221e) is 1/(1-r) when |r|<1, not (1/(1-r))/2. The division by 2 is incorrect and has no justification."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "1/(1 - rho)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.85,
+          "reasoning": "The geometric series sum formula for Sum(r^n, n=0 to \u221e) is 1/(1-r), not 1/(1-\u03c1). The variable changed from r to \u03c1 without justification, which is either an error or requires explanation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "1/(1 - r)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "abstain",
+          "confidence": 0.75,
+          "reasoning": "The geometric series formula Sum(r^n, n=0 to \u221e) = 1/(1-r) is correct, but only when |r| < 1. Without knowing whether this convergence condition is satisfied or stated, we cannot verify this step is valid for all r."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "-(3*x**2)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 1.0,
+          "reasoning": "The derivative of x\u00b3 with respect to x is 3x\u00b2, not -3x\u00b2. The negative sign is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "2*(3*x**2)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The derivative of x**3 with respect to x is 3*x**2, not 2*(3*x**2) = 6*x**2. An erroneous factor of 2 has been introduced."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "(3*x**2)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 1.0,
+          "reasoning": "The derivative of x\u00b3 with respect to x is 3x\u00b2, not (3x\u00b2)/2. The power rule gives d/dx(x\u00b3) = 3x^(3-1) = 3x\u00b2, with no division by 2."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*x**3",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 1.0,
+          "reasoning": "The derivative of x**3 with respect to x is 3*x**2, not 3*x**3. The power rule states d/dx(x^n) = n*x^(n-1), so the exponent should decrease by 1."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "(3*x**2) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 1.0,
+          "reasoning": "The derivative of x**3 with respect to x is 3*x**2, not (3*x**2) + 1. The constant term +1 should not appear in the result."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "(3*x**2)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 1.0,
+          "reasoning": "The derivative of x\u00b3 with respect to x is 3x\u00b2, not (3x\u00b2)/2. The power rule gives d/dx(x\u00b3) = 3x^(3-1) = 3x\u00b2, with no division by 2."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*xi**2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The derivative of x**3 with respect to x is 3*x**2, not 3*xi**2. The variable changed from 'x' to 'xi', which is incorrect unless 'xi' was defined to equal 'x', which is not indicated in the context."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "3*x**2",
+      "mutated_expr": "x**2 * 3",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "The derivative of x**3 with respect to x is 3*x**2, which is algebraically equivalent to x**2 * 3. The power rule was applied correctly."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*(x)*(x)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The derivative of x\u00b3 with respect to x is 3x\u00b2, not 3\u00b7x\u00b7x. While 3\u00b7x\u00b7x could be interpreted as 3x\u00b2, the step claims this is the result of differentiation applied to the previous step, but the previous step already was the differentiation operation diff(x**3, x), so this step appears to be re-stating the result incorrectly or redundantly."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*x**2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:claude-sonnet-4-5": {
+          "verdict": "passed",
+          "confidence": 1.0,
+          "reasoning": "The derivative of x\u00b3 with respect to x is correctly computed using the power rule: d/dx(x^n) = n*x^(n-1), giving 3*x\u00b2."
+        }
+      },
+      "skipped_reason": null
+    }
+  ],
+  "warnings": []
+}

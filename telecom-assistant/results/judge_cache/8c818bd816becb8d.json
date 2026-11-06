@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(((1/2) * z**(-1))**n, (n, 0, oo))",
+  "operation": "Combine terms into a single geometric sequence",
+  "confidence": 0.99,
+  "reasoning": "The previous sum had term (1/2)**n * z**(-n), which equals ((1/2) * z**(-1))**n because z**(-n) = (z**(-1))**n. Thus combining into a single geometric term is correct.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous sum had term (1/2)**n * z**(-n), which equals ((1/2) * z**(-1))**n because z**(-n) = (z**(-1))**n. Thus combining into a single geometric term is correct.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

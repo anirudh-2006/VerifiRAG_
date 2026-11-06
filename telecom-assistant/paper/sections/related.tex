@@ -1,0 +1,64 @@
+\section{Related Work}
+\label{sec:related}
+
+\paragraph{Symbolic and formal verification of mathematics.}
+Computer-algebra systems such as SymPy \citep{meurer2017sympy} support exact
+symbolic equivalence checking and are widely used as lightweight verifiers for
+mathematical expressions. A complementary line of work aims at
+\emph{formal} verification via proof assistants and autoformalization, translating
+natural-language mathematics into machine-checkable statements
+\citep{wu2022autoformalization}. These approaches are sound where they apply,
+but they are limited to the fragment that can be parsed, formalized, or proven.
+Our symbolic grader sits in the lightweight CAS regime: fast and exact on
+covered steps, silent or inapplicable elsewhere.
+
+\paragraph{LLM-as-judge and its failure modes.}
+Using a strong LLM to grade another model's output is now a standard evaluation
+tool \citep{zheng2023judging,liu2023geval}. Documented failure modes include
+positional and other fairness biases \citep{wang2024faireval}, self-preference
+for an evaluator's own generations \citep{panickssery2024selfpref}, and brittle
+agreement with humans under adversarial or carefully curated pairs
+\citep{zeng2024llmbar,thakur2025judging}. We study a related but distinct
+failure in the math setting: judges that over-flag \emph{equivalence-preserving}
+rewrites as errors, even when a symbolic checker correctly accepts them. By
+running two judges from independent labs under one prompt and metric suite, we
+separate model-independent patterns from model-specific operating points, and
+reduce (though do not eliminate) the risk that a single judge's self-preference
+dominates the comparison \citep{panickssery2024selfpref}.
+
+\paragraph{Evaluating mathematical reasoning and locating errors.}
+Math benchmarks such as GSM8K \citep{cobbe2021gsm8k} and MATH
+\citep{hendrycks2021math} typically score final answers. Process-level
+supervision and step-wise reward models push evaluation toward intermediate
+reasoning \citep{uesato2022process,lightman2024verify,wang2024mathshepherd}.
+Complementary \emph{step-quality} suites score chains for validity,
+informativeness, or embedding-based consistency
+\citep{golovneva2023roscoe,prasad2023receval,xia2025reasoneval}; ReasonEval in
+particular evaluates error detection under perturbation, closest in spirit to
+our injection suite \citep{xia2025reasoneval}. Meta-reasoning benchmarks such as
+{MR-GSM8K} ask models to locate and explain mistakes in solutions
+\citep{zeng2025mrgsm8k}. Closest to our human-set findings, \citet{tyen2024errors}
+show that LLMs struggle to \emph{find} reasoning
+errors even when they can \emph{correct} them given the error location: the
+same bottleneck our judges hit on real, mostly out-of-fragment mistakes (F1) and
+over-flagging of surface edits (F2). Rather than proposing a new grader or
+benchmark, we evaluate two existing graders directly, scoring a symbolic
+verifier and two LLM judges on the same multi-step derivations under one
+protocol.
+
+\paragraph{Abstention and selective prediction.}
+Our framing, coverage vs.\ precision with abstention as a first-class
+outcome, follows the tradition of reject options and selective
+classification \citep{chow1970reject,elyaniv2010selective,geifman2017selective}
+and its NLP instantiation as selective question answering
+\citep{kamath2020selective}. We treat symbolic \textsc{none} and
+confidence-thresholded judge abstention as two concrete reject policies for
+math grading, and report coverage/precision trade-offs rather than forced
+pass/fail alone.
+
+\paragraph{Answer equivalence.}
+Token-level match underestimates true answer quality when paraphrases and
+semantically equivalent forms are treated as errors
+\citep{bulian2022tomayto}. Our F2 finding is the process-level analogue:
+equivalence-preserving algebraic rewrites are correct under a CAS checker but
+often flagged by LLM judges.

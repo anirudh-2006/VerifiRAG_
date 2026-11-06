@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-a*Abs(t)) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Substitute x(t) = exp(-a*|t|) into the transform",
+  "confidence": 0.99,
+  "reasoning": "The step correctly replaces x(t) with exp(-a*|t|) in the integral definition of the Fourier transform.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly replaces x(t) with exp(-a*|t|) in the integral definition of the Fourier transform.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

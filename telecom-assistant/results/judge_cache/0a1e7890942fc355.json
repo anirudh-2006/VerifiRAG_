@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x.subs(t, t - tau) * y.subs(t, tau), (tau, -oo, oo))",
+  "operation": "Define the convolution of x(t) and y(t) in the time domain",
+  "confidence": 0.97,
+  "reasoning": "The expression \u222b x(t\u2011\u03c4)\u202fy(\u03c4)\u202fd\u03c4 is the standard definition of the convolution of x(t) and y(t), so defining it here is mathematically correct.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The expression \u222b x(t\u2011\u03c4)\u202fy(\u03c4)\u202fd\u03c4 is the standard definition of the convolution of x(t) and y(t), so defining it here is mathematically correct.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

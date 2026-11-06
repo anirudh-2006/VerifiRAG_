@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(exp(-I*omega) - exp(I*omega)) / (-I*omega)",
+  "operation": "Factor out common terms in the expression",
+  "confidence": 1.0,
+  "reasoning": "The step correctly factors out the common denominator (-I*omega) from both terms in the previous expression: exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega) = (exp(-I*omega) - exp(I*omega))/(-I*omega).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The step correctly factors out the common denominator (-I*omega) from both terms in the previous expression: exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega) = (exp(-I*omega) - exp(I*omega))/(-I*omega).\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

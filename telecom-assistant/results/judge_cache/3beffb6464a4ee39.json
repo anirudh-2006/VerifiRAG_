@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(-I*omega*0)",
+  "operation": "Apply the sifting property of the Dirac delta function: integral of delta(t)*f(t) is f(0)",
+  "confidence": 0.99,
+  "reasoning": "Applying the sifting property \u222b\u03b4(t)f(t)dt = f(0) to f(t)=exp(-I\u00b7\u03c9\u00b7t) yields exp(-I\u00b7\u03c9\u00b70), which matches the stated expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Applying the sifting property \u222b\u03b4(t)f(t)dt = f(0) to f(t)=exp(-I\u00b7\u03c9\u00b7t) yields exp(-I\u00b7\u03c9\u00b70), which matches the stated expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

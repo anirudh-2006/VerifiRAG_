@@ -1,0 +1,71 @@
+{
+  "id": "Q30",
+  "question": "Consider DSB-SC amplitude modulation with signal s(t) = m(t)*cos(omega_c*t), where M(j*omega) is the Fourier transform of m(t). Compute the Fourier transform S(j*omega) of s(t) in terms of M.",
+  "expected_final": "(M(I*(omega - omega_c)) + M(I*(omega + omega_c)))/2",
+  "generated_final": "(1/2)*M(I*(omega - omega_c)) + (1/2)*M(I*(omega + omega_c))",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the definition of the modulated signal s(t)",
+      "expression_given": "m(t)*cos(omega_c*t)",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Given DSB-SC signal definition."
+    },
+    {
+      "step_number": 2,
+      "description": "Express cosine in terms of complex exponentials",
+      "expression_given": "m(t)*(exp(I*omega_c*t) + exp(-I*omega_c*t))/2",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Euler identity: cos(x) = (exp(Ix) + exp(-Ix))/2."
+    },
+    {
+      "step_number": 3,
+      "description": "Distribute m(t) over the sum",
+      "expression_given": "m(t)*exp(I*omega_c*t)/2 + m(t)*exp(-I*omega_c*t)/2",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct distribution of m(t) into both terms."
+    },
+    {
+      "step_number": 4,
+      "description": "Apply linearity of Fourier transform",
+      "expression_given": "FourierTransform(m(t)*exp(I*omega_c*t)/2, t, omega) + FourierTransform(m(t)*exp(-I*omega_c*t)/2, t, omega)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "FT is linear; sum of transforms equals transform of sum."
+    },
+    {
+      "step_number": 5,
+      "description": "Factor out the constant 1/2 from each term",
+      "expression_given": "(1/2)*FourierTransform(m(t)*exp(I*omega_c*t), t, omega) + (1/2)*FourierTransform(m(t)*exp(-I*omega_c*t), t, omega)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Constant 1/2 factored out by linearity."
+    },
+    {
+      "step_number": 6,
+      "description": "Use the frequency shift property of Fourier transform: Fourier transform of m(t)*exp(I*omega_0*t) is M(j*(omega - omega_0))",
+      "expression_given": "(1/2)*M(I*(omega - omega_c)) + (1/2)*M(I*(omega + omega_c))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Frequency shift: FT{m(t)exp(Iω₀t)} = M(I(ω−ω₀)); first term ω₀=+ω_c, second term ω₀=−ω_c. Both applied correctly."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(u[n] * z**(-n), (n, -oo, oo))",
+  "operation": "Start with the definition of the Z-transform",
+  "confidence": 0.95,
+  "reasoning": "The expression correctly applies the definition of the Z-transform, X(z) = \u03a3 x[n]z^(-n) for n from -\u221e to \u221e, to the given signal x[n] = u[n]. This is the standard starting point for computing any Z-transform.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The expression correctly applies the definition of the Z-transform, X(z) = \u03a3 x[n]z^(-n) for n from -\u221e to \u221e, to the given signal x[n] = u[n]. This is the standard starting point for computing any Z-transform.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

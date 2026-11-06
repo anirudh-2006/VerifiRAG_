@@ -1,0 +1,61 @@
+{
+  "id": "Q13",
+  "question": "Compute the inverse Fourier transform of X(j*omega) = 2*pi*delta(omega).",
+  "expected_final": "1",
+  "generated_final": "1",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the inverse Fourier transform formula",
+      "expression_given": "1/(2*pi) * integrate(X * exp(I*omega*t), (omega, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard inverse Fourier transform definition."
+    },
+    {
+      "step_number": 2,
+      "description": "Substitute X(j*omega) = 2*pi*delta(omega) into the integral",
+      "expression_given": "1/(2*pi) * integrate(2*pi*delta(omega) * exp(I*omega*t), (omega, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Direct substitution of X into the integrand."
+    },
+    {
+      "step_number": 3,
+      "description": "Simplify constants: 2*pi cancels with 1/(2*pi)",
+      "expression_given": "integrate(delta(omega) * exp(I*omega*t), (omega, -oo, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "2\u03c0 factor pulled out and cancels 1/(2\u03c0)."
+    },
+    {
+      "step_number": 4,
+      "description": "Apply the sifting property of the Dirac delta function",
+      "expression_given": "exp(I*0*t)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Sifting property: \u222b\u03b4(\u03c9)f(\u03c9)d\u03c9 = f(0), with f(\u03c9)=exp(I\u03c9t) evaluated at \u03c9=0."
+    },
+    {
+      "step_number": 5,
+      "description": "Simplify exponential at omega = 0",
+      "expression_given": "1",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "exp(0) = 1."
+    }
+  ]
+}

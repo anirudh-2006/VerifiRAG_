@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(a**n * u_n * z**(-n), (n, -oo, oo))",
+  "operation": "Substitute x[n] = a^n * u[n] into the transform",
+  "confidence": 0.95,
+  "reasoning": "The substitution of x[n] = a^n * u[n] into the Z-transform definition is correct, replacing x_n with a**n * u_n in the summation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The substitution of x[n] = a^n * u[n] into the Z-transform definition is correct, replacing x_n with a**n * u_n in the summation.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

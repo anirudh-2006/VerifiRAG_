@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "Y(s)/X(s)",
+  "operation": "Solve for Y(s)/X(s)",
+  "confidence": 0.95,
+  "reasoning": "From Y(s)*(s + a) = X(s), solving for the ratio Y(s)/X(s) gives Y(s)/X(s) = 1/(s + a). The step only lists Y(s)/X(s) without the right\u2011hand side, so the operation does not produce the shown expression.",
+  "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"From Y(s)*(s + a) = X(s), solving for the ratio Y(s)/X(s) gives Y(s)/X(s) = 1/(s + a). The step only lists Y(s)/X(s) without the right\u2011hand side, so the operation does not produce the shown expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "z / (z - 1)",
+  "operation": "Simplify the expression by algebraic manipulation",
+  "confidence": 1.0,
+  "reasoning": "The expression 1/(1 - z^(-1)) can be simplified by multiplying numerator and denominator by z, yielding z/(z - 1). This is a valid algebraic manipulation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The expression 1/(1 - z^(-1)) can be simplified by multiplying numerator and denominator by z, yielding z/(z - 1). This is a valid algebraic manipulation.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

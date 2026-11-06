@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(delta(t)*exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Substitute x(t) with the unit impulse signal delta(t)",
+  "confidence": 1.0,
+  "reasoning": "The step correctly substitutes the specific signal x(t) = delta(t) into the general Fourier transform definition from the previous step. This is a valid substitution operation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The step correctly substitutes the specific signal x(t) = delta(t) into the general Fourier transform definition from the previous step. This is a valid substitution operation.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "m(t)*exp(I*omega_c*t)/2 + m(t)*exp(-I*omega_c*t)/2",
+  "operation": "Distribute m(t) over the sum",
+  "confidence": 0.99,
+  "reasoning": "Multiplying the sum (exp(I*\u03c9_c*t) + exp(-I*\u03c9_c*t)) by m(t) and then dividing by 2 is equivalent to distributing m(t) over each term, giving m(t)\u00b7exp(I*\u03c9_c*t)/2 + m(t)\u00b7exp(-I*\u03c9_c*t)/2.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the sum (exp(I*\u03c9_c*t) + exp(-I*\u03c9_c*t)) by m(t) and then dividing by 2 is equivalent to distributing m(t) over each term, giving m(t)\u00b7exp(I*\u03c9_c*t)/2 + m(t)\u00b7exp(-I*\u03c9_c*t)/2.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "Piecewise((1, Abs(t) < T0/2), (-1, Abs(t) < T0 and Abs(t) > T0/2))",
+  "operation": "Define the periodic square wave over one period from -T0/2 to T0/2",
+  "confidence": 0.85,
+  "reasoning": "The piecewise definition has overlapping and incomplete conditions. For a square wave over one period [-T0/2, T0/2], the second condition 'Abs(t) < T0 and Abs(t) > T0/2' is impossible to satisfy simultaneously (|t| cannot be both less than T0 and greater than T0/2 when T0/2 < T0), and the definition doesn't cover the boundary points or specify the period length clearly.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.85,\n  \"reasoning\": \"The piecewise definition has overlapping and incomplete conditions. For a square wave over one period [-T0/2, T0/2], the second condition 'Abs(t) < T0 and Abs(t) > T0/2' is impossible to satisfy simultaneously (|t| cannot be both less than T0 and greater than T0/2 when T0/2 < T0), and the definition doesn't cover the boundary points or specify the period length clearly.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

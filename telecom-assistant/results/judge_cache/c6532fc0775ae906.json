@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X_z = Sum(x_n * (r * exp(I*omega))**(-n), (n, -oo, oo))",
+  "operation": "Substitute polar form of z into the Z-transform expression",
+  "confidence": 1.0,
+  "reasoning": "The substitution of z = r * exp(I*omega) from step 2 into the Z-transform expression from step 1 is performed correctly. Replacing z with (r * exp(I*omega)) in z**(-n) yields (r * exp(I*omega))**(-n), which is a valid algebraic substitution.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The substitution of z = r * exp(I*omega) from step 2 into the Z-transform expression from step 1 is performed correctly. Replacing z with (r * exp(I*omega)) in z**(-n) yields (r * exp(I*omega))**(-n), which is a valid algebraic substitution.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

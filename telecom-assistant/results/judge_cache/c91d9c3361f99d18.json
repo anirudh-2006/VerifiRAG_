@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "a_0 = (1/T) * integrate(x(t), (t, 0, T))",
+  "operation": "Write the general formula for the DC coefficient a_0",
+  "confidence": 0.99,
+  "reasoning": "The step correctly states the standard formula for the DC Fourier coefficient a\u2080 as (1/T)\u222b\u2080\u1d40 x(t) dt, which follows from the definition.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly states the standard formula for the DC Fourier coefficient a\u2080 as (1/T)\u222b\u2080\u1d40 x(t) dt, which follows from the definition.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

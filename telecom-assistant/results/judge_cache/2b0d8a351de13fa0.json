@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(-I*omega*t0) * integrate(x(u) * exp(-I*omega*u), (u, -oo, oo))",
+  "operation": "Move the constant factor exp(-I*omega*t0) outside the integral",
+  "confidence": 0.99,
+  "reasoning": "The factor exp(-I*omega*t0) is constant with respect to the variable of integration u, so it can be moved outside the integral. This is a valid application of the linearity of integration.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The factor exp(-I*omega*t0) is constant with respect to the variable of integration u, so it can be moved outside the integral. This is a valid application of the linearity of integration.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

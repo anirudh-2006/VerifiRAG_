@@ -1,0 +1,122 @@
+% ============================================================================
+% SECTION 2 --- Protocol.
+% "What the 4 pages carry", item 2: gold fixtures; equivalence-preserving
+% rewrites; byte-identical no_op controls; the paired within-item design.
+%
+% VOCABULARY, aligned to Section 1 on 2026-08-27. Do not write "CAS-certified",
+% "certified" or "certificate" anywhere in this paper. The symbolic verifier
+% abstains on 4 of the 24 negatives, so it does not certify the rewrite family;
+% it is a consistency check that commits zero FAILs across all 24. Say what it
+% did, not what it warrants.
+%
+% Constraint reminders that apply to prose written here:
+%   - TWO labeled testbeds, never three.
+%   - The injection suite's 196 attempted trials are 14 mutable step sites x
+%     14 mutation operators. NOT fixture x mutation (9 x 14 = 126 is wrong).
+%   - The 9 injection gold derivations are HAND-AUTHORED and independent of
+%     the 30-query RAG benchmark.
+%   - Tables 1 and 3 do not appear here in full. Only the specific cells a
+%     JUDGe claim needs, inline.
+%
+% PROVENANCE OF EVERY NUMBER BELOW. Re-derived 2026-08-27 from the two frozen
+% injection reports (results/error_injection_report_with_judge.json and
+% results/error_injection_report_claude.json), which agree on every count here
+% because both describe the same suite:
+%   196 attempted / 78 skipped / 118 graded; 94 error, 24 negative
+%   graded by family: 74 algebraic, 6 bounds, 14 identifier, 10 equivalent,
+%     14 control  -- CUT FROM PROSE 2026-08-27 for length; kept here so the
+%     figures stay sourced if anyone puts them back. The equivalent (10) and
+%     control (14) counts still appear in the prose, via the pairing and
+%     negative-family paragraphs.
+%   operators by family: 7 algebraic, 2 bounds, 1 identifier, 3 equivalent,
+%     1 control (= 14)  -> src/error_injection.py, MUTATION_SPECS
+%   10 equivalent trials over 8 distinct (gold_id, step_index) sites; 14
+%     control trials over all 14 sites
+%   symbolic on the 24 negatives: 20 passed, 4 abstain, 0 failed. The 4 are
+%     gold1 s1 and s2, rewrite and control at each -> sections/validity.tex
+%   9 gold derivations -> src/error_injection.py, GOLD_FIXTURES
+%   unevaluable pairs: claude 2 (gold1 s2, gold2 s1, both commute_operands,
+%     both rewrite-side abstains), gpt-oss 0. Same two frozen reports; the
+%     per-pair listing is Table~\ref{tab:flip}.
+% ============================================================================
+\section{Protocol}
+\label{sec:protocol}
+
+\paragraph{Gold fixtures and mutation families.}
+The suite covers 9 hand-authored gold derivations of standard signals and
+algebra results, independent of the 30-query retrieval benchmark behind our
+other testbed. First steps are definitions and are never mutated, leaving 14
+mutable step sites. Each of the 14 mutation operators is attempted at each
+site, for $14 \times 14 = 196$ attempted trials, of which 78 are inapplicable
+and skipped. The 118 graded trials are 94 injected errors and 24 negatives.
+Three families inject a genuine error, correct verdict FAIL: \emph{algebraic},
+\emph{bounds} and \emph{identifier}. Two are negative families, correct verdict
+PASS: \emph{equivalent} and \emph{control}.
+
+\paragraph{What the two negative families are for.}
+\emph{Equivalent} rewrites an expression without changing its value, commuting
+the operands of the first top-level $+$ or $*$, rewriting $X^2$ as
+$X \cdot X$, or expanding $k(a+b)$, with equality checked in SymPy
+\citep{meurer2017sympy}. The correct verdict does not move, so a FAIL there
+tracks the form of an answer rather than its content, the failure mode that
+propagates when verdicts are consumed as a reward signal. \emph{Control} is the
+identity, the gold expression byte for byte. All 14 sites carry one, while the
+rewrite arm reaches 8. A FAIL on a control is a false positive with no mutation
+to blame, which makes it the floor check for the suite.
+
+\paragraph{Paired within-item design.}
+Each rewrite is joined to the control at the same
+\texttt{(gold\_id, step\_index)}. Ten rewrites survived generation out of 42
+attempted, spanning 8 distinct sites, giving 10 pairs, identical for both
+judges. Two sites carry two rewrite operators, so two controls each serve two
+pairs and the 10 are not fully independent. Within a pair everything but the
+surface form of one expression is held fixed and both members are ground-truth
+negatives, so a within-pair verdict difference is attributable to surface form
+alone, with no rate compared across corpora and no exposure to the confound
+that a higher rate may reflect harder items.
+
+\paragraph{Graders.}
+Three graders score the same 118 trials: a SymPy verifier and two judges from
+independent labs, the open-weight \texttt{gpt-oss-120b}
+\citep{openai2025gptoss} and the proprietary \texttt{claude-sonnet-4-5}, each
+called at temperature 0. Across the 24 negatives the verifier commits no FAIL
+verdict at all: 20 PASS and 4 abstains, the latter being the rewrite and the
+control at each of the two mutated steps of the fixture \S\ref{sec:validity}
+examines. It is a consistency check on the negative arm rather than a verdict
+on every trial, and its silence on those 4 is not agreement; what its 20
+commitments establish is that no negative here is one the verifier disputes.
+
+% ----------------------------------------------------------------------------
+% DENOMINATOR CONVENTIONS. Stated here once, deliberately. Every rate in this
+% paper is read against this paragraph, so do not restate a denominator
+% anywhere else and do not let a later section imply a different one.
+% These are the governing definitions from the root CLAUDE.md; they are fixed,
+% not pending, and no number below depends on the gold1 regrade.
+% ----------------------------------------------------------------------------
+\paragraph{Denominator conventions.}
+Three conventions govern every rate we report, and none of them is the
+textbook default.
+\emph{Covered FPR} is computed over committed negatives only,
+$\mathrm{FP}/(\mathrm{FP}+\mathrm{TN})$. A grader that abstains on a negative
+leaves that denominator rather than entering it as a correct rejection, so a
+covered FPR describes only the trials on which the grader was willing to
+commit, and it is reported alongside coverage for that reason.
+\emph{Strict recall} is $\mathrm{TP}/(\mathrm{TP}+\mathrm{FN}+\mathrm{AbsE})$,
+where $\mathrm{AbsE}$ counts abstentions on error steps; abstaining on an error
+is scored as a miss rather than excused.
+A judge verdict of \texttt{error}, whether a crash, a rate-limit failure, or an
+unparseable response, counts as an abstain and not as a dropped trial. It
+therefore leaves a covered-FPR denominator and remains in a strict-recall
+denominator.
+
+\paragraph{What counts as a verdict flip.}
+A \emph{flip} requires both halves of a pair to be committed and to differ. The
+grader must commit a verdict on the equivalence-preserving rewrite, commit a
+verdict on the byte-identical \texttt{no\_op} control at the same step site,
+and the two
+verdicts must disagree. If the grader abstains on either half, the pair is not
+a flip, and it is not scored as agreement either. We report such pairs
+separately as \emph{unevaluable}, with a per-grader count.
+Two of \texttt{claude-sonnet-4-5}'s ten pairs are unevaluable, both of them
+rewrite-side abstentions: \texttt{gold1 s2} and \texttt{gold2 s1} under
+\texttt{commute\_operands}. \texttt{gpt-oss-120b} has none.

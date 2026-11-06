@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(y.subs(t, tau) * (exp(-I*omega*tau) * integrate(x * exp(-I*omega*u), (u, -oo, oo))), (tau, -oo, oo))",
+  "operation": "Factor exponential in inner integral: exp(-I*omega*(u + tau)) = exp(-I*omega*u) * exp(-I*omega*tau)",
+  "confidence": 0.98,
+  "reasoning": "The previous expression contains exp(-I*omega*(u+tau)) inside the inner integral. Factoring it as exp(-I*omega*u)*exp(-I*omega*tau) and pulling the tau\u2011dependent factor outside the u\u2011integral yields exactly the stated current expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression contains exp(-I*omega*(u+tau)) inside the inner integral. Factoring it as exp(-I*omega*u)*exp(-I*omega*tau) and pulling the tau\u2011dependent factor outside the u\u2011integral yields exactly the stated current expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

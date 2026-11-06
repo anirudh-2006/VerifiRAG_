@@ -1,0 +1,205 @@
+{
+  "family": "3 metrics \u00d7 2 judges (exact McNemar); Holm\u2013Bonferroni \u03b1=0.05",
+  "rows": [
+    {
+      "judge": "gpt-oss-120b",
+      "metric": "committed",
+      "n_pairs": 191,
+      "mean_symbolic": 0.4712041884816754,
+      "mean_judge": 0.9947643979057592,
+      "mean_delta": 0.5235602094240838,
+      "ci_low": 0.450261780104712,
+      "ci_high": 0.5916230366492147,
+      "ci_uninformative": false,
+      "mcnemar": {
+        "n_pairs": 191,
+        "b_a1_b0": 0,
+        "c_a0_b1": 100,
+        "n_discordant": 100,
+        "ties_11": 90,
+        "ties_00": 1,
+        "p_value_two_sided": 1.5777218104420236e-30,
+        "test": "mcnemar_exact"
+      },
+      "p_mcnemar": 1.5777218104420236e-30,
+      "p_permutation": 9.999000099990002e-05,
+      "p_holm": 9.466330862652142e-30,
+      "reject_holm_05": true
+    },
+    {
+      "judge": "gpt-oss-120b",
+      "metric": "correct_committed",
+      "n_pairs": 191,
+      "mean_symbolic": 0.43455497382198954,
+      "mean_judge": 0.9476439790575916,
+      "mean_delta": 0.5130890052356021,
+      "ci_low": 0.4397905759162304,
+      "ci_high": 0.5863874345549738,
+      "ci_uninformative": false,
+      "mcnemar": {
+        "n_pairs": 191,
+        "b_a1_b0": 1,
+        "c_a0_b1": 99,
+        "n_discordant": 100,
+        "ties_11": 82,
+        "ties_00": 9,
+        "p_value_two_sided": 1.5934990285464438e-28,
+        "test": "mcnemar_exact"
+      },
+      "p_mcnemar": 1.5934990285464438e-28,
+      "p_permutation": 9.999000099990002e-05,
+      "p_holm": 7.967495142732219e-28,
+      "reject_holm_05": true
+    },
+    {
+      "judge": "gpt-oss-120b",
+      "metric": "caught_error",
+      "n_pairs": 13,
+      "mean_symbolic": 0.0,
+      "mean_judge": 0.46153846153846156,
+      "mean_delta": 0.46153846153846156,
+      "ci_low": 0.23076923076923078,
+      "ci_high": 0.7692307692307693,
+      "ci_uninformative": true,
+      "mcnemar": {
+        "n_pairs": 13,
+        "b_a1_b0": 0,
+        "c_a0_b1": 6,
+        "n_discordant": 6,
+        "ties_11": 0,
+        "ties_00": 7,
+        "p_value_two_sided": 0.03125,
+        "test": "mcnemar_exact"
+      },
+      "p_mcnemar": 0.03125,
+      "p_permutation": 0.032096790320967905,
+      "p_holm": 0.03125,
+      "reject_holm_05": true
+    },
+    {
+      "judge": "claude-sonnet-4-5",
+      "metric": "committed",
+      "n_pairs": 191,
+      "mean_symbolic": 0.4712041884816754,
+      "mean_judge": 0.9528795811518325,
+      "mean_delta": 0.4816753926701571,
+      "ci_low": 0.4031413612565445,
+      "ci_high": 0.5602094240837696,
+      "ci_uninformative": false,
+      "mcnemar": {
+        "n_pairs": 191,
+        "b_a1_b0": 6,
+        "c_a0_b1": 98,
+        "n_discordant": 104,
+        "ties_11": 84,
+        "ties_00": 3,
+        "p_value_two_sided": 1.5916548600905782e-22,
+        "test": "mcnemar_exact"
+      },
+      "p_mcnemar": 1.5916548600905782e-22,
+      "p_permutation": 9.999000099990002e-05,
+      "p_holm": 6.366619440362313e-22,
+      "reject_holm_05": true
+    },
+    {
+      "judge": "claude-sonnet-4-5",
+      "metric": "correct_committed",
+      "n_pairs": 191,
+      "mean_symbolic": 0.43455497382198954,
+      "mean_judge": 0.8534031413612565,
+      "mean_delta": 0.418848167539267,
+      "ci_low": 0.33507853403141363,
+      "ci_high": 0.4973821989528796,
+      "ci_uninformative": false,
+      "mcnemar": {
+        "n_pairs": 191,
+        "b_a1_b0": 8,
+        "c_a0_b1": 88,
+        "n_discordant": 96,
+        "ties_11": 75,
+        "ties_00": 20,
+        "p_value_two_sided": 3.673235528056121e-18,
+        "test": "mcnemar_exact"
+      },
+      "p_mcnemar": 3.673235528056121e-18,
+      "p_permutation": 9.999000099990002e-05,
+      "p_holm": 1.1019706584168362e-17,
+      "reject_holm_05": true
+    },
+    {
+      "judge": "claude-sonnet-4-5",
+      "metric": "caught_error",
+      "n_pairs": 13,
+      "mean_symbolic": 0.0,
+      "mean_judge": 0.7692307692307693,
+      "mean_delta": 0.7692307692307693,
+      "ci_low": 0.5384615384615384,
+      "ci_high": 1.0,
+      "ci_uninformative": true,
+      "mcnemar": {
+        "n_pairs": 13,
+        "b_a1_b0": 0,
+        "c_a0_b1": 10,
+        "n_discordant": 10,
+        "ties_11": 0,
+        "ties_00": 3,
+        "p_value_two_sided": 0.001953125,
+        "test": "mcnemar_exact"
+      },
+      "p_mcnemar": 0.001953125,
+      "p_permutation": 0.0020997900209979003,
+      "p_holm": 0.00390625,
+      "reject_holm_05": true
+    }
+  ],
+  "holm": [
+    {
+      "name": "gpt-oss-120b/committed",
+      "p_raw": 1.5777218104420236e-30,
+      "p_holm": 9.466330862652142e-30,
+      "reject_at_alpha": true,
+      "alpha": 0.05,
+      "family_size": 6
+    },
+    {
+      "name": "gpt-oss-120b/correct_committed",
+      "p_raw": 1.5934990285464438e-28,
+      "p_holm": 7.967495142732219e-28,
+      "reject_at_alpha": true,
+      "alpha": 0.05,
+      "family_size": 6
+    },
+    {
+      "name": "gpt-oss-120b/caught_error",
+      "p_raw": 0.03125,
+      "p_holm": 0.03125,
+      "reject_at_alpha": true,
+      "alpha": 0.05,
+      "family_size": 6
+    },
+    {
+      "name": "claude-sonnet-4-5/committed",
+      "p_raw": 1.5916548600905782e-22,
+      "p_holm": 6.366619440362313e-22,
+      "reject_at_alpha": true,
+      "alpha": 0.05,
+      "family_size": 6
+    },
+    {
+      "name": "claude-sonnet-4-5/correct_committed",
+      "p_raw": 3.673235528056121e-18,
+      "p_holm": 1.1019706584168362e-17,
+      "reject_at_alpha": true,
+      "alpha": 0.05,
+      "family_size": 6
+    },
+    {
+      "name": "claude-sonnet-4-5/caught_error",
+      "p_raw": 0.001953125,
+      "p_holm": 0.00390625,
+      "reject_at_alpha": true,
+      "alpha": 0.05,
+      "family_size": 6
+    }
+  ]
+}

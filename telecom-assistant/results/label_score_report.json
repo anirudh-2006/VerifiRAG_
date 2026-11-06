@@ -1,0 +1,31 @@
+{
+  "grader_label": "verifier",
+  "queries_labelled": 29,
+  "steps_total": 191,
+  "steps_abstained": 101,
+  "coverage": 0.471,
+  "confusion_matrix": {
+    "true_positive": 0,
+    "false_positive": 0,
+    "true_negative": 83,
+    "false_negative": 7
+  },
+  "precision_error_detection": null,
+  "recall_error_detection": 0.0,
+  "accuracy_on_covered_steps": 0.922,
+  "grader_verdicts": {
+    "verifier_correct": 90,
+    "verifier_abstain": 101
+  },
+  "human_error_types": {
+    "definition": 4,
+    "algebra": 3,
+    "missing_term": 6
+  },
+  "final_answer_queries": 29,
+  "final_answer_correct": 27,
+  "verifier_verdicts": {
+    "verifier_correct": 90,
+    "verifier_abstain": 101
+  }
+}

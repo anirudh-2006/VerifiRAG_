@@ -1,0 +1,21 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We compared a symbolic verifier and two independent LLM judges for grading
+multi-step mathematical derivations under one reproducible protocol on two
+labeled testbeds: a human-labeled set and a synthetic error-injection suite.
+The graders occupy opposite ends of a precision/coverage trade-off:
+symbolic grading is exact but abstains on (and misses) errors that lie mostly
+outside the symbolic fragment,
+while LLM judges cover nearly everything but over-flag the injection suite's
+equivalence-preserving rewrites, at a model-dependent rate. The qualitative pattern held across an
+open-weight and a proprietary judge. The cascade, symbolic first, judge on
+abstain, has a real caveat: on controlled injection errors it is the best
+operating point we measure (especially with \texttt{claude} as fallback: recall $0.904$, FPR
+$0.042$), but on human-labeled semantic errors trusting symbolic passes can
+\emph{lower} recall relative to the judge alone. We recommend cascade deployment
+when symbolic commits are in-fragment, judge override when they are not, and
+confidence thresholding when false positives dominate. Math-NLP evaluations
+should report abstention rates alongside pass/fail. Code, prompts, judge
+configuration, labels, and frozen results:
+\url{https://osf.io/5kvqe/?view_only=8c0032bd76244a1daaebf6cb3feb2c92}.

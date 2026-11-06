@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Start with the definition of the Fourier transform of a signal x(t)",
+  "confidence": 0.97,
+  "reasoning": "The expression correctly states the Fourier transform definition \u222b_{-\u221e}^{\u221e} x(t) e^{-i \u03c9 t} dt, matching the described operation of starting with that definition.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The expression correctly states the Fourier transform definition \u222b_{-\u221e}^{\u221e} x(t) e^{-i \u03c9 t} dt, matching the described operation of starting with that definition.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

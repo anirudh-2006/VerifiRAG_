@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(h[n] * z**(-n), (n, -oo, oo))",
+  "operation": "Start with the definition of the Z-transform",
+  "confidence": 0.99,
+  "reasoning": "The Z-transform is defined as the sum over all n of h[n]\u00b7z^{-n}; writing \u03a3_{n=-\u221e}^{\u221e} h[n] z^{-n} correctly follows from the definition.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The Z-transform is defined as the sum over all n of h[n]\u00b7z^{-n}; writing \u03a3_{n=-\u221e}^{\u221e} h[n] z^{-n} correctly follows from the definition.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

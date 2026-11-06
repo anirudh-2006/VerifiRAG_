@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(delta[n] * z**(-n), (n, -oo, oo))",
+  "operation": "Substitute x[n] with delta[n], the unit impulse",
+  "confidence": 0.99,
+  "reasoning": "The previous expression was the definition Sum(x[n] * z**(-n), (n, -\u221e, \u221e)). Replacing x[n] by the unit impulse \u03b4[n] yields Sum(\u03b4[n] * z**(-n), (n, -\u221e, \u221e)), which matches the current step.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression was the definition Sum(x[n] * z**(-n), (n, -\u221e, \u221e)). Replacing x[n] by the unit impulse \u03b4[n] yields Sum(\u03b4[n] * z**(-n), (n, -\u221e, \u221e)), which matches the current step.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

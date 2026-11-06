@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X_z = Sum(x_n * r**(-n) * exp(-I*omega*n), (n, -oo, oo))",
+  "operation": "Simplify the exponent in the expression",
+  "confidence": 0.95,
+  "reasoning": "The operation correctly simplifies (r * exp(I*omega))**(-n) to r**(-n) * exp(-I*omega*n) using properties of exponents and complex numbers, which is mathematically valid.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The operation correctly simplifies (r * exp(I*omega))**(-n) to r**(-n) * exp(-I*omega*n) using properties of exponents and complex numbers, which is mathematically valid.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

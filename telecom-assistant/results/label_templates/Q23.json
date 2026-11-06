@@ -1,0 +1,81 @@
+{
+  "id": "Q23",
+  "question": "Compute the convolution y(t) = x(t) * h(t) for t >= 0, where x(t) = u(t) and h(t) = exp(-a*t)*u(t) with a > 0. Give y(t) as a closed-form expression valid for t >= 0.",
+  "expected_final": "(1 - exp(-a*t))/a",
+  "generated_final": "(1 - exp(-a*t)) / a",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Write the convolution integral for y(t) = x(t) * h(t)",
+      "expression_given": "integrate(u(tau) * exp(-a*(t - tau)) * u(t - tau), (tau, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard convolution integral with x(τ)=u(τ), h(t−τ)=exp(−a(t−τ))u(t−τ)."
+    },
+    {
+      "step_number": 2,
+      "description": "Simplify limits using unit step functions: u(tau) is 0 for tau < 0",
+      "expression_given": "integrate(exp(-a*(t - tau)) * u(t - tau), (tau, 0, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "u(τ) truncates the lower limit to 0 and drops out of the integrand."
+    },
+    {
+      "step_number": 3,
+      "description": "For t >= 0, u(t - tau) is 1 when tau <= t, so upper limit becomes t",
+      "expression_given": "integrate(exp(-a*(t - tau)), (tau, 0, t))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "u(t−τ) truncates the upper limit to t and drops out."
+    },
+    {
+      "step_number": 4,
+      "description": "Factor out exp(-a*t) from the integral since it's independent of tau",
+      "expression_given": "exp(-a*t) * integrate(exp(a*tau), (tau, 0, t))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "exp(−a(t−τ)) = exp(−at)·exp(aτ); constant exp(−at) factored out."
+    },
+    {
+      "step_number": 5,
+      "description": "Integrate exp(a*tau) with respect to tau",
+      "expression_given": "exp(-a*t) * (exp(a*t) / a - 1 / a)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "∫₀^t exp(aτ) dτ = (exp(at) − 1)/a."
+    },
+    {
+      "step_number": 6,
+      "description": "Simplify the expression",
+      "expression_given": "exp(-a*t) * (exp(a*t) - 1) / a",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Factoring 1/a from the parenthetical."
+    },
+    {
+      "step_number": 7,
+      "description": "Distribute exp(-a*t) over the numerator",
+      "expression_given": "(1 - exp(-a*t)) / a",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "exp(−at)·exp(at) = 1 and exp(−at)·(−1) = −exp(−at); result is (1 − exp(−at))/a."
+    }
+  ]
+}

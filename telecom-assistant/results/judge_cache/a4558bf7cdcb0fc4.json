@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "z = r * exp(I*omega)",
+  "operation": "Express the complex variable z in polar form using magnitude and angle",
+  "confidence": 0.98,
+  "reasoning": "Writing z as r\u00b7e^{i\u03c9} is a standard polar representation of a complex variable and correctly follows from the definition of the Z-transform variable.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Writing z as r\u00b7e^{i\u03c9} is a standard polar representation of a complex variable and correctly follows from the definition of the Z-transform variable.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

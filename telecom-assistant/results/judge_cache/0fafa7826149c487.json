@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(((1/2)**n * u[n]) * z**(-n), (n, -oo, oo))",
+  "operation": "Substitute h[n] = (1/2)^n * u[n] into the sum",
+  "confidence": 0.99,
+  "reasoning": "The previous expression was the generic Z-transform sum; substituting h[n] = (1/2)^n u[n] yields exactly the displayed sum, so the step is correct.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression was the generic Z-transform sum; substituting h[n] = (1/2)^n u[n] yields exactly the displayed sum, so the step is correct.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

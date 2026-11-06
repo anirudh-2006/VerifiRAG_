@@ -1,0 +1,111 @@
+{
+  "id": "Q22",
+  "question": "A causal LTI system obeys y'(t) + a*y(t) = x(t) with a > 0 and zero initial conditions. Compute its transfer function H(s).",
+  "expected_final": "1/(s + a)",
+  "generated_final": "1/(s + a)",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the given differential equation",
+      "expression_given": "Derivative(y(t), t) + a*y(t)",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Starting point; LHS of the given ODE. Treated as definition per step-1 rule."
+    },
+    {
+      "step_number": 2,
+      "description": "Apply Laplace transform to both sides assuming zero initial conditions",
+      "expression_given": "s*Y(s) - y(0) + a*Y(s)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "L{y'} = sY(s)\u2212y(0); L{a*y} = a*Y(s). Correct Laplace of the LHS."
+    },
+    {
+      "step_number": 3,
+      "description": "Substitute zero initial condition y(0) = 0",
+      "expression_given": "s*Y(s) + a*Y(s)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "y(0)=0 removes the initial-condition term."
+    },
+    {
+      "step_number": 4,
+      "description": "Apply Laplace transform to the input side",
+      "expression_given": "X(s)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "L{x(t)} = X(s); correct identification of the RHS Laplace."
+    },
+    {
+      "step_number": 5,
+      "description": "Equate transformed left and right sides",
+      "expression_given": "s*Y(s) + a*Y(s)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": false,
+      "error_type": "missing_term",
+      "notes": "Description says to equate LHS and RHS, but expression only shows the LHS with no '= X(s)'. Under strict grading, the equation is incomplete."
+    },
+    {
+      "step_number": 6,
+      "description": "Factor Y(s) on the left-hand side",
+      "expression_given": "Y(s)*(s + a)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "s*Y(s) + a*Y(s) = Y(s)*(s+a); correct factoring."
+    },
+    {
+      "step_number": 7,
+      "description": "Write equation as Y(s)*(s + a) = X(s)",
+      "expression_given": "Y(s)*(s + a)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": false,
+      "error_type": "missing_term",
+      "notes": "Description claims the full equation Y(s)*(s+a) = X(s), but expression omits the '= X(s)' side. Fragment fails under strict grading."
+    },
+    {
+      "step_number": 8,
+      "description": "Solve for Y(s)/X(s)",
+      "expression_given": "Y(s)/X(s)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": false,
+      "error_type": "missing_term",
+      "notes": "Description says to solve for the ratio, but expression is only the ratio symbol with no '= 1/(s+a)' or equivalent. No transformation actually performed under strict reading."
+    },
+    {
+      "step_number": 9,
+      "description": "Divide both sides by (s + a)",
+      "expression_given": "Y(s)/X(s)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": false,
+      "error_type": "missing_term",
+      "notes": "Description says to divide by (s+a), but expression is unchanged from step 8; the '= 1/(s+a)' side is missing. Strict grading fails."
+    },
+    {
+      "step_number": 10,
+      "description": "Express transfer function H(s) = Y(s)/X(s)",
+      "expression_given": "1/(s + a)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Final H(s) = 1/(s+a) is the correct transfer function of the given ODE."
+    }
+  ]
+}

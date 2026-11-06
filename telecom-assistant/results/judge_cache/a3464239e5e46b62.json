@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(I*Omega*n) * Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo))",
+  "operation": "Factor out the term that does not depend on k",
+  "confidence": 0.99,
+  "reasoning": "The factor exp(I*Omega*n) does not depend on the summation index k, so it can be taken outside the sum, leaving the remaining terms as exp(-I*Omega*k) inside the sum.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The factor exp(I*Omega*n) does not depend on the summation index k, so it can be taken outside the sum, leaving the remaining terms as exp(-I*Omega*k) inside the sum.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

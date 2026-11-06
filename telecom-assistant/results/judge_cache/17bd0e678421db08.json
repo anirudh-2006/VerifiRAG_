@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(t) * exp(-sigma*t) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Separate the exponential into real and imaginary parts",
+  "confidence": 0.98,
+  "reasoning": "Using the identity exp(a+b)=exp(a)\u00b7exp(b), the term exp(-(\u03c3+I\u00b7\u03c9)\u00b7t) can be split into exp(-\u03c3\u00b7t)\u00b7exp(-I\u00b7\u03c9\u00b7t), which matches the current expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Using the identity exp(a+b)=exp(a)\u00b7exp(b), the term exp(-(\u03c3+I\u00b7\u03c9)\u00b7t) can be split into exp(-\u03c3\u00b7t)\u00b7exp(-I\u00b7\u03c9\u00b7t), which matches the current expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

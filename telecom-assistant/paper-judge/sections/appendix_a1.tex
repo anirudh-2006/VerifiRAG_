@@ -1,0 +1,29 @@
+% ============================================================================
+% APPENDIX A1 --- Cascade variants (V0 / V1 / V2).
+% Corroboration and detail only. The NeurIPS template requires the paper to
+% stand alone without the appendix: "adding critical experiments that support
+% the main claims to an appendix is inappropriate". Nothing the lead claim
+% depends on may move here. If a body cut would leave a claim resting on this
+% material, cut the claim instead.
+%
+% Source of record: notes/cascade_variants_notes.md. Before anything here is
+% asserted, V0 must be shown to reproduce the published cascade table exactly.
+% ============================================================================
+\section{Cascade Variants}
+\label{app:cascade}
+
+\todo{V0 / V1 / V2 policy definitions and gates}
+
+\todo{results table. Gate: V0 must reproduce the published cascade numbers
+exactly before any V1/V2 row is trusted}
+
+\todo{the structural results that must not be restated as empirical findings:
+on the human set the verifier commits zero FAIL verdicts (TP $=0$, FP $=0$;
+all 90 commits are passes), so any policy in which a symbolic PASS does not
+veto the judge is IDENTICAL to the judge alone by construction, not by
+measurement. The human-set cascade recall drop is likewise arithmetically
+forced by the verifier's committed-pass count}
+
+\todo{on injection, the verifier's FPR advantage comes entirely from its 20
+covered negatives; a policy that routes those to the judge gives that
+advantage back}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-(s + a)*t), (t, 0, oo))",
+  "operation": "Combine exponential terms in the integrand",
+  "confidence": 0.99,
+  "reasoning": "Multiplying the exponentials exp(-a*t) and exp(-s*t) correctly combines the exponents to exp(-(a+s)*t), which is exactly the integrand shown.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the exponentials exp(-a*t) and exp(-s*t) correctly combines the exponents to exp(-(a+s)*t), which is exactly the integrand shown.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

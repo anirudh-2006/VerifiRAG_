@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "y_n = x_n * r**(-n)",
+  "operation": "Define a new sequence y[n] = x[n] * r^(-n)",
+  "confidence": 0.98,
+  "reasoning": "Introducing y_n = x_n * r^{-n} is a straightforward definition that matches the factor appearing in the summand of the previous expression, so the step is mathematically valid.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Introducing y_n = x_n * r^{-n} is a straightforward definition that matches the factor appearing in the summand of the previous expression, so the step is mathematically valid.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

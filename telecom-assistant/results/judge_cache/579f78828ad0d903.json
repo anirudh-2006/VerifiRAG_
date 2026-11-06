@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "a*integrate(x1(t)*exp(-I*omega*t), (t, -oo, oo)) + b*integrate(x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Factor constants a and b out of the integrals",
+  "confidence": 1.0,
+  "reasoning": "Factoring constants out of integrals is a valid operation since a and b are constants with respect to the integration variable t. This is the constant multiple rule for integrals.",
+  "judge_raw": "I need to verify whether factoring constants `a` and `b` out of the integrals is valid.\n\n**Previous step:**\n```\nintegrate(a*x1(t)*exp(-I*omega*t), (t, -oo, oo)) + integrate(b*x2(t)*exp(-I*omega*t), (t, -oo, oo))\n```\n\n**Current step:**\n```\na*integrate(x1(t)*exp(-I*omega*t), (t, -oo, oo)) + b*integrate(x2(t)*exp(-I*omega*t), (t, -oo, oo))\n```\n\n**Verification:**\nThis uses the property that constants can be factored out of integrals:\n- \u222b a\u00b7f(t) dt = a\u00b7\u222b f(t) dt (when a is constant with respect to t)\n- \u222b b\u00b7g(t) dt = b\u00b7\u222b g(t) dt (when b is constant with respect to t)\n\nSince `a` and `b` are constants (they don't depend on the integration variable `t`), this is a valid operation. Applying this to both integrals:\n- First integral: \u222b a\u00b7x1(t)\u00b7exp(-I\u00b7\u03c9\u00b7t) dt = a\u00b7\u222b x1(t)\u00b7exp(-I\u00b7\u03c9\u00b7t) dt \u2713\n- Second integral: \u222b b\u00b7x2(t)\u00b7exp(-I\u00b7\u03c9\u00b7t) dt = b\u00b7\u222b x2(t)\u00b7exp(-I\u00b7\u03c9\u00b7t) dt \u2713\n\nThis is a standard and correct application of the constant multiple rule for integrals.\n\n```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"Factoring constants out of integrals is a valid operation since a and b are constants with respect to the integration variable t. This is the constant multiple rule for integrals.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

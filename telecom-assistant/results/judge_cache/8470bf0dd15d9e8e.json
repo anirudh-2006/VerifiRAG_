@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(exp(-I*omega*t)/(-I*omega)) | (t=1) - (exp(-I*omega*t)/(-I*omega)) | (t=-1)",
+  "operation": "Compute the integral of the complex exponential",
+  "confidence": 1.0,
+  "reasoning": "The integral of exp(-I*omega*t) with respect to t is exp(-I*omega*t)/(-I*omega), and evaluating this antiderivative at the bounds t=1 and t=-1 using the fundamental theorem of calculus is the correct procedure.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The integral of exp(-I*omega*t) with respect to t is exp(-I*omega*t)/(-I*omega), and evaluating this antiderivative at the bounds t=1 and t=-1 using the fundamental theorem of calculus is the correct procedure.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

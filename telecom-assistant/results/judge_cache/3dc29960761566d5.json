@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "0",
+  "operation": "Final simplification",
+  "confidence": 1.0,
+  "reasoning": "The expression (1/T) * 0 correctly simplifies to 0 by the multiplicative property of zero. This is a valid algebraic simplification.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The expression (1/T) * 0 correctly simplifies to 0 by the multiplicative property of zero. This is a valid algebraic simplification.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

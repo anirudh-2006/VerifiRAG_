@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "omega0 = 2*pi/T0",
+  "operation": "Use omega0 = 2*pi/T0 to substitute angular frequency",
+  "confidence": 0.78,
+  "reasoning": "The statement \u03c9\u2080 = 2\u03c0/T\u2080 is the standard definition of the fundamental angular frequency for a period T\u2080, so it is mathematically correct and can be used to substitute \u03c9\u2080 in the previous expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.78,\n  \"reasoning\": \"The statement \u03c9\u2080 = 2\u03c0/T\u2080 is the standard definition of the fundamental angular frequency for a period T\u2080, so it is mathematically correct and can be used to substitute \u03c9\u2080 in the previous expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

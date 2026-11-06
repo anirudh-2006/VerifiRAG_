@@ -1,0 +1,88 @@
+% ============================================================================
+% SECTION 4 --- Instrument validity. WRITTEN 2026-08-28 to a 0.5-page budget.
+%
+% "What the 4 pages carry", item 4 lists three things: the gold1 fixture
+% defect, the abstain-gated sanity check that missed it, and Q09.2. Q09.2 is
+% CUT, on instruction, for length. If it is ever restored it needs its own
+% budget; do not squeeze it in here.
+%
+% The opening sentence carries framing that was lost when the Section 1
+% roadmap was cut. Without it a reader takes gold1 as a point scored for or
+% against a model. Do not delete it as throat-clearing.
+%
+% PROVENANCE OF EVERY NUMBER BELOW. Re-derived 2026-08-28 from frozen
+% artifacts and from src/, not from the notes and not from an older PDF:
+%   9 hand-authored gold derivations
+%     -> src/error_injection.py GOLD_FIXTURES (len 9); config.n_fixtures = 9
+%        in both frozen injection reports.
+%   28 gold1 trials re-graded
+%     -> results/error_injection_report_claude.json, provenance.revisions[0]
+%        .gold1_refixtured_and_regraded.n_trials_replaced = 28. 28 attempted;
+%        10 carry a skipped_reason, leaving 18 graded. Both figures are true
+%        and are NOT interchangeable: 28 is what was re-collected, 18 is what
+%        carries verdicts. Do not swap them.
+%   symbolic abstains on all 18 graded gold1 trials
+%     -> both reports, independently: verdicts.symbolic.verdict is "abstain"
+%        18/18 in error_injection_report_claude.json AND in
+%        error_injection_report_with_judge.json.
+%   both judges flagged the defective step
+%     -> notes/fixture_integrity_notes.md sec.1, which records the PRE-repair
+%        fixture. This is a historical claim about the defective version, not
+%        a claim about the current one. Post-repair verdicts differ and are
+%        not what this sentence is about.
+%   the three-outcome gate
+%     -> src/error_injection.py::filter_viable_fixtures, docstring and body.
+%        Verified live 2026-08-28 (symbolic only, no judge call): on the
+%        CURRENT fixtures it returns 9 viable and one baseline_undecidable
+%        warning, gold_id 1, step_indices [1, 2].
+%
+% NOTE, not for the paper: the frozen reports carry warnings == [] because
+% they were generated before the gate change landed. Metrics are unaffected
+% (the undecidable case retains the fixture rather than dropping it), so no
+% published number moves. Flagged to the author 2026-08-28.
+% ============================================================================
+\section{Instrument Validity}
+\label{sec:validity}
+
+What follows is a check on our own instrument, not a result about either
+judge. The defect below is ours, in a fixture we wrote. Both judges were right
+about it, and nothing in this section counts for or against either one.
+
+\paragraph{A defective gold fixture.}
+One of the nine hand-authored gold derivations was wrong at its first step.
+The intended statement was the time-shift property of the Fourier transform,
+whose subject is a shifted signal $x(t - t_0)$, but the fixture applied the
+shift to the exponential kernel instead, writing the integrand as
+$x \exp(-i \omega (t - t_0))$. It compounded: $x$ parsed as a bare symbol with no
+dependence on the integration variable, so it factored out of the integral,
+leaving a phase factor whose sign was inverted against the step that
+followed. Both judges flagged the step prior to repair. The symbolic verifier
+abstained on it. We re-authored the fixture and re-graded all 28 of its
+trials, 18 gradable and 10 inapplicable. Every number in this paper is
+post-repair.
+
+\paragraph{Why the baseline check missed it.}
+The suite screens each fixture on its unmutated steps, so that a flag on a
+mutated trial is attributable to the mutation rather than to a bad baseline.
+That gate dropped a fixture only when the verifier refuted a baseline step. An
+abstention is not a refutation, so a fixture the verifier could not decide
+passed the gate silently. The gate now separates three outcomes: refuted;
+attempted but undecided; and nothing compared. It warns on the middle case
+while retaining the fixture, and run against the current fixtures it flags
+gold1 at both of its mutable steps, with no reported number moving either way,
+since an undecidable fixture is retained rather than dropped. Warning on the third would be the same error mirrored,
+since a step where nothing was compared reports nothing about the fixture. It also
+appears on the human testbed as a committed pass: Q09.1 does not parse, a
+Python \texttt{and} joining two SymPy relationals, so Q09.2 falls to the
+no-previous-expression branch and commits as ``First step'' without ever
+setting \texttt{equivalence\_checked}, a second, distinct instance of a commit
+that compared nothing.
+
+\paragraph{What the paired control did not depend on.}
+The screen survived a defective baseline because the pairing does not rest on
+the verifier agreeing. The two halves of a pair are byte-identical apart from
+the rewrite, so a within-pair difference stays attributable to surface form
+whether or not any grader commits on the underlying step, and at gold1 none
+did: the verifier abstains on all 18 graded trials there. This is one defect
+in nine fixtures, found during later extension work and disclosed here. We do
+not claim the design was built to catch it.

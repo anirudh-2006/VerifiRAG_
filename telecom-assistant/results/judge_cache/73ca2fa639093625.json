@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-2*t) * u(t) * exp(-s*t), (t, -oo, oo))",
+  "operation": "Substitute x(t) = exp(-2*t) * u(t) into the integral",
+  "confidence": 0.99,
+  "reasoning": "The previous expression was the Laplace integral of x(t); substituting x(t)=e^{-2t}u(t) yields exactly the integrand shown, so the step is a correct substitution.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression was the Laplace integral of x(t); substituting x(t)=e^{-2t}u(t) yields exactly the integrand shown, so the step is a correct substitution.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

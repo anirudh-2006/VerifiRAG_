@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(exp(-I*omega*t)/(-I*omega)) | (t=1) - (exp(-I*omega*t)/(-I*omega)) | (t=-1)",
+  "operation": "Compute the integral of the complex exponential",
+  "confidence": 0.98,
+  "reasoning": "Integrating exp(-i\u202f\u03c9\u202ft) yields exp(-i\u202f\u03c9\u202ft)/(-i\u202f\u03c9); evaluating this antiderivative at t=1 and t=-1 and subtracting gives exactly the stated expression, which is the correct result of the integral.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Integrating exp(-i\u202f\u03c9\u202ft) yields exp(-i\u202f\u03c9\u202ft)/(-i\u202f\u03c9); evaluating this antiderivative at t=1 and t=-1 and subtracting gives exactly the stated expression, which is the correct result of the integral.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

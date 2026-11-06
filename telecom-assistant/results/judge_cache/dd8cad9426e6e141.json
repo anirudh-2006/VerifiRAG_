@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(u) * exp(-I*omega*(u + t0)), (u, -oo, oo))",
+  "operation": "Substitute variable: let u = t - t0, so t = u + t0 and dt = du",
+  "confidence": 0.99,
+  "reasoning": "Substituting u = t - t0 correctly transforms x(t - t0) to x(u) and the exponential term to exp(-I*omega*(u + t0)), with unchanged limits, so the new integral matches the previous one.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting u = t - t0 correctly transforms x(t - t0) to x(u) and the exponential term to exp(-I*omega*(u + t0)), with unchanged limits, so the new integral matches the previous one.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

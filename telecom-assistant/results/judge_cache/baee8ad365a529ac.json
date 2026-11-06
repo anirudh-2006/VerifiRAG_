@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp((a - I*omega)*t), (t, -oo, 0)) + integrate(exp((-a - I*omega)*t), (t, 0, oo))",
+  "operation": "Combine exponents in both integrals",
+  "confidence": 0.99,
+  "reasoning": "Multiplying the exponentials inside each integral combines the exponents: exp(a*t)*exp(-I*omega*t)=exp((a-I*omega)*t) and exp(-a*t)*exp(-I*omega*t)=exp((-a-I*omega)*t), matching the current expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the exponentials inside each integral combines the exponents: exp(a*t)*exp(-I*omega*t)=exp((a-I*omega)*t) and exp(-a*t)*exp(-I*omega*t)=exp((-a-I*omega)*t), matching the current expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

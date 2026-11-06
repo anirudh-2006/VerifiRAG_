@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1/(2*pi) * integrate(X * exp(I*omega*t), (omega, -oo, oo))",
+  "operation": "Start with the inverse Fourier transform formula",
+  "confidence": 0.95,
+  "reasoning": "This is the correct application of the inverse Fourier transform formula. The standard definition is x(t) = (1/2\u03c0)\u222b_{-\u221e}^{\u221e} X(j\u03c9)e^{j\u03c9t}d\u03c9, which matches the given expression with I representing the imaginary unit j.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"This is the correct application of the inverse Fourier transform formula. The standard definition is x(t) = (1/2\u03c0)\u222b_{-\u221e}^{\u221e} X(j\u03c9)e^{j\u03c9t}d\u03c9, which matches the given expression with I representing the imaginary unit j.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

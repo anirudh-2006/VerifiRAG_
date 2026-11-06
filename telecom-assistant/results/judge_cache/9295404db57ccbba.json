@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1 / (s + a)",
+  "operation": "Evaluate the improper integral",
+  "confidence": 0.98,
+  "reasoning": "Evaluating \u222b\u2080^\u221e e^{-(s+a)t} dt gives 1/(s+a) provided Re(s+a)>0, which is the correct result of the improper integral.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Evaluating \u222b\u2080^\u221e e^{-(s+a)t} dt gives 1/(s+a) provided Re(s+a)>0, which is the correct result of the improper integral.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

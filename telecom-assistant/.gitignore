@@ -1,0 +1,18 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.env
+.DS_Store
+
+# Chroma persists here; ignore contents but keep folder via .gitkeep if desired
+vectorstore/**/*
+!vectorstore/.gitkeep
+vectorstore_test/
+
+# Logs and incomplete run checkpoints
+*.log
+*.partial.json
+
+# Intermediate experiment runs (kept locally, not in git)
+results/archive/

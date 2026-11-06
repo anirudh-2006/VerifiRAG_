@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Y(s)*(s + a)",
+  "operation": "Factor Y(s) on the left-hand side",
+  "confidence": 0.99,
+  "reasoning": "Factoring Y(s) from s*Y(s) + a*Y(s) yields Y(s)*(s + a), which matches the current expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Factoring Y(s) from s*Y(s) + a*Y(s) yields Y(s)*(s + a), which matches the current expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

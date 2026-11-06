@@ -1,0 +1,221 @@
+{
+  "directed": true,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "level": "foundation",
+      "keywords": [
+        "complex numbers",
+        "imaginary unit",
+        "phasor",
+        "magnitude phase"
+      ],
+      "id": "complex_numbers"
+    },
+    {
+      "level": "foundation",
+      "keywords": [
+        "differential equation",
+        "ODE",
+        "initial conditions"
+      ],
+      "id": "differential_equations"
+    },
+    {
+      "level": "foundation",
+      "keywords": [
+        "fourier series",
+        "harmonic",
+        "periodic signal",
+        "coefficients ak"
+      ],
+      "id": "fourier_series"
+    },
+    {
+      "level": "foundation",
+      "keywords": [
+        "sampling theorem",
+        "nyquist",
+        "sampling rate"
+      ],
+      "id": "sampling_theorem"
+    },
+    {
+      "level": "intermediate",
+      "keywords": [
+        "fourier transform",
+        "X(jw)",
+        "frequency domain",
+        "rectangular pulse",
+        "sinc"
+      ],
+      "id": "fourier_transform"
+    },
+    {
+      "level": "intermediate",
+      "keywords": [
+        "laplace transform",
+        "X(s)",
+        "region of convergence",
+        "ROC",
+        "poles zeros"
+      ],
+      "id": "laplace_transform"
+    },
+    {
+      "level": "intermediate",
+      "keywords": [
+        "z transform",
+        "X(z)",
+        "unit circle",
+        "discrete time"
+      ],
+      "id": "z_transform"
+    },
+    {
+      "level": "intermediate",
+      "keywords": [
+        "convolution",
+        "impulse response",
+        "h(t)",
+        "h[n]"
+      ],
+      "id": "convolution"
+    },
+    {
+      "level": "advanced",
+      "keywords": [
+        "transfer function",
+        "H(s)",
+        "H(z)",
+        "system function"
+      ],
+      "id": "transfer_function"
+    },
+    {
+      "level": "advanced",
+      "keywords": [
+        "frequency response",
+        "bode plot",
+        "magnitude response",
+        "H(jw)"
+      ],
+      "id": "frequency_response"
+    },
+    {
+      "level": "advanced",
+      "keywords": [
+        "modulation",
+        "AM",
+        "FM",
+        "carrier signal",
+        "bandwidth"
+      ],
+      "id": "modulation"
+    },
+    {
+      "level": "advanced",
+      "keywords": [
+        "filter",
+        "low pass",
+        "high pass",
+        "band pass",
+        "cutoff frequency"
+      ],
+      "id": "filters"
+    },
+    {
+      "level": "advanced",
+      "keywords": [
+        "feedback",
+        "closed loop",
+        "stability",
+        "pole placement"
+      ],
+      "id": "feedback_systems"
+    }
+  ],
+  "links": [
+    {
+      "source": "complex_numbers",
+      "target": "fourier_transform"
+    },
+    {
+      "source": "complex_numbers",
+      "target": "laplace_transform"
+    },
+    {
+      "source": "complex_numbers",
+      "target": "z_transform"
+    },
+    {
+      "source": "differential_equations",
+      "target": "laplace_transform"
+    },
+    {
+      "source": "differential_equations",
+      "target": "fourier_transform"
+    },
+    {
+      "source": "fourier_series",
+      "target": "fourier_transform"
+    },
+    {
+      "source": "sampling_theorem",
+      "target": "z_transform"
+    },
+    {
+      "source": "fourier_transform",
+      "target": "frequency_response"
+    },
+    {
+      "source": "fourier_transform",
+      "target": "modulation"
+    },
+    {
+      "source": "fourier_transform",
+      "target": "filters"
+    },
+    {
+      "source": "laplace_transform",
+      "target": "transfer_function"
+    },
+    {
+      "source": "laplace_transform",
+      "target": "frequency_response"
+    },
+    {
+      "source": "z_transform",
+      "target": "transfer_function"
+    },
+    {
+      "source": "z_transform",
+      "target": "frequency_response"
+    },
+    {
+      "source": "convolution",
+      "target": "transfer_function"
+    },
+    {
+      "source": "convolution",
+      "target": "filters"
+    },
+    {
+      "source": "transfer_function",
+      "target": "feedback_systems"
+    },
+    {
+      "source": "transfer_function",
+      "target": "filters"
+    },
+    {
+      "source": "frequency_response",
+      "target": "filters"
+    },
+    {
+      "source": "frequency_response",
+      "target": "modulation"
+    }
+  ]
+}

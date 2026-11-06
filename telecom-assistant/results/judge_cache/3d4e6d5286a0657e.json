@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate((exp(I*omega_0*t) - exp(-I*omega_0*t)) / (2*I) * exp(-s*t), (t, 0, oo))",
+  "operation": "Express sin(omega_0*t) using Euler's formula",
+  "confidence": 1.0,
+  "reasoning": "Euler's formula states that sin(\u03c9\u2080t) = (e^(i\u03c9\u2080t) - e^(-i\u03c9\u2080t))/(2i), which is correctly substituted into the integral. The exponential exp(-st) factor is properly carried through.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"Euler's formula states that sin(\u03c9\u2080t) = (e^(i\u03c9\u2080t) - e^(-i\u03c9\u2080t))/(2i), which is correctly substituted into the integral. The exponential exp(-st) factor is properly carried through.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,111 @@
+{
+  "id": "Q04",
+  "question": "Explain the convolution theorem for Fourier transforms.",
+  "expected_final": "X1(jw)*X2(jw)",
+  "generated_final": "X * Y",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Define the Fourier transform of a signal x(t)",
+      "expression_given": "X = integrate(x * exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard FT definition with shorthand x for x(t). Acceptable notation."
+    },
+    {
+      "step_number": 2,
+      "description": "Define the Fourier transform of a signal y(t)",
+      "expression_given": "Y = integrate(y * exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Symmetric definition for y(t). Correct."
+    },
+    {
+      "step_number": 3,
+      "description": "Define the convolution of x(t) and y(t) in the time domain",
+      "expression_given": "integrate(x.subs(t, t - tau) * y.subs(t, tau), (tau, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard convolution integral (x*y)(t) = integral of x(t-tau)*y(tau) dtau. Correct."
+    },
+    {
+      "step_number": 4,
+      "description": "Take the Fourier transform of the convolution integral",
+      "expression_given": "integrate((integrate(x.subs(t, t - tau) * y.subs(t, tau), (tau, -oo, oo))) * exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correctly wraps the convolution in the FT integral over t."
+    },
+    {
+      "step_number": 5,
+      "description": "Interchange the order of integration",
+      "expression_given": "integrate(y.subs(t, tau) * integrate(x.subs(t, t - tau) * exp(-I*omega*t), (t, -oo, oo)), (tau, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Valid by Fubini's theorem for absolutely integrable signals. Order of integration correctly swapped."
+    },
+    {
+      "step_number": 6,
+      "description": "Substitute variable in inner integral: let u = t - tau",
+      "expression_given": "integrate(y.subs(t, tau) * integrate(x * exp(-I*omega*(u + tau)), (u, -oo, oo)), (tau, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "u = t - tau => t = u + tau, dt = du, limits unchanged. Substitution is correct."
+    },
+    {
+      "step_number": 7,
+      "description": "Factor exponential in inner integral: exp(-I*omega*(u + tau)) = exp(-I*omega*u) * exp(-I*omega*tau)",
+      "expression_given": "integrate(y.subs(t, tau) * (exp(-I*omega*tau) * integrate(x * exp(-I*omega*u), (u, -oo, oo))), (tau, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct factoring. exp(-I*omega*tau) is constant w.r.t. u and pulled out of inner integral."
+    },
+    {
+      "step_number": 8,
+      "description": "Recognize that the inner integral is the Fourier transform of x(t)",
+      "expression_given": "integrate(y.subs(t, tau) * (exp(-I*omega*tau) * X), (tau, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Inner integral over u of x*exp(-I*omega*u) is exactly X(omega) by definition. Correct identification."
+    },
+    {
+      "step_number": 9,
+      "description": "Factor out X since it is constant with respect to tau",
+      "expression_given": "X * integrate(y.subs(t, tau) * exp(-I*omega*tau), (tau, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "X(omega) is independent of tau, so factoring out is valid."
+    },
+    {
+      "step_number": 10,
+      "description": "Recognize that the remaining integral is the Fourier transform of y(t)",
+      "expression_given": "X * Y",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Integral of y(tau)*exp(-I*omega*tau) dtau is Y(omega) by definition. Final result X*Y is correct."
+    }
+  ]
+}

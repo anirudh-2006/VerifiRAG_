@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "y_n = x_n * r**(-n)",
+  "operation": "Define a new sequence y[n] = x[n] * r^(-n)",
+  "confidence": 0.95,
+  "reasoning": "The operation defines a new sequence y_n as x_n weighted by r^(-n), which is a valid algebraic manipulation and consistent with the prior step where x_n * r^(-n) appears as the effective sequence being transformed.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The operation defines a new sequence y_n as x_n weighted by r^(-n), which is a valid algebraic manipulation and consistent with the prior step where x_n * r^(-n) appears as the effective sequence being transformed.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

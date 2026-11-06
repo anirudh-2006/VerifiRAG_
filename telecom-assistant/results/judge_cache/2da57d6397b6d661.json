@@ -1,0 +1,8 @@
+{
+  "verdict": "abstain",
+  "confidence": 0.0,
+  "reasoning": "rate-limited after max retries",
+  "judge_raw": "Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

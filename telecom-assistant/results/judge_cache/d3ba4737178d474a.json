@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "s*Y(s) - y(0) + a*Y(s)",
+  "operation": "Apply Laplace transform to both sides assuming zero initial conditions",
+  "confidence": 0.9,
+  "reasoning": "Applying the Laplace transform to y'(t) gives sY(s) - y(0), and to a\u00b7y(t) gives aY(s); the resulting expression sY(s) - y(0) + aY(s) is correct (y(0)=0 under zero initial conditions).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.9,\n  \"reasoning\": \"Applying the Laplace transform to y'(t) gives sY(s) - y(0), and to a\u00b7y(t) gives aY(s); the resulting expression sY(s) - y(0) + aY(s) is correct (y(0)=0 under zero initial conditions).\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

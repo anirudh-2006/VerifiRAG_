@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-(s+2)*t), (t, 0, oo))",
+  "operation": "Use the property of the unit step function to change integration limits",
+  "confidence": 1.0,
+  "reasoning": "The unit step function u(t) equals 0 for t < 0 and 1 for t \u2265 0, so multiplying the integrand by u(t) effectively restricts the integration domain from (-\u221e, \u221e) to [0, \u221e), making this step correct.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The unit step function u(t) equals 0 for t < 0 and 1 for t \u2265 0, so multiplying the integrand by u(t) effectively restricts the integration domain from (-\u221e, \u221e) to [0, \u221e), making this step correct.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

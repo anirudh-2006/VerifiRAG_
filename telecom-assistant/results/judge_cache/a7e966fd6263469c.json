@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "h[n]",
+  "operation": "Start with a linear time-invariant discrete-time system described by its impulse response h[n]",
+  "confidence": 0.95,
+  "reasoning": "The step simply introduces the impulse response h[n] as the starting point of the derivation, which is a valid initial definition when no prior expression exists.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The step simply introduces the impulse response h[n] as the starting point of the derivation, which is a valid initial definition when no prior expression exists.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

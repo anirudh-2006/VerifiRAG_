@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(t) * exp(-s*t), (t, -oo, oo))",
+  "operation": "Write the definition of the Laplace transform",
+  "confidence": 0.97,
+  "reasoning": "Writing the integral \u222b_{-\u221e}^{\u221e} x(t) e^{-st} dt is the correct definition of the Laplace transform, and it matches the given function x(t).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Writing the integral \u222b_{-\u221e}^{\u221e} x(t) e^{-st} dt is the correct definition of the Laplace transform, and it matches the given function x(t).\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

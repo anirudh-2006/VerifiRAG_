@@ -1,0 +1,61 @@
+{
+  "id": "Q19",
+  "question": "Compute the Z-transform of x[n] = delta[n] (the unit impulse).",
+  "expected_final": "1",
+  "generated_final": "1, True",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the definition of the Z-transform",
+      "expression_given": "Sum(x[n] * z**(-n), (n, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard bilateral Z-transform definition."
+    },
+    {
+      "step_number": 2,
+      "description": "Substitute x[n] with delta[n], the unit impulse",
+      "expression_given": "Sum(delta[n] * z**(-n), (n, -oo, oo))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Direct substitution of x[n] = \u03b4[n]."
+    },
+    {
+      "step_number": 3,
+      "description": "Use the sifting property of the unit impulse: it is 1 at n=0 and 0 elsewhere",
+      "expression_given": "delta[0] * z**(-0)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Sifting/selection property: only n=0 contributes to the sum."
+    },
+    {
+      "step_number": 4,
+      "description": "Evaluate the expression at n=0",
+      "expression_given": "1 * 1",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "\u03b4[0] = 1 and z^(-0) = 1."
+    },
+    {
+      "step_number": 5,
+      "description": "Final simplification",
+      "expression_given": "1",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "1\u00b71 = 1."
+    }
+  ]
+}

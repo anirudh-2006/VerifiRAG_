@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(sin(omega_0*t) * exp(-s*t), (t, 0, oo))",
+  "operation": "Write the definition of the Laplace transform for x(t) = sin(omega_0*t)*u(t)",
+  "confidence": 0.99,
+  "reasoning": "The Laplace transform definition L{x(t)} = \u222b_0^\u221e x(t) e^{-st} dt applied to x(t)=sin(\u03c9\u2080t)\u00b7u(t) yields exactly the integral \u222b\u2080^\u221e sin(\u03c9\u2080t) e^{-st} dt, matching the stated expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The Laplace transform definition L{x(t)} = \u222b_0^\u221e x(t) e^{-st} dt applied to x(t)=sin(\u03c9\u2080t)\u00b7u(t) yields exactly the integral \u222b\u2080^\u221e sin(\u03c9\u2080t) e^{-st} dt, matching the stated expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

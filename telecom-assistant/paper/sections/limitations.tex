@@ -1,0 +1,55 @@
+\section*{Limitations}
+\label{sec:limitations}
+% ACL requires an unnumbered "Limitations" section; it does NOT count toward the
+% page limit. Be candid: reviewers reward honesty here.
+
+\paragraph{Scale.} The human set has 29 labeled queries and only 13 error steps.
+Bootstrap CIs for \texttt{caught\_error} are therefore uninformative (Claude's
+reaches the boundary $1$); we report McNemar/Holm $p$-values and point estimates
+as directional, not precise effect sizes. The 13 errors are also clustered
+rather than spread evenly: they fall in only 5 of the 29 queries, with 6 in Q09
+and 4 in Q22 (Appendix~\ref{app:human-errors}). Because step-level McNemar
+treats each step as an independent trial, it overstates the effective sample
+size for \texttt{caught\_error}; the 13 steps are closer to 5 (correlated)
+observations. As a coarser, query-level check, a query counts as ``caught'' if
+a grader flags \emph{any} of its error steps: \texttt{claude} catches at least
+one error in $5/5$ error-containing queries, \texttt{gpt-oss} in $2/5$, and the
+symbolic verifier in $0/5$, the same ranking as the step-level results. We
+therefore treat the step-level $p$-values as directional evidence corroborated
+by, rather than independent of, this coarser query-level comparison.
+
+\paragraph{Judge coverage.} We test two judges from two labs. This is stronger
+than a single judge, but it is not ``all judges''; we therefore claim
+model-independence of the \emph{qualitative} pattern, not universal
+generalization.
+
+\paragraph{Annotation.} The ground truth is single-annotator: no second coder
+labeled any subset for this submission, so we report no inter-coder agreement
+statistic \citep{artstein2008agreement}. We mitigate by (i)~publishing the
+labeling rubric, including the notation-strictness rule (a step is marked
+incorrect if boundary/IBP notation is written wrong even when the final result is
+correct), and (ii)~releasing all raw per-step labels so others can audit or
+re-annotate. Absolute agreement rates should therefore be read cautiously; the
+comparative pattern across graders is the primary claim. Separately, LLM judges
+were graded against this rubric without being shown it (\S\ref{sec:protocol}), so
+human-set precision/recall are agreement scores, not oracle-matched accuracy. The
+annotator is also the author of the grading pipeline and the labeling rubric; we
+mitigate by releasing the rubric and all raw labels, and by reporting the
+in-fragment/out-of-fragment classification in Appendix~\ref{app:human-errors} so
+readers can assess whether the rubric systematically disadvantages symbolic
+grading.
+
+\paragraph{Synthetic errors.} Injection mutations are programmatic and may not
+match the real distribution of LLM mistakes; they provide controlled recall/FPR
+measurements, not a naturalistic error sample. Their 9 base derivations are also
+hand-authored textbook results, so they are cleaner and shorter than the
+assistant's own traces, which is what makes the mutation the sole source of
+error but also limits how far injection numbers transfer to real output.
+
+\paragraph{Single domain / frozen generator.} All human-labeled derivations come
+from one signals-and-systems corpus and one generator,
+\texttt{qwen-3-235b-a22b-instruct-2507} (Cerebras), which the provider has since
+deprecated. This is not a domain-transfer or generator-robustness study. A
+retrieval ablation (or any regeneration) would require swapping in a live
+replacement model and would break comparability with the frozen main study; we
+leave that to future work.

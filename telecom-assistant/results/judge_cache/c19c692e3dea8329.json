@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "2*sin(omega)/omega",
+  "operation": "Simplify the imaginary unit in numerator and denominator",
+  "confidence": 1.0,
+  "reasoning": "The negative signs cancel (-1/-1 = 1) and the imaginary units cancel (I/I = 1), leaving 2*sin(omega)/omega. This is a valid algebraic simplification.",
+  "judge_raw": "I need to verify whether simplifying `-(2*I*sin(omega))/(-I*omega)` produces `2*sin(omega)/omega`.\n\nLet me work through this step-by-step:\n\nStarting with: `-(2*I*sin(omega))/(-I*omega)`\n\nFirst, I can rewrite this as:\n`-1 * (2*I*sin(omega)) / (-I*omega)`\n\nSimplifying the negatives and the imaginary units:\n- The numerator has: `-1 * 2*I*sin(omega) = -2*I*sin(omega)`\n- The denominator has: `-I*omega`\n\nSo we have: `(-2*I*sin(omega)) / (-I*omega)`\n\nWhen we divide, the negative signs cancel: `(2*I*sin(omega)) / (I*omega)`\n\nNow, dividing by `I` in both numerator and denominator:\n`(2*I*sin(omega)) / (I*omega) = 2*sin(omega) / omega`\n\nThis is exactly what the current step claims.\n\nAlternatively, we can factor out the common terms:\n`-(2*I*sin(omega))/(-I*omega) = -2*I*sin(omega) * 1/(-I*omega) = -2*I*sin(omega) * (-1)/(I*omega) = (2*I*sin(omega))/(I*omega) = 2*sin(omega)/omega`\n\nThe simplification is correct.\n\n```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The negative signs cancel (-1/-1 = 1) and the imaginary units cancel (I/I = 1), leaving 2*sin(omega)/omega. This is a valid algebraic simplification.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

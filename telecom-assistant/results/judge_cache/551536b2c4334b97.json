@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(1 - exp(-I*k*pi)) / (I*k*2*pi) - (exp(-I*k*pi) - exp(-I*k*3*pi/2)) / (I*k*2*pi)",
+  "operation": "Substitute omega0 into the combined expression",
+  "confidence": 0.98,
+  "reasoning": "Substituting \u03c9\u2080 = 2\u03c0/T\u2080 into the previous terms replaces \u03c9\u2080\u00b7T\u2080/2 with \u03c0 and \u03c9\u2080\u00b73T\u2080/4 with 3\u03c0/2, and the denominator I\u00b7k\u00b7\u03c9\u2080\u00b7T\u2080 becomes I\u00b7k\u00b72\u03c0, yielding exactly the displayed expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Substituting \u03c9\u2080 = 2\u03c0/T\u2080 into the previous terms replaces \u03c9\u2080\u00b7T\u2080/2 with \u03c0 and \u03c9\u2080\u00b73T\u2080/4 with 3\u03c0/2, and the denominator I\u00b7k\u00b7\u03c9\u2080\u00b7T\u2080 becomes I\u00b7k\u00b72\u03c0, yielding exactly the displayed expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

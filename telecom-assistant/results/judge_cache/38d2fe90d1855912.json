@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum((z**(-1))**n, (n, 0, oo))",
+  "operation": "Recognize the infinite geometric series with ratio z^(-1)",
+  "confidence": 0.98,
+  "reasoning": "The previous sum \u03a3 z^{\u2011n} from n=0 to \u221e is correctly rewritten as \u03a3 (z^{\u20111})^n, since (z^{\u20111})^n = z^{\u2011n} for integer n. The operation of recognizing it as a geometric series follows from this rewrite.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous sum \u03a3 z^{\u2011n} from n=0 to \u221e is correctly rewritten as \u03a3 (z^{\u20111})^n, since (z^{\u20111})^n = z^{\u2011n} for integer n. The operation of recognizing it as a geometric series follows from this rewrite.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

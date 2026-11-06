@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(y.subs(t, tau) * (exp(-I*omega*tau) * integrate(x * exp(-I*omega*u), (u, -oo, oo))), (tau, -oo, oo))",
+  "operation": "Factor exponential in inner integral: exp(-I*omega*(u + tau)) = exp(-I*omega*u) * exp(-I*omega*tau)",
+  "confidence": 1.0,
+  "reasoning": "The exponential property exp(a + b) = exp(a) * exp(b) is correctly applied to factor exp(-I*omega*(u + tau)) into exp(-I*omega*u) * exp(-I*omega*tau), and exp(-I*omega*tau) is correctly pulled out of the inner integral since it does not depend on the integration variable u.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The exponential property exp(a + b) = exp(a) * exp(b) is correctly applied to factor exp(-I*omega*(u + tau)) into exp(-I*omega*u) * exp(-I*omega*tau), and exp(-I*omega*tau) is correctly pulled out of the inner integral since it does not depend on the integration variable u.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

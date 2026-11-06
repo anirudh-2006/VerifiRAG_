@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "H(z)",
+  "operation": "Solve for the transfer function H(z) = Y(z)/X(z)",
+  "confidence": 0.95,
+  "reasoning": "The step correctly identifies that solving Y(z) / X(z) for the transfer function yields H(z). This is a direct algebraic rearrangement where H(z) = Y(z)/X(z) is the definition of the system transfer function in the z-domain.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The step correctly identifies that solving Y(z) / X(z) for the transfer function yields H(z). This is a direct algebraic rearrangement where H(z) = Y(z)/X(z) is the definition of the system transfer function in the z-domain.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1 / (1 - a * z**(-1))",
+  "operation": "Substitute back r = a/z",
+  "confidence": 0.95,
+  "reasoning": "The previous step used r to represent a * z**(-1), and the sum of the geometric series is 1 / (1 - r) for |r| < 1. Substituting back r = a * z**(-1) yields 1 / (1 - a * z**(-1)), which is correct.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The previous step used r to represent a * z**(-1), and the sum of the geometric series is 1 / (1 - r) for |r| < 1. Substituting back r = a * z**(-1) yields 1 / (1 - a * z**(-1)), which is correct.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

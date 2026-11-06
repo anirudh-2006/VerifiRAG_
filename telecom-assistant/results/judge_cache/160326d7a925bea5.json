@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(a*x1(t)*exp(-I*omega*t), (t, -oo, oo)) + integrate(b*x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Split the integral into two separate integrals",
+  "confidence": 0.99,
+  "reasoning": "The integral of a sum equals the sum of the integrals, so splitting the single integral into two separate integrals is a valid application of linearity.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The integral of a sum equals the sum of the integrals, so splitting the single integral into two separate integrals is a valid application of linearity.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Distribute the exponential term over the sum",
+  "confidence": 1.0,
+  "reasoning": "Distributing the exponential exp(-I*omega*t) over the sum (a*x1(t) + b*x2(t)) by applying the distributive property of multiplication is a valid algebraic operation that correctly produces a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"Distributing the exponential exp(-I*omega*t) over the sum (a*x1(t) + b*x2(t)) by applying the distributive property of multiplication is a valid algebraic operation that correctly produces a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t).\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

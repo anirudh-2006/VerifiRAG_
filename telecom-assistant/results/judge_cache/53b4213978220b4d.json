@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Derivative(y(t), t) + a*y(t)",
+  "operation": "Start with the given differential equation",
+  "confidence": 0.98,
+  "reasoning": "The step correctly restates the left-hand side of the given differential equation as the starting expression, which is a valid initial move.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The step correctly restates the left-hand side of the given differential equation as the starting expression, which is a valid initial move.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

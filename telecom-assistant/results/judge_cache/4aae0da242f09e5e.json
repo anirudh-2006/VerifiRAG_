@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x.subs(t, t - tau) * y.subs(t, tau), (tau, -oo, oo))",
+  "operation": "Define the convolution of x(t) and y(t) in the time domain",
+  "confidence": 0.95,
+  "reasoning": "The expression correctly represents the convolution integral (x * y)(t) = \u222bx(t-\u03c4)y(\u03c4)d\u03c4 from -\u221e to \u221e, which is the standard definition of convolution in the time domain. This is a valid definitional step in explaining the convolution theorem.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The expression correctly represents the convolution integral (x * y)(t) = \u222bx(t-\u03c4)y(\u03c4)d\u03c4 from -\u221e to \u221e, which is the standard definition of convolution in the time domain. This is a valid definitional step in explaining the convolution theorem.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

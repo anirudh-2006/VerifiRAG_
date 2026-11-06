@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "2 * f_max",
+  "operation": "Recall that the Nyquist sampling rate is twice the highest frequency to avoid aliasing",
+  "confidence": 0.99,
+  "reasoning": "The Nyquist theorem states that the sampling rate must be at least twice the maximum frequency component, so 2\u202ff_max samples per second is the correct expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The Nyquist theorem states that the sampling rate must be at least twice the maximum frequency component, so 2\u202ff_max samples per second is the correct expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

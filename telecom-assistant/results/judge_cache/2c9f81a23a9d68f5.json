@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "z / (z - 1/2)",
+  "operation": "Simplify the denominator by factoring out z in the denominator",
+  "confidence": 0.99,
+  "reasoning": "Multiplying numerator and denominator of 1/(1 - (1/2)z^{-1}) by z gives 1/((z-1/2)/z) = z/(z-1/2), so the simplification is correct.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying numerator and denominator of 1/(1 - (1/2)z^{-1}) by z gives 1/((z-1/2)/z) = z/(z-1/2), so the simplification is correct.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

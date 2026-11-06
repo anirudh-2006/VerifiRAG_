@@ -1,0 +1,22 @@
+% ============================================================================
+% ABSTRACT --- author-written, supplied verbatim. Do not rephrase or "improve".
+% The abstract environment is wrapped here rather than in main.tex: the
+% template renews `abstract', so a second one around the \input would nest.
+% ============================================================================
+\begin{abstract}
+LLM judges increasingly serve as reward signals, so a judge that penalizes
+surface form on semantically identical content does not merely mismeasure: it
+risks teaching a preference for form. We screen for this with a paired control.
+Each equivalence-preserving rewrite of a step in a mathematical derivation is
+paired with a byte-identical copy of the original at the same step, so any
+verdict difference inside a pair is attributable to surface form alone. The
+controls are programmatic and need no human annotation. Two judges diverge
+sharply. \texttt{claude-sonnet-4-5} commits six false positives across 21
+covered negatives, four on rewrites and two on unmutated originals it failed
+outright, while \texttt{gpt-oss-120b} commits none across 24. In two of the four
+failed rewrites the judge states the algebraic equality in its own rationale
+and fails the step regardless, a criterion failure rather than a detection
+failure. No confidence threshold separates these verdicts from the judge's
+correct detections. The same controls surfaced a defect in our own gold set. We
+argue paired equivalence controls belong in any judge deployment disclosure.
+\end{abstract}

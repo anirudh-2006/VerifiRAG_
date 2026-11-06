@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(t - t0) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Consider the time-shifted signal x(t - t0)",
+  "confidence": 1.0,
+  "reasoning": "The step correctly applies the definition of the Fourier transform to the time-shifted signal x(t - t0) by replacing x(t) with x(t - t0) in the integral. This is the proper setup for deriving the time-shifting property.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The step correctly applies the definition of the Fourier transform to the time-shifted signal x(t - t0) by replacing x(t) with x(t - t0) in the integral. This is the proper setup for deriving the time-shifting property.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

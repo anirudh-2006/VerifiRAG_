@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(y.subs(t, tau) * integrate(x * exp(-I*omega*(u + tau)), (u, -oo, oo)), (tau, -oo, oo))",
+  "operation": "Substitute variable in inner integral: let u = t - tau",
+  "confidence": 0.95,
+  "reasoning": "The substitution u = t - tau implies t = u + tau, so dt = du and the limits remain unchanged. The inner integral's argument x.subs(t, t - tau) becomes x(u), and exp(-I*omega*t) becomes exp(-I*omega*(u + tau)), which matches the expression. The substitution is correctly applied.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The substitution u = t - tau implies t = u + tau, so dt = du and the limits remain unchanged. The inner integral's argument x.subs(t, t - tau) becomes x(u), and exp(-I*omega*t) becomes exp(-I*omega*(u + tau)), which matches the expression. The substitution is correctly applied.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

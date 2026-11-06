@@ -1,0 +1,42 @@
+{
+  "config_name": "grader-study-default",
+  "config_version": 1,
+  "embedding": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "langchain_hf_model_name": "all-MiniLM-L6-v2"
+  },
+  "ingest": {
+    "pdf_dir": "data/pdfs",
+    "vectorstore_dir": "vectorstore",
+    "chunk_size": 800,
+    "chunk_overlap": 100
+  },
+  "retrieval": {
+    "plain_similarity_k": 4,
+    "graph_prerequisite_keyword_k": 1,
+    "graph_prerequisite_depth": 1,
+    "graph_enabled": true,
+    "graph_max_prereqs": 2,
+    "graph_max_extra_chunks": 2
+  },
+  "llm": {
+    "provider": "openai_compatible",
+    "api_base_url": "https://api.cerebras.ai/v1",
+    "chat_model": "qwen-3-235b-a22b-instruct-2507",
+    "temperature": 0,
+    "max_tokens_structured": 2500,
+    "max_tokens_chat_chain": 1500
+  },
+  "evaluation": {
+    "verifier_fast_mode": true,
+    "pipeline_retrieval_mode": "graph",
+    "structured_output_max_attempts": 5,
+    "rate_limit_base_wait_s": 30,
+    "sleep_between_queries_s": 45,
+    "initial_cooldown_s": 30
+  },
+  "randomness": {
+    "note": "LLM calls use temperature=0; no global RNG seed is set for the evaluator yet.",
+    "seed": null
+  }
+}

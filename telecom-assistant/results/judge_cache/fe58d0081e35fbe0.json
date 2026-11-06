@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1 * 1",
+  "operation": "Evaluate the expression at n=0",
+  "confidence": 0.98,
+  "reasoning": "The previous expression delta[0] * z**(-0) evaluates to 1 * 1 when n=0, so the current expression correctly reflects that evaluation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression delta[0] * z**(-0) evaluates to 1 * 1 when n=0, so the current expression correctly reflects that evaluation.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

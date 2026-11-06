@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Abs(z) > 1",
+  "operation": "Simplify the ROC condition",
+  "confidence": 1.0,
+  "reasoning": "The condition |z^(-1)| < 1 is equivalent to |1/z| < 1, which simplifies to |z| > 1 by taking reciprocals and reversing the inequality sign.",
+  "judge_raw": "I need to verify whether the operation \"Simplify the ROC condition\" correctly transforms `Abs(z**(-1)) < 1` into `Abs(z) > 1`.\n\nStarting with the previous step:\n|z^(-1)| < 1\n\nThis means:\n|1/z| < 1\n\nTaking the reciprocal of both sides of an inequality with positive quantities reverses the inequality:\n1/|z| < 1\n\u27f9 1 < |z|\n\u27f9 |z| > 1\n\nThis is exactly what the current step states.\n\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The condition |z^(-1)| < 1 is equivalent to |1/z| < 1, which simplifies to |z| > 1 by taking reciprocals and reversing the inequality sign.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

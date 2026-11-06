@@ -1,0 +1,3969 @@
+{
+  "config": {
+    "seed": 0,
+    "with_judge": true,
+    "judge_sleep_s": 2.0,
+    "n_fixtures": 9,
+    "mutation_specs": [
+      {
+        "kind": "sign_flip",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "negate leading sign"
+      },
+      {
+        "kind": "coeff_x2",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "multiply by 2"
+      },
+      {
+        "kind": "coeff_half",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "divide by 2"
+      },
+      {
+        "kind": "drop_term",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "drop last additive term"
+      },
+      {
+        "kind": "exponent_bump",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "increment first integer exponent"
+      },
+      {
+        "kind": "constant_shift",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "add 1"
+      },
+      {
+        "kind": "missing_factor_of_2",
+        "family": "algebraic",
+        "severity": "error",
+        "description": "drop leading factor of 2"
+      },
+      {
+        "kind": "swap_integral_limits",
+        "family": "bounds",
+        "severity": "error",
+        "description": "swap a<->b in first integral/sum"
+      },
+      {
+        "kind": "drop_upper_limit",
+        "family": "bounds",
+        "severity": "error",
+        "description": "truncate upper limit of first integral/sum"
+      },
+      {
+        "kind": "rename_variable",
+        "family": "identifier",
+        "severity": "error",
+        "description": "rename a key symbol uniformly in this step"
+      },
+      {
+        "kind": "commute_operands",
+        "family": "equivalent",
+        "severity": "equivalent",
+        "description": "swap operands of first top-level +/*"
+      },
+      {
+        "kind": "expand_power",
+        "family": "equivalent",
+        "severity": "equivalent",
+        "description": "rewrite X**2 as X*X"
+      },
+      {
+        "kind": "distribute",
+        "family": "equivalent",
+        "severity": "equivalent",
+        "description": "expand k*(a+b) into k*a+k*b"
+      },
+      {
+        "kind": "no_op",
+        "family": "control",
+        "severity": "control",
+        "description": "identity (no mutation)"
+      }
+    ],
+    "graders": [
+      "symbolic",
+      "llm_judge:gpt-oss-120b"
+    ]
+  },
+  "metrics": {
+    "llm_judge:gpt-oss-120b": {
+      "overall": {
+        "precision": 0.975609756097561,
+        "recall_strict": 0.851063829787234,
+        "recall_committed": 0.9090909090909091,
+        "fpr": 0.08333333333333333,
+        "abstain_rate": 0.059322033898305086,
+        "tp": 80,
+        "fn": 8,
+        "fp": 2,
+        "tn": 21,
+        "abstain_error": 6,
+        "abstain_eq": 1,
+        "total": 118
+      },
+      "by_family": {
+        "algebraic": {
+          "precision": 1.0,
+          "recall_strict": 0.9324324324324325,
+          "recall_committed": 1.0,
+          "fpr": null,
+          "abstain_rate": 0.06756756756756757,
+          "tp": 69,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 5,
+          "abstain_eq": 0,
+          "total": 74
+        },
+        "bounds": {
+          "precision": 1.0,
+          "recall_strict": 1.0,
+          "recall_committed": 1.0,
+          "fpr": null,
+          "abstain_rate": 0.0,
+          "tp": 6,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 0,
+          "abstain_eq": 0,
+          "total": 6
+        },
+        "identifier": {
+          "precision": 1.0,
+          "recall_strict": 0.35714285714285715,
+          "recall_committed": 0.38461538461538464,
+          "fpr": null,
+          "abstain_rate": 0.07142857142857142,
+          "tp": 5,
+          "fn": 8,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 1,
+          "abstain_eq": 0,
+          "total": 14
+        },
+        "control": {
+          "precision": 0.0,
+          "recall_strict": null,
+          "recall_committed": null,
+          "fpr": 0.07142857142857142,
+          "abstain_rate": 0.0,
+          "tp": 0,
+          "fn": 0,
+          "fp": 1,
+          "tn": 13,
+          "abstain_error": 0,
+          "abstain_eq": 0,
+          "total": 14
+        },
+        "equivalent": {
+          "precision": 0.0,
+          "recall_strict": null,
+          "recall_committed": null,
+          "fpr": 0.1,
+          "abstain_rate": 0.1,
+          "tp": 0,
+          "fn": 0,
+          "fp": 1,
+          "tn": 8,
+          "abstain_error": 0,
+          "abstain_eq": 1,
+          "total": 10
+        }
+      },
+      "confusion": {
+        "error": {
+          "passed": 8,
+          "failed": 80,
+          "abstain": 0,
+          "error": 6
+        },
+        "control": {
+          "passed": 13,
+          "failed": 1,
+          "abstain": 0,
+          "error": 0
+        },
+        "equivalent": {
+          "passed": 8,
+          "failed": 1,
+          "abstain": 0,
+          "error": 1
+        }
+      }
+    },
+    "symbolic": {
+      "overall": {
+        "precision": 1.0,
+        "recall_strict": 0.23404255319148937,
+        "recall_committed": 1.0,
+        "fpr": 0.0,
+        "abstain_rate": 0.6440677966101694,
+        "tp": 22,
+        "fn": 0,
+        "fp": 0,
+        "tn": 20,
+        "abstain_error": 72,
+        "abstain_eq": 4,
+        "total": 118
+      },
+      "by_family": {
+        "algebraic": {
+          "precision": 1.0,
+          "recall_strict": 0.2972972972972973,
+          "recall_committed": 1.0,
+          "fpr": null,
+          "abstain_rate": 0.7027027027027027,
+          "tp": 22,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 52,
+          "abstain_eq": 0,
+          "total": 74
+        },
+        "bounds": {
+          "precision": null,
+          "recall_strict": 0.0,
+          "recall_committed": null,
+          "fpr": null,
+          "abstain_rate": 1.0,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 6,
+          "abstain_eq": 0,
+          "total": 6
+        },
+        "identifier": {
+          "precision": null,
+          "recall_strict": 0.0,
+          "recall_committed": null,
+          "fpr": null,
+          "abstain_rate": 1.0,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 0,
+          "abstain_error": 14,
+          "abstain_eq": 0,
+          "total": 14
+        },
+        "control": {
+          "precision": null,
+          "recall_strict": null,
+          "recall_committed": null,
+          "fpr": 0.0,
+          "abstain_rate": 0.14285714285714285,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 12,
+          "abstain_error": 0,
+          "abstain_eq": 2,
+          "total": 14
+        },
+        "equivalent": {
+          "precision": null,
+          "recall_strict": null,
+          "recall_committed": null,
+          "fpr": 0.0,
+          "abstain_rate": 0.2,
+          "tp": 0,
+          "fn": 0,
+          "fp": 0,
+          "tn": 8,
+          "abstain_error": 0,
+          "abstain_eq": 2,
+          "total": 10
+        }
+      },
+      "confusion": {
+        "error": {
+          "passed": 0,
+          "failed": 22,
+          "abstain": 72,
+          "error": 0
+        },
+        "control": {
+          "passed": 12,
+          "failed": 0,
+          "abstain": 2,
+          "error": 0
+        },
+        "equivalent": {
+          "passed": 8,
+          "failed": 0,
+          "abstain": 2,
+          "error": 0
+        }
+      }
+    }
+  },
+  "trials": [
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "-(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The integrand exp(-a*t)*exp(-I*omega*t) simplifies to exp(-(a+I*omega)*t) without any extra sign; the step incorrectly adds a leading minus sign."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "2*(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "Combining the exponentials yields \u222b\u2080^\u221e exp(-(a+I\u00b7\u03c9) t) dt, but the step incorrectly adds an extra factor of 2, which is not justified by any algebraic manipulation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "Combining the exponentials exp(-a*t)*exp(-i*\u03c9*t) into exp(-(a+i*\u03c9)*t) is correct, but the extra division by 2 has no justification from the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + I*omega)*t), (t, 0, oo))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Combining the exponentials into exp(-(a+I*omega)*t) is correct, but the extra '+ 1' term is not derived from the previous expression and has no justification."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + I*omega)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "Combining the exponentials correctly yields \u222b exp(-(a+I*\u03c9) t) dt, but the step adds an unwarranted factor of 1/2, which is not justified by the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*omega)*t), (t, oo, 0))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The integrand was correctly combined into exp(-(a+I*omega)*t), but the limits were reversed from (0, \u221e) to (\u221e, 0) without introducing a minus sign, which changes the value of the integral."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The integrand was correctly combined, but the upper limit was changed from \u221e to 1, which is not justified by an algebraic manipulation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*Omega)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.98,
+          "reasoning": "The product of the exponentials exp(-a*t) and exp(-I*omega*t) combines to exp(-(a + I*omega)*t) by the rule exp(A)\u00b7exp(B)=exp(A+B) for commuting scalars, so the algebraic step is correct."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + I*omega)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "The product of the exponentials exp(-a*t) and exp(-I*omega*t) correctly combines to exp(-(a + I*omega)*t) using the rule exp(x)\u00b7exp(y)=exp(x+y)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "-(1/(a + I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The integral \u222b\u2080^\u221e e^{-(a+i\u03c9)t} dt equals 1/(a+i\u03c9) for Re(a)>0; the step gives a negative sign, which is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "2*(1/(a + I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "Integrating exp(-(a+I*\u03c9)t) from 0 to \u221e gives 1/(a+I*\u03c9) (assuming Re(a)>0). The current step adds an extra factor of 2, which is not justified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "(1/(a + I*omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "Integrating exp(-(a+I*\u03c9) t) from 0 to \u221e yields 1/(a+I*\u03c9) (for Re(a)>0); the extra factor of 1/2 is not justified by the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "(1/(a + I*omega)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Integrating exp(-(a + i\u03c9)t) from 0 to \u221e gives 1/(a + i\u03c9) (assuming Re(a)>0); adding an extra '+1' is not justified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "(1/(a + I*omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "Integrating exp(-(a + i\u00b7\u03c9) t) from 0 to \u221e yields 1/(a + i\u00b7\u03c9) (for Re(a)>0); there is no factor of 1/2, so the stated result (1/(a + i\u00b7\u03c9))/2 is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "1/(a + I*Omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.95,
+          "reasoning": "Integrating \u222b\u2080^\u221e e^{-(a+i\u03c9)t} dt gives 1/(a+i\u03c9) (assuming Re(a)>0), which matches the stated expression (Omega is the same frequency variable)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 0,
+      "concept": "Fourier transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(a + I*omega)",
+      "mutated_expr": "1/(a + I*omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Integrating exp(-(a + i*omega)*t) from 0 to \u221e gives 1/(a + i*omega) when Re(a)>0, which matches the stated expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "-(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "exp(-I*omega*(t - t0)) = exp(i*omega*t0)*exp(-i*omega*t), so the integral equals exp(i*omega*t0)*\u222bx*exp(-i*omega*t) dt, not -exp(-i*omega*t0)*\u222b..., making the current step incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "2*(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "Expanding the exponent gives exp(-I*\u03c9(t\u2011t\u2080)) = exp(I*\u03c9t\u2080)\u00b7exp(-I*\u03c9t), so the integral equals exp(I*\u03c9t\u2080)\u00b7\u222bx\u00b7exp(-I*\u03c9t)dt, not 2\u00b7exp(-I*\u03c9t\u2080)\u00b7\u222b\u2026; the extra factor 2 and sign error make the step invalid."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The integral \u222b x\u00b7e^{-i\u03c9(t\u2212t0)}dt equals e^{i\u03c9t0}\u222b x\u00b7e^{-i\u03c9t}dt, not (e^{-i\u03c9t0}\u00b7\u222b\u2026)/2; the sign of the exponent and the extra factor 1/2 are incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The integrand exp(-I*omega*(t - t0)) factors as exp(I*omega*t0)*exp(-I*omega*t), not exp(-I*omega*t0). The step also adds an extraneous '+1', which cannot arise from algebraic manipulation of the integral."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "(exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "Expanding exp(-I*omega*(t - t0)) gives exp(i*omega*t0)*exp(-I*omega*t); the constant factor should be exp(i*omega*t0) and no extra division by 2 appears. The current step has the wrong sign and an unjustified factor of 1/2."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, oo, -oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The factor should be exp(+i*omega*t0), not exp(-i*omega*t0), and the integration limits were reversed, which introduces an extra minus sign; thus the algebraic manipulation does not produce the given expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The integrand exp(-I*omega*(t - t0)) equals exp(I*omega*t0)*exp(-I*omega*t), not exp(-I*omega*t0). Moreover, the integration limits were changed from (-\u221e, \u221e) to (-\u221e, 1) without justification."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*Omega*t0)*integrate(x*exp(-I*Omega*t), (t, -oo, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "exp(-I*omega*(t - t0)) = exp(-I*omega*t + I*omega*t0) = exp(I*omega*t0)\u00b7exp(-I*omega*t), so the factor should be exp(I*Omega*t0), not exp(-I*Omega*t0). The algebraic manipulation is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "integrate(x*exp(-I*omega*t), (t, -oo, oo)) * exp(-I*omega*t0)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "exp(-I*omega*(t - t0)) = exp(-I*omega*t) * exp(I*omega*t0), not exp(-I*omega*t) * exp(-I*omega*t0). The sign of the factor outside the integral is incorrect, so the algebraic step is invalid."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "mutated_expr": "exp(-I*omega*t0)*integrate(x*exp(-I*omega*t), (t, -oo, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "exp(-I*omega*(t - t0)) = exp(-I*omega*t + I*omega*t0) = exp(I*omega*t0)\u00b7exp(-I*omega*t), not exp(-I*omega*t0)\u00b7exp(-I*omega*t). The sign of the factor is wrong, so the algebraic step is invalid."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "-(exp(-I*omega*t0)*X)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The previous step gave exp(-I*omega*t0)*\u222bx\u202fe^{-I\u03c9t}dt, but the current step adds an unexplained minus sign, yielding -(exp(-I*omega*t0)*X). Substitution does not introduce a negative factor, so the transformation is invalid."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "2*(exp(-I*omega*t0)*X)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "error",
+          "confidence": null,
+          "reasoning": "RateLimitError: Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "(exp(-I*omega*t0)*X)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "The previous expression is exp(-I*omega*t0)\u00b7\u222b x\u00b7e^{-i\u03c9t} dt. Substituting X for the integral would give exp(-I*omega*t0)\u00b7X, not (exp(-I*omega*t0)\u00b7X)/2; the extra factor 1/2 is unsupported."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "(exp(-I*omega*t0)*X) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "The previous expression is exp(-I*omega*t0)*integrate(...), which under substitution X = integrate(...) becomes exp(-I*omega*t0)*X. The current step adds an extra '+ 1' that was not present, so the operation is not a valid substitution."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "(exp(-I*omega*t0)*X)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The previous expression is exp(-I*omega*t0)\u00b7\u222b x\u00b7e^{-i\u03c9t} dt. Substituting X for the integral would give exp(-I*omega*t0)*X, but the current step adds an unjustified factor of 1/2."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "exp(-I*Omega*t0)*X",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.9,
+          "reasoning": "The previous expression is exp(-i\u00b7\u03c9\u00b7t0) times the integral \u222b x e^{-i\u00b7\u03c9\u00b7t} dt; substituting X for that integral (and renaming \u03c9 as \u03a9) yields exp(-i\u00b7\u03a9\u00b7t0)\u00b7X, which is a valid substitution."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "X * exp(-I*omega*t0)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.9,
+          "reasoning": "The previous expression is exp(-i \u03c9 t0) times the integral \u222b x e^{-i \u03c9 t} dt; substituting the integral with the symbol X yields X\u00b7exp(-i \u03c9 t0), which is a correct algebraic substitution."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 1,
+      "concept": "Time-shift property",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "exp(-I*omega*t0)*X",
+      "mutated_expr": "exp(-I*omega*t0)*X",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.9,
+          "reasoning": "The step replaces the integral \u222b x\u202fe^{-i\u03c9t} dt with a symbol X, which is a valid substitution if X is defined as that integral; this is a standard abbreviation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "-(omega**2 + 2*omega + 1)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 2: expression has opposite sign to previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Expanding (omega + 1)^2 gives omega**2 + 2*omega + 1, not its negative; the step incorrectly adds a minus sign."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "2*(omega**2 + 2*omega + 1)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "Expanding (omega + 1)**2 yields omega**2 + 2*omega + 1, not 2*(omega**2 + 2*omega + 1); the extra factor of 2 is unjustified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega**2 + 2*omega + 1)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Expanding (omega + 1)^2 yields omega**2 + 2*omega + 1, not (omega**2 + 2*omega + 1)/2; the extra division by 2 is not justified by the stated algebraic operation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "omega**2 + 2*omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Expanding (omega + 1)^2 yields omega**2 + 2*omega + 1, but the current step omits the constant term +1, so the algebraic manipulation is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "omega**3 + 2*omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Expanding (omega + 1)^2 gives omega^2 + 2*omega + 1, not omega^3 + 2*omega + 1; the \u03c9^3 term cannot arise from a correct algebraic manipulation of the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega**2 + 2*omega + 1) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Expanding (omega + 1)**2 gives omega**2 + 2*omega + 1; the current step adds an extra +1, resulting in omega**2 + 2*omega + 2, which does not follow from the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega**2 + 2*omega + 1)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Expanding (omega + 1)^2 yields omega**2 + 2*omega + 1, not (omega**2 + 2*omega + 1)/2; the extra division by 2 is not justified by the stated algebraic operation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "Omega**2 + 2*Omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.97,
+          "reasoning": "Expanding (omega + 1)^2 using the quadratic identity yields omega^2 + 2*omega + 1, which matches the given expression (ignoring case of the variable name)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "2*omega + 1 + omega**2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Expanding (omega + 1)^2 gives omega^2 + 2*omega + 1, which matches the stated expression (order of terms irrelevant)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "(omega)*(omega) + 2*omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Expanding (omega + 1)^2 using the distributive law gives omega*omega + omega*1 + 1*omega + 1*1, which simplifies to omega*omega + 2*omega + 1. The current expression matches this expansion."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 2,
+      "concept": "Pure algebra \u2014 quadratic identity",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "omega**2 + 2*omega + 1",
+      "mutated_expr": "omega**2 + 2*omega + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Expanding the square (omega + 1)^2 using the binomial formula yields omega**2 + 2*omega + 1, which matches the current expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "-(2*sin(omega)*cos(omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 2: expression has opposite sign to previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "error",
+          "confidence": null,
+          "reasoning": "RateLimitError: Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "2*(2*sin(omega)*cos(omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "The identity for sin(2\u03c9) is sin(2\u03c9) = 2\u00b7sin(\u03c9)\u00b7cos(\u03c9). The current step gives 2\u00b7(2\u00b7sin(\u03c9)\u00b7cos(\u03c9)) = 4\u00b7sin(\u03c9)\u00b7cos(\u03c9), which does not equal sin(2\u03c9)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "(2*sin(omega)*cos(omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The double-angle identity states sin(2\u03c9) = 2\u00b7sin(\u03c9)\u00b7cos(\u03c9). The current step gives (2\u00b7sin(\u03c9)\u00b7cos(\u03c9))/2 = sin(\u03c9)\u00b7cos(\u03c9), which is not equal to sin(2\u03c9) in general."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "(2*sin(omega)*cos(omega)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "error",
+          "confidence": null,
+          "reasoning": "RateLimitError: Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "sin(omega)*cos(omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The double-angle identity is sin(2\u03c9) = 2\u202fsin\u202f\u03c9\u202fcos\u202f\u03c9, so sin\u202f\u03c9\u202fcos\u202f\u03c9 equals (1/2)\u202fsin(2\u03c9), not sin(2\u03c9) itself. The step omits the factor 2, making the claimed identity invalid."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "2*sin(Omega)*cos(Omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "The double-angle identity sin(2\u03b8)=2 sin\u03b8 cos\u03b8 applied to sin(2*omega) yields 2*sin(omega)*cos(omega), which matches the current expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "sin(omega)*cos(omega) * 2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Using the double-angle identity sin(2\u03b8)=2 sin\u03b8 cos\u03b8, sin(2*omega) correctly transforms to 2\u00b7sin(omega)\u00b7cos(omega), which matches the given expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 3,
+      "concept": "Trig identity",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "2*sin(omega)*cos(omega)",
+      "mutated_expr": "2*sin(omega)*cos(omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "The double-angle identity sin(2\u03b8)=2 sin\u03b8 cos\u03b8 correctly transforms sin(2*omega) into 2*sin(omega)*cos(omega)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "-(2*I*sin(omega)/(I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 2: expression has opposite sign to previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Using Euler's formula, exp(i\u03c9) - exp(-i\u03c9) = 2i\u202fsin\u202f\u03c9, so the expression should be (2*I*sin(omega))/(I*omega) without a leading minus sign. The current step adds an unjustified negative sign."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "2*(2*I*sin(omega)/(I*omega))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "Using the identity exp(i\u03c9)-exp(-i\u03c9)=2i sin\u03c9 gives (exp(i\u03c9)-exp(-i\u03c9))/(i\u03c9)=2 sin\u03c9/\u03c9. The current step adds an extra factor 2, yielding 4 sin\u03c9/\u03c9, which is not justified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "(2*I*sin(omega)/(I*omega))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "Applying Euler's identity gives (exp(i\u03c9)-exp(-i\u03c9)) = 2i sin \u03c9, so the expression becomes (2i sin \u03c9)/(i \u03c9) = 2 sin \u03c9/\u03c9. The current step adds an extra division by 2, yielding sin \u03c9/\u03c9, which is not equivalent to the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "(2*I*sin(omega)/(I*omega)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Using Euler's identity, (exp(i\u03c9) - exp(-i\u03c9)) = 2i\u202fsin\u202f\u03c9, so the expression becomes (2i\u202fsin\u202f\u03c9)/(i\u202f\u03c9) = 2\u202fsin\u202f\u03c9/\u03c9. No additional '+\u202f1' term appears, making the step incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "I*sin(omega)/(I*omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 2: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "Using Euler's formula, exp(i\u03c9) - exp(-i\u03c9) = 2i\u00b7sin(\u03c9). Dividing by i\u03c9 gives (2i\u00b7sin \u03c9)/(i\u03c9) = 2\u00b7sin \u03c9/\u03c9, not i\u00b7sin \u03c9/(i\u00b7\u03c9). The step omitted the factor 2, so the identity application is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "2*I*sin(Omega)/(I*Omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.98,
+          "reasoning": "Using Euler's identity exp(i\u03b8) - exp(-i\u03b8) = 2i sin\u03b8, the numerator transforms to 2I*sin(Omega), yielding 2*I*sin(Omega)/(I*Omega), which matches the current expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "I*sin(omega)/(I*omega) * 2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.97,
+          "reasoning": "Using Euler's identity exp(i\u03c9)-exp(-i\u03c9)=2i sin\u03c9, the previous expression becomes (2i sin\u03c9)/(i \u03c9) which simplifies to I*sin(\u03c9)/(I*\u03c9) * 2, matching the current step."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "2*I*sin(omega)/(I*omega)",
+      "mutated_expr": "2*I*sin(omega)/(I*omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Using Euler's formula, exp(i\u03c9) - exp(-i\u03c9) = 2i sin(\u03c9), so the numerator becomes 2*I*sin(\u03c9) and the denominator remains I*\u03c9, matching the given expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "-(2*sin(omega)/omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "SIGN ERROR detected in step 3: expression has opposite sign to previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "Cancelling the factor I in numerator and denominator of 2*I*sin(omega)/(I*omega) yields 2*sin(omega)/omega, not its negative; the introduced minus sign is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "2*(2*sin(omega)/omega)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The previous expression 2*I*sin(\u03c9)/(I*\u03c9) simplifies to 2*sin(\u03c9)/\u03c9 after canceling I, but the current step gives 2*(2*sin(\u03c9)/\u03c9) = 4*sin(\u03c9)/\u03c9, which does not follow from the prior expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "(2*sin(omega)/omega)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "The previous expression simplifies to 2*sin(\u03c9)/\u03c9 (the I factors cancel). The current step divides this by 2, yielding sin(\u03c9)/\u03c9, which is not equal to the previous expression, so the algebraic move is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "(2*sin(omega)/omega) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "Cancelling the factor I in 2*I*sin(\u03c9)/(I*\u03c9) yields 2*sin(\u03c9)/\u03c9, not (2*sin(\u03c9)/\u03c9)+1; the step adds an extra term without justification."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "sin(omega)/omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "failed",
+          "confidence": null,
+          "reasoning": "Numerical mismatch in step 3: value differs from previous step"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Cancelling the factor I in 2*I*sin(\u03c9)/(I*\u03c9) leaves 2*sin(\u03c9)/\u03c9, not sin(\u03c9)/\u03c9; the factor 2 was incorrectly dropped."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "2*sin(Omega)/Omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.98,
+          "reasoning": "Cancelling the common factor I in numerator and denominator of 2*I*sin(omega)/(I*omega) yields 2*sin(omega)/omega, matching the current expression (Omega is the same variable)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "sin(omega)/omega * 2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Cancelling the factor I in 2*I*sin(\u03c9)/(I*\u03c9) yields 2*sin(\u03c9)/\u03c9, which is equivalent to sin(\u03c9)/\u03c9 * 2; the algebraic rearrangement is correct."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 4,
+      "concept": "Euler identity in sinc",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "2*sin(omega)/omega",
+      "mutated_expr": "2*sin(omega)/omega",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Cancelling the common factor I in numerator and denominator of 2*I*sin(\u03c9)/(I*\u03c9) yields 2*sin(\u03c9)/\u03c9, which is a valid algebraic simplification."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "-(integrate(exp(-(a + s)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Combining the exponentials yields \u222b\u2080^\u221e exp(-(a+s)t) dt; no extra negative sign appears, so the leading minus sign is unjustified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "2*(integrate(exp(-(a + s)*t), (t, 0, oo)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The product exp(-a*t)*exp(-s*t) simplifies to exp(-(a+s)*t); the integral should be \u222bexp(-(a+s)*t) dt, not 2 times that integral. The extra factor 2 is unjustified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + s)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The previous step simplifies to \u222b\u2080^\u221e exp(-(a+s)t) dt, but the current step adds an unjustified division by 2, which is not a valid algebraic manipulation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + s)*t), (t, 0, oo))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The previous expression \u222b\u2080^\u221e e^{-a t} e^{-s t} dt simplifies to \u222b\u2080^\u221e e^{-(a+s) t} dt, but the current step incorrectly adds a '+1', which is not justified by any algebraic manipulation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "(integrate(exp(-(a + s)*t), (t, 0, oo)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The product of exponentials correctly simplifies to exp(-(a+s)*t), but the step inexplicably divides the integral by 2, which is not justified by any algebraic manipulation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + s)*t), (t, oo, 0))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "The previous step had the integral from 0 to \u221e; the current step reverses the limits to \u221e to 0 without introducing a minus sign, which is not a valid algebraic manipulation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + s)*t), (t, 0, 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The previous step had the integral from 0 to \u221e, but the current step changes the upper limit to 1 without justification; algebraic manipulation cannot alter integration limits."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + p)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.92,
+          "reasoning": "The previous expression had exp(-a*t)*exp(-s*t); combining exponents gives exp(-(a+s)*t). The current step replaces s with p without any justification, so the algebraic manipulation is not valid."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "mutated_expr": "integrate(exp(-(a + s)*t), (t, 0, oo))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "The product exp(-a*t)*exp(-s*t) simplifies to exp(-(a+s)*t) using the exponent addition rule, so the algebraic transformation is correct."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "-(1/(s + a))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "Integrating \u222b\u2080^\u221e e^{-(a+s)t} dt yields 1/(a+s), not -1/(a+s); the sign is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "2*(1/(s + a))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Integrating exp(-(a+s)*t) from 0 to \u221e yields 1/(s+a), not 2/(s+a); the extra factor of 2 is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "(1/(s + a))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The integral of exp(-(a+s)*t) from 0 to \u221e equals 1/(a+s), not (1/(s+a))/2; the extra factor of 1/2 is unjustified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "(1/(s + a)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Integrating exp(-(a+s)t) from 0 to \u221e gives 1/(a+s) (assuming Re(a+s)>0); the step incorrectly adds an extra +1, which is not justified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "(1/(s + a))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Integrating exp(-(a+s)*t) from 0 to \u221e yields 1/(a+s), not (1/(s+a))/2; the extra factor of 1/2 is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "1/(p + a)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.85,
+          "reasoning": "Integrating exp(-(a+s)*t) from 0 to \u221e yields 1/(a+s), but the step reports 1/(p+a) with a different variable (p instead of s) without justification, so the result does not follow from the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 5,
+      "concept": "Laplace transform of exp(-a*t)*u(t)",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(s + a)",
+      "mutated_expr": "1/(s + a)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Integrating exp(-(a+s) t) from 0 to \u221e yields 1/(a+s) (assuming Re(a+s)>0), which matches the given expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "-(1/((s - 1)*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Factoring s^2 - 1 gives (s - 1)(s + 1), so 1/(s^2 - 1) = 1/((s - 1)(s + 1)), not the negative of that expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "2*(1/((s - 1)*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Factoring s^2\u20111 gives (s\u20111)(s+1), so 1/(s^2\u20111) = 1/((s\u20111)(s+1)). The current step adds an extra factor of 2, yielding 2/((s\u20111)(s+1)), which is not equal to the previous expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "(1/((s - 1)*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Factoring s^2 - 1 gives (s - 1)(s + 1), so 1/(s^2 - 1) = 1/((s - 1)*(s + 1)). The current step adds an extra division by 2, which is not justified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "(1/((s - 1)*(s + 1))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Factoring s^2\u20111 gives (s\u20111)(s+1), so 1/(s^2\u20111) = 1/((s\u20111)(s+1)). The extra '+\u202f1' term is not produced by factoring, making the step incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "(1/((s - 1)*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Factoring s^2 - 1 gives (s - 1)(s + 1), so 1/(s^2 - 1) = 1/((s - 1)*(s + 1)). The current step adds an extra division by 2, which is not justified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "1/((p - 1)*(p + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.95,
+          "reasoning": "Factoring s^2\u20111 gives (s\u20111)(s+1), not (p\u20111)(p+1); the variable was changed from s to p without any stated substitution, so the step is not justified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/((s - 1)*(s + 1))",
+      "mutated_expr": "1/((s - 1)*(s + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Factoring s^2 - 1 as (s - 1)(s + 1) correctly transforms 1/(s**2 - 1) into 1/((s - 1)*(s + 1))."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "-(1/(2*(s - 1)) - 1/(2*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "Expanding the given expression yields -1/(s^2-1), which is the negative of the original 1/((s-1)*(s+1)). The correct partial fraction decomposition should be 1/(2(s-1)) - 1/(2(s+1)) without the leading minus sign."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "2*(1/(2*(s - 1)) - 1/(2*(s + 1)))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The previous expression is 1/((s-1)(s+1)). The current step simplifies to 1/(s-1) - 1/(s+1) = 2/((s-1)(s+1)), which is twice the original, so the partial fraction decomposition is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "(1/(2*(s - 1)) - 1/(2*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The correct partial fraction of 1/((s-1)(s+1)) is (1/(2(s-1)) - 1/(2(s+1))). The current step adds an extra division by 2, yielding 1/(4(s-1)) - 1/(4(s+1)) = 1/(2(s^2-1)), which is half the original expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*(s - 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The partial fraction decomposition of 1/((s-1)(s+1)) is (1/2)[1/(s-1) - 1/(s+1)], not just 1/(2*(s-1)). The current step omits the second term, so the operation is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "(1/(2*(s - 1)) - 1/(2*(s + 1))) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "error",
+          "confidence": null,
+          "reasoning": "RateLimitError: Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "(1/(2*(s - 1)) - 1/(2*(s + 1)))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "error",
+          "confidence": null,
+          "reasoning": "RateLimitError: Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*(p - 1)) - 1/(2*(p + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "error",
+          "confidence": null,
+          "reasoning": "RateLimitError: Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*s - 2*1) - 1/(2*(s + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "error",
+          "confidence": null,
+          "reasoning": "RateLimitError: Error code: 429 - {'message': \"We're experiencing high traffic right now! Please try again soon.\", 'type': 'too_many_requests_error', 'param': 'queue', 'code': 'queue_exceeded'}"
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 6,
+      "concept": "Partial fraction expansion",
+      "step_index": 2,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "mutated_expr": "1/(2*(s - 1)) - 1/(2*(s + 1))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Decomposing 1/((s-1)(s+1)) as A/(s-1)+B/(s+1) yields A=1/2, B=-1/2, giving 1/(2*(s-1)) - 1/(2*(s+1)), which matches the current expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "-(1/(1 - r))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "The infinite geometric series \u03a3_{n=0}^\u221e r^n equals 1/(1\u2011r) (for |r|<1). The step gives -(1/(1\u2011r)), which has the wrong sign, so the operation is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "2*(1/(1 - r))",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.96,
+          "reasoning": "The infinite geometric series \u03a3_{n=0}^\u221e r^n equals 1/(1\u2011r) (for |r|<1); the step incorrectly multiplies this result by 2, giving 2/(1\u2011r), which is not justified."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "(1/(1 - r))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The infinite geometric series \u03a3_{n=0}^\u221e r^n sums to 1/(1\u2011r) (for |r|<1). The step gives (1/(1\u2011r))/2, which is half the correct value, so the operation is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "(1/(1 - r)) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The infinite geometric series sum from n=0 of r^n equals 1/(1\u2011r) (for |r|<1). Adding an extra +1 is incorrect, so the step does not follow from the definition."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "(1/(1 - r))/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.97,
+          "reasoning": "The infinite geometric series \u03a3_{n=0}^\u221e r^n sums to 1/(1\u2011r) (for |r|<1). The step gives (1/(1\u2011r))/2, which is half the correct value, so the operation is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "1/(1 - rho)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.9,
+          "reasoning": "The infinite geometric series \u03a3_{n=0}^\u221e r^n equals 1/(1\u2011r) for |r|<1; the step correctly applies this formula (renaming r as \u03c1) to obtain 1/(1\u2011\u03c1)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 7,
+      "concept": "Geometric series sum",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "1/(1 - r)",
+      "mutated_expr": "1/(1 - r)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.93,
+          "reasoning": "Applying the standard geometric series formula to Sum(r**n, (n,0,\u221e)) yields 1/(1\u2011r) (assuming |r|<1), which is exactly the stated expression."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "sign_flip",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "-(3*x**2)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The derivative of x**3 with respect to x is 3*x**2, not its negative; the step incorrectly introduced a minus sign."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "coeff_x2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "2*(3*x**2)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The derivative of x**3 with respect to x is 3*x**2; the step incorrectly adds an extra factor of 2, yielding 2*(3*x**2), which is not the correct result."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "coeff_half",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "(3*x**2)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The derivative of x**3 with respect to x is 3*x**2, not (3*x**2)/2; differentiating again would give 6*x, so the stated expression is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "drop_term",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "exponent_bump",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*x**3",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The derivative of x**3 with respect to x is 3*x**2, but the step claims 3*x**3, which is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "constant_shift",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "(3*x**2) + 1",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "Differentiating x**3 with respect to x yields 3*x**2, but the step adds an extra +1, which is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "missing_factor_of_2",
+      "family": "algebraic",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "(3*x**2)/2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.99,
+          "reasoning": "The derivative of x**3 with respect to x is 3*x**2, not (3*x**2)/2; differentiating again would give 6*x, so the stated expression is incorrect."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "swap_integral_limits",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "drop_upper_limit",
+      "family": "bounds",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "rename_variable",
+      "family": "identifier",
+      "severity": "error",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*xi**2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "abstain",
+          "confidence": null,
+          "reasoning": "Could not verify \u2014 review manually"
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "failed",
+          "confidence": 0.92,
+          "reasoning": "The derivative of x**3 with respect to x is 3*x**2; the step shows 3*xi**2, which changes the variable and is not a valid result of the differentiation."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "commute_operands",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "3*x**2",
+      "mutated_expr": "x**2 * 3",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Differentiating x**3 with respect to x yields 3*x**2, which is equivalent to the given expression x**2 * 3."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "expand_power",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*(x)*(x)",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Differentiating x**3 with respect to x yields 3*x**2, which is exactly the expression 3*(x)*(x)."
+        }
+      },
+      "skipped_reason": null
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "distribute",
+      "family": "equivalent",
+      "severity": "equivalent",
+      "original_expr": "3*x**2",
+      "mutated_expr": null,
+      "verdicts": {},
+      "skipped_reason": "mutation_not_applicable"
+    },
+    {
+      "gold_id": 8,
+      "concept": "Derivative of polynomial",
+      "step_index": 1,
+      "mutation_kind": "no_op",
+      "family": "control",
+      "severity": "control",
+      "original_expr": "3*x**2",
+      "mutated_expr": "3*x**2",
+      "verdicts": {
+        "symbolic": {
+          "verdict": "passed",
+          "confidence": null,
+          "reasoning": ""
+        },
+        "llm_judge:gpt-oss-120b": {
+          "verdict": "passed",
+          "confidence": 0.99,
+          "reasoning": "Differentiating x**3 with respect to x yields 3*x**2 by the power rule, so the step is correct."
+        }
+      },
+      "skipped_reason": null
+    }
+  ],
+  "warnings": []
+}

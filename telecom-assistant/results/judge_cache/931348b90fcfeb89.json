@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(a**n * z**(-n), (n, 0, oo))",
+  "operation": "Use the fact that u[n] is zero for n < 0 to change summation limits",
+  "confidence": 0.99,
+  "reasoning": "The unit step function u[n] is 1 for n \u2265 0 and 0 for n < 0, so the product a^n * u[n] * z^(-n) is zero for n < 0. Thus, the summation can be safely changed from (-\u221e, \u221e) to (0, \u221e) without altering the value, which is a valid step.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The unit step function u[n] is 1 for n \u2265 0 and 0 for n < 0, so the product a^n * u[n] * z^(-n) is zero for n < 0. Thus, the summation can be safely changed from (-\u221e, \u221e) to (0, \u221e) without altering the value, which is a valid step.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

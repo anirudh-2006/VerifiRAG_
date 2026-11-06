@@ -1,0 +1,71 @@
+{
+  "id": "Q24",
+  "question": "For a causal LTI system with impulse response h(t) = exp(-a*t)*u(t), a > 0, give the transfer function H(s) and its region of convergence.",
+  "expected_final": "transform: 1/(s + a); roc: re(s) > -a",
+  "generated_final": "1/(s + a), Re(s) > -a",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the definition of the Laplace transform of the impulse response",
+      "expression_given": "integrate(h(t) * exp(-s*t), (t, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Bilateral Laplace definition; acceptable starting point since u(t) will restrict support to t≥0."
+    },
+    {
+      "step_number": 2,
+      "description": "Substitute the given impulse response h(t) = exp(-a*t)*u(t)",
+      "expression_given": "integrate(exp(-a*t) * u(t) * exp(-s*t), (t, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Direct substitution of h(t)."
+    },
+    {
+      "step_number": 3,
+      "description": "Use the property of the unit step function to change integration limits",
+      "expression_given": "integrate(exp(-a*t) * exp(-s*t), (t, 0, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "u(t) truncates the lower limit to 0 and drops out of the integrand."
+    },
+    {
+      "step_number": 4,
+      "description": "Combine exponential terms in the integrand",
+      "expression_given": "integrate(exp(-(s + a)*t), (t, 0, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "exp(−at)·exp(−st) = exp(−(s+a)t)."
+    },
+    {
+      "step_number": 5,
+      "description": "Evaluate the improper integral",
+      "expression_given": "1 / (s + a)",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "∫₀^∞ exp(−(s+a)t) dt = 1/(s+a) for Re(s+a) > 0."
+    },
+    {
+      "step_number": 6,
+      "description": "Determine the region of convergence by ensuring convergence of the integral",
+      "expression_given": "Re(s) > -a",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Convergence condition Re(s+a) > 0 ⇔ Re(s) > −a."
+    }
+  ]
+}

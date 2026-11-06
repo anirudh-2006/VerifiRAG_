@@ -1,0 +1,51 @@
+% ============================================================================
+% FACET MAPPING --- compressed 2026-08-29 from a bulleted list to two
+% sentences of running prose, for page fit. Facet numbers 01 and 07 stay named
+% explicitly: that is the venue-targeting signal and must not be lost.
+%
+% Facet numbers and their open questions are the workshop's; re-verify against
+% judge2026.github.io before submission. The "Their open question" quotations
+% were cut in the same pass; the questions themselves are the workshop's own
+% text and are recoverable from their call.
+%
+% ALSO CUT in this pass, as a DUPLICATE and not a lost number: "The symbolic
+% verifier commits zero FAIL verdicts across all 24 negatives, so its covered
+% FPR on that same family is 0.0." sections/protocol.tex already states the
+% identical fact with a finer breakdown (20 PASS, 4 abstains, no FAIL over the
+% 24 negatives). No figure leaves the paper.
+%
+% Facet 05 was cut 2026-08-29; see paper-judge/CLAUDE.md for the record.
+%
+% PROVENANCE OF EVERY NUMBER BELOW. Re-derived 2026-08-29 directly from the
+% frozen per-trial records, independently of any builder script's summary:
+%   claude 6 FP over 24 negatives; equivalent FAIL=4 PASS=4 ABS=2 -> 4/8;
+%     control FAIL=2 PASS=11 ABS=1 -> 2/13
+%   gpt-oss 0 FP; equivalent 0/10, control 0/14
+%     -> results/error_injection_report_{claude,with_judge}.json, trials[]
+%   3 of claude's 4 failed rewrites flip against their own control; gpt-oss 0
+%     -> same files, equivalent trials joined to the control at the same
+%        (gold_id, step_index); reproduced in Table~\ref{tab:flip}
+%   kappa 0.306, 87.8% raw concordance, n=181 both-committed
+%     -> recomputed from results/judge_step_verdicts.json and
+%        judge_step_verdicts_claude.json against results/label_templates/Q*.json;
+%        po=0.878453 pe=0.824853 kappa=0.306030. NOT read from
+%        judge_agreement.json. HUMAN-LABELED set, not the injection suite.
+%   13 human errors: both 4, claude alone 6, gpt-oss alone 2, neither 1
+%     -> same recomputation; sums to 13.
+%
+% Do not write "LLM judges fail equivalence-preserving rewrites": one judge of
+% two does, and the other's apparent instances dissolved once the gold1
+% fixture defect was repaired.
+% ============================================================================
+
+\paragraph{Mapping onto the workshop's failure facets.}
+On facet 01, surface versus semantic sensitivity, the injection false positives
+fall on one judge: \texttt{claude-sonnet-4-5} commits $6$, four on
+equivalence-preserving rewrites (covered FPR $4/8$) and two on byte-identical
+\texttt{no\_op} controls ($2/13$), with three of its four failed rewrites
+flipping against their own control, while \texttt{gpt-oss-120b} commits $0$
+($0/10$ equivalent, $0/14$ control) and flips on none. On facet 07, inter-judge
+consistency, the two judges reach Cohen's $\kappa = 0.306$ at $87.8\%$ raw
+concordance, and of the 13 human-labeled errors both catch 4,
+\texttt{claude-sonnet-4-5} alone 6, \texttt{gpt-oss-120b} alone 2, and 1
+neither.

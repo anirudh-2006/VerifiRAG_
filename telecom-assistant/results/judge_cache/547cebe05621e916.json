@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "omega0 = 2*pi/T0",
+  "operation": "Use omega0 = 2*pi/T0 to substitute angular frequency",
+  "confidence": 0.95,
+  "reasoning": "The definition omega0 = 2*pi/T0 is the standard relationship between angular frequency and period for Fourier series. This is a valid definitional substitution that will be used to simplify subsequent expressions.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The definition omega0 = 2*pi/T0 is the standard relationship between angular frequency and period for Fourier series. This is a valid definitional substitution that will be used to simplify subsequent expressions.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

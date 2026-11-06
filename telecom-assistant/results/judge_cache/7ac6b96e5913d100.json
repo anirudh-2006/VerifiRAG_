@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Start with the definition of the Fourier transform of a signal x(t)",
+  "confidence": 1.0,
+  "reasoning": "The expression correctly states the standard definition of the Fourier transform of a signal x(t), which is the appropriate starting point for deriving the time shifting property.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The expression correctly states the standard definition of the Fourier transform of a signal x(t), which is the appropriate starting point for deriving the time shifting property.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(((1/2)**n * u[n]) * z**(-n), (n, -oo, oo))",
+  "operation": "Substitute h[n] = (1/2)^n * u[n] into the sum",
+  "confidence": 1.0,
+  "reasoning": "The substitution of h[n] = (1/2)^n * u[n] into the Z-transform definition Sum(h[n] * z^(-n), (n, -\u221e, \u221e)) is a direct and valid substitution that correctly produces the expression Sum(((1/2)^n * u[n]) * z^(-n), (n, -\u221e, \u221e)).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The substitution of h[n] = (1/2)^n * u[n] into the Z-transform definition Sum(h[n] * z^(-n), (n, -\u221e, \u221e)) is a direct and valid substitution that correctly produces the expression Sum(((1/2)^n * u[n]) * z^(-n), (n, -\u221e, \u221e)).\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

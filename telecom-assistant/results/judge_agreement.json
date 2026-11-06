@@ -1,0 +1,145 @@
+{
+  "coding": "binary correct/error on committed verdicts; abstain excluded",
+  "n_steps": 191,
+  "n_human_errors": 13,
+  "agreement": {
+    "gpt-oss vs claude": {
+      "name": "gpt-oss vs claude",
+      "n": 181,
+      "pct_agreement": 0.8784530386740331,
+      "kappa": 0.30602997560125494,
+      "landis_koch": "fair",
+      "confusion": {
+        "correct|correct": 153,
+        "correct|error": 20,
+        "error|correct": 2,
+        "error|error": 6
+      }
+    },
+    "gpt-oss vs human": {
+      "name": "gpt-oss vs human",
+      "n": 190,
+      "pct_agreement": 0.9526315789473684,
+      "kappa": 0.5468998410174877,
+      "landis_koch": "moderate",
+      "confusion": {
+        "correct|correct": 175,
+        "correct|error": 6,
+        "error|correct": 3,
+        "error|error": 6
+      }
+    },
+    "claude vs human": {
+      "name": "claude vs human",
+      "n": 182,
+      "pct_agreement": 0.8956043956043956,
+      "kappa": 0.46387596899224853,
+      "landis_koch": "moderate",
+      "confusion": {
+        "correct|correct": 153,
+        "correct|error": 2,
+        "error|correct": 17,
+        "error|error": 10
+      }
+    }
+  },
+  "error_catch_overlap": {
+    "both": 4,
+    "gpt-oss_only": 2,
+    "claude_only": 6,
+    "neither": 1,
+    "per_error": [
+      {
+        "id": "Q03.1",
+        "error_type": "definition",
+        "gpt-oss": "passed",
+        "claude": "failed",
+        "catch": "claude_only"
+      },
+      {
+        "id": "Q09.1",
+        "error_type": "definition",
+        "gpt-oss": "abstain",
+        "claude": "failed",
+        "catch": "claude_only"
+      },
+      {
+        "id": "Q09.3",
+        "error_type": "algebra",
+        "gpt-oss": "failed",
+        "claude": "failed",
+        "catch": "both"
+      },
+      {
+        "id": "Q09.4",
+        "error_type": "algebra",
+        "gpt-oss": "failed",
+        "claude": "unparseable",
+        "catch": "gpt-oss_only"
+      },
+      {
+        "id": "Q09.6",
+        "error_type": "algebra",
+        "gpt-oss": "passed",
+        "claude": "failed",
+        "catch": "claude_only"
+      },
+      {
+        "id": "Q09.7",
+        "error_type": "missing_term",
+        "gpt-oss": "failed",
+        "claude": "failed",
+        "catch": "both"
+      },
+      {
+        "id": "Q09.11",
+        "error_type": "definition",
+        "gpt-oss": "passed",
+        "claude": "failed",
+        "catch": "claude_only"
+      },
+      {
+        "id": "Q10.1",
+        "error_type": "definition",
+        "gpt-oss": "passed",
+        "claude": "failed",
+        "catch": "claude_only"
+      },
+      {
+        "id": "Q16.2",
+        "error_type": "missing_term",
+        "gpt-oss": "passed",
+        "claude": "failed",
+        "catch": "claude_only"
+      },
+      {
+        "id": "Q22.5",
+        "error_type": "missing_term",
+        "gpt-oss": "failed",
+        "claude": "passed",
+        "catch": "gpt-oss_only"
+      },
+      {
+        "id": "Q22.7",
+        "error_type": "missing_term",
+        "gpt-oss": "passed",
+        "claude": "passed",
+        "catch": "neither"
+      },
+      {
+        "id": "Q22.8",
+        "error_type": "missing_term",
+        "gpt-oss": "failed",
+        "claude": "failed",
+        "catch": "both"
+      },
+      {
+        "id": "Q22.9",
+        "error_type": "missing_term",
+        "gpt-oss": "failed",
+        "claude": "failed",
+        "catch": "both"
+      }
+    ]
+  }
+}

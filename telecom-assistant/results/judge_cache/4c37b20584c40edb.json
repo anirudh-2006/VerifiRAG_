@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "Y(s)/X(s)",
+  "operation": "Divide both sides by (s + a)",
+  "confidence": 0.95,
+  "reasoning": "Dividing both sides of Y(s)*(s + a) = X(s) by (s + a) yields Y(s) = X(s)/(s + a), so the transfer function H(s) = Y(s)/X(s) = 1/(s + a), not Y(s)/X(s). The operation described does not produce the expression shown.",
+  "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"Dividing both sides of Y(s)*(s + a) = X(s) by (s + a) yields Y(s) = X(s)/(s + a), so the transfer function H(s) = Y(s)/X(s) = 1/(s + a), not Y(s)/X(s). The operation described does not produce the expression shown.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

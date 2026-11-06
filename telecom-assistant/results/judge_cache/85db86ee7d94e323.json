@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-(s+2)*t) * u(t), (t, -oo, oo))",
+  "operation": "Simplify the exponential terms in the integrand",
+  "confidence": 0.99,
+  "reasoning": "The exponential terms exp(-2*t) and exp(-s*t) are correctly combined into exp(-(s+2)*t) using the property exp(a)*exp(b) = exp(a+b). The rest of the integrand and limits remain unchanged, so the step is valid.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The exponential terms exp(-2*t) and exp(-s*t) are correctly combined into exp(-(s+2)*t) using the property exp(a)*exp(b) = exp(a+b). The rest of the integrand and limits remain unchanged, so the step is valid.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

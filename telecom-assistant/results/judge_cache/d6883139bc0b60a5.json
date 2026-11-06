@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X_z = Sum(x_n * r**(-n) * exp(-I*omega*n), (n, -oo, oo))",
+  "operation": "Simplify the exponent in the expression",
+  "confidence": 1.0,
+  "reasoning": "The simplification correctly applies the power rule (r * exp(I*omega))**(-n) = r**(-n) * exp(-I*omega*n), distributing the exponent -n to both the magnitude r and the exponential term.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The simplification correctly applies the power rule (r * exp(I*omega))**(-n) = r**(-n) * exp(-I*omega*n), distributing the exponent -n to both the magnitude r and the exponential term.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

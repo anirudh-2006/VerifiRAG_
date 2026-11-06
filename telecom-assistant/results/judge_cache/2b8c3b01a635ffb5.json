@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(exp(-I*omega) - exp(I*omega)) / (-I*omega)",
+  "operation": "Factor out common terms in the expression",
+  "confidence": 0.99,
+  "reasoning": "The previous expression was exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega); factoring the common denominator -I*omega yields (exp(-I*omega) - exp(I*omega))/(-I*omega), which matches the current step.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression was exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega); factoring the common denominator -I*omega yields (exp(-I*omega) - exp(I*omega))/(-I*omega), which matches the current step.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

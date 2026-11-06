@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "X = integrate(x * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Define the Fourier transform of a signal x(t)",
+  "confidence": 0.85,
+  "reasoning": "The Fourier transform definition has incorrect variable usage: it should integrate x(t) (not just x) with respect to t, and the result should be a function of omega, typically written as X(omega). The expression mixes x as both a function value and the variable of integration.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.85,\n  \"reasoning\": \"The Fourier transform definition has incorrect variable usage: it should integrate x(t) (not just x) with respect to t, and the result should be a function of omega, typically written as X(omega). The expression mixes x as both a function value and the variable of integration.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

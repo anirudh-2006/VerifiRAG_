@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-s*t), (t, 0, oo))",
+  "operation": "Since u(t) = 1 for t >= 0, replace u(t) with 1 in the integral",
+  "confidence": 1.0,
+  "reasoning": "The unit step function u(t) equals 1 for t \u2265 0, and since the integration domain is [0, \u221e), replacing u(t) with 1 inside the integral is mathematically correct.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The unit step function u(t) equals 1 for t \u2265 0, and since the integration domain is [0, \u221e), replacing u(t) with 1 inside the integral is mathematically correct.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

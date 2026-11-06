@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(-I*omega*0)",
+  "operation": "Apply the sifting property of the Dirac delta function: integral of delta(t)*f(t) is f(0)",
+  "confidence": 0.95,
+  "reasoning": "The sifting property of the Dirac delta function states that \u222b\u03b4(t)f(t)dt = f(0). Here, f(t) = exp(-I*omega*t), so f(0) = exp(-I*omega*0) = exp(0) = 1. The application is correct.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The sifting property of the Dirac delta function states that \u222b\u03b4(t)f(t)dt = f(0). Here, f(t) = exp(-I*omega*t), so f(0) = exp(-I*omega*0) = exp(0) = 1. The application is correct.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

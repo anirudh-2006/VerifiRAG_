@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Write the definition of the Fourier transform",
+  "confidence": 0.99,
+  "reasoning": "The step correctly writes the Fourier transform as the integral of x(t)\u00b7e^{-i\u03c9t} over all t, which follows directly from the definition.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly writes the Fourier transform as the integral of x(t)\u00b7e^{-i\u03c9t} over all t, which follows directly from the definition.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

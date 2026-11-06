@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1 / (s+2)",
+  "operation": "Analyze convergence: the exponential term vanishes as T approaches infinity if Re(s) > -2",
+  "confidence": 0.98,
+  "reasoning": "Taking the limit of (1 - exp(-(s+2)T))/(s+2) as T\u2192\u221e yields 1/(s+2) provided Re(s+2)>0 (i.e., Re(s)>-2), which is correctly stated.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Taking the limit of (1 - exp(-(s+2)T))/(s+2) as T\u2192\u221e yields 1/(s+2) provided Re(s+2)>0 (i.e., Re(s)>-2), which is correctly stated.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

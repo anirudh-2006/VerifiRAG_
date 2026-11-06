@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(u(t) * exp(-s*t), (t, 0, oo))",
+  "operation": "Write the definition of the Laplace transform for x(t) = u(t)",
+  "confidence": 0.99,
+  "reasoning": "The step correctly writes the Laplace transform definition for the unit step as the integral \u222b\u2080^\u221e u(t) e^{-st} dt, which is the appropriate first step.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly writes the Laplace transform definition for the unit step as the integral \u222b\u2080^\u221e u(t) e^{-st} dt, which is the appropriate first step.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

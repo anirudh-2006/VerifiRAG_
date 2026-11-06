@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(1/T) * (A * T/2 - A * T/2)",
+  "operation": "Simplify the expression using T - T/2 = T/2",
+  "confidence": 0.99,
+  "reasoning": "Replacing (T - T/2) with T/2 in the previous expression correctly yields (1/T)*(A*T/2 - A*T/2). The simplification is mathematically valid.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Replacing (T - T/2) with T/2 in the previous expression correctly yields (1/T)*(A*T/2 - A*T/2). The simplification is mathematically valid.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

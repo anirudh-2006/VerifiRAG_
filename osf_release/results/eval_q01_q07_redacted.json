@@ -1,0 +1,585 @@
+{
+  "schema_version": 2,
+  "run": {
+    "metadata": {
+      "collected_at_utc": "2026-04-20T06:40:16.963291+00:00",
+      "hostname": "REDACTED",
+      "platform": "macOS-26.3.1-arm64-arm-64bit",
+      "python_version": "3.9.6",
+      "python_executable": "REDACTED",
+      "cwd": "REDACTED",
+      "project_root": "REDACTED",
+      "git": {
+        "present": true,
+        "root": "<REDACTED-PATH>",
+        "commit": "db4f2e17dc6aa16815fe7bfb6dbc9d0decbc63e7",
+        "branch": "cdg",
+        "dirty": true
+      },
+      "packages": {
+        "sympy": "1.14.0",
+        "chromadb": "1.5.5",
+        "langchain-core": "0.3.83",
+        "langchain-openai": "0.3.35",
+        "langchain-huggingface": "0.3.1",
+        "langchain-chroma": "0.2.6",
+        "langchain-community": "0.3.31",
+        "langchain-text-splitters": "0.3.11",
+        "pypdf": "6.9.2",
+        "streamlit": "1.50.0",
+        "sentence-transformers": "5.1.2"
+      },
+      "fingerprints": {
+        "pdfs": {
+          "pdf_dir": "<REDACTED-PATH>",
+          "exists": true,
+          "files": [
+            {
+              "name": "MIT_PDF_SET_1.pdf",
+              "bytes": 783976,
+              "mtime_epoch": 1775128231,
+              "sha256": "1f27ad1feca35db97c92ba2cc34471fc7dfb6e03305f36acbf8a8ebef298cbbd"
+            },
+            {
+              "name": "MIT_PDF_SET_10.pdf",
+              "bytes": 446604,
+              "mtime_epoch": 1775456063,
+              "sha256": "49d2a9f044406be7918e24b62be784a780a8ae1a012f20b1e4d0573c5660da0c"
+            },
+            {
+              "name": "MIT_PDF_SET_11.pdf",
+              "bytes": 434429,
+              "mtime_epoch": 1775456071,
+              "sha256": "d5572dd1e1079ca017e09d0d4ca0c91a8fbfdfde97ff91cc1033d46c4114084d"
+            },
+            {
+              "name": "MIT_PDF_SET_12.pdf",
+              "bytes": 579790,
+              "mtime_epoch": 1775456078,
+              "sha256": "679f5b1abdb590a1503d35558a75f46148ef91d6d2a1ef1c687280cc468e7b8d"
+            },
+            {
+              "name": "MIT_PDF_SET_13.pdf",
+              "bytes": 418108,
+              "mtime_epoch": 1775456085,
+              "sha256": "fd5449403a520c15be5558dd9c2ab69a311d02a874884239a97068cab40cb6aa"
+            },
+            {
+              "name": "MIT_PDF_SET_14.pdf",
+              "bytes": 404394,
+              "mtime_epoch": 1775456181,
+              "sha256": "15e7fd4fc7303bff2bcebe30654be9f5263c45680959a0957329088f7e0b179b"
+            },
+            {
+              "name": "MIT_PDF_SET_15.pdf",
+              "bytes": 438665,
+              "mtime_epoch": 1775456188,
+              "sha256": "33ab5136fde42b5e682a10047399327657e66b8652cd02503d48a1b5e3e3440a"
+            },
+            {
+              "name": "MIT_PDF_SET_16.pdf",
+              "bytes": 438665,
+              "mtime_epoch": 1775456194,
+              "sha256": "33ab5136fde42b5e682a10047399327657e66b8652cd02503d48a1b5e3e3440a"
+            },
+            {
+              "name": "MIT_PDF_SET_17.pdf",
+              "bytes": 411999,
+              "mtime_epoch": 1775456201,
+              "sha256": "dc26b4680a2393d0aa7b8488492781d3da205fdc7eefac03f1106bc68e12c9c8"
+            },
+            {
+              "name": "MIT_PDF_SET_18.pdf",
+              "bytes": 380075,
+              "mtime_epoch": 1775456208,
+              "sha256": "5743fee67ede5de4ebef2eb327c00a94b4301c8e2bd0eb83781e9ab641a775a5"
+            },
+            {
+              "name": "MIT_PDF_SET_19.pdf",
+              "bytes": 1026449,
+              "mtime_epoch": 1775456219,
+              "sha256": "f32eb5d0e34364a5871165af084eaa3e65ea53dd897b664ea765a4b6a7ae9fc4"
+            },
+            {
+              "name": "MIT_PDF_SET_2.pdf",
+              "bytes": 844471,
+              "mtime_epoch": 1775128415,
+              "sha256": "35f711ca71c854aa4a99ad6fa01c422187d217028d83c7eb9d1cdd084c447350"
+            },
+            {
+              "name": "MIT_PDF_SET_20.pdf",
+              "bytes": 395220,
+              "mtime_epoch": 1775456225,
+              "sha256": "7b37936dd45fe61515e48609fb3274198f38f4d85af69efdd120ad25afbd98ac"
+            },
+            {
+              "name": "MIT_PDF_SET_21.pdf",
+              "bytes": 452984,
+              "mtime_epoch": 1775456231,
+              "sha256": "e8e914c397fcae83bf84ea28dc865e9f80622db971888f30e7143b7406029539"
+            },
+            {
+              "name": "MIT_PDF_SET_22.pdf",
+              "bytes": 476866,
+              "mtime_epoch": 1775456236,
+              "sha256": "7d638f4bfa95fe1b9b93fdb9dcb44fc8406ea172b098192b25cc55b9273e0ded"
+            },
+            {
+              "name": "MIT_PDF_SET_3.pdf",
+              "bytes": 568437,
+              "mtime_epoch": 1775249611,
+              "sha256": "02f5f937f2ec7b91510aa6b086a42847a2dc683cb59bd12dff62e770bd2e5127"
+            },
+            {
+              "name": "MIT_PDF_SET_4.pdf",
+              "bytes": 949727,
+              "mtime_epoch": 1775249662,
+              "sha256": "0dde9b9717bb14eee7303625beafc854ecb5cd7d761d3aa339262b1a0141dd6c"
+            },
+            {
+              "name": "MIT_PDF_SET_5.pdf",
+              "bytes": 507387,
+              "mtime_epoch": 1775249849,
+              "sha256": "07b5b6371ae0b54648546b273e8ed8403794a604b5dee26d85dc6ad316f78745"
+            },
+            {
+              "name": "MIT_PDF_SET_6.pdf",
+              "bytes": 783976,
+              "mtime_epoch": 1775249947,
+              "sha256": "1f27ad1feca35db97c92ba2cc34471fc7dfb6e03305f36acbf8a8ebef298cbbd"
+            },
+            {
+              "name": "MIT_PDF_SET_7.pdf",
+              "bytes": 1065985,
+              "mtime_epoch": 1775250000,
+              "sha256": "5a47942ec0c22b15c9561a6776364bfb38262fa59f42ebded54c149d29ab822d"
+            },
+            {
+              "name": "MIT_PDF_SET_8.pdf",
+              "bytes": 446095,
+              "mtime_epoch": 1775455957,
+              "sha256": "5ad3ebaba12447f7da1980db214f96d2793d393b6ba6de3cf22194fd871fc65d"
+            },
+            {
+              "name": "MIT_PDF_SET_9.pdf",
+              "bytes": 507602,
+              "mtime_epoch": 1775456031,
+              "sha256": "9b9efd5a3b7a15a4a6b263a49b622b2ca6d7384efeb57c17dd51adc52199ce25"
+            }
+          ]
+        },
+        "vectorstore": {
+          "vectorstore_dir": "<REDACTED-PATH>",
+          "chroma_sqlite_exists": true,
+          "chroma_sqlite_sha256": "3efc3b7090f96ec6ffba76e9dd52eaf5bf7c9b5cd9e40b17d0c34f7677676b65",
+          "uuid_subdirs": [
+            "edca95bd-68d6-4350-b389-9204a88d26d6"
+          ]
+        }
+      },
+      "started_at_utc": "2026-04-20T06:40:16.963291+00:00",
+      "last_updated_at_utc": "2026-04-20T06:47:42.002823+00:00"
+    },
+    "config": {
+      "config_name": "grader-study-default",
+      "config_version": 1,
+      "embedding": {
+        "model": "sentence-transformers/all-MiniLM-L6-v2",
+        "langchain_hf_model_name": "all-MiniLM-L6-v2"
+      },
+      "ingest": {
+        "pdf_dir": "data/pdfs",
+        "vectorstore_dir": "vectorstore",
+        "chunk_size": 800,
+        "chunk_overlap": 100
+      },
+      "retrieval": {
+        "plain_similarity_k": 4,
+        "graph_prerequisite_keyword_k": 2,
+        "graph_prerequisite_depth": 2
+      },
+      "llm": {
+        "provider": "openai_compatible",
+        "api_base_url": "https://api.cerebras.ai/v1",
+        "chat_model": "qwen-3-235b-a22b-instruct-2507",
+        "temperature": 0,
+        "max_tokens_structured": 2500,
+        "max_tokens_chat_chain": 1500
+      },
+      "evaluation": {
+        "verifier_fast_mode": true,
+        "structured_output_max_attempts": 3,
+        "sleep_between_queries_s": 45
+      },
+      "randomness": {
+        "note": "LLM calls use temperature=0; no global RNG seed is set for the evaluator yet.",
+        "seed": null
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "Q01",
+      "question": "Derive the Fourier transform of a rectangular pulse signal.",
+      "difficulty": "intermediate",
+      "timestamp": "2026-04-20T12:10:28.142784",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.15,
+        "chunk_sources": [
+          "MIT_PDF_SET_4.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 9,
+        "retrieval_time_s": 0.02,
+        "matched_concepts": [
+          "fourier_transform"
+        ],
+        "prerequisites_added": [
+          "differential_equations",
+          "fourier_series",
+          "complex_numbers"
+        ],
+        "extra_chunks": 5,
+        "chunk_sources": [
+          "MIT_PDF_SET_3.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_8.pdf",
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_7.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 7,
+        "answer_time_s": 7.83,
+        "final_result": "2*sin(omega)/omega",
+        "expected_result": "2*sin(omega)/omega",
+        "metrics": {
+          "parse_rate_pct": 85.7,
+          "parsed_count": 6,
+          "total_steps": 7,
+          "checked_total": 5,
+          "checked_passed": 4,
+          "checked_failed": 0,
+          "equiv_rate_pct": 80.0,
+          "final_answer_match": {
+            "status": "match",
+            "generated": "2*sin(omega)/omega",
+            "expected": "2*sin(omega)/omega",
+            "generated_parsed": "2*sin(omega)/omega",
+            "expected_parsed": "2*sin(omega)/omega"
+          },
+          "category_counts": {
+            "first_step": 1,
+            "parse_fail": 1,
+            "unclear": 1,
+            "passed": 4
+          },
+          "legacy_pass_rate_pct": 71.4
+        },
+        "verification": {
+          "passed": 5,
+          "failed": 0,
+          "unclear": 2,
+          "total": 7,
+          "pass_rate_pct": 71.4,
+          "time_s": 0.16,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Define the rectangular pulse function in time domain",
+              "expression_given": "Piecewise((1, Abs(t) <= 1), (0, True))",
+              "expression_parsed": "Piecewise((1, Abs(t) <= 1), (0, True))",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "Write the Fourier transform integral of the signal",
+              "expression_given": "integrate(exp(-I*omega*t), (t, -1, 1))",
+              "expression_parsed": "Piecewise((-I*exp(I*omega)/omega + I*exp(-I*omega)/omega, Ne(omega, 0)), (2, True))",
+              "previous_parsed": "Piecewise((1, Abs(t) <= 1), (0, True))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 2 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Compute the integral of the complex exponential",
+              "expression_given": "(exp(-I*omega*t)/(-I*omega)) | (t=1) - (exp(-I*omega*t)/(-I*omega)) | (t=-1)",
+              "expression_parsed": null,
+              "previous_parsed": "Piecewise((-I*exp(I*omega)/omega + I*exp(-I*omega)/omega, Ne(omega, 0)), (2, True))",
+              "equivalence_checked": false,
+              "is_valid": null,
+              "category": "parse_fail",
+              "error_message": "Could not parse \u2014 review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Evaluate the expression at the limits",
+              "expression_given": "exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega)",
+              "expression_parsed": "-I*exp(I*omega)/omega + I*exp(-I*omega)/omega",
+              "previous_parsed": "Piecewise((-I*exp(I*omega)/omega + I*exp(-I*omega)/omega, Ne(omega, 0)), (2, True))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 5,
+              "description": "Factor out common terms in the expression",
+              "expression_given": "(exp(-I*omega) - exp(I*omega)) / (-I*omega)",
+              "expression_parsed": "I*(-exp(I*omega) + exp(-I*omega))/omega",
+              "previous_parsed": "-I*exp(I*omega)/omega + I*exp(-I*omega)/omega",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 6,
+              "description": "Use the identity for sine: sin(omega) = (exp(I*omega) - exp(-I*omega))/(2*I)",
+              "expression_given": "-(2*I*sin(omega))/(-I*omega)",
+              "expression_parsed": "2*sin(omega)/omega",
+              "previous_parsed": "I*(-exp(I*omega) + exp(-I*omega))/omega",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 7,
+              "description": "Simplify the imaginary unit in numerator and denominator",
+              "expression_given": "2*sin(omega)/omega",
+              "expression_parsed": "2*sin(omega)/omega",
+              "previous_parsed": "2*sin(omega)/omega",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "Q07",
+      "question": "Derive the frequency response of a discrete time system.",
+      "difficulty": "advanced",
+      "timestamp": "2026-04-20T12:15:19.548191",
+      "system_a": {
+        "chunks_retrieved": 4,
+        "retrieval_time_s": 0.02,
+        "chunk_sources": [
+          "MIT_PDF_SET_5.pdf"
+        ]
+      },
+      "system_b": {
+        "chunks_retrieved": 15,
+        "retrieval_time_s": 0.03,
+        "matched_concepts": [
+          "z_transform",
+          "frequency_response"
+        ],
+        "prerequisites_added": [
+          "laplace_transform",
+          "differential_equations",
+          "fourier_transform",
+          "sampling_theorem",
+          "complex_numbers",
+          "z_transform",
+          "fourier_series"
+        ],
+        "extra_chunks": 11,
+        "chunk_sources": [
+          "MIT_PDF_SET_3.pdf",
+          "MIT_PDF_SET_4.pdf",
+          "MIT_PDF_SET_8.pdf",
+          "MIT_PDF_SET_5.pdf",
+          "MIT_PDF_SET_10.pdf",
+          "MIT_PDF_SET_7.pdf",
+          "MIT_PDF_SET_20.pdf"
+        ]
+      },
+      "pipeline": {
+        "steps_generated": 12,
+        "answer_time_s": 1.92,
+        "final_result": "H(exp(I*Omega))",
+        "expected_result": "H(e^jw)",
+        "metrics": {
+          "parse_rate_pct": 91.7,
+          "parsed_count": 11,
+          "total_steps": 12,
+          "checked_total": 10,
+          "checked_passed": 1,
+          "checked_failed": 0,
+          "equiv_rate_pct": 10.0,
+          "final_answer_match": {
+            "status": "mismatch",
+            "generated": "H(exp(I*Omega))",
+            "expected": "H(e^jw)",
+            "generated_parsed": "H*exp(I*Omega)",
+            "expected_parsed": "H*e**I*w"
+          },
+          "category_counts": {
+            "first_step": 1,
+            "parse_fail": 1,
+            "unclear": 9,
+            "passed": 1
+          },
+          "legacy_pass_rate_pct": 16.7
+        },
+        "verification": {
+          "passed": 2,
+          "failed": 0,
+          "unclear": 10,
+          "total": 12,
+          "pass_rate_pct": 16.7,
+          "time_s": 0.17,
+          "errors_found": [],
+          "per_step": [
+            {
+              "step_number": 1,
+              "description": "Start with a linear time-invariant discrete-time system described by its impulse response h[n]",
+              "expression_given": "h[n]",
+              "expression_parsed": "h_n",
+              "previous_parsed": null,
+              "equivalence_checked": false,
+              "is_valid": true,
+              "category": "first_step",
+              "error_message": "First step"
+            },
+            {
+              "step_number": 2,
+              "description": "The output y[n] is the convolution of input x[n] and impulse response h[n]",
+              "expression_given": "Sum(h[k] * x[n - k], (k, -oo, oo))",
+              "expression_parsed": null,
+              "previous_parsed": "h_n",
+              "equivalence_checked": false,
+              "is_valid": null,
+              "category": "parse_fail",
+              "error_message": "Could not parse \u2014 review manually"
+            },
+            {
+              "step_number": 3,
+              "description": "Assume the input is a complex exponential x[n] = exp(I*Omega*n)",
+              "expression_given": "exp(I*Omega*n)",
+              "expression_parsed": "exp(I*Omega*n)",
+              "previous_parsed": "h_n",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 3 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 4,
+              "description": "Substitute the input into the convolution sum",
+              "expression_given": "Sum(h[k] * exp(I*Omega*(n - k)), (k, -oo, oo))",
+              "expression_parsed": "Sum(h_k*exp(I*Omega*(-k + n)), (k, -oo, oo))",
+              "previous_parsed": "exp(I*Omega*n)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 4 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 5,
+              "description": "Factor out the term that does not depend on k",
+              "expression_given": "exp(I*Omega*n) * Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo))",
+              "expression_parsed": "exp(I*Omega*n)*Sum(h_k*exp(-I*Omega*k), (k, -oo, oo))",
+              "previous_parsed": "Sum(h_k*exp(I*Omega*(-k + n)), (k, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": true,
+              "category": "passed",
+              "error_message": ""
+            },
+            {
+              "step_number": 6,
+              "description": "Recognize that the sum is the definition of the discrete-time Fourier transform of h[n]",
+              "expression_given": "Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo))",
+              "expression_parsed": "Sum(h_k*exp(-I*Omega*k), (k, -oo, oo))",
+              "previous_parsed": "exp(I*Omega*n)*Sum(h_k*exp(-I*Omega*k), (k, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 6 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 7,
+              "description": "Define the frequency response H(Omega) as the DTFT of h[n]",
+              "expression_given": "H(Omega)",
+              "expression_parsed": "H*Omega",
+              "previous_parsed": "Sum(h_k*exp(-I*Omega*k), (k, -oo, oo))",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 7 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 8,
+              "description": "Write the output in terms of the input and frequency response",
+              "expression_given": "H(Omega) * exp(I*Omega*n)",
+              "expression_parsed": "H*Omega*exp(I*Omega*n)",
+              "previous_parsed": "H*Omega",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 8 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 9,
+              "description": "Express H(Omega) as the z-transform of h[n] evaluated on the unit circle",
+              "expression_given": "H(z).subs(z, exp(I*Omega))",
+              "expression_parsed": "H*exp(I*Omega)",
+              "previous_parsed": "H*Omega*exp(I*Omega*n)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 9 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 10,
+              "description": "If the system is described by a difference equation, take the z-transform of both sides",
+              "expression_given": "Y(z) / X(z)",
+              "expression_parsed": "Y*z**2/X",
+              "previous_parsed": "H*exp(I*Omega)",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 10 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 11,
+              "description": "Solve for the transfer function H(z) = Y(z)/X(z)",
+              "expression_given": "H(z)",
+              "expression_parsed": "H*z",
+              "previous_parsed": "Y*z**2/X",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 11 \u2014 fast mode, review manually"
+            },
+            {
+              "step_number": 12,
+              "description": "Evaluate the transfer function on the unit circle to get frequency response",
+              "expression_given": "H(exp(I*Omega))",
+              "expression_parsed": "H*exp(I*Omega)",
+              "previous_parsed": "H*z",
+              "equivalence_checked": true,
+              "is_valid": null,
+              "category": "unclear",
+              "error_message": "Could not verify step 12 \u2014 fast mode, review manually"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "note": "Paths/identity scrubbed for anonymous release."
+}

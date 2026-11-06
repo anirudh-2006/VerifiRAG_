@@ -1,0 +1,32 @@
+# OS
+.DS_Store
+**/.DS_Store
+
+# Cursor / IDE
+.cursor/
+.claude/
+
+# Agent instruction files (contain repo name, identity, internal strategy)
+CLAUDE.md
+**/CLAUDE.md
+PAPER_CONTEXT_FOR_CLAUDE.md
+VENUE_STRATEGY_FOR_CLAUDE.md
+**/MATHNLP_SUBMISSION_PLAN.txt
+
+# Secrets
+.env
+**/.env
+
+# Local scratch / exports (not research artifacts)
+exports/
+scripts/export_cursor_agent_transcripts.py
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Build artifacts
+*.zip
+**/main.pdf

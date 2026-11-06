@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "z / (z - a)",
+  "operation": "Multiply numerator and denominator by z to simplify",
+  "confidence": 0.99,
+  "reasoning": "Multiplying numerator and denominator of 1/(1 - a*z^{-1}) by z gives 1 * z / (z - a) = z/(z - a), which matches the current expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying numerator and denominator of 1/(1 - a*z^{-1}) by z gives 1 * z / (z - a) = z/(z - a), which matches the current expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

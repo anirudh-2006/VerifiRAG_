@@ -1,0 +1,71 @@
+{
+  "id": "Q06",
+  "question": "What is the time shifting property of the Fourier transform?",
+  "expected_final": "exp(-jw*t0)*X(jw)",
+  "generated_final": "exp(-I*omega*t0) * X(I*omega)",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the definition of the Fourier transform of a signal x(t)",
+      "expression_given": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard FT definition. Correct."
+    },
+    {
+      "step_number": 2,
+      "description": "Consider the time-shifted signal x(t - t0)",
+      "expression_given": "integrate(x(t - t0) * exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correctly sets up the FT of the shifted signal x(t - t0)."
+    },
+    {
+      "step_number": 3,
+      "description": "Substitute variable: let u = t - t0, so t = u + t0 and dt = du",
+      "expression_given": "integrate(x(u) * exp(-I*omega*(u + t0)), (u, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct substitution. Limits unchanged since shift is finite."
+    },
+    {
+      "step_number": 4,
+      "description": "Factor the exponential: exp(-I*omega*(u + t0)) = exp(-I*omega*u) * exp(-I*omega*t0)",
+      "expression_given": "integrate(x(u) * exp(-I*omega*u) * exp(-I*omega*t0), (u, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct exponential factoring."
+    },
+    {
+      "step_number": 5,
+      "description": "Move the constant factor exp(-I*omega*t0) outside the integral",
+      "expression_given": "exp(-I*omega*t0) * integrate(x(u) * exp(-I*omega*u), (u, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "exp(-I*omega*t0) is constant w.r.t. u. Factoring out is valid."
+    },
+    {
+      "step_number": 6,
+      "description": "Recognize the remaining integral as the Fourier transform of x(u), which is X(I*omega)",
+      "expression_given": "exp(-I*omega*t0) * X(I*omega)",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Integral of x(u)*exp(-I*omega*u) du is X(omega) by definition. Correct."
+    }
+  ]
+}

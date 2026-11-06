@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-I*omega*t), (t, -1, 1))",
+  "operation": "Write the Fourier transform integral of the signal",
+  "confidence": 0.99,
+  "reasoning": "The rectangular pulse is 1 on [-1,1]; writing its Fourier transform as \u222b_{-1}^{1} e^{-i \u03c9 t} dt correctly follows from the definition.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The rectangular pulse is 1 on [-1,1]; writing its Fourier transform as \u222b_{-1}^{1} e^{-i \u03c9 t} dt correctly follows from the definition.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

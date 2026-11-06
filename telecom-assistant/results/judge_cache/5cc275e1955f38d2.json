@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "x(t)*exp(-s*t)|t=oo - x(t)*exp(-s*t)|t=0 + s*integrate(x(t)*exp(-s*t), (t, 0, oo))",
+  "operation": "Use integration by parts: let u = exp(-s*t), dv = dx/dt * dt",
+  "confidence": 0.98,
+  "reasoning": "Applying integration by parts with u = e^{-st} and dv = (dx/dt)dt yields the boundary term e^{-st}x(t) evaluated from 0 to \u221e plus s times the integral of x(t)e^{-st}, which matches the given expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Applying integration by parts with u = e^{-st} and dv = (dx/dt)dt yields the boundary term e^{-st}x(t) evaluated from 0 to \u221e plus s times the integral of x(t)e^{-st}, which matches the given expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

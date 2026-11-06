@@ -1,0 +1,131 @@
+{
+  "id": "Q08",
+  "question": "Explain the relationship between the Z-transform and the DTFT.",
+  "expected_final": "shorthand: X(exp(I*Omega)); definition: Sum(x_n * exp(-I*Omega*n), (n, -oo, oo))",
+  "generated_final": "X_dtft = Sum(x_n * exp(-I*omega*n), (n, -oo, oo)), r = 1",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the definition of the Z-transform",
+      "expression_given": "X_z = Sum(x_n * z**(-n), (n, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard bilateral Z-transform definition. Correct."
+    },
+    {
+      "step_number": 2,
+      "description": "Express the complex variable z in polar form using magnitude and angle",
+      "expression_given": "z = r * exp(I*omega)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard polar form z = r*e^(jω). Correct setup for the derivation."
+    },
+    {
+      "step_number": 3,
+      "description": "Substitute polar form of z into the Z-transform expression",
+      "expression_given": "X_z = Sum(x_n * (r * exp(I*omega))**(-n), (n, -oo, oo))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Direct substitution of z = r*exp(I*omega). Correct."
+    },
+    {
+      "step_number": 4,
+      "description": "Simplify the exponent in the expression",
+      "expression_given": "X_z = Sum(x_n * r**(-n) * exp(-I*omega*n), (n, -oo, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "(r*exp(I*omega))^(-n) = r^(-n)*exp(-I*omega*n). Correct expansion."
+    },
+    {
+      "step_number": 5,
+      "description": "Recognize that r^(-n) weights the sequence x[n]",
+      "expression_given": "X_z = Sum((x_n * r**(-n)) * exp(-I*omega*n), (n, -oo, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Regrouping to expose the DTFT structure. Correct."
+    },
+    {
+      "step_number": 6,
+      "description": "Define a new sequence y[n] = x[n] * r^(-n)",
+      "expression_given": "y_n = x_n * r**(-n)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Auxiliary definition to make DTFT structure explicit. Valid pedagogical step."
+    },
+    {
+      "step_number": 7,
+      "description": "Substitute y[n] into the sum to reveal the DTFT form",
+      "expression_given": "X_z = Sum(y_n * exp(-I*omega*n), (n, -oo, oo))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct substitution using y_n from step 6."
+    },
+    {
+      "step_number": 8,
+      "description": "Recognize this sum as the DTFT of y[n]",
+      "expression_given": "X_z = Sum(y_n * exp(-I*omega*n), (n, -oo, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Expression is identical to step 7 — redundant but not incorrect. DTFT identification is valid."
+    },
+    {
+      "step_number": 9,
+      "description": "State that this is the DTFT of x[n] * r^(-n)",
+      "expression_given": "X_z = DTFT(x_n * r**(-n))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct general statement: Z-transform is the DTFT of the exponentially weighted sequence x[n]*r^(-n)."
+    },
+    {
+      "step_number": 10,
+      "description": "Consider the special case when |z| = 1, i.e., r = 1",
+      "expression_given": "r = 1",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Unit circle condition |z|=1 is the correct condition for Z-transform to reduce to DTFT."
+    },
+    {
+      "step_number": 11,
+      "description": "Substitute r = 1 into the Z-transform expression",
+      "expression_given": "X_z = Sum(x_n * exp(-I*omega*n), (n, -oo, oo))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "r^(-n) = 1 when r=1. Correct substitution."
+    },
+    {
+      "step_number": 12,
+      "description": "Recognize this as the definition of the DTFT",
+      "expression_given": "X_dtft = Sum(x_n * exp(-I*omega*n), (n, -oo, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct. DTFT is the Z-transform evaluated on the unit circle. Matches expected final."
+    }
+  ]
+}

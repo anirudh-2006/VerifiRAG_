@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "x(t)*exp(-s*t)|t=oo - x(t)*exp(-s*t)|t=0 + s*integrate(x(t)*exp(-s*t), (t, 0, oo))",
+  "operation": "Use integration by parts: let u = exp(-s*t), dv = dx/dt * dt",
+  "confidence": 0.95,
+  "reasoning": "Integration by parts with u = exp(-s*t) and dv = dx/dt dt gives du = -s*exp(-s*t)dt and v = x(t). The formula \u222bu dv = uv - \u222bv du yields [x(t)*exp(-s*t)]\u2080^\u221e - \u222bx(t)*(-s*exp(-s*t))dt = [x(t)*exp(-s*t)]\u2080^\u221e + s\u222bx(t)*exp(-s*t)dt. The boundary term should be -x(0) (evaluating from 0 to \u221e), not written as shown with separate evaluation points in the middle of the expression.",
+  "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"Integration by parts with u = exp(-s*t) and dv = dx/dt dt gives du = -s*exp(-s*t)dt and v = x(t). The formula \u222bu dv = uv - \u222bv du yields [x(t)*exp(-s*t)]\u2080^\u221e - \u222bx(t)*(-s*exp(-s*t))dt = [x(t)*exp(-s*t)]\u2080^\u221e + s\u222bx(t)*exp(-s*t)dt. The boundary term should be -x(0) (evaluating from 0 to \u221e), not written as shown with separate evaluation points in the middle of the expression.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

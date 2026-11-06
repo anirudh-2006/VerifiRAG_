@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(1/2)*M(I*(omega - omega_c)) + (1/2)*M(I*(omega + omega_c))",
+  "operation": "Use the frequency shift property of Fourier transform: Fourier transform of m(t)*exp(I*omega_0*t) is M(j*(omega - omega_0))",
+  "confidence": 0.97,
+  "reasoning": "Applying the frequency shift property to each term correctly yields (1/2)M(j(\u03c9-\u03c9_c)) + (1/2)M(j(\u03c9+\u03c9_c)), matching the stated expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"Applying the frequency shift property to each term correctly yields (1/2)M(j(\u03c9-\u03c9_c)) + (1/2)M(j(\u03c9+\u03c9_c)), matching the stated expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

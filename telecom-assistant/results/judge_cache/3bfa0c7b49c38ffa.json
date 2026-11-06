@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(a*t) * exp(-I*omega*t), (t, -oo, 0)) + integrate(exp(-a*t) * exp(-I*omega*t), (t, 0, oo))",
+  "operation": "Simplify the first integral (t < 0): exp(-a*(-t)) = exp(a*t)",
+  "confidence": 0.99,
+  "reasoning": "The previous step had exp(-a*(-t)) in the first integral; simplifying -a*(-t) to a*t yields exp(a*t), which matches the current expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous step had exp(-a*(-t)) in the first integral; simplifying -a*(-t) to a*t yields exp(a*t), which matches the current expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

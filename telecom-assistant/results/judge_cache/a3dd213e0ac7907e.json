@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(a*x1(t)*exp(-I*omega*t), (t, -oo, oo)) + integrate(b*x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Split the integral into two separate integrals",
+  "confidence": 1.0,
+  "reasoning": "The linearity property of integrals allows splitting the integral of a sum into the sum of integrals. This is a valid and fundamental property of integration.",
+  "judge_raw": "I need to verify whether splitting the integral of a sum into the sum of two integrals is valid.\n\n**Previous step:**\n```\nintegrate(a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t), (t, -oo, oo))\n```\n\n**Current step:**\n```\nintegrate(a*x1(t)*exp(-I*omega*t), (t, -oo, oo)) + integrate(b*x2(t)*exp(-I*omega*t), (t, -oo, oo))\n```\n\n**Analysis:**\nThis applies the linearity property of integrals: \u222b[f(t) + g(t)]dt = \u222bf(t)dt + \u222bg(t)dt\n\nThe integral of a sum equals the sum of the integrals (assuming both integrals exist). This is a fundamental property of integration that holds for definite integrals over any interval, including (-\u221e, \u221e).\n\nIn this case:\n- f(t) = a*x1(t)*exp(-I*omega*t)\n- g(t) = b*x2(t)*exp(-I*omega*t)\n\nThe operation correctly splits the single integral into two separate integrals.\n\n```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The linearity property of integrals allows splitting the integral of a sum into the sum of integrals. This is a valid and fundamental property of integration.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

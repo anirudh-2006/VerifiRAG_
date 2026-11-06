@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega)",
+  "operation": "Evaluate the expression at the limits",
+  "confidence": 0.99,
+  "reasoning": "Evaluating the antiderivative exp(-I*omega*t)/(-I*omega) at t=1 and t=-1 yields exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega), matching the current expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Evaluating the antiderivative exp(-I*omega*t)/(-I*omega) at t=1 and t=-1 yields exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega), matching the current expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,66 @@
+% ============================================================================
+% MathNLP 2026 submission — anonymous review copy
+% Symbolic vs LLM graders for multi-step math derivations
+% ----------------------------------------------------------------------------
+% BUILD SETUP:
+%   The ACL style files (acl.sty, acl_natbib.bst) are already included in this
+%   directory. No local TeX install is required if you build on Overleaf: just
+%   upload this folder, or start from Overleaf's "ACL" template and drop in the
+%   sections/ and refs.bib. Locally:
+%       pdflatex main ; bibtex main ; pdflatex main ; pdflatex main
+%
+% Submit in REVIEW mode (anonymous). Flip to the camera-ready option only after
+% acceptance. Long paper = 8 pages of content (refs/appendices excluded).
+% ============================================================================
+\documentclass[11pt]{article}
+
+% For submission (anonymous, line numbers):
+\usepackage[review]{acl}
+% For camera-ready, replace the line above with:  \usepackage[]{acl}
+
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{multirow}
+
+\title{What Symbolic Graders Can't See and {LLM} Judges Won't Ignore:
+Abstention-Aware Comparison of Step-Level Math Graders}
+
+% Name is set here; \usepackage[review]{acl} still prints "Anonymous ACL
+% submission" on the PDF until camera-ready (\usepackage{acl}).
+\author{Anirudh Balaji}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\input{sections/abstract}
+\end{abstract}
+
+\input{sections/intro}
+\input{sections/related}
+\input{sections/setup}
+\input{sections/protocol}
+\input{sections/results}
+\input{sections/analysis}
+% IAA section omitted for this submission (single annotator; see Limitations).
+% Restore \input{sections/iaa} only after a second annotator and kappa are real.
+% ACL requires the unnumbered Limitations section after the Conclusion and
+% before the References.
+\input{sections/conclusion}
+\input{sections/limitations}
+
+% acl.sty already sets \bibliographystyle{acl_natbib}; a second call here
+% would emit two \bibstyle entries in the .aux file and make BibTeX error out.
+\bibliography{refs}
+
+\appendix
+\input{sections/appendix}
+
+\end{document}

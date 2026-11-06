@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-(s+2)*t) * u(t), (t, -oo, oo))",
+  "operation": "Simplify the exponential terms in the integrand",
+  "confidence": 0.99,
+  "reasoning": "Multiplying the exponentials exp(-2*t) and exp(-s*t) yields exp(-(s+2)*t); the unit step u(t) and integration limits are unchanged, so the simplification is valid.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying the exponentials exp(-2*t) and exp(-s*t) yields exp(-(s+2)*t); the unit step u(t) and integration limits are unchanged, so the simplification is valid.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

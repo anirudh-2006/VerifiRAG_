@@ -1,0 +1,100 @@
+{
+  "criterion": "in-fragment iff an ideal CAS step checker testing algebraic equivalence of the written expression against a correct continuation of the prior math could refute it",
+  "n_errors": 13,
+  "n_out_of_fragment": 9,
+  "n_in_fragment": 4,
+  "n_caught_by_deployed_verifier": 0,
+  "errors": [
+    {
+      "id": "Q03.1",
+      "error_type": "definition",
+      "fragment": "out",
+      "verifier": "pass_first_step",
+      "reason": "bilateral vs unilateral Laplace"
+    },
+    {
+      "id": "Q09.1",
+      "error_type": "definition",
+      "fragment": "out",
+      "verifier": "abstain",
+      "reason": "wrong +/-1 square wave vs intended 0/1 pulse"
+    },
+    {
+      "id": "Q09.3",
+      "error_type": "algebra",
+      "fragment": "in",
+      "verifier": "false_pass",
+      "reason": "wrong antiderivative evaluation / limits"
+    },
+    {
+      "id": "Q09.4",
+      "error_type": "algebra",
+      "fragment": "in",
+      "verifier": "false_pass",
+      "reason": "wrong lower-limit exponential"
+    },
+    {
+      "id": "Q09.6",
+      "error_type": "algebra",
+      "fragment": "in",
+      "verifier": "abstain",
+      "reason": "carries prior algebra; pi vs pi/2"
+    },
+    {
+      "id": "Q09.7",
+      "error_type": "missing_term",
+      "fragment": "in",
+      "verifier": "abstain",
+      "reason": "drops second integral contribution"
+    },
+    {
+      "id": "Q09.11",
+      "error_type": "definition",
+      "fragment": "out",
+      "verifier": "false_pass",
+      "reason": "odd/even claim relative to intended signal"
+    },
+    {
+      "id": "Q10.1",
+      "error_type": "definition",
+      "fragment": "out",
+      "verifier": "pass_first_step",
+      "reason": "bilateral vs unilateral Laplace"
+    },
+    {
+      "id": "Q16.2",
+      "error_type": "missing_term",
+      "fragment": "out",
+      "verifier": "abstain",
+      "reason": "IBP infinity boundary omitted; both limits are 0"
+    },
+    {
+      "id": "Q22.5",
+      "error_type": "missing_term",
+      "fragment": "out",
+      "verifier": "abstain",
+      "reason": "incomplete equation under notation-strict rubric"
+    },
+    {
+      "id": "Q22.7",
+      "error_type": "missing_term",
+      "fragment": "out",
+      "verifier": "false_pass",
+      "reason": "incomplete equation fragment"
+    },
+    {
+      "id": "Q22.8",
+      "error_type": "missing_term",
+      "fragment": "out",
+      "verifier": "abstain",
+      "reason": "ratio symbol without RHS"
+    },
+    {
+      "id": "Q22.9",
+      "error_type": "missing_term",
+      "fragment": "out",
+      "verifier": "false_pass",
+      "reason": "divide claimed; RHS still missing"
+    }
+  ]
+}

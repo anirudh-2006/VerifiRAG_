@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "H(Omega)",
+  "operation": "Define the frequency response H(Omega) as the DTFT of h[n]",
+  "confidence": 0.95,
+  "reasoning": "The discrete-time Fourier transform (DTFT) of h[n] is defined as Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo)), and defining this sum as H(Omega) is the standard definition of the frequency response. This is a valid definitional step.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The discrete-time Fourier transform (DTFT) of h[n] is defined as Sum(h[k] * exp(-I*Omega*k), (k, -oo, oo)), and defining this sum as H(Omega) is the standard definition of the frequency response. This is a valid definitional step.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

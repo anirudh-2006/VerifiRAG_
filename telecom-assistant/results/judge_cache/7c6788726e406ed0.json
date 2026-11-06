@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(t * exp(-s*t), (t, 0, oo))",
+  "operation": "Write the definition of the Laplace transform for x(t) = t*u(t)",
+  "confidence": 1.0,
+  "reasoning": "The Laplace transform definition is L{f(t)} = \u222b\u2080^\u221e f(t)e^(-st)dt. For x(t) = t\u00b7u(t), since u(t) = 1 for t \u2265 0, this correctly gives \u222b\u2080^\u221e t\u00b7e^(-st)dt.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The Laplace transform definition is L{f(t)} = \u222b\u2080^\u221e f(t)e^(-st)dt. For x(t) = t\u00b7u(t), since u(t) = 1 for t \u2265 0, this correctly gives \u222b\u2080^\u221e t\u00b7e^(-st)dt.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "m(t)*(exp(I*omega_c*t) + exp(-I*omega_c*t))/2",
+  "operation": "Express cosine in terms of complex exponentials",
+  "confidence": 0.99,
+  "reasoning": "The step correctly applies the identity cos(\u03c9_c t) = (e^{j \u03c9_c t}+e^{-j \u03c9_c t})/2, multiplying by m(t) as required.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly applies the identity cos(\u03c9_c t) = (e^{j \u03c9_c t}+e^{-j \u03c9_c t})/2, multiplying by m(t) as required.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

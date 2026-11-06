@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1/(2*I) * ((2*I*omega_0) / (s**2 + omega_0**2))",
+  "operation": "Simplify numerator and denominator",
+  "confidence": 0.99,
+  "reasoning": "The numerator simplifies to 2*I*omega_0 and the denominator (s - I*omega_0)(s + I*omega_0) expands to s^2 + omega_0^2, yielding exactly the given expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The numerator simplifies to 2*I*omega_0 and the denominator (s - I*omega_0)(s + I*omega_0) expands to s^2 + omega_0^2, yielding exactly the given expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

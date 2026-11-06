@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(t - t0) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Consider the time-shifted signal x(t - t0)",
+  "confidence": 0.97,
+  "reasoning": "The step correctly replaces the original signal x(t) with its time\u2011shifted version x(t\u2011t0) inside the Fourier integral, which is the proper definition of the transform of the shifted signal.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The step correctly replaces the original signal x(t) with its time\u2011shifted version x(t\u2011t0) inside the Fourier integral, which is the proper definition of the transform of the shifted signal.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

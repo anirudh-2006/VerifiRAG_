@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum((a * z**(-1))**n, (n, 0, oo))",
+  "operation": "Combine terms into a single geometric sequence",
+  "confidence": 0.99,
+  "reasoning": "The operation correctly combines a^n and z^(-n) into (a * z^(-1))^n, which is a valid algebraic manipulation. The summation limits remain unchanged and appropriate for the causal signal.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The operation correctly combines a^n and z^(-n) into (a * z^(-1))^n, which is a valid algebraic manipulation. The summation limits remain unchanged and appropriate for the causal signal.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

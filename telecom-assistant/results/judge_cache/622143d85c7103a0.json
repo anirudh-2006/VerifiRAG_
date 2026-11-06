@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(h[n] * z**(-n), (n, -oo, oo))",
+  "operation": "Start with the definition of the Z-transform",
+  "confidence": 0.95,
+  "reasoning": "The Z-transform is defined as H(z) = \u03a3(n=-\u221e to \u221e) h[n]z^(-n), which matches the given expression exactly. This is the correct starting definition for computing the Z-transform.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The Z-transform is defined as H(z) = \u03a3(n=-\u221e to \u221e) h[n]z^(-n), which matches the given expression exactly. This is the correct starting definition for computing the Z-transform.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

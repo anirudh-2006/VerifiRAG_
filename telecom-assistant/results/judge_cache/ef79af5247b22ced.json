@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(((1/2) * z**(-1))**n, (n, 0, oo))",
+  "operation": "Combine terms into a single geometric sequence",
+  "confidence": 0.95,
+  "reasoning": "The step correctly combines (1/2)^n * z^(-n) = ((1/2) * z^(-1))^n using the exponent rule (a^n)(b^n) = (ab)^n, which is valid for all n.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The step correctly combines (1/2)^n * z^(-n) = ((1/2) * z^(-1))^n using the exponent rule (a^n)(b^n) = (ab)^n, which is valid for all n.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

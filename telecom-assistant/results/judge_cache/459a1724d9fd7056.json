@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Write the definition of the Fourier transform",
+  "confidence": 1.0,
+  "reasoning": "The expression correctly applies the standard definition of the Fourier transform, which is the integral of x(t) multiplied by exp(-i*\u03c9*t) over all time from -\u221e to \u221e.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The expression correctly applies the standard definition of the Fourier transform, which is the integral of x(t) multiplied by exp(-i*\u03c9*t) over all time from -\u221e to \u221e.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-a*t) * exp(-s*t), (t, 0, oo))",
+  "operation": "Use the property of the unit step function to change integration limits",
+  "confidence": 1.0,
+  "reasoning": "The unit step function u(t) is zero for t < 0 and one for t \u2265 0, so multiplying the integrand by u(t) is equivalent to changing the lower limit from -\u221e to 0. This is a correct application of the unit step function property.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The unit step function u(t) is zero for t < 0 and one for t \u2265 0, so multiplying the integrand by u(t) is equivalent to changing the lower limit from -\u221e to 0. This is a correct application of the unit step function property.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

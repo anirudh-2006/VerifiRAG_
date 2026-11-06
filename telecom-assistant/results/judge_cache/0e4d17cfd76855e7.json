@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate((a*x1(t) + b*x2(t)) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Substitute the linear combination a*x1(t) + b*x2(t) for x(t)",
+  "confidence": 1.0,
+  "reasoning": "The substitution of x(t) = a*x1(t) + b*x2(t) into the Fourier transform definition is a valid direct substitution that correctly sets up the problem to demonstrate the linearity property.",
+  "judge_raw": "```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The substitution of x(t) = a*x1(t) + b*x2(t) into the Fourier transform definition is a valid direct substitution that correctly sets up the problem to demonstrate the linearity property.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

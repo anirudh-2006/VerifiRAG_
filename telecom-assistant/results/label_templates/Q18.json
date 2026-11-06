@@ -1,0 +1,91 @@
+{
+  "id": "Q18",
+  "question": "Compute the Laplace transform of x(t) = sin(omega_0*t)*u(t).",
+  "expected_final": "omega_0/(s**2 + omega_0**2)",
+  "generated_final": "omega_0 / (s**2 + omega_0**2), re(s) > 0",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Write the definition of the Laplace transform for x(t) = sin(omega_0*t)*u(t)",
+      "expression_given": "integrate(sin(omega_0*t) * exp(-s*t), (t, 0, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard one-sided Laplace definition; u(t) absorbed into lower limit t=0."
+    },
+    {
+      "step_number": 2,
+      "description": "Express sin(omega_0*t) using Euler's formula",
+      "expression_given": "integrate((exp(I*omega_0*t) - exp(-I*omega_0*t)) / (2*I) * exp(-s*t), (t, 0, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct Euler identity: sin(x) = (e^(Ix) − e^(−Ix))/(2I)."
+    },
+    {
+      "step_number": 3,
+      "description": "Split the integral into two parts",
+      "expression_given": "1/(2*I) * (integrate(exp(I*omega_0*t) * exp(-s*t), (t, 0, oo)) - integrate(exp(-I*omega_0*t) * exp(-s*t), (t, 0, oo)))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Constant 1/(2I) factored out; linearity of integration applied correctly."
+    },
+    {
+      "step_number": 4,
+      "description": "Combine exponents in each integral",
+      "expression_given": "1/(2*I) * (integrate(exp(-(s - I*omega_0)*t), (t, 0, oo)) - integrate(exp(-(s + I*omega_0)*t), (t, 0, oo)))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Exponent combinations are correct: Iω₀t − st = −(s−Iω₀)t and −Iω₀t − st = −(s+Iω₀)t."
+    },
+    {
+      "step_number": 5,
+      "description": "Evaluate the first integral using the formula for integral of exp(-a*t) from 0 to infinity",
+      "expression_given": "1/(2*I) * (1/(s - I*omega_0) - 1/(s + I*omega_0))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "∫₀^∞ exp(-at) dt = 1/a for Re(a)>0; both integrals evaluated correctly."
+    },
+    {
+      "step_number": 6,
+      "description": "Combine the two fractions over a common denominator",
+      "expression_given": "1/(2*I) * ((s + I*omega_0 - s + I*omega_0) / ((s - I*omega_0)*(s + I*omega_0)))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Numerator (s+Iω₀) − (s−Iω₀) expanded as s+Iω₀−s+Iω₀ = 2Iω₀; correct."
+    },
+    {
+      "step_number": 7,
+      "description": "Simplify numerator and denominator",
+      "expression_given": "1/(2*I) * ((2*I*omega_0) / (s**2 + omega_0**2))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Numerator = 2Iω₀; denominator = s² − (Iω₀)² = s² + ω₀²."
+    },
+    {
+      "step_number": 8,
+      "description": "Cancel I and simplify constants",
+      "expression_given": "omega_0 / (s**2 + omega_0**2)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "(1/(2I)) · (2Iω₀) = ω₀; final form is ω₀/(s²+ω₀²)."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(u(tau) * exp(-a*(t - tau)) * u(t - tau), (tau, -oo, oo))",
+  "operation": "Write the convolution integral for y(t) = x(t) * h(t)",
+  "confidence": 0.99,
+  "reasoning": "The convolution definition y(t)=\u222b_{-\u221e}^{\u221e}x(\u03c4)h(t-\u03c4)d\u03c4 leads to the integrand u(\u03c4)\u00b7exp(-a(t-\u03c4))\u00b7u(t-\u03c4) with limits -\u221e to \u221e, which matches the given expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The convolution definition y(t)=\u222b_{-\u221e}^{\u221e}x(\u03c4)h(t-\u03c4)d\u03c4 leads to the integrand u(\u03c4)\u00b7exp(-a(t-\u03c4))\u00b7u(t-\u03c4) with limits -\u221e to \u221e, which matches the given expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

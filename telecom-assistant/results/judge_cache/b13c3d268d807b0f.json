@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "H(Omega)",
+  "operation": "Define the frequency response H(Omega) as the DTFT of h[n]",
+  "confidence": 0.98,
+  "reasoning": "The previous expression is exactly the discrete-time Fourier transform of h[n]; defining H(\u03a9) to be that sum is a valid definitional step.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression is exactly the discrete-time Fourier transform of h[n]; defining H(\u03a9) to be that sum is a valid definitional step.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

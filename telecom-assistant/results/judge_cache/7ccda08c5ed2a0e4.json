@@ -1,0 +1,10 @@
+{
+  "verdict": "abstain",
+  "expression": "h[n]",
+  "operation": "Start with a linear time-invariant discrete-time system described by its impulse response h[n]",
+  "confidence": 0.5,
+  "reasoning": "The step is conceptual rather than computational, introducing the impulse response h[n] as a starting point. Without a mathematical operation applied to a prior expression, it's not possible to verify mathematical validity definitively.",
+  "judge_raw": "{\n  \"verdict\": \"abstain\",\n  \"confidence\": 0.5,\n  \"reasoning\": \"The step is conceptual rather than computational, introducing the impulse response h[n] as a starting point. Without a mathematical operation applied to a prior expression, it's not possible to verify mathematical validity definitively.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

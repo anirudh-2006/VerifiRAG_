@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(x_n * z**(-n), (n, -oo, oo))",
+  "operation": "Start with the definition of the Z-transform",
+  "confidence": 1.0,
+  "reasoning": "The step correctly starts with the definition of the Z-transform, which is the sum of x[n] * z^(-n) over all n from -\u221e to \u221e. This is the standard definition for the bilateral Z-transform.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The step correctly starts with the definition of the Z-transform, which is the sum of x[n] * z^(-n) over all n from -\u221e to \u221e. This is the standard definition for the bilateral Z-transform.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

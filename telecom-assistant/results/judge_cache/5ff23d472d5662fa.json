@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(I*0*t)",
+  "operation": "Apply the sifting property of the Dirac delta function",
+  "confidence": 0.99,
+  "reasoning": "Applying the sifting property \u222b\u03b4(\u03c9)\u00b7f(\u03c9)d\u03c9 = f(0) to the integrand \u03b4(\u03c9)\u00b7exp(I\u00b7\u03c9\u00b7t) correctly yields exp(I\u00b70\u00b7t).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Applying the sifting property \u222b\u03b4(\u03c9)\u00b7f(\u03c9)d\u03c9 = f(0) to the integrand \u03b4(\u03c9)\u00b7exp(I\u00b7\u03c9\u00b7t) correctly yields exp(I\u00b70\u00b7t).\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

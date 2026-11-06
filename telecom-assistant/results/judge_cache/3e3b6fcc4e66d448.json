@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "2*a / ( (a - I*omega)*(a + I*omega) )",
+  "operation": "Simplify numerator: (a + I*omega) + (a - I*omega) = 2a",
+  "confidence": 1.0,
+  "reasoning": "The numerator simplification is correct: (a + I*omega) + (a - I*omega) = a + I*omega + a - I*omega = 2*a. The I*omega terms cancel and the a terms add.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The numerator simplification is correct: (a + I*omega) + (a - I*omega) = a + I*omega + a - I*omega = 2*a. The I*omega terms cancel and the a terms add.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

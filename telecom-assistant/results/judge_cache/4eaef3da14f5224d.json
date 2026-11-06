@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "( (a + I*omega) + (a - I*omega) ) / ( (a - I*omega)*(a + I*omega) )",
+  "operation": "Combine the fractions over a common denominator",
+  "confidence": 1.0,
+  "reasoning": "Adding two fractions 1/(a - I*omega) + 1/(a + I*omega) over a common denominator (a - I*omega)*(a + I*omega) correctly yields ((a + I*omega) + (a - I*omega))/((a - I*omega)*(a + I*omega)).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"Adding two fractions 1/(a - I*omega) + 1/(a + I*omega) over a common denominator (a - I*omega)*(a + I*omega) correctly yields ((a + I*omega) + (a - I*omega))/((a - I*omega)*(a + I*omega)).\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

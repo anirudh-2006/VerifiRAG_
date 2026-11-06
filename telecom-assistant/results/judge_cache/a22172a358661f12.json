@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "0 + (1/s) * integrate(exp(-s*t), (t, 0, oo))",
+  "operation": "Evaluate the boundary term at t=0 and t->inf, assuming Re(s) > 0",
+  "confidence": 0.98,
+  "reasoning": "The previous expression contained the boundary term (-t*exp(-s*t)/s) evaluated from 0 to \u221e; with Re(s)>0 the limit at \u221e is 0 and at 0 is also 0, so the term becomes 0, leaving exactly 0 + (1/s)*\u222b_0^\u221e exp(-s*t) dt.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"The previous expression contained the boundary term (-t*exp(-s*t)/s) evaluated from 0 to \u221e; with Re(s)>0 the limit at \u221e is 0 and at 0 is also 0, so the term becomes 0, leaving exactly 0 + (1/s)*\u222b_0^\u221e exp(-s*t) dt.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

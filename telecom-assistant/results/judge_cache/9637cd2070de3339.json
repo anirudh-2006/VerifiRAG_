@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "a*integrate(x1(t)*exp(-I*omega*t), (t, -oo, oo)) + b*integrate(x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Factor constants a and b out of the integrals",
+  "confidence": 0.99,
+  "reasoning": "Constants a and b are independent of the integration variable t, so they can be factored out of each integral, yielding the stated expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Constants a and b are independent of the integration variable t, so they can be factored out of each integral, yielding the stated expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

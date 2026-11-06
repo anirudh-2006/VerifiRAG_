@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(1/T) * (integrate(A, (t, 0, T/2)) + integrate(-A, (t, T/2, T)))",
+  "operation": "Split the integral into two intervals: 0 to T/2 and T/2 to T",
+  "confidence": 1.0,
+  "reasoning": "The step correctly applies the definition of a_0 from step 1 to the piecewise function from step 2 by splitting the integral over [0,T] into two parts: [0,T/2] where x(t)=A and [T/2,T] where x(t)=-A. This is a valid application of the additivity property of integrals.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The step correctly applies the definition of a_0 from step 1 to the piecewise function from step 2 by splitting the integral over [0,T] into two parts: [0,T/2] where x(t)=A and [T/2,T] where x(t)=-A. This is a valid application of the additivity property of integrals.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1 / (1 - a * z**(-1))",
+  "operation": "Substitute back r = a/z",
+  "confidence": 0.99,
+  "reasoning": "The previous result was 1/(1\u2011r). Substituting r = a*z\u207b\u00b9 (i.e., a/z) directly yields 1/(1\u2011a*z\u207b\u00b9), which matches the current expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous result was 1/(1\u2011r). Substituting r = a*z\u207b\u00b9 (i.e., a/z) directly yields 1/(1\u2011a*z\u207b\u00b9), which matches the current expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

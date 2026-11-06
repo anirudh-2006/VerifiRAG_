@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate((integrate(x.subs(t, t - tau) * y.subs(t, tau), (tau, -oo, oo))) * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Take the Fourier transform of the convolution integral",
+  "confidence": 0.98,
+  "reasoning": "Applying the Fourier transform definition to the convolution integral yields exactly the double integral shown, so the operation is mathematically correct.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Applying the Fourier transform definition to the convolution integral yields exactly the double integral shown, so the operation is mathematically correct.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

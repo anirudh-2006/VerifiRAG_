@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "y_n = x_n * r**(-n)",
+  "operation": "Define a new sequence y[n] = x[n] * r^(-n)",
+  "confidence": 0.95,
+  "reasoning": "This is a valid definitional step that introduces a new variable y_n to represent the weighted sequence x_n * r**(-n), which appears in the previous step. This is a common and useful substitution when relating the Z-transform to the DTFT.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"This is a valid definitional step that introduces a new variable y_n to represent the weighted sequence x_n * r**(-n), which appears in the previous step. This is a common and useful substitution when relating the Z-transform to the DTFT.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

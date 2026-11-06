@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1 / (s+2)",
+  "operation": "Analyze convergence: the exponential term vanishes as T approaches infinity if Re(s) > -2",
+  "confidence": 0.95,
+  "reasoning": "The limit of exp(-(s+2)*T) as T approaches infinity is zero when Re(s) > -2, leaving 1/(s+2). This correctly evaluates the improper integral and identifies the condition for convergence.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The limit of exp(-(s+2)*T) as T approaches infinity is zero when Re(s) > -2, leaving 1/(s+2). This correctly evaluates the improper integral and identifies the condition for convergence.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

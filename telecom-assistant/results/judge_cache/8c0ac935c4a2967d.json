@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-(s + a)*t), (t, 0, oo))",
+  "operation": "Combine exponential terms in the integrand",
+  "confidence": 1.0,
+  "reasoning": "The combination of exp(-a*t) * exp(-s*t) = exp(-(a+s)*t) is a valid application of the exponential product rule: e^x * e^y = e^(x+y).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The combination of exp(-a*t) * exp(-s*t) = exp(-(a+s)*t) is a valid application of the exponential product rule: e^x * e^y = e^(x+y).\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

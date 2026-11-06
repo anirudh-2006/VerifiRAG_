@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(exp(-s*t), (t, 0, oo))",
+  "operation": "Since u(t) = 1 for t >= 0, replace u(t) with 1 in the integral",
+  "confidence": 0.99,
+  "reasoning": "The unit step u(t) equals 1 for t \u2265 0, so substituting 1 for u(t) inside the integral correctly transforms \u222b\u2080^\u221e u(t)e^{-st} dt into \u222b\u2080^\u221e e^{-st} dt.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The unit step u(t) equals 1 for t \u2265 0, so substituting 1 for u(t) inside the integral correctly transforms \u222b\u2080^\u221e u(t)e^{-st} dt into \u222b\u2080^\u221e e^{-st} dt.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

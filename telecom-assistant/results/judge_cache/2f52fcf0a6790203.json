@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum((a * z**(-1))**n, (n, 0, oo))",
+  "operation": "Combine terms into a single geometric sequence",
+  "confidence": 1.0,
+  "reasoning": "The step correctly combines a^n * z^(-n) = (a * z^(-1))^n using the exponent rule (xy)^n = x^n * y^n. This is a valid algebraic manipulation that recognizes the geometric series form.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The step correctly combines a^n * z^(-n) = (a * z^(-1))^n using the exponent rule (xy)^n = x^n * y^n. This is a valid algebraic manipulation that recognizes the geometric series form.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

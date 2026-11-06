@@ -1,0 +1,71 @@
+{
+  "id": "Q25",
+  "question": "Compute the Z-transform H(z) of h[n] = (1/2)**n * u[n].",
+  "expected_final": "positive_power: z/(z - Rational(1,2)); negative_power: 1/(1 - Rational(1,2)/z)",
+  "generated_final": "z / (z - 1/2), Abs(z) > 1/2",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the definition of the Z-transform",
+      "expression_given": "Sum(h[n] * z**(-n), (n, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard bilateral Z-transform definition."
+    },
+    {
+      "step_number": 2,
+      "description": "Substitute h[n] = (1/2)^n * u[n] into the sum",
+      "expression_given": "Sum(((1/2)**n * u[n]) * z**(-n), (n, -oo, oo))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Direct substitution of h[n]."
+    },
+    {
+      "step_number": 3,
+      "description": "Use the fact that u[n] is zero for n < 0 to change summation limits",
+      "expression_given": "Sum(((1/2)**n * z**(-n)), (n, 0, oo))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "u[n] truncates the lower limit to 0 and drops out."
+    },
+    {
+      "step_number": 4,
+      "description": "Combine terms into a single geometric sequence",
+      "expression_given": "Sum(((1/2) * z**(-1))**n, (n, 0, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "(1/2)^n · z^(-n) = ((1/2)·z^(-1))^n by exponent laws."
+    },
+    {
+      "step_number": 5,
+      "description": "Apply the formula for the sum of an infinite geometric series",
+      "expression_given": "1 / (1 - (1/2) * z**(-1))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Σ r^n = 1/(1−r) with r = (1/2)z^(-1); converges for |z|>1/2."
+    },
+    {
+      "step_number": 6,
+      "description": "Simplify the denominator by factoring out z in the denominator",
+      "expression_given": "z / (z - 1/2)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Multiply numerator and denominator by z: 1/(1 − 1/(2z)) = z/(z − 1/2)."
+    }
+  ]
+}

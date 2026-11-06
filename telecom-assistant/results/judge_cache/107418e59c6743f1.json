@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "(1 - exp(-I*k*omega0*T0/2)) / (I*k*omega0*T0)",
+  "operation": "Simplify the first integral over [-T0/4, T0/4]",
+  "confidence": 0.95,
+  "reasoning": "The first integral of (1/T0) * exp(-I*k*omega0*t) from -T0/4 to T0/4 should evaluate to [exp(I*k*omega0*T0/4) - exp(-I*k*omega0*T0/4)] / (I*k*omega0*T0), which simplifies to a sine-like term, not the given expression. The provided expression does not match this result and appears to incorrectly represent the definite integral.",
+  "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The first integral of (1/T0) * exp(-I*k*omega0*t) from -T0/4 to T0/4 should evaluate to [exp(I*k*omega0*T0/4) - exp(-I*k*omega0*T0/4)] / (I*k*omega0*T0), which simplifies to a sine-like term, not the given expression. The provided expression does not match this result and appears to incorrectly represent the definite integral.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

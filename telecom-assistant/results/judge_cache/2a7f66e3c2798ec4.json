@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "z / (z - 1)",
+  "operation": "Simplify the expression by algebraic manipulation",
+  "confidence": 0.99,
+  "reasoning": "Multiplying numerator and denominator of 1/(1 - z^{-1}) by z yields z/(z - 1), which is exactly the given expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Multiplying numerator and denominator of 1/(1 - z^{-1}) by z yields z/(z - 1), which is exactly the given expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

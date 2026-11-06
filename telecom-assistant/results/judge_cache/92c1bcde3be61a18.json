@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "2*sin(omega)/omega",
+  "operation": "Simplify the imaginary unit in numerator and denominator",
+  "confidence": 0.99,
+  "reasoning": "The previous expression -(2*I*sin(omega))/(-I*omega) simplifies by cancelling the minus signs and the factor I, yielding 2*sin(omega)/omega.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous expression -(2*I*sin(omega))/(-I*omega) simplifies by cancelling the minus signs and the factor I, yielding 2*sin(omega)/omega.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

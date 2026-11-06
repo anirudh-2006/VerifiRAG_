@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "z / (z - a)",
+  "operation": "Multiply numerator and denominator by z to simplify",
+  "confidence": 1.0,
+  "reasoning": "Multiplying both numerator and denominator of 1/(1 - a*z^(-1)) by z gives z/(z - a*z^0) = z/(z - a), which is algebraically correct.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"Multiplying both numerator and denominator of 1/(1 - a*z^(-1)) by z gives z/(z - a*z^0) = z/(z - a), which is algebraically correct.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

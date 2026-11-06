@@ -1,0 +1,131 @@
+{
+  "id": "Q09",
+  "question": "Derive the Fourier series coefficients for a periodic square wave.",
+  "expected_final": "ak = sin(k*pi/2)/(k*pi/2)",
+  "generated_final": "Piecewise((1 / (I*k*pi), k % 2 == 1), (0, True))",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": false,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Define the periodic square wave over one period from -T0/2 to T0/2",
+      "expression_given": "Piecewise((1, Abs(t) < T0/2), (-1, Abs(t) < T0 and Abs(t) > T0/2))",
+      "verifier_category": "parse_fail",
+      "verifier_is_valid": null,
+      "human_correct": false,
+      "error_type": "definition",
+      "notes": "The ±1 square wave defined here is inconsistent with expected_final = sin(k*pi/2)/(k*pi/2), which corresponds to a 0/1 pulse (1 on half the period, 0 elsewhere). The outer condition Abs(t) < T0 and Abs(t) > T0/2 also covers a full period around 0 rather than matching the integration limits [-T0/4, T0/4] and [T0/4, 3T0/4] used in step 2."
+    },
+    {
+      "step_number": 2,
+      "description": "Use the Fourier series analysis equation to compute the coefficients",
+      "expression_given": "integrate(1/T0 * exp(-I*k*omega0*t), (t, -T0/4, T0/4)) + integrate(-1/T0 * exp(-I*k*omega0*t), (t, T0/4, 3*T0/4))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Internally consistent with a ±1 square wave of period T0: +1 on [-T0/4, T0/4] and -1 on [T0/4, 3T0/4]. The 1/T0 normalization and split limits are correct for this signal definition."
+    },
+    {
+      "step_number": 3,
+      "description": "Simplify the first integral over [-T0/4, T0/4]",
+      "expression_given": "(1 - exp(-I*k*omega0*T0/2)) / (I*k*omega0*T0)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": false,
+      "error_type": "algebra",
+      "notes": "Antiderivative of (1/T0)*exp(-I*k*omega0*t) is exp(-I*k*omega0*t)/(-I*k*omega0*T0). Evaluating from -T0/4 to T0/4: [exp(-I*k*omega0*T0/4) - exp(I*k*omega0*T0/4)] / (-I*k*omega0*T0) = 2*I*sin(k*omega0*T0/4) / (I*k*omega0*T0) = 2*sin(k*pi/2)/(k*2*pi) after substituting omega0*T0/4 = pi/2. The generated expression (1 - exp(-I*k*omega0*T0/2))/(I*k*omega0*T0) does not match this — the exponent T0/2 is wrong (should be T0/4 from the upper limit) and the numerator structure is incorrect. Verifier passed incorrectly."
+    },
+    {
+      "step_number": 4,
+      "description": "Simplify the second integral over [T0/4, 3*T0/4]",
+      "expression_given": "-(exp(-I*k*omega0*T0/2) - exp(-I*k*omega0*3*T0/4)) / (I*k*omega0*T0)",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": false,
+      "error_type": "algebra",
+      "notes": "Antiderivative of (-1/T0)*exp(-I*k*omega0*t) evaluated from T0/4 to 3T0/4 should give [exp(-I*k*omega0*3T0/4) - exp(-I*k*omega0*T0/4)] / (I*k*omega0*T0). The generated expression has exp(-I*k*omega0*T0/2) in place of exp(-I*k*omega0*T0/4) at the lower limit — wrong exponential argument. Same root cause as step 3: limits not correctly substituted into antiderivative. Verifier passed incorrectly."
+    },
+    {
+      "step_number": 5,
+      "description": "Use omega0 = 2*pi/T0 to substitute angular frequency",
+      "expression_given": "omega0 = 2*pi/T0",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard relation. Correct."
+    },
+    {
+      "step_number": 6,
+      "description": "Substitute omega0 into the combined expression",
+      "expression_given": "(1 - exp(-I*k*pi)) / (I*k*2*pi) - (exp(-I*k*pi) - exp(-I*k*3*pi/2)) / (I*k*2*pi)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": false,
+      "error_type": "algebra",
+      "notes": "Carries forward errors from steps 3 and 4. The lower limit of the second integral gives omega0*T0/4 = pi/2, so the term should be exp(-I*k*pi/2), not exp(-I*k*pi). The exp(-I*k*3*pi/2) from the upper limit 3T0/4 is correct, but the exp(-I*k*pi) standing in for the lower limit T0/4 is wrong — it should be exp(-I*k*pi/2)."
+    },
+    {
+      "step_number": 7,
+      "description": "Note that exp(-I*k*pi) = (-1)**k",
+      "expression_given": "(1 - (-1)**k) / (I*k*2*pi)",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": false,
+      "error_type": "missing_term",
+      "notes": "The second integral contribution from step 6 is dropped entirely with no justification. Step 6 had two terms; only the first term (1 - exp(-I*k*pi))/(I*k*2*pi) appears here. Even if the exp(-I*k*pi) substitution were valid, silently discarding the second term is unjustified."
+    },
+    {
+      "step_number": 8,
+      "description": "Observe that for even k, (-1)**k = 1, so coefficient is zero",
+      "expression_given": "Piecewise(((1 - (-1)**k) / (I*k*2*pi), k != 0), (0, True))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Internally consistent with step 7 expression. For even k, 1-(-1)^k = 0. Correct in isolation, though built on wrong prior steps."
+    },
+    {
+      "step_number": 9,
+      "description": "For odd k, (-1)**k = -1, so numerator becomes 2",
+      "expression_given": "Piecewise((2 / (I*k*2*pi), k % 2 == 1), (0, True))",
+      "verifier_category": "unclear",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "For odd k, 1-(-1)^k = 2. Correct simplification given step 7."
+    },
+    {
+      "step_number": 10,
+      "description": "Simplify expression for odd k",
+      "expression_given": "Piecewise((1 / (I*k*pi), k % 2 == 1), (0, True))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "2/(I*k*2*pi) = 1/(I*k*pi). Correct simplification."
+    },
+    {
+      "step_number": 11,
+      "description": "Separate real and imaginary parts; since signal is real and odd, coefficients are purely imaginary",
+      "expression_given": "Piecewise((1 / (I*k*pi), k % 2 == 1), (0, True))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": false,
+      "error_type": "definition",
+      "notes": "The ±1 square wave is real and odd, so purely imaginary coefficients are consistent with that signal. However expected_final = sin(k*pi/2)/(k*pi/2) implies a real even signal (0/1 pulse), whose coefficients are real. The characterization here is internally consistent with the wrong signal definition from step 1, not with the intended question."
+    },
+    {
+      "step_number": 12,
+      "description": "Final expression using standard form",
+      "expression_given": "Piecewise((1 / (I*k*pi), k % 2 == 1), (0, True))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Internally consistent final answer given the derivation from step 7 onward. Does not match expected_final due to wrong signal definition (step 1) and algebra errors (steps 3,4) and missing term (step 7)."
+    }
+  ]
+}

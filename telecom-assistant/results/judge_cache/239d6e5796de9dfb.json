@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "a*X1(I*omega) + b*X2(I*omega)",
+  "operation": "Recognize each integral as the Fourier transform of the respective signal",
+  "confidence": 0.98,
+  "reasoning": "Each integral matches the definition of the Fourier transform of x1(t) and x2(t), so replacing them with X1(j\u03c9) and X2(j\u03c9) (written as X1(I*omega) and X2(I*omega)) is a correct application.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.98,\n  \"reasoning\": \"Each integral matches the definition of the Fourier transform of x1(t) and x2(t), so replacing them with X1(j\u03c9) and X2(j\u03c9) (written as X1(I*omega) and X2(I*omega)) is a correct application.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

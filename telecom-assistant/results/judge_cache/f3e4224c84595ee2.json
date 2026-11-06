@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Y = integrate(y * exp(-I*omega*t), (t, -oo, oo))",
+  "operation": "Define the Fourier transform of a signal y(t)",
+  "confidence": 0.95,
+  "reasoning": "The current step correctly defines the Fourier transform of a signal y(t) by analogy to the previous definition of X, replacing x with y. The operation is a valid and consistent application of the Fourier transform definition.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The current step correctly defines the Fourier transform of a signal y(t) by analogy to the previous definition of X, replacing x with y. The operation is a valid and consistent application of the Fourier transform definition.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

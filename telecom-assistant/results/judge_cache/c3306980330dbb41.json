@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(1/T) * (A * T/2 - A * T/2)",
+  "operation": "Simplify the expression using T - T/2 = T/2",
+  "confidence": 1.0,
+  "reasoning": "The substitution T - T/2 = T/2 is correct, and multiplying (-A) * (T/2) = -A * T/2 properly transforms the previous expression into the current one.",
+  "judge_raw": "Let me verify this step carefully.\n\n**Previous step:** `(1/T) * (A * T/2 + (-A) * (T - T/2))`\n\n**Current step:** `(1/T) * (A * T/2 - A * T/2)`\n\n**Operation claimed:** Simplify using T - T/2 = T/2\n\nLet me check:\n- Starting with: `(1/T) * (A * T/2 + (-A) * (T - T/2))`\n- We know that: `T - T/2 = T/2` \u2713\n- Substituting: `(1/T) * (A * T/2 + (-A) * (T/2))`\n- This gives: `(1/T) * (A * T/2 - A * T/2)` \u2713\n\nThe algebraic manipulation is correct. The term `(-A) * (T - T/2)` becomes `(-A) * (T/2)` which equals `-A * T/2`, matching the current step.\n\n```json\n{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The substitution T - T/2 = T/2 is correct, and multiplying (-A) * (T/2) = -A * T/2 properly transforms the previous expression into the current one.\"\n}\n```",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "Q29",
+  "question": "Give the transfer function H(s) of an ideal first-order continuous-time low-pass filter with cutoff frequency omega_c and unity DC gain.",
+  "expected_final": "product_form: omega_c/(s + omega_c); ratio_form: 1/(1 + s/omega_c)",
+  "generated_final": "omega_c / (s + omega_c)",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the general form of a first-order low-pass filter transfer function",
+      "expression_given": "1 / (1 + s / omega_c)",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct ratio form of a first-order LPF; DC gain H(0)=1 and cutoff at s=Iω_c. Algebraically identical to ω_c/(s+ω_c)."
+    }
+  ]
+}

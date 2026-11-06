@@ -1,0 +1,10 @@
+{
+  "verdict": "failed",
+  "expression": "-(exp(-I*k*omega0*T0/2) - exp(-I*k*omega0*3*T0/4)) / (I*k*omega0*T0)",
+  "operation": "Simplify the second integral over [T0/4, 3*T0/4]",
+  "confidence": 0.95,
+  "reasoning": "The second integral should be of -1/T0 * exp(-I*k*omega0*t) over [T0/4, 3*T0/4], which evaluates to -[exp(-I*k*omega0*3*T0/4) - exp(-I*k*omega0*T0/4)] / (I*k*omega0*T0). The given expression incorrectly combines terms and omits the lower limit contribution properly, leading to a wrong numerator.",
+  "judge_raw": "{\n  \"verdict\": \"failed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The second integral should be of -1/T0 * exp(-I*k*omega0*t) over [T0/4, 3*T0/4], which evaluates to -[exp(-I*k*omega0*3*T0/4) - exp(-I*k*omega0*T0/4)] / (I*k*omega0*T0). The given expression incorrectly combines terms and omits the lower limit contribution properly, leading to a wrong numerator.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

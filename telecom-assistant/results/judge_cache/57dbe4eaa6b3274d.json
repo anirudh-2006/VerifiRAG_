@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "1/(a - I*omega) + 1/(a + I*omega)",
+  "operation": "Add the two results",
+  "confidence": 0.99,
+  "reasoning": "The previous step gave the two separate integral results 1/(a - I*omega) and 1/(a + I*omega); adding them directly yields 1/(a - I*omega) + 1/(a + I*omega), which matches the stated operation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The previous step gave the two separate integral results 1/(a - I*omega) and 1/(a + I*omega); adding them directly yields 1/(a - I*omega) + 1/(a + I*omega), which matches the stated operation.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

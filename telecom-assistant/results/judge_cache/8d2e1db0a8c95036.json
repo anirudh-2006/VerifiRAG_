@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Piecewise((1, Abs(t) <= 1), (0, True))",
+  "operation": "Define the rectangular pulse function in time domain",
+  "confidence": 0.97,
+  "reasoning": "The step correctly defines a rectangular pulse of unit amplitude over |t| \u2264 1, which is a valid representation of the time-domain signal needed for the Fourier transform derivation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The step correctly defines a rectangular pulse of unit amplitude over |t| \u2264 1, which is a valid representation of the time-domain signal needed for the Fourier transform derivation.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

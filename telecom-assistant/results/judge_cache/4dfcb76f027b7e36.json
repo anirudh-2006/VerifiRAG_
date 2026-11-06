@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega)",
+  "operation": "Evaluate the expression at the limits",
+  "confidence": 1.0,
+  "reasoning": "The substitution of t=1 and t=-1 into the antiderivative exp(-I*omega*t)/(-I*omega) correctly yields exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega), applying the fundamental theorem of calculus.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The substitution of t=1 and t=-1 into the antiderivative exp(-I*omega*t)/(-I*omega) correctly yields exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega), applying the fundamental theorem of calculus.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(h[k] * exp(I*Omega*(n - k)), (k, -oo, oo))",
+  "operation": "Substitute the input into the convolution sum",
+  "confidence": 0.99,
+  "reasoning": "Substituting x[n]=exp(I*\u03a9*n) into the convolution sum replaces x[n\u2011k] with exp(I*\u03a9*(n\u2011k)), yielding exactly the given expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Substituting x[n]=exp(I*\u03a9*n) into the convolution sum replaces x[n\u2011k] with exp(I*\u03a9*(n\u2011k)), yielding exactly the given expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

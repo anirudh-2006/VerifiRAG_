@@ -1,0 +1,60 @@
+\section{Introduction}
+\label{sec:intro}
+
+Large language models increasingly produce \emph{multi-step} mathematical
+derivations, not only final answers, inside retrieval-augmented generation
+(RAG) and tool-using reasoning systems. Evaluating those systems therefore
+requires grading intermediate steps, not just checking a boxed result. There is
+no consensus on how to do that grading. Two families dominate practice.
+\emph{Symbolic} verifiers compare a predicted expression to a reference with a
+computer-algebra system and are exact on the fragment they can parse.
+\emph{LLM-as-judge} graders prompt a second model to accept, reject, or abstain
+on a step and apply far more broadly. Both are widely used; they are almost never
+compared head-to-head under one protocol that treats abstention as a first-class
+outcome. Practitioners therefore lack clear guidance on which grader to trust,
+when, and what error modes each hides.
+
+We address this gap with a reproducible comparison of a SymPy-based symbolic
+verifier against two LLM judges from independent labs:
+\texttt{gpt-oss-120b} (open-weight) and \texttt{claude-sonnet-4-5} (proprietary).
+All graders score the same steps under a shared covered/abstain accounting, on
+two labeled testbeds: a 29-query human-labeled set (191 steps) drawn from the
+derivations of a RAG assistant over a signals-and-systems corpus, and a
+controlled synthetic error-injection suite over 9 hand-authored gold
+derivations. Our central finding
+is that the choice is not ``which grader is
+correct,'' but a \emph{precision versus coverage} trade-off. The symbolic
+verifier is high-precision and high-abstention: it rarely false-alarms where it
+commits, but it abstains often and misses all 13 real human-flagged errors in
+this domain, which lie overwhelmingly outside the symbolic fragment. LLM
+judges achieve near-total coverage and catch many of those errors, at the cost
+of injection-suite false positives concentrated on equivalence-preserving
+rewrites. The \emph{qualitative} pattern holds across both
+judges; the exact precision/recall operating point does not
+(\texttt{claude} is more aggressive, \texttt{gpt-oss} more conservative).
+
+\paragraph{Contributions.}
+\begin{itemize}
+    \item A single reproducible protocol that scores a symbolic verifier and two
+    LLM judges on the \emph{same} covered/abstain split, over two labeled
+    testbeds: a 29-query human-labeled ground-truth set and a synthetic
+    error-injection suite (14 mutations, 5 families, 9 gold derivations), with
+    paired step-level significance tests
+    (\S\ref{sec:setup}--\S\ref{sec:protocol}).
+    \item A three-way empirical comparison showing symbolic
+    high-precision/high-abstention versus LLM near-total coverage with higher
+    false-positive rate, with exact McNemar tests and Holm--Bonferroni
+    correction on $n{=}191$ steps (\S\ref{sec:results}).
+    \item An evaluated \emph{cascade} policy (symbolic first, LLM judge on
+    abstain) that improves the injection precision/FPR trade-off but can
+    \emph{hurt} human-set recall when symbolic false passes lock out the judge
+    (\S\ref{sec:cascade}), plus precision--coverage curves from thresholding
+    the judge's unused confidence field (\S\ref{sec:confidence}).
+    \item A cross-judge robustness result: the qualitative trade-off holds across
+    an open-weight and a proprietary judge, while the operating point is
+    model-dependent (\S\ref{sec:analysis}).
+    \item An open, rerunnable release, including the open-weight judge
+    configuration so reviewers can reproduce that grader exactly, together with
+    prompts, the labeling rubric, all human labels, and frozen verdicts/tables
+    at \url{https://osf.io/5kvqe/?view_only=8c0032bd76244a1daaebf6cb3feb2c92}.
+\end{itemize}

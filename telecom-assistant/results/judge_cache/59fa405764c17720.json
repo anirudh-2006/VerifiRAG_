@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Piecewise((A, t < T/2), (-A, True))",
+  "operation": "Define the symmetric square wave over one period: +A for first half, -A for second half",
+  "confidence": 0.97,
+  "reasoning": "The step correctly defines the signal x(t) as a piecewise function matching the described symmetric square wave, which can be used in the previous integral expression for a_0.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The step correctly defines the signal x(t) as a piecewise function matching the described symmetric square wave, which can be used in the previous integral expression for a_0.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

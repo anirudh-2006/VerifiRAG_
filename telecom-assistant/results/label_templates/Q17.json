@@ -1,0 +1,51 @@
+{
+  "id": "Q17",
+  "question": "State the Laplace differentiation property: express the Laplace transform of dx/dt in terms of X(s) and x(0).",
+  "expected_final": "s*X(s) - x(0)",
+  "generated_final": "s*X(s) - x(0)",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the definition of the Laplace transform of dx/dt",
+      "expression_given": "integrate((diff(x(t), t)) * exp(-s*t), (t, 0, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard one-sided Laplace definition applied to dx/dt."
+    },
+    {
+      "step_number": 2,
+      "description": "Use integration by parts: let u = exp(-s*t), dv = dx/dt * dt",
+      "expression_given": "x(t)*exp(-s*t)|t=oo - x(t)*exp(-s*t)|t=0 + s*integrate(x(t)*exp(-s*t), (t, 0, oo))",
+      "verifier_category": "parse_fail",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "IBP with u=exp(-st), dv=dx gives du=-s*exp(-st)dt, v=x(t). Then ∫u dv = [uv]_0^∞ - ∫v du = [x·exp(-st)]_0^∞ + s·∫x·exp(-st)dt. Boundary term written as (value at ∞) − (value at 0) is correct."
+    },
+    {
+      "step_number": 3,
+      "description": "Evaluate the boundary term at infinity assuming s is in the region of convergence so that exp(-s*t) decays",
+      "expression_given": "0 - x(0) + s*integrate(x(t)*exp(-s*t), (t, 0, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "At t=∞, x(t)·exp(-st)→0 within the ROC; at t=0, evaluates to x(0). Substitution is correct."
+    },
+    {
+      "step_number": 4,
+      "description": "Recognize the integral as the Laplace transform of x(t), which is X(s)",
+      "expression_given": "-x(0) + s*X(s)",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Remaining integral matches L{x(t)} = X(s); result equals s·X(s) − x(0)."
+    }
+  ]
+}

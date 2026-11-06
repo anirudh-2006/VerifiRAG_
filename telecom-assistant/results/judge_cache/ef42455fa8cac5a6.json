@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "(exp(-I*omega) - exp(I*omega)) / (-I*omega)",
+  "operation": "Factor out common terms in the expression",
+  "confidence": 0.95,
+  "reasoning": "The previous step is exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega), which can be rewritten by factoring out 1/(-I*omega), resulting in (exp(-I*omega) - exp(I*omega)) / (-I*omega). This is a valid algebraic manipulation.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The previous step is exp(-I*omega)/(-I*omega) - exp(I*omega)/(-I*omega), which can be rewritten by factoring out 1/(-I*omega), resulting in (exp(-I*omega) - exp(I*omega)) / (-I*omega). This is a valid algebraic manipulation.\"\n}",
+  "judge_model": "qwen-3-235b-a22b-instruct-2507",
+  "grader": "llm_judge"
+}

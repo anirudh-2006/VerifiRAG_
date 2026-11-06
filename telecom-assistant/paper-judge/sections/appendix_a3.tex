@@ -1,0 +1,53 @@
+% ============================================================================
+% APPENDIX A3 --- Inter-judge agreement. Facet 07.
+%
+% FILENAME IS DRAFTING ORDER, NOT PAPER ORDER. This file renders as appendix
+% *D*, not C: sections/appendix_a2.tex carries TWO sections, "B Ensemble
+% Policies" and "C Confidence Distributions and Per-Trial Listings". Check the
+% built PDF before writing "Appendix C" anywhere; in-paper cross-references use
+% \ref{app:agreement} and are safe.
+% Corroboration and detail only. The NeurIPS template requires the paper to
+% stand alone without the appendix. Nothing load-bearing moved here: the
+% headline figures (kappa 0.306, 87.8% raw concordance, and the 4/6/2/1 split
+% over the 13 human-labeled errors) are stated in the BODY, in the facet-07
+% item of sections/facets.tex, and sections/flip.tex keeps a one-sentence
+% statement of the finding pointing here. What lives here is the confusion
+% breakdown and the interpretation, neither of which any body claim rests on.
+%
+% PROVENANCE: results/judge_agreement.json.
+%   agreement["gpt-oss vs claude"]: n 181, pct_agreement 0.8784530386740331,
+%   kappa 0.30602997560125494, landis_koch "fair", confusion
+%   correct|correct 153, correct|error 20, error|correct 2, error|error 6.
+%   error_catch_overlap: both 4, claude_only 6, gpt-oss_only 2, neither 1.
+% SCOPE: that file is the HUMAN-LABELED set (n_steps 191; 181 committed by
+% both judges), NOT the injection suite. Do not let prose here drift onto the
+% injection numbers.
+% ============================================================================
+\section{Inter-Judge Agreement}
+\label{app:agreement}
+
+The two judges were compared on the human-labeled testbed, restricted to the
+181 steps on which both committed a verdict. Abstentions leave the calculation
+entirely. Cohen's $\kappa$ between them is $0.306$, fair on the usual reading
+\citep{artstein2008agreement}, at $87.8\%$ raw concordance.
+
+The gap between those two figures is the correct-class majority. The judges
+both call 153 of the 181 steps correct, both flag an error on only 6, and
+disagree on 22, with \texttt{claude-sonnet-4-5} flagging an error that
+\texttt{gpt-oss-120b} passes 20 times and the reverse twice. A concordance of
+$87.8\%$ looks reassuring and is mostly the two judges agreeing that ordinary
+steps are ordinary.
+
+The practical consequence is that the two judges are not interchangeable.
+Substituting one for the other changes which steps are flagged and not merely
+how many: of the 13 errors in that set, both catch 4,
+\texttt{claude-sonnet-4-5} alone catches 6, \texttt{gpt-oss-120b} alone catches
+2, and 1 is caught by neither. A deployment that swaps judges is not holding
+the measurement fixed.
+
+Two limits on how far this carries. Agreement is not accuracy, so none of it
+says which judge is right, and two judges sharing a bias would agree with each
+other as readily as two accurate ones. And it does not transfer to the paired
+result in \S\ref{sec:flip}: this comparison is on human-labeled steps whose
+ground truth comes from a rubric, whereas the surface-sensitivity finding is
+scoped to the injection suite, whose negatives are correct by construction.

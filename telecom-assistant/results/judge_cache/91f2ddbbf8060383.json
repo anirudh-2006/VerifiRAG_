@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(r**n, (n, 0, oo))",
+  "operation": "Recognize this as an infinite geometric series",
+  "confidence": 0.95,
+  "reasoning": "The step correctly recognizes the geometric series form by substituting r = a * z^(-1), which is a valid variable substitution to prepare for applying the geometric series formula.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The step correctly recognizes the geometric series form by substituting r = a * z^(-1), which is a valid variable substitution to prepare for applying the geometric series formula.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

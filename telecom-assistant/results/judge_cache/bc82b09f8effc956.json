@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Y(s)*(s + a)",
+  "operation": "Factor Y(s) on the left-hand side",
+  "confidence": 1.0,
+  "reasoning": "Factoring out Y(s) from the expression s*Y(s) + a*Y(s) correctly yields Y(s)*(s + a) by the distributive property.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"Factoring out Y(s) from the expression s*Y(s) + a*Y(s) correctly yields Y(s)*(s + a) by the distributive property.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,22 @@
+% ============================================================================
+% NOT INCLUDED in main.tex for the single-annotator submission path.
+% Keep this file only if a second annotator later completes the blinded subset
+% from scripts/make_iaa_subset.py; then restore \input{sections/iaa} in main.tex
+% and fill numbers from results/iaa_report.json.
+% ============================================================================
+\section{Annotation Reliability}
+\label{sec:iaa}
+
+Our human ground truth was produced by a single annotator, which we treat as a
+limitation (\S\ref{sec:limitations}) but also quantify. A second annotator
+independently re-labeled a stratified subset of [N] steps (all 13 error steps
+plus a sample of correct steps), blind to the first annotator's labels and using
+the identical rubric, including the notation-strictness rule (a step is marked
+incorrect if boundary/IBP notation is written wrong even when the final result is
+correct). On this subset the two annotators agree on [P]\% of steps, with
+Cohen's $\kappa = [K]$ on the binary correct/incorrect decision
+([interpretation, e.g.\ substantial]) and $\kappa = [K_e]$ on the error-type
+label over the steps both marked incorrect. Disagreements were adjudicated post
+hoc; we did not retro-edit the frozen main results, so the numbers in
+\S\ref{sec:results} reflect the original single-annotator ground truth with the
+reliability check reported here on top.

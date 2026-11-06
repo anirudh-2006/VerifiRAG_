@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "( (a + I*omega) + (a - I*omega) ) / ( (a - I*omega)*(a + I*omega) )",
+  "operation": "Combine the fractions over a common denominator",
+  "confidence": 0.99,
+  "reasoning": "Adding the two fractions 1/(a - i\u03c9) and 1/(a + i\u03c9) over the common denominator (a - i\u03c9)(a + i\u03c9) yields the numerator (a + i\u03c9) + (a - i\u03c9), which matches the given expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"Adding the two fractions 1/(a - i\u03c9) and 1/(a + i\u03c9) over the common denominator (a - i\u03c9)(a + i\u03c9) yields the numerator (a + i\u03c9) + (a - i\u03c9), which matches the given expression.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Sum(h[k] * x[n - k], (k, -oo, oo))",
+  "operation": "The output y[n] is the convolution of input x[n] and impulse response h[n]",
+  "confidence": 0.95,
+  "reasoning": "The convolution sum formula for a discrete-time LTI system is correctly stated: y[n] = \u03a3 h[k]x[n-k] summed over all k. This is the fundamental definition relating input, impulse response, and output.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The convolution sum formula for a discrete-time LTI system is correctly stated: y[n] = \u03a3 h[k]x[n-k] summed over all k. This is the fundamental definition relating input, impulse response, and output.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "Y(s)*(s + a)",
+  "operation": "Write equation as Y(s)*(s + a) = X(s)",
+  "confidence": 0.97,
+  "reasoning": "The previous step factored the left-hand side to Y(s)*(s + a); writing the full equation Y(s)*(s + a) = X(s) correctly restores the equality with the transformed input side.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.97,\n  \"reasoning\": \"The previous step factored the left-hand side to Y(s)*(s + a); writing the full equation Y(s)*(s + a) = X(s) correctly restores the equality with the transformed input side.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "X_z = Sum((x_n * r**(-n)) * exp(-I*omega*n), (n, -oo, oo))",
+  "operation": "Recognize that r^(-n) weights the sequence x[n]",
+  "confidence": 1.0,
+  "reasoning": "The step simply regroups the terms by associativity of multiplication, placing parentheses around (x_n * r**(-n)) instead of leaving all three factors ungrouped. This is a valid algebraic manipulation with no change to the mathematical expression.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The step simply regroups the terms by associativity of multiplication, placing parentheses around (x_n * r**(-n)) instead of leaving all three factors ungrouped. This is a valid algebraic manipulation with no change to the mathematical expression.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

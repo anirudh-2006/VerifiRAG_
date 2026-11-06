@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "integrate(delta(omega) * exp(I*omega*t), (omega, -oo, oo))",
+  "operation": "Simplify constants: 2*pi cancels with 1/(2*pi)",
+  "confidence": 1.0,
+  "reasoning": "The operation correctly cancels the factor of 2\u03c0 in the numerator with 1/(2\u03c0), leaving just the integral of delta(omega) * exp(I*omega*t). This is a valid algebraic simplification.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 1.0,\n  \"reasoning\": \"The operation correctly cancels the factor of 2\u03c0 in the numerator with 1/(2\u03c0), leaving just the integral of delta(omega) * exp(I*omega*t). This is a valid algebraic simplification.\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}

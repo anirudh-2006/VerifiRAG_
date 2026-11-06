@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "m(t)*cos(omega_c*t)",
+  "operation": "Start with the definition of the modulated signal s(t)",
+  "confidence": 0.99,
+  "reasoning": "The step correctly restates the given definition s(t)=m(t)\u00b7cos(\u03c9_c t) as the starting point for the derivation, which is a valid initial move.",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.99,\n  \"reasoning\": \"The step correctly restates the given definition s(t)=m(t)\u00b7cos(\u03c9_c t) as the starting point for the derivation, which is a valid initial move.\"\n}",
+  "judge_model": "gpt-oss-120b",
+  "grader": "llm_judge"
+}

@@ -1,0 +1,71 @@
+{
+  "id": "Q14",
+  "question": "State the Fourier transform linearity property: express the transform of a*x1(t) + b*x2(t) in terms of X1(j*omega) and X2(j*omega).",
+  "expected_final": "a*X1(I*omega) + b*X2(I*omega)",
+  "generated_final": "a*X1(I*omega) + b*X2(I*omega)",
+  "_filled": true,
+  "_instructions": "For each step set 'human_correct' to true/false. Set 'error_type' to one of: algebra, sign, missing_term, substitution, definition, none. Set '_filled' to true when done. Set 'final_answer_correct' to true/false after comparing 'generated_final' to 'expected_final'.",
+  "final_answer_correct": true,
+  "steps": [
+    {
+      "step_number": 1,
+      "description": "Start with the definition of the Fourier transform of a general signal x(t)",
+      "expression_given": "integrate(x(t) * exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "first_step",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Standard Fourier transform definition."
+    },
+    {
+      "step_number": 2,
+      "description": "Substitute the linear combination a*x1(t) + b*x2(t) for x(t)",
+      "expression_given": "integrate((a*x1(t) + b*x2(t)) * exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Direct substitution of the linear combination into the transform integral."
+    },
+    {
+      "step_number": 3,
+      "description": "Distribute the exponential term over the sum",
+      "expression_given": "integrate(a*x1(t)*exp(-I*omega*t) + b*x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "passed",
+      "verifier_is_valid": true,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Correct distribution of exp(-Iωt) over both terms of the sum."
+    },
+    {
+      "step_number": 4,
+      "description": "Split the integral into two separate integrals",
+      "expression_given": "integrate(a*x1(t)*exp(-I*omega*t), (t, -oo, oo)) + integrate(b*x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Valid by linearity of integration."
+    },
+    {
+      "step_number": 5,
+      "description": "Factor constants a and b out of the integrals",
+      "expression_given": "a*integrate(x1(t)*exp(-I*omega*t), (t, -oo, oo)) + b*integrate(x2(t)*exp(-I*omega*t), (t, -oo, oo))",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Constants a and b factored out correctly."
+    },
+    {
+      "step_number": 6,
+      "description": "Recognize each integral as the Fourier transform of the respective signal",
+      "expression_given": "a*X1(I*omega) + b*X2(I*omega)",
+      "verifier_category": "integral_skip",
+      "verifier_is_valid": null,
+      "human_correct": true,
+      "error_type": "none",
+      "notes": "Each integral matches the FT definition, correctly identified as X1(Iω) and X2(Iω)."
+    }
+  ]
+}

@@ -1,0 +1,245 @@
+\section{Judge Prompt}
+\label{app:prompt}
+
+Both LLM judges receive the identical step-grading rubric and template below
+(from \texttt{src/llm\_judge.py}); only the backend model differs. The judge is
+called at temperature $0$ and sees the question, the rendered prior steps, and
+the current step's expression and operation. Verdicts are parsed from a strict
+JSON object; unparseable responses are treated as \textsc{abstain}.
+
+\paragraph{Step rubric.}
+\begin{quote}\small\ttfamily
+You are a strict grader for a single step of a math derivation. You will be
+given the question being solved, the preceding steps (as context), and the
+current step's symbolic expression with the operation connecting it to the
+previous step.\\[4pt]
+Decide whether the current step is mathematically valid given the previous
+step --- that is, does the stated operation, applied to the previous expression,
+produce this expression?\\[4pt]
+Rules:\\
+- "passed": the step is a valid algebraic, calculus, or definitional move.\\
+- "failed": the step contains a math error (wrong manipulation, wrong limits,
+wrong sign, dropped term, etc.).\\
+- "abstain": the step is too vague, uses undefined symbols, or you cannot tell
+without more context. Prefer "abstain" over guessing.\\[4pt]
+Output ONLY a JSON object in this exact shape, no prose before or after:\\
+\{ "verdict": "passed" | "failed" | "abstain", "confidence": <float in [0,1]>,
+"reasoning": "<one or two sentence justification>" \}
+\end{quote}
+
+\paragraph{Step template.}
+\begin{quote}\small\ttfamily
+\{rubric\}\\[4pt]
+QUESTION: \{question\}\\[4pt]
+PRIOR STEPS (most recent last): \{prior\_steps\}\\[4pt]
+CURRENT STEP:\\
+\hspace*{1em}expression: \{expression\}\\
+\hspace*{1em}operation connecting to previous: \{operation\}
+\end{quote}
+
+\section{Injection Mutation Catalog}
+\label{app:mutations}
+
+Table~\ref{tab:mutations} lists the 14 mutation operators across five families
+(from \texttt{src/error\_injection.py}). Three families inject genuine errors
+(severity \emph{error}); the \emph{equivalent} and \emph{control} families are
+negatives that a correct grader must not flag. First steps (definitions) are not
+mutated. Mutations that do not apply to a given expression produce a
+\emph{skipped} trial that is excluded from all metrics.
+
+\begin{table*}[tp]
+\centering
+\small
+\begin{tabular}{lll}
+\toprule
+family & mutation & effect \\
+\midrule
+\multirow{7}{*}{algebraic}
+ & sign\_flip & negate leading sign \\
+ & coeff\_x2 & multiply by 2 \\
+ & coeff\_half & divide by 2 \\
+ & drop\_term & drop last additive term \\
+ & exponent\_bump & increment first integer exponent \\
+ & constant\_shift & add 1 \\
+ & missing\_factor\_of\_2 & drop leading factor of 2 \\
+\midrule
+\multirow{2}{*}{bounds}
+ & swap\_integral\_limits & swap $a\leftrightarrow b$ in first integral/sum \\
+ & drop\_upper\_limit & corrupt upper limit \\
+\midrule
+identifier & rename\_variable & rename a key symbol in this step \\
+\midrule
+\multirow{3}{*}{equivalent}
+ & commute\_operands & swap operands of first $+$/$*$ \\
+ & expand\_power & rewrite $X^2$ as $X\cdot X$ \\
+ & distribute & expand $k(a{+}b)$ into $ka{+}kb$ \\
+\midrule
+control & no\_op & identity (no mutation) \\
+\bottomrule
+\end{tabular}
+\caption{The 14 mutation operators. \emph{algebraic}, \emph{bounds}, and
+\emph{identifier} are severity \emph{error}; \emph{equivalent} is severity
+\emph{equivalent}; \emph{control} is severity \emph{control}. Graded trial
+counts per family (after skips): $74$ algebraic, $6$ bounds, $14$ identifier,
+$10$ equivalent, $14$ control ($118$ total).}
+\label{tab:mutations}
+\end{table*}
+
+\section{Human Error Detectability}
+\label{app:human-errors}
+
+Table~\ref{tab:human-errors} classifies each of the 13 human-flagged errors as
+\emph{in-fragment} (symbolically detectable in principle by an ideal CAS step
+checker) or \emph{out-of-fragment} (definition, notation-strictness, or
+incomplete presentation). Criterion: an error is in-fragment iff algebraic
+equivalence against a correct continuation of the prior math could refute the
+written expression. Out-of-fragment errors include bilateral-vs-unilateral
+Laplace conventions, wrong signal definitions relative to the intended question,
+odd/even characterizations tied to that setup, IBP boundary terms omitted when
+both limits evaluate to zero, and incomplete equations under a notation-strict
+rubric. Result: $9/13$ out-of-fragment; $4/13$ in-fragment, of which the
+deployed verifier caught $0$ (2 false passes, 2 abstains).
+
+Table~\ref{tab:human-errors} distinguishes two ways the verifier commits PASS
+on an error step. A \emph{false pass} (5 steps) is an active wrong equivalence
+judgment: the verifier tests the step against a prior expression and wrongly
+finds it consistent. A \emph{pass (1st)} (2 steps, Q03.1 and Q10.1) is a
+vacuous pass: the step is the first in its derivation, so there is no prior
+expression to test equivalence against, and the verifier cannot fail by
+construction. Both count as committed passes on an error step, so $5+2=7$
+matches the symbolic row's false-negative count in Table~\ref{tab:threeway}.
+\S\ref{sec:cascade} spells out this split at the point where the count is
+used; the abstract and \S\ref{sec:intro} use ``false passes'' more loosely, as
+shorthand for all 7 committed passes on error steps.
+
+\begin{table*}[tp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{lllll}
+\toprule
+step & type & fragment & verifier & reason (abbrev.) \\
+\midrule
+Q03.1 & definition & out & pass (1st) & bilateral vs unilateral LT \\
+Q09.1 & definition & out & abstain & wrong $\pm 1$ square vs $0/1$ pulse \\
+Q09.3 & algebra & \textbf{in} & false pass & wrong antiderivative limits \\
+Q09.4 & algebra & \textbf{in} & false pass & wrong lower-limit exponential \\
+Q09.6 & algebra & \textbf{in} & abstain & carries Q09.3--4; wrong $\pi$ vs $\pi/2$ \\
+Q09.7 & missing\_term & \textbf{in} & abstain & drops second integral term \\
+Q09.11 & definition & out & false pass & odd/even claim vs intended signal \\
+Q10.1 & definition & out & pass (1st) & bilateral vs unilateral LT \\
+Q16.2 & missing\_term & out & abstain & IBP $\infty$ term omitted; both $0$ \\
+Q22.5 & missing\_term & out & abstain & LHS only; missing ${=}X(s)$ \\
+Q22.7 & missing\_term & out & false pass & incomplete equation fragment \\
+Q22.8 & missing\_term & out & abstain & ratio symbol; no RHS \\
+Q22.9 & missing\_term & out & false pass & divide claimed; RHS still missing \\
+\bottomrule
+\end{tabular}
+\caption{All 13 human-labeled errors. ``fragment'' $=$ in/out of the symbolic
+equivalence fragment; ``verifier'' $=$ deployed SymPy outcome on that step.
+In-fragment count: $4$; out-of-fragment: $9$; caught by verifier: $0/13$.}
+\label{tab:human-errors}
+\end{table*}
+
+\section{Qualitative Examples}
+\label{app:examples}
+
+Table~\ref{tab:examples} shows four qualitative failure modes referenced in
+\S\ref{sec:analysis}, each a concrete frozen step with truncated judge
+rationale.
+
+\begin{table*}[tp]
+\centering
+\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{tabular}{p{1.55cm}p{3.6cm}ccc p{4.4cm}}
+\toprule
+mode & step (abbrev.) & sym & gpt & claude & note / rationale (trunc.) \\
+\midrule
+Equiv.\ rewrite (judge FP)
+ & $2\sin\omega\cos\omega \!\to\! \sin\omega\cos\omega\cdot 2$
+   (injection, commute)
+ & pass & pass & \textbf{fail}
+ & Claude: ``non-standard order\ldots\ potential misunderstanding of the
+   identity''; algebraically equal. \\
+\midrule
+Semantic / definition (sym miss)
+ & Q03.1: $\int_{-\infty}^{\infty}x(t)e^{-st}\,dt$
+   (bilateral LT as start)
+ & \textbf{pass} & pass & fail
+ & Human: unilateral LT expected. Claude: ``defined from $0$ to $\infty$,
+   not $-\infty$ to $\infty$.'' \\
+\midrule
+In-fragment algebra (sym false pass)
+ & Q09.3: $\frac{1-e^{-Ik\omega_0 T_0/2}}{Ik\omega_0 T_0}$
+   (wrong integral eval.)
+ & \textbf{pass} & fail & fail
+ & Limits $T_0/4$ written as $T_0/2$. Both judges refute; cascade would
+   \emph{inherit} the symbolic pass. \\
+\midrule
+Bounds (sym abstain, judge catch)
+ & $\int_0^{\infty}\!\to\!\int_{\infty}^{0}$
+   (injection, swap limits)
+ & abstain & \textbf{fail} & fail
+ & GPT: ``limits reversed\ldots\ without a minus sign.'' Symbolic silent;
+   judge covers the family. \\
+\bottomrule
+\end{tabular}
+\caption{Four qualitative failure modes from the frozen artifacts. Bold =
+the distinctive (wrong or uniquely useful) verdict for that row. Judge text is
+verbatim but truncated; full rationales are in the released JSON.}
+\label{tab:examples}
+\end{table*}
+
+\section{Cost and Latency Detail}
+\label{app:cost}
+
+LLM wall-clock RTT was not logged in the frozen runs, so we price the cascade
+of \S\ref{sec:results} by \emph{call count} and estimated tokens.
+Reconstructing the released judge prompt yields $\approx 419$ input /
+$\approx 58$ output tokens per human step (output from returned JSON only;
+hidden reasoning tokens for \texttt{gpt-oss} are excluded, so its dollar
+figures are lower bounds). At published list rates (\texttt{gpt-oss-120b}:
+$\$0.35/\$0.75$ per MTok in/out on Cerebras; \texttt{claude-sonnet-4-5}:
+$\$3/\$15$ on Anthropic), grading all 191 human steps with the judge alone
+costs about $\$0.036$ (\texttt{gpt-oss}) or $\$0.41$ (\texttt{claude}). The
+cascade cuts LLM calls from 191 to 101 on the human set ($47\%$ fewer; about
+$\$0.019$ / $\$0.22$), because symbolic already commits on 90 steps, and from
+118 to 76 on the 118 injection trials ($36\%$ fewer). So the injection
+precision win of \S\ref{sec:cascade} arrives with roughly a third fewer paid
+calls, and every symbolic commit replaces an API round trip with local CPU.
+Prices change; what stays fixed is the call-count reduction, which any
+deployment can measure without our rate card.
+
+\section{Reproduction}
+\label{app:repro}
+
+All artifacts are regenerated with fixed scripts; the symbolic grader is
+deterministic and the judges are called at temperature $0$ with per-prompt
+caching. From \texttt{<repo-root>/} (with \texttt{PYTHONPATH=.}):
+
+\begin{quote}\small\ttfamily
+\# judge vs human (all 191 steps)\\
+python scripts/judge\_vs\_human.py\\[2pt]
+\# paired McNemar + Holm--Bonferroni summary\\
+python scripts/build\_paired\_stats\_summary.py\\[2pt]
+\# error injection with judge\\
+python -m src.error\_injection \textbackslash\\
+\hspace*{1em}-{}-with-judge\\[2pt]
+\# tables + figures\\
+python scripts/build\_threeway\_table.py\\
+python scripts/build\_cascade\_table.py\\
+python scripts/build\_confidence\_curves.py\\
+python scripts/build\_judge\_agreement.py\\
+python scripts/build\_cost\_latency.py\\
+python scripts/render\_figures.py\\[2pt]
+\# second judge (Claude):\\
+\hspace*{1em}JUDGE\_BACKEND=anthropic + separate output files
+\end{quote}
+
+The evaluator emits a schema-v2 reproducibility envelope (model, seeds, config)
+alongside each result file so runs can be matched to their exact configuration.
+This appendix lists only scripts used to produce the reported tables and figures;
+we do not report inter-annotator agreement, and no dual-annotation pipeline is
+part of the reproduction path for this submission. An anonymous archive with
+code, prompts, labels, and frozen artifacts is at \url{https://osf.io/5kvqe/?view_only=8c0032bd76244a1daaebf6cb3feb2c92}.

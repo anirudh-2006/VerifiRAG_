@@ -1,0 +1,10 @@
+{
+  "verdict": "passed",
+  "expression": "exp(I*0*t)",
+  "operation": "Apply the sifting property of the Dirac delta function",
+  "confidence": 0.95,
+  "reasoning": "The sifting property of the Dirac delta function states that \u222b \u03b4(\u03c9)f(\u03c9)d\u03c9 = f(0). Applying this to \u222b \u03b4(\u03c9)exp(i\u03c9t)d\u03c9 correctly yields exp(i\u00b70\u00b7t).",
+  "judge_raw": "{\n  \"verdict\": \"passed\",\n  \"confidence\": 0.95,\n  \"reasoning\": \"The sifting property of the Dirac delta function states that \u222b \u03b4(\u03c9)f(\u03c9)d\u03c9 = f(0). Applying this to \u222b \u03b4(\u03c9)exp(i\u03c9t)d\u03c9 correctly yields exp(i\u00b70\u00b7t).\"\n}",
+  "judge_model": "claude-sonnet-4-5",
+  "grader": "llm_judge"
+}
